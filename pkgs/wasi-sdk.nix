@@ -33,7 +33,7 @@ stdenvNoCC.mkDerivation {
 
     patchShebangs $out
 
-    cp -a ../out/libffi-wasm/include/. $out/share/wasi-sysroot/include
+    cp -a ../out/libffi-wasm/include/. $out/share/wasi-sysroot/include/wasm32-wasi
     cp -a ../out/libffi-wasm/lib/. $out/share/wasi-sysroot/lib/wasm32-wasi
 
     runHook postInstall

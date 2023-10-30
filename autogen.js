@@ -78,10 +78,13 @@ const _deno = fetchGitHubLatestRelease(
   "builtins.fetchTarball",
   "denoland",
   "deno",
-  "unknown-linux-gnu.zip"
+  "x86_64-unknown-linux-gnu.zip"
 );
-const _nodejs = fetchTarball(
-  "https://nodejs.org/dist/v21.0.0/node-v21.0.0-linux-x64.tar.xz"
+const _nodejs = fetchGitHubLatestRelease(
+  "builtins.fetchTarball",
+  "type-dance",
+  "node-static",
+  "linux-x64-static.tar.xz"
 );
 const _bun = fetchGitHubLatestRelease(
   "builtins.fetchTarball",
@@ -104,26 +107,26 @@ const _wabt = fetchGitHubLatestRelease(
 const _wasmtime = fetchGitHubLatestRelease(
   "builtins.fetchTarball",
   "type-dance",
-  "wasmtime",
-  "x86_64-linux-musl.tar.xz"
+  "wasm-tools-static",
+  "linux-amd64.tar.zst"
 );
 const _wasmtime_aarch64_linux = fetchGitHubLatestRelease(
   "builtins.fetchTarball",
-  "bytecodealliance",
-  "wasmtime",
-  "aarch64-linux.tar.xz"
+  "type-dance",
+  "wasm-tools-static",
+  "linux-arm64.tar.zst"
 );
 const _wasmtime_aarch64_darwin = fetchGitHubLatestRelease(
   "builtins.fetchTarball",
-  "bytecodealliance",
-  "wasmtime",
-  "aarch64-macos.tar.xz"
+  "type-dance",
+  "wasm-tools-static",
+  "darwin-aarch64.tar.zst"
 );
 const _wasmtime_x86_64_darwin = fetchGitHubLatestRelease(
   "builtins.fetchTarball",
-  "bytecodealliance",
-  "wasmtime",
-  "x86_64-macos.tar.xz"
+  "type-dance",
+  "wasm-tools-static",
+  "darwin-x86_64.tar.zst"
 );
 const _wasmedge = fetchGitHubLatestRelease(
   "builtins.fetchTarball",
@@ -137,9 +140,8 @@ const _wazero = fetchGitHubLatestRelease(
   "wazero",
   "linux_amd64.tar.gz"
 );
-const _wizer = fetchStableBindist("wizer");
 const _cabal = fetchurl(
-  "https://downloads.haskell.org/cabal/cabal-install-3.10.1.0/cabal-install-3.10.1.0-x86_64-linux-alpine.tar.xz"
+  "https://downloads.haskell.org/cabal/cabal-install-3.10.2.0/cabal-install-3.10.2.0-x86_64-linux-alpine3_12.tar.xz"
 );
 const _proot = fetchStableBindist("proot");
 
@@ -167,7 +169,6 @@ await Deno.writeTextFile(
       wasmtime_x86_64_darwin: await _wasmtime_x86_64_darwin,
       wasmedge: await _wasmedge,
       wazero: await _wazero,
-      wizer: await _wizer,
       cabal: await _cabal,
       proot: await _proot,
     },

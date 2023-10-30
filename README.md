@@ -79,7 +79,7 @@ file. In the early days of `ghc-9.8`, this may result in more packages
 being rejected at compile time. This is true for both nix/non-nix
 installation methods.
 
-`setup.sh` requires `cc`, `curl`, `jq`, `unzip` to run.
+`setup.sh` requires `cc`, `curl`, `jq`, `unzip`, `zstd` to run.
 
 ## What it emits when it emits a `.wasm` file?
 
@@ -119,10 +119,9 @@ on:
 
 - [Tail
   Call](https://github.com/WebAssembly/tail-call/blob/main/proposals/tail-call/Overview.md),
-  blocked by
-  [wasmtime](https://github.com/bytecodealliance/wasmtime/issues/1065)
-  and a few other engines. Note that we already support wasm tail
-  calls, but it's an opt-in feature for now.
+  blocked by [webkit](https://bugs.webkit.org/show_bug.cgi?id=215275).
+  Note that we already support wasm tail calls, but it's an opt-in
+  feature for now.
 
 ## What runtimes support those `.wasm` files?
 
@@ -153,12 +152,20 @@ flake & `setup.sh` installation. The recommended default runtime is
 
 Latest releases of Chrome/Firefox/Safari. A JavaScript library is
 needed to provide the WASI implementation, the following are known to
-work:
+work to some extent:
 
 - [`wasi-js`](https://github.com/sagemathinc/cowasm/tree/main/core/wasi-js)
 - [`browser_wasi_shim`](https://github.com/bjorn3/browser_wasi_shim)
 
 ## Compiling to WASI reactor module with user-specified exports
+
+Note: if you are using the GHC wasm backend to target browsers, we
+already support JSFFI in `master` as well as upcoming 9.10 releases.
+See the relevant
+[section](https://ghc.gitlab.haskell.org/ghc/doc/users_guide/wasm.html#javascript-ffi-in-the-wasm-backend)
+in the GHC user's guide for details. The following content is archived
+here for the time being, but eventually we'll move all documentation
+to the GHC user's guide.
 
 If you want to embed the compiled wasm module into a host language,
 like in JavaScript for running in a browser, then it's highly likely
@@ -263,7 +270,7 @@ for an example.
 Now, here's an example `deno` script to load and run `Hello.wasm`:
 
 ```javascript
-import WasiContext from "https://deno.land/std/wasi/snapshot_preview1.ts";
+import WasiContext from "https://deno.land/std@0.206.0/wasi/snapshot_preview1.ts";
 
 const context = new WasiContext({});
 
@@ -326,14 +333,6 @@ Which functions can be exported via the `--export` flag?
   `RtsAPI.h`.
 - Any Haskell function that has been exported via a `foreign export`
   declaration.
-
-TODO:
-
-- Table of Haskell/JavaScript type marshaling
-- Example of setting RTS options
-- Example of working with dynamic exports (`foreign import ccall
-  "wrapper"`)
-- Example of handling exceptions
 
 Further reading:
 
@@ -431,6 +430,20 @@ STATIC_INLINE void hs_init_with_rtsopts_(char *argv[]) {
   hs_init_with_rtsopts(&argc, &argv);
 }
 
+void malloc_inspect_all(void (*handler)(void *start, void *end,
+                                        size_t used_bytes, void *callback_arg),
+                        void *arg);
+
+static void malloc_inspect_all_handler(void *start, void *end,
+                                       size_t used_bytes, void *callback_arg) {
+  if (used_bytes == 0) {
+    memset(start, 0, (size_t)end - (size_t)start);
+  }
+}
+
+extern char __stack_low;
+extern char __stack_high;
+
 // Export this function as "wizer.initialize". wizer also accepts
 // "--init-func <init-func>" if you dislike this export name, or
 // prefer to pass -Wl,--export=my_init at link-time.
@@ -441,17 +454,13 @@ STATIC_INLINE void hs_init_with_rtsopts_(char *argv[]) {
 __attribute__((export_name("wizer.initialize"))) void __wizer_initialize(void) {
   // The first argument is what you get in getProgName.
   //
-  // --nonmoving-gc is recommended when compiling to WASI reactors,
-  // since you're likely more concerned about GC pause time than the
-  // overall throughput.
-  //
   // -H64m sets the "suggested heap size" to 64MB and reserves so much
   // memory when doing GC for the first time. It's not a hard limit,
   // the RTS is perfectly capable of growing the heap beyond it, but
   // it's still recommended to reserve a reasonably sized heap in the
   // beginning. And it doesn't add 64MB to the wizer output, most of
   // the grown memory will be zero anyway!
-  char *argv[] = {"test.wasm", "+RTS", "--nonmoving-gc", "-H64m", "-RTS", NULL};
+  char *argv[] = {"test.wasm", "+RTS", "-H64m", "-RTS", NULL};
 
   // The WASI reactor _initialize function only takes care of
   // initializing the libc state. The GHC RTS needs to be initialized
@@ -463,18 +472,31 @@ __attribute__((export_name("wizer.initialize"))) void __wizer_initialize(void) {
   // computation here! Or C/C++, whatever.
   fib(10);
 
-  // Perform a major GC to clean up the heap. When using the nonmoving
-  // garbage collector, it's necessary to call it twice to actually
-  // free the unused segments.
+  // Perform major GC to clean up the heap. The second run will invoke
+  // the C finalizers found during the first run.
   hs_perform_gc();
   hs_perform_gc();
 
-  // Finally, zero out the unused RTS memory, to prevent the garbage
-  // bytes from being snapshotted into the final wasm module.
-  // Otherwise it wouldn't affect correctness, but the wasm module
-  // size would bloat significantly. It's only safe to call this after
-  // hs_perform_gc() has returned.
+  // Zero out the unused RTS memory, to prevent the garbage bytes from
+  // being snapshotted into the final wasm module. Otherwise it
+  // wouldn't affect correctness, but the wasm module size would bloat
+  // significantly. It's only safe to call this after hs_perform_gc()
+  // has returned.
   rts_clearMemory();
+
+  // Zero out the unused heap space. `malloc_inspect_all` is a
+  // dlmalloc internal function which traverses the heap space and can
+  // be used to zero out some space that's previously allocated and
+  // then freed. Upstream `wasi-libc` doesn't expose this function
+  // yet, we do since it's useful for this specific purpose.
+  malloc_inspect_all(malloc_inspect_all_handler, NULL);
+
+  // Zero out the entire stack region in the linear memory. This is
+  // only suitable to do after all other cleanup has been done and
+  // we're about to exit `__wizer_initialize`. `__stack_low` and
+  // `__stack_high` are linker generated symbols which resolve to the
+  // two ends of the stack region.
+  memset(&__stack_low, 0, &__stack_high - &__stack_low);
 }
 ```
 
@@ -542,7 +564,7 @@ Extract the CI artifact of
 [`libffi-wasm`](https://gitlab.haskell.org/ghc/libffi-wasm), and copy
 its contents:
 
-- `cp *.h ~/.ghc-wasm/wasi-sdk/share/wasi-sysroot/include`
+- `cp *.h ~/.ghc-wasm/wasi-sdk/share/wasi-sysroot/include/wasm32-wasi`
 - `cp *.a ~/.ghc-wasm/wasi-sdk/share/wasi-sysroot/lib/wasm32-wasi`
 
 ### Set environment variables
@@ -565,9 +587,9 @@ export RANLIB=~/.ghc-wasm/wasi-sdk/bin/llvm-ranlib
 export SIZE=~/.ghc-wasm/wasi-sdk/bin/llvm-size
 export STRINGS=~/.ghc-wasm/wasi-sdk/bin/llvm-strings
 export STRIP=~/.ghc-wasm/wasi-sdk/bin/llvm-strip
-export CONF_CC_OPTS_STAGE2="-Wno-error=int-conversion -Wno-error=strict-prototypes -Wno-error=implicit-function-declaration -Oz -msimd128 -mnontrapping-fptoint -msign-ext -mbulk-memory -mmutable-globals -mmultivalue -mreference-types"
-export CONF_CXX_OPTS_STAGE2="-Wno-error=int-conversion -Wno-error=strict-prototypes -Wno-error=implicit-function-declaration -fno-exceptions -Oz -msimd128 -mnontrapping-fptoint -msign-ext -mbulk-memory -mmutable-globals -mmultivalue -mreference-types"
-export CONF_GCC_LINKER_OPTS_STAGE2="-Wl,--compress-relocations,--error-limit=0,--growable-table,--stack-first,--strip-debug "
+export CONF_CC_OPTS_STAGE2="-Wno-error=int-conversion -Wno-error=strict-prototypes -Wno-error=implicit-function-declaration -O3 -fno-strict-aliasing -msimd128 -mnontrapping-fptoint -msign-ext -mbulk-memory -mmutable-globals -mmultivalue -mreference-types"
+export CONF_CXX_OPTS_STAGE2="-Wno-error=int-conversion -Wno-error=strict-prototypes -Wno-error=implicit-function-declaration -fno-exceptions -O3 -fno-strict-aliasing -msimd128 -mnontrapping-fptoint -msign-ext -mbulk-memory -mmutable-globals -mmultivalue -mreference-types"
+export CONF_GCC_LINKER_OPTS_STAGE2="-Wl,--compress-relocations,--error-limit=0,--growable-table,--keep-section=ghc_wasm_jsffi,--stack-first,--strip-debug "
 export CONFIGURE_ARGS="--target=wasm32-wasi --with-intree-gmp --with-system-libffi"
 ```
 

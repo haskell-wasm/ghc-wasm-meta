@@ -1,5 +1,4 @@
-{ autoPatchelfHook
-, hostPlatform
+{ hostPlatform
 , lib
 , runtimeShellPackage
 , stdenv
@@ -28,11 +27,11 @@ stdenvNoCC.mkDerivation {
 
   buildInputs = [ runtimeShellPackage ]
     ++ lib.optionals hostPlatform.isLinux [ stdenv.cc.cc.lib ];
-  nativeBuildInputs = lib.optionals hostPlatform.isLinux [ autoPatchelfHook ];
 
   installPhase = ''
     mkdir -p $out/bin
-    install -Dm755 ${src}/wasmtime $out/bin/wasmtime
+    cp ${src}/bin/* $out/bin
+
     install -Dm755 ${../wasm-run/wasmtime.sh} $out/bin/wasmtime.sh
     patchShebangs $out
     substituteInPlace $out/bin/wasmtime.sh \
