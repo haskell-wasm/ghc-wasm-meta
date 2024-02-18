@@ -1,12 +1,12 @@
 variables:
-  DOCKER_REV: 8035736da0a70f09bd9b63a696cf2eb7977694ec
+  DOCKER_REV: 08bdbb85d6711e4df23d97e1cbdb557fe752b0a4
   GIT_DEPTH: 1
   GIT_STRATEGY: clone
 
 .x86_64-linux-alpine:
   tags:
     - x86_64-linux
-  image: registry.gitlab.haskell.org/ghc/ci-images/x86_64-linux-alpine3_17:$DOCKER_REV
+  image: registry.gitlab.haskell.org/ghc/ci-images/x86_64-linux-alpine3_18:$DOCKER_REV
   before_script:
     - |
       pushd "$(mktemp -d)"
@@ -29,6 +29,10 @@ variables:
       wasm32-wasi-ghc hello.hs -o hello.wasm
       $CROSS_EMULATOR ./hello.wasm "114 514" 233
       wasm-run ./hello.wasm "114 514" 233
+      wasm-run.mjs ./hello.wasm "114 514" 233
+      bun run ./hello.wasm "114 514" 233
+      # wasmedge run -- ./hello.wasm "114 514" 233
+      wazero run ./hello.wasm -- "114 514" 233
       popd
 
 x86_64-linux-alpine-gmp:
@@ -59,8 +63,12 @@ x86_64-linux-alpine-9.8:
 x86_64-linux-ubuntu:
   tags:
     - x86_64-linux
-  image: registry.gitlab.haskell.org/ghc/ci-images/x86_64-linux-ubuntu20_04:$DOCKER_REV
+  image: registry.gitlab.haskell.org/ghc/ci-images/x86_64-linux-ubuntu22_04:$DOCKER_REV
   before_script:
+    - |
+      sudo apt update
+      sudo apt install -y \
+        zstd
     - sudo chown ghc:ghc -R .
   script:
     - |
@@ -117,7 +125,7 @@ x86_64-linux-ubuntu:
 x86_64-linux-nix:
   tags:
     - x86_64-linux
-  image: nixos/nix:2.18.1
+  image: nixos/nix:2.20.1
   before_script:
     - echo "experimental-features = nix-command flakes" >> /etc/nix/nix.conf
   script:
@@ -127,13 +135,15 @@ x86_64-linux-nix:
       pushd "$(mktemp -d)"
       curl -f -L --retry 5 https://github.com/tweag/ormolu/archive/refs/heads/master.tar.gz | tar xz --strip-components=1
       cd ormolu-live
+      nix shell nixpkgs#gnused -c sed -i '/index-state:/d' cabal.project
+      cp $CI_PROJECT_DIR/cabal.project.local .
       nix shell $CI_PROJECT_DIR -c /bin/sh -c "wasm32-wasi-cabal update && exec ./build-wasm.sh"
       popd
     - |
       pushd "$(mktemp -d)"
       curl -f -L --retry 5 https://github.com/fourmolu/fourmolu/archive/refs/heads/main.tar.gz | tar xz --strip-components=1
-      nix shell nixpkgs#gnused -c sed -i '/^active-repositories/d' web/fourmolu-wasm/cabal.project
-      nix shell nixpkgs#gnused -c sed -i 's/^index-state.*/index-state: 2023-06-25T00:00:00Z/' web/fourmolu-wasm/cabal.project
-      nix shell $CI_PROJECT_DIR -c /bin/sh -c "cd web/fourmolu-wasm && exec ./build.sh"
+      cd web/fourmolu-wasm
+      cp $CI_PROJECT_DIR/cabal.project.local .
+      nix shell $CI_PROJECT_DIR -c /bin/sh -c "exec ./build.sh"
       popd
   allow_failure: true # TODO

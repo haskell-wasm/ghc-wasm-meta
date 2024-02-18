@@ -21,5 +21,5 @@ stdenvNoCC.mkDerivation {
 
   dontBuild = true;
   dontFixup = true;
-  allowedReferences = [ "out" runtimeShellPackage wasi-sdk ];
+  strictDeps = true;
 }

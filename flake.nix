@@ -27,7 +27,6 @@
                 wabt
                 wasmtime
                 wasmedge
-                wizer
                 cabal
                 (pkgs.callPackage ./pkgs/wasm32-wasi-cabal.nix {
                   inherit flavour;
@@ -65,7 +64,6 @@
           wasmtime = pkgs.callPackage ./pkgs/wasmtime.nix { };
           wasmedge = pkgs.callPackage ./pkgs/wasmedge.nix { };
           wazero = pkgs.callPackage ./pkgs/wazero.nix { };
-          wizer = pkgs.callPackage ./pkgs/wizer.nix { };
           cabal = pkgs.callPackage ./pkgs/cabal.nix { };
           proot = pkgs.callPackage ./pkgs/proot.nix { };
           wasm-run = pkgs.callPackage ./pkgs/wasm-run.nix { };
@@ -77,7 +75,7 @@
               wasm32-wasi-cabal-gmp wasm32-wasi-cabal-native
               wasm32-wasi-cabal-unreg wasm32-wasi-cabal-9_6
               wasm32-wasi-cabal-9_8 wasi-sdk deno nodejs bun binaryen wabt
-              wasmtime wasmedge wazero wizer cabal proot wasm-run;
+              wasmtime wasmedge wazero cabal proot wasm-run;
             default = all "gmp";
             all_gmp = all "gmp";
             all_native = all "native";
