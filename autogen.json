@@ -40,8 +40,8 @@
     "sha256": "0x6p1ly2fdxlrhm4yrqpnk4h5rijdna5wf6qzi6hvrbmqzlbm4s3"
   },
   "nodejs": {
-    "url": "https://github.com/type-dance/node-static/releases/download/v21.6.2/node-v21.6.2-linux-x64-static.tar.xz",
-    "sha256": "0m49rqrnc9phcs8x2z34jq9i859p05nz2g1ragpiwa3ikfs8ljq6"
+    "url": "https://github.com/type-dance/node-static/releases/download/v21.6.2-1/node-v21.6.2-1-linux-x64-static.tar.xz",
+    "sha256": "13fr41bh88mn9wzscjisyc2qhazw2gmcnspbkfk7rcwyiqsgif2h"
   },
   "bun": {
     "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.0.28/bun-linux-x64.zip",

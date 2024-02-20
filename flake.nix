@@ -21,6 +21,7 @@
                 (pkgs.callPackage ./pkgs/wasm32-wasi-ghc.nix { inherit flavour; })
                 wasi-sdk
                 deno
+                pkgs.cacert
                 nodejs
                 bun
                 binaryen
