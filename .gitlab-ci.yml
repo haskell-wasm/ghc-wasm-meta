@@ -125,7 +125,7 @@ x86_64-linux-ubuntu:
 x86_64-linux-nix:
   tags:
     - x86_64-linux
-  image: nixos/nix:2.20.1
+  image: nixos/nix:2.20.2
   before_script:
     - echo "experimental-features = nix-command flakes" >> /etc/nix/nix.conf
   script:
