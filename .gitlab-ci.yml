@@ -75,6 +75,10 @@ x86_64-linux-ubuntu:
       PREFIX=/tmp/.ghc-wasm ./setup.sh
       . /tmp/.ghc-wasm/env
     - |
+      npm install -g \
+        esbuild \
+        sass
+    - |
       pushd "$(mktemp -d)"
       curl -f -L --retry 5 https://github.com/haskell/time/archive/refs/heads/master.tar.gz | tar xz --strip-components=1
       sed -i '/tasty/d' time.cabal
@@ -120,6 +124,13 @@ x86_64-linux-ubuntu:
       core-tests/exit-status-tests.sh
       core-tests/failing-pattern-test.sh
 
+      popd
+    - |
+      pushd "$(mktemp -d)"
+      curl -f -L --retry 5 https://github.com/tweag/ghc-wasm-miso-examples/archive/refs/heads/main.tar.gz | tar xz --strip-components=1
+      cd frontend
+      npm install
+      ./build.sh
       popd
 
 x86_64-linux-nix:
