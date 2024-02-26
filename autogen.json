@@ -1,15 +1,15 @@
 {
   "wasm32-wasi-ghc-gmp": {
-    "url": "https://github.com/amesgen/ghc-wasm-bindists/releases/download/20240220T112447/wasm32-wasi-ghc-gmp.tar.xz",
-    "hash": "sha256-PDxbXBWc9x3guf9U0r4ufiiY0uH4azRzncwPlvDl7MU="
+    "url": "https://github.com/amesgen/ghc-wasm-bindists/releases/download/20240225T201500/wasm32-wasi-ghc-gmp.tar.xz",
+    "hash": "sha256-X7XQGC+ItISDo+InZK0KkXfodmW38cuBFQnjISnFVQo="
   },
   "wasm32-wasi-ghc-native": {
-    "url": "https://github.com/amesgen/ghc-wasm-bindists/releases/download/20240220T112447/wasm32-wasi-ghc-native.tar.xz",
-    "hash": "sha256-UExIed53HJsWrB4zYdKh2AUG2RH475RBG4wEFqdQWEY="
+    "url": "https://github.com/amesgen/ghc-wasm-bindists/releases/download/20240225T201500/wasm32-wasi-ghc-native.tar.xz",
+    "hash": "sha256-4bkqMsVQWQQOj27R1hYz6TzF8EOJjW5voDfFvKOSUCM="
   },
   "wasm32-wasi-ghc-unreg": {
-    "url": "https://github.com/amesgen/ghc-wasm-bindists/releases/download/20240220T112447/wasm32-wasi-ghc-unreg.tar.xz",
-    "hash": "sha256-v6IMjkxc18uxvaSis4E8C6WTmQD8+OaiM4aNtcZQSjc="
+    "url": "https://github.com/amesgen/ghc-wasm-bindists/releases/download/20240225T201500/wasm32-wasi-ghc-unreg.tar.xz",
+    "hash": "sha256-AioaVOJ7drxnUvpC0/CH9ZJEg4eXNCOzucrWYSQDPMM="
   },
   "wasm32-wasi-ghc-9.6": {
     "url": "https://github.com/amesgen/ghc-wasm-bindists/releases/download/20240218T031934/wasm32-wasi-ghc-9.6.tar.xz",
@@ -36,16 +36,16 @@
     "hash": "sha256-Qqm8abz+05JXqeBxG6V6oBJix46esIKvAiYgkERmt78="
   },
   "deno": {
-    "url": "https://github.com/denoland/deno/releases/download/v1.40.5/deno-x86_64-unknown-linux-gnu.zip",
-    "sha256": "0x6p1ly2fdxlrhm4yrqpnk4h5rijdna5wf6qzi6hvrbmqzlbm4s3"
+    "url": "https://github.com/denoland/deno/releases/download/v1.41.0/deno-x86_64-unknown-linux-gnu.zip",
+    "sha256": "1dr0r28wzc8nq1h1ca0v1v9y1dz68v80y91pfqs8vpsi4nii4fkj"
   },
   "nodejs": {
     "url": "https://github.com/type-dance/node-static/releases/download/v21.6.2-1/node-v21.6.2-1-linux-x64-static.tar.xz",
     "sha256": "13fr41bh88mn9wzscjisyc2qhazw2gmcnspbkfk7rcwyiqsgif2h"
   },
   "bun": {
-    "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.0.28/bun-linux-x64.zip",
-    "sha256": "0da5wlhsc7j2myfysq7lirfr02rrqphzf03bnw4k66y4abkbqhn9"
+    "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.0.29/bun-linux-x64.zip",
+    "sha256": "0bmb7rzlags6wasvn5yglmij929h7vgbigxj025fqg403lmb4vfk"
   },
   "binaryen": {
     "url": "https://github.com/type-dance/binaryen/releases/download/version_116/binaryen-version_116-x86_64-linux-musl.tar.xz",
@@ -56,20 +56,20 @@
     "sha256": "03a70pygwlvins4yzxh9lhbn6hc56qbzxssdhb5q99r6372hcbs4"
   },
   "wasmtime": {
-    "url": "https://github.com/type-dance/wasm-tools-static/releases/download/240213/wasm-tools-240213-linux-amd64.tar.zst",
-    "sha256": "0jj6405agz79c4149x940zdmwxpnxc7nb68a7v6yv27gimpxgrzy"
+    "url": "https://github.com/type-dance/wasm-tools-static/releases/download/240221/wasm-tools-240221-linux-amd64.tar.zst",
+    "sha256": "0wm4gvl2khnb791hpm6wyrqq21kvpmrm0j74db4lmfz47fsv15d8"
   },
   "wasmtime_aarch64_linux": {
-    "url": "https://github.com/type-dance/wasm-tools-static/releases/download/240213/wasm-tools-240213-linux-arm64.tar.zst",
-    "sha256": "169rybs8w7wd6vz2iclf50s20sm4gi52m5faimrl01akd7xl3xxb"
+    "url": "https://github.com/type-dance/wasm-tools-static/releases/download/240221/wasm-tools-240221-linux-arm64.tar.zst",
+    "sha256": "00ng33k93skqsrdm6kjwnc2b4f11xqjpv9b2n4w3c71ybyxrpjyx"
   },
   "wasmtime_aarch64_darwin": {
-    "url": "https://github.com/type-dance/wasm-tools-static/releases/download/240213/wasm-tools-240213-darwin-aarch64.tar.zst",
-    "sha256": "00mhrwxyqi5v69jl07xfgq0bcfgdxd6dqf4k495y4xhaippmh3av"
+    "url": "https://github.com/type-dance/wasm-tools-static/releases/download/240221/wasm-tools-240221-darwin-aarch64.tar.zst",
+    "sha256": "0ca221718kwxgg3dbyxf9wmvswp6wdyhxg6c9gf5q1j45ccqrnw1"
   },
   "wasmtime_x86_64_darwin": {
-    "url": "https://github.com/type-dance/wasm-tools-static/releases/download/240213/wasm-tools-240213-darwin-x86_64.tar.zst",
-    "sha256": "0z1d2jvvg2lam5k5ih3mp2vg7dpy73ssx0frlp9xbj2430czs0h6"
+    "url": "https://github.com/type-dance/wasm-tools-static/releases/download/240221/wasm-tools-240221-darwin-x86_64.tar.zst",
+    "sha256": "0ga1rdxs0lj3cydnw347k9plaqxb5ixhclw4lci6wdv9cimyf44a"
   },
   "wasmedge": {
     "url": "https://github.com/WasmEdge/WasmEdge/releases/download/0.13.5/WasmEdge-0.13.5-ubuntu20.04_x86_64.tar.gz",
