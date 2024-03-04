@@ -96,7 +96,7 @@ const _binaryen = fetchGitHubLatestRelease(
   "builtins.fetchTarball",
   "type-dance",
   "binaryen",
-  "x86_64-linux-musl.tar.xz"
+  "x86_64-linux-musl.tar.zst"
 );
 const _wabt = fetchGitHubLatestRelease(
   "builtins.fetchTarball",
