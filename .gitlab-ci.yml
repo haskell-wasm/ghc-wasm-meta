@@ -1,5 +1,5 @@
 variables:
-  DOCKER_REV: 7f63b34ac87b85470eef9c668e9528e8e2f5b46a
+  DOCKER_REV: a9297a370025101b479cfd4977f8f910814e03ab
   GIT_DEPTH: 1
   GIT_STRATEGY: clone
 
@@ -134,7 +134,7 @@ x86_64-linux-ubuntu:
 x86_64-linux-nix:
   tags:
     - x86_64-linux
-  image: nixos/nix:2.20.4
+  image: nixos/nix:2.20.5
   before_script:
     - echo "experimental-features = nix-command flakes" >> /etc/nix/nix.conf
   script:
