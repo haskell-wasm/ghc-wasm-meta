@@ -3,7 +3,7 @@ let
   cabal = callPackage ./cabal.nix { };
   wasm32-wasi-ghc = callPackage ./wasm32-wasi-ghc.nix { inherit flavour; };
   init-cabal-config =
-    lib.optionalString (!lib.elem flavour [ "9.6" "9.8" ]) ''
+    lib.optionalString (!lib.elem flavour [ "9.6" "9.8" "9.10" ]) ''
       cp ${../cabal.config} "$CABAL_DIR/config"
       chmod u+w "$CABAL_DIR/config"
     '';

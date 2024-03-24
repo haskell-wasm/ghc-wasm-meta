@@ -19,6 +19,10 @@
     "url": "https://github.com/amesgen/ghc-wasm-bindists/releases/download/20240218T031934/wasm32-wasi-ghc-9.8.tar.xz",
     "hash": "sha256-sXFNVEaHVOOkNTZhvsiD/vi10nOY21O1lVdT23RT2j4="
   },
+  "wasm32-wasi-ghc-9.10": {
+    "url": "https://github.com/amesgen/ghc-wasm-bindists/releases/download/20240318T183143/wasm32-wasi-ghc-9.10.tar.xz",
+    "hash": "sha256-4u5aBBfzYXqT+MqN8rRVwX5Q3V+3ULL74351mCw6SRc="
+  },
   "wasi-sdk": {
     "url": "https://github.com/amesgen/ghc-wasm-bindists/releases/download/20240310T201749/wasi-sdk.tar.gz",
     "hash": "sha256-d7E9kkOVz39qeymLvf9VP+6TOffAQjbd6kvBM1c2eAM="
