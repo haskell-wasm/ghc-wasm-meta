@@ -1,15 +1,15 @@
 {
   "wasm32-wasi-ghc-gmp": {
-    "url": "https://github.com/amesgen/ghc-wasm-bindists/releases/download/20240317T201602/wasm32-wasi-ghc-gmp.tar.xz",
-    "hash": "sha256-6BTIVcVUVqyuupy+n0nBUi67baV3SsW95I6YotvV3Dc="
+    "url": "https://github.com/amesgen/ghc-wasm-bindists/releases/download/20240324T201538/wasm32-wasi-ghc-gmp.tar.xz",
+    "hash": "sha256-kpboptXqAqAH5IFHx6OVW4dcPg8yuTEa3/KH3NOxnhg="
   },
   "wasm32-wasi-ghc-native": {
-    "url": "https://github.com/amesgen/ghc-wasm-bindists/releases/download/20240317T201602/wasm32-wasi-ghc-native.tar.xz",
-    "hash": "sha256-lrZbWchviQUnp4RnkYrkD6r33C0cu6ngfAsSMtMf944="
+    "url": "https://github.com/amesgen/ghc-wasm-bindists/releases/download/20240324T201538/wasm32-wasi-ghc-native.tar.xz",
+    "hash": "sha256-SP48l0byfdurSFgfQSpBscbX8zEbgHDX2EBAdghVVY8="
   },
   "wasm32-wasi-ghc-unreg": {
-    "url": "https://github.com/amesgen/ghc-wasm-bindists/releases/download/20240317T201602/wasm32-wasi-ghc-unreg.tar.xz",
-    "hash": "sha256-W/LbFkjWKqSWwiB59e6VGdoOHVxtlSdvtJXPaYasGnY="
+    "url": "https://github.com/amesgen/ghc-wasm-bindists/releases/download/20240324T201538/wasm32-wasi-ghc-unreg.tar.xz",
+    "hash": "sha256-6wOYBM5Xs+lfbasU6ZXv6LJle32ToznkTkoOjk+zR6k="
   },
   "wasm32-wasi-ghc-9.6": {
     "url": "https://github.com/amesgen/ghc-wasm-bindists/releases/download/20240218T031934/wasm32-wasi-ghc-9.6.tar.xz",
@@ -20,20 +20,20 @@
     "hash": "sha256-sXFNVEaHVOOkNTZhvsiD/vi10nOY21O1lVdT23RT2j4="
   },
   "wasm32-wasi-ghc-9.10": {
-    "url": "https://github.com/amesgen/ghc-wasm-bindists/releases/download/20240318T183143/wasm32-wasi-ghc-9.10.tar.xz",
-    "hash": "sha256-4u5aBBfzYXqT+MqN8rRVwX5Q3V+3ULL74351mCw6SRc="
+    "url": "https://github.com/amesgen/ghc-wasm-bindists/releases/download/20240324T201538/wasm32-wasi-ghc-9.10.tar.xz",
+    "hash": "sha256-mKsESL4dk+Ya6weGgMnojpfo6+KGeOq1liJIxpIFWi4="
   },
   "wasi-sdk": {
-    "url": "https://github.com/amesgen/ghc-wasm-bindists/releases/download/20240310T201749/wasi-sdk.tar.gz",
-    "hash": "sha256-d7E9kkOVz39qeymLvf9VP+6TOffAQjbd6kvBM1c2eAM="
+    "url": "https://github.com/amesgen/ghc-wasm-bindists/releases/download/20240324T201538/wasi-sdk.tar.gz",
+    "hash": "sha256-0cOMa7DgzeuqphZcp3RUPb9ejDeYJq+Vv+E4wBuUWYM="
   },
   "wasi-sdk_darwin": {
-    "url": "https://github.com/amesgen/ghc-wasm-bindists/releases/download/20240310T201749/wasi-sdk-darwin.tar.gz",
-    "hash": "sha256-NB2y+1tiaPB8gujIQrjp4J3nR4TvNzMMwFyXx9DrpSM="
+    "url": "https://github.com/amesgen/ghc-wasm-bindists/releases/download/20240324T201538/wasi-sdk-darwin.tar.gz",
+    "hash": "sha256-/KbrX9UkUMWazmQnpny750IIkXOsxMPsKHiENMTemPQ="
   },
   "wasi-sdk_aarch64_linux": {
-    "url": "https://github.com/amesgen/ghc-wasm-bindists/releases/download/20240310T201749/wasi-sdk-aarch64-linux.tar.gz",
-    "hash": "sha256-usKuWoDn0WojAVfwltTrOujm4YeCJziy1Br3MqSN27k="
+    "url": "https://github.com/amesgen/ghc-wasm-bindists/releases/download/20240324T201538/wasi-sdk-aarch64-linux.tar.gz",
+    "hash": "sha256-9r4zq4DOp3rBwMi/0JVJz1JHNuge1cyBV6/zYJhG+/8="
   },
   "libffi-wasm": {
     "url": "https://github.com/amesgen/ghc-wasm-bindists/releases/download/20230619T174420/libffi-wasm",
@@ -48,8 +48,8 @@
     "sha256": "0qzqckcd0nr9x03k87qvjgykqbb4whgfd4b5nkyrq88h7rvm6jkm"
   },
   "bun": {
-    "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.0.33/bun-linux-x64.zip",
-    "sha256": "1i37n423qc8kqpnhxll0m0vp6sy388xpxfcjx0wga6hsy254vm3i"
+    "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.0.35/bun-linux-x64.zip",
+    "sha256": "02i2icf6d9v96fsxgclnmg82abgg5b6ydssnw1zdnpirl4sv77ak"
   },
   "binaryen": {
     "url": "https://github.com/type-dance/binaryen/releases/download/version_117/binaryen-version_117-x86_64-linux-musl.tar.zst",
