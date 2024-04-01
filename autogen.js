@@ -109,13 +109,13 @@ const _wasmtime = fetchGitHubLatestRelease(
   "builtins.fetchTarball",
   "type-dance",
   "wasm-tools-static",
-  "linux-amd64.tar.zst"
+  "x86_64-linux.tar.zst"
 );
 const _wasmtime_aarch64_linux = fetchGitHubLatestRelease(
   "builtins.fetchTarball",
   "type-dance",
   "wasm-tools-static",
-  "linux-arm64.tar.zst"
+  "aarch64-linux.tar.zst"
 );
 const _wasmtime_aarch64_darwin = fetchGitHubLatestRelease(
   "builtins.fetchTarball",
@@ -142,7 +142,7 @@ const _wazero = fetchGitHubLatestRelease(
   "linux_amd64.tar.gz"
 );
 const _cabal = fetchurl(
-  "https://downloads.haskell.org/cabal/cabal-install-3.10.2.0/cabal-install-3.10.2.0-x86_64-linux-alpine3_12.tar.xz"
+  "https://downloads.haskell.org/cabal/cabal-install-3.10.3.0/cabal-install-3.10.3.0-x86_64-linux-alpine3_12.tar.xz"
 );
 const _proot = fetchStableBindist("proot");
 
