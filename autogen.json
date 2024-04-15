@@ -1,15 +1,15 @@
 {
   "wasm32-wasi-ghc-gmp": {
-    "url": "https://github.com/amesgen/ghc-wasm-bindists/releases/download/20240407T201546/wasm32-wasi-ghc-gmp.tar.xz",
-    "hash": "sha256-Xa0GCweGoyneTfitSr0WOAYjBuQkEdQGnrXNM5CRFE8="
+    "url": "https://github.com/amesgen/ghc-wasm-bindists/releases/download/20240414T232345/wasm32-wasi-ghc-gmp.tar.xz",
+    "hash": "sha256-NUW70hyiV3lu5nABaINM6ld2JGD9eTvOwOmXAnwkcgw="
   },
   "wasm32-wasi-ghc-native": {
-    "url": "https://github.com/amesgen/ghc-wasm-bindists/releases/download/20240407T201546/wasm32-wasi-ghc-native.tar.xz",
-    "hash": "sha256-QucuWDhw25uDHhNbySXS8vlohGKd90nrFYCyC9OnJs8="
+    "url": "https://github.com/amesgen/ghc-wasm-bindists/releases/download/20240414T232345/wasm32-wasi-ghc-native.tar.xz",
+    "hash": "sha256-PCsAlW+cM53gCR9kbbuI+SWhIaoG4HcDRvtM1cndmlo="
   },
   "wasm32-wasi-ghc-unreg": {
-    "url": "https://github.com/amesgen/ghc-wasm-bindists/releases/download/20240407T201546/wasm32-wasi-ghc-unreg.tar.xz",
-    "hash": "sha256-wMfMvZQlOjBcYbNj2oS7XBgv4UKQz+fdw7t+pYFAiTY="
+    "url": "https://github.com/amesgen/ghc-wasm-bindists/releases/download/20240414T232345/wasm32-wasi-ghc-unreg.tar.xz",
+    "hash": "sha256-19DeQ3oKXEJbZsusn57m3jL10t+4fH9DUugDQBEEA0M="
   },
   "wasm32-wasi-ghc-9.6": {
     "url": "https://github.com/amesgen/ghc-wasm-bindists/releases/download/20240218T031934/wasm32-wasi-ghc-9.6.tar.xz",
@@ -20,36 +20,36 @@
     "hash": "sha256-sXFNVEaHVOOkNTZhvsiD/vi10nOY21O1lVdT23RT2j4="
   },
   "wasm32-wasi-ghc-9.10": {
-    "url": "https://github.com/amesgen/ghc-wasm-bindists/releases/download/20240331T201724/wasm32-wasi-ghc-9.10.tar.xz",
-    "hash": "sha256-Mr1ivIE1Mwmk9fed8vCeahB+JL+DeIrqtZ9uSBKJdko="
+    "url": "https://github.com/amesgen/ghc-wasm-bindists/releases/download/20240414T232345/wasm32-wasi-ghc-9.10.tar.xz",
+    "hash": "sha256-52SNhPeUjVPc1pNaA1iWfcjV1o7jpgwHBvS1qUoPtig="
   },
   "wasi-sdk": {
-    "url": "https://github.com/amesgen/ghc-wasm-bindists/releases/download/20240407T201546/wasi-sdk.tar.gz",
-    "hash": "sha256-sYUs7ENT2ykDT1WIZQ9c9uP3oPiKyEtsB9CwZmq2vW0="
+    "url": "https://github.com/amesgen/ghc-wasm-bindists/releases/download/20240414T232345/wasi-sdk.tar.gz",
+    "hash": "sha256-9Xu05U9yvYDPTXD+B0a8DHxl6WMz1q+fmSbv/kqt9Oc="
   },
   "wasi-sdk_darwin": {
-    "url": "https://github.com/amesgen/ghc-wasm-bindists/releases/download/20240407T201546/wasi-sdk-darwin.tar.gz",
-    "hash": "sha256-3vyAbmbOg3CoSgvFCd0XNnSz6tFpLgFjkFSlMiiOr8s="
+    "url": "https://github.com/amesgen/ghc-wasm-bindists/releases/download/20240414T232345/wasi-sdk-darwin.tar.gz",
+    "hash": "sha256-nNqoyh1uKsRMNzZjB3D5f+r8jCybt4sIVMbhrXlO+pU="
   },
   "wasi-sdk_aarch64_linux": {
-    "url": "https://github.com/amesgen/ghc-wasm-bindists/releases/download/20240407T201546/wasi-sdk-aarch64-linux.tar.gz",
-    "hash": "sha256-P+x9fcX2E+RPE88SJzkD+FcwX7VbhznNYs/GX1M8uzQ="
+    "url": "https://github.com/amesgen/ghc-wasm-bindists/releases/download/20240414T232345/wasi-sdk-aarch64-linux.tar.gz",
+    "hash": "sha256-h1E6LI42Z5A0+8Cqr3rYeZ1k2nMGXkMkHSDX/V0H/CQ="
   },
   "libffi-wasm": {
     "url": "https://github.com/amesgen/ghc-wasm-bindists/releases/download/20230619T174420/libffi-wasm",
     "hash": "sha256-Qqm8abz+05JXqeBxG6V6oBJix46esIKvAiYgkERmt78="
   },
   "deno": {
-    "url": "https://github.com/denoland/deno/releases/download/v1.42.1/deno-x86_64-unknown-linux-gnu.zip",
-    "sha256": "176yk8npsnvy94yl71yjz6wazkpar4cc5khpffk1f330c5xc9mqd"
+    "url": "https://github.com/denoland/deno/releases/download/v1.42.3/deno-x86_64-unknown-linux-gnu.zip",
+    "sha256": "0vhhw80izmbapq3dzl1fphqnsd93g04572vavmzc6b5wj9w518fc"
   },
   "nodejs": {
     "url": "https://github.com/type-dance/node-static/releases/download/v21.7.2/node-v21.7.2-linux-x64-static.tar.xz",
     "sha256": "0n3fwlywp4g8b3pqvi22jd2c0rrg2pbwhk29z8i2xzh2v2flypw7"
   },
   "bun": {
-    "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.1.2/bun-linux-x64.zip",
-    "sha256": "0b54sbqdsk1aky0x6km92i89cgphn122vv9p9glrqip84wdpgszg"
+    "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.1.3/bun-linux-x64.zip",
+    "sha256": "1pgbs0sx44vc726p56pzs4h7qvsjxdbss1pbl92hlaphz66chaf8"
   },
   "binaryen": {
     "url": "https://github.com/type-dance/binaryen/releases/download/version_117/binaryen-version_117-x86_64-linux-musl.tar.zst",
@@ -60,20 +60,20 @@
     "sha256": "03a70pygwlvins4yzxh9lhbn6hc56qbzxssdhb5q99r6372hcbs4"
   },
   "wasmtime": {
-    "url": "https://github.com/type-dance/wasm-tools-static/releases/download/240403/wasm-tools-240403-x86_64-linux.tar.zst",
-    "sha256": "1cmq2kgf7nx4v7qf8j6aixgdfnn2vmfdbh4aa5j1phpsc6fs3g48"
+    "url": "https://github.com/type-dance/wasm-tools-static/releases/download/240412/wasm-tools-240412-x86_64-linux.tar.zst",
+    "sha256": "1jq4cjil7f99d22p45lzwh6sr6mzcycxcxznsywsgjwbxrr35q5n"
   },
   "wasmtime_aarch64_linux": {
-    "url": "https://github.com/type-dance/wasm-tools-static/releases/download/240403/wasm-tools-240403-aarch64-linux.tar.zst",
-    "sha256": "0c2hdv8wv1hg1wk7mzyva1nsz2lbjg2afjirq0ab5g81mjc1954z"
+    "url": "https://github.com/type-dance/wasm-tools-static/releases/download/240412/wasm-tools-240412-aarch64-linux.tar.zst",
+    "sha256": "0yfqw75ynxj2811wx3wnlqygkk9i704f75d1hsxqs7an938zmbik"
   },
   "wasmtime_aarch64_darwin": {
-    "url": "https://github.com/type-dance/wasm-tools-static/releases/download/240403/wasm-tools-240403-darwin-aarch64.tar.zst",
-    "sha256": "0bpp5hkm7g5w8rkzykn36wvrmnbx3qqn7pdya1kcd3mgzz5941b6"
+    "url": "https://github.com/type-dance/wasm-tools-static/releases/download/240412/wasm-tools-240412-darwin-aarch64.tar.zst",
+    "sha256": "01ki7qml2cvza2m7hais1by43h86yjymfjn0bkamy3fcvlqmij9c"
   },
   "wasmtime_x86_64_darwin": {
-    "url": "https://github.com/type-dance/wasm-tools-static/releases/download/240403/wasm-tools-240403-darwin-x86_64.tar.zst",
-    "sha256": "016fj1dva4gd94bd06hkmmz23x1hh9qal5xvy64li99w766dfnc9"
+    "url": "https://github.com/type-dance/wasm-tools-static/releases/download/240412/wasm-tools-240412-darwin-x86_64.tar.zst",
+    "sha256": "1ryvdf2wrxilzm95z6iyjym128jj0vvmcd4v31kp0agb3b82d4iz"
   },
   "wasmedge": {
     "url": "https://github.com/WasmEdge/WasmEdge/releases/download/0.13.5/WasmEdge-0.13.5-ubuntu20.04_x86_64.tar.gz",

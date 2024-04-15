@@ -1,5 +1,5 @@
 variables:
-  DOCKER_REV: a9297a370025101b479cfd4977f8f910814e03ab
+  DOCKER_REV: 064e90c26dffe5709bd5b87dbd211b9a8b21fc5b
   GIT_DEPTH: 1
   GIT_STRATEGY: clone
 
@@ -80,9 +80,6 @@ x86_64-linux-ubuntu:
       PREFIX=/tmp/.ghc-wasm ./setup.sh
       . /tmp/.ghc-wasm/env
     - |
-      npm install -g \
-        sass
-    - |
       pushd "$(mktemp -d)"
       curl -f -L --retry 5 https://github.com/haskell/time/archive/refs/heads/master.tar.gz | tar xz --strip-components=1
       sed -i '/tasty/d' time.cabal
@@ -130,12 +127,14 @@ x86_64-linux-ubuntu:
 
       popd
     - |
+      npm install -g \
+        sass
+    - |
       pushd "$(mktemp -d)"
       curl -f -L --retry 5 https://github.com/tweag/ghc-wasm-miso-examples/archive/refs/heads/main.tar.gz | tar xz --strip-components=1
       cd frontend
       ./build.sh
       popd
-  allow_failure: true # TODO
 
 x86_64-linux-nix:
   tags:
