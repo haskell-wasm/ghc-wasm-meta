@@ -145,19 +145,3 @@ x86_64-linux-nix:
   script:
     - |
       nix build --json --no-link . .#all_native .#all_unreg .#all_9_6 .#all_9_8 .#all_9_10
-    - |
-      pushd "$(mktemp -d)"
-      curl -f -L --retry 5 https://github.com/tweag/ormolu/archive/refs/heads/master.tar.gz | tar xz --strip-components=1
-      cd ormolu-live
-      nix shell nixpkgs#gnused -c sed -i '/index-state:/d' cabal.project
-      cp $CI_PROJECT_DIR/cabal.project.local .
-      nix shell $CI_PROJECT_DIR -c /bin/sh -c "wasm32-wasi-cabal update && exec ./build-wasm.sh"
-      popd
-    - |
-      pushd "$(mktemp -d)"
-      curl -f -L --retry 5 https://github.com/fourmolu/fourmolu/archive/refs/heads/main.tar.gz | tar xz --strip-components=1
-      cd web/fourmolu-wasm
-      cp $CI_PROJECT_DIR/cabal.project.local .
-      nix shell $CI_PROJECT_DIR -c /bin/sh -c "exec ./build.sh"
-      popd
-  allow_failure: true # TODO

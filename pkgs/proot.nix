@@ -5,12 +5,15 @@ let
 in
 stdenvNoCC.mkDerivation {
   name = "proot";
-  inherit src;
   dontUnpack = true;
   nativeBuildInputs = [ autoPatchelfHook ];
   installPhase = ''
+    runHook preInstall
+
     mkdir -p $out/bin
-    install -Dm755 $src $out/bin/proot
+    install -Dm755 ${src} $out/bin/proot
+
+    runHook postInstall
   '';
   doInstallCheck = true;
   installCheckPhase = ''

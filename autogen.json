@@ -41,51 +41,51 @@
   },
   "deno": {
     "url": "https://github.com/denoland/deno/releases/download/v1.42.4/deno-x86_64-unknown-linux-gnu.zip",
-    "sha256": "01z4dzkyccrp162nrkhbby1asiri15vy9fz2rrdx1n4ia02qjn48"
+    "hash": "sha512-QyjPFyLo4AC2cLz0turfULXoZ8iITcHNoRkigEFJAnhP0W+lO6J4/79GBey2bZy7t547HIrIfeLqZr5l1xiFsw=="
   },
   "nodejs": {
     "url": "https://github.com/type-dance/node-static/releases/download/v21.7.2/node-v21.7.2-linux-x64-static.tar.xz",
-    "sha256": "0n3fwlywp4g8b3pqvi22jd2c0rrg2pbwhk29z8i2xzh2v2flypw7"
+    "hash": "sha512-FWqHYoZTBrD45zKmFjaxYHwDYspPDPT6iIzaC/vqJyKI5gOQa6Ts3CHXeGRhrGzDv2aj/0smYC2x0mqqtcYtYg=="
   },
   "bun": {
     "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.1.4/bun-linux-x64.zip",
-    "sha256": "1p1hclz46kzgk8kd3jbkb2268lsfyjx0kfwci5bzdrppcgh4dpw1"
+    "hash": "sha512-UjAJDe+60MZsqe9D0mFsC+Pw7uWWObRiJzy9HSISZ5Iwx8g2rR4JD1x0YZseO3QnMU6B1J7kQRnJO9+H4D2Now=="
   },
   "binaryen": {
     "url": "https://github.com/type-dance/binaryen/releases/download/version_117/binaryen-version_117-x86_64-linux-musl.tar.zst",
-    "sha256": "1z4g0c0ihrmp0qg8apxbnycs8mp38sd2z0m9wacnm20qv30i8gva"
+    "hash": "sha512-3EHDuoVxrlS6srWIzBboC5GFSOVBft5zO246SheSSbIZe0I5fwehU61LY98tKyTh+sb4BY8u+f+Bicn7w6gtbA=="
   },
   "wabt": {
     "url": "https://github.com/WebAssembly/wabt/releases/download/1.0.34/wabt-1.0.34-ubuntu.tar.gz",
-    "sha256": "03a70pygwlvins4yzxh9lhbn6hc56qbzxssdhb5q99r6372hcbs4"
+    "hash": "sha512-QpUJJ/ddPCKj4wJ2tUs0IbVzFqzrA76YAx/lXUCbXQ4O+F0QuhuLP4HayiSOiIjw1GixIVoJCY85CKeh4dEIMw=="
   },
   "wasmtime": {
     "url": "https://github.com/type-dance/wasm-tools-static/releases/download/240412/wasm-tools-240412-x86_64-linux.tar.zst",
-    "sha256": "1jq4cjil7f99d22p45lzwh6sr6mzcycxcxznsywsgjwbxrr35q5n"
+    "hash": "sha512-8ugto41t3SzyoQ8sWEmqaGCpOa/gVtHHSRVS5wNndFFP264SoWDljOlW76UoIM21JrWkQ7Xi3GwZ8dMblkAlLQ=="
   },
   "wasmtime_aarch64_linux": {
     "url": "https://github.com/type-dance/wasm-tools-static/releases/download/240412/wasm-tools-240412-aarch64-linux.tar.zst",
-    "sha256": "0yfqw75ynxj2811wx3wnlqygkk9i704f75d1hsxqs7an938zmbik"
+    "hash": "sha512-waGaUSz3wimKfnSqCybBkKmiYcBFL0RBgs9JILJNkU/BmGFhZFGMYlhVDNH7j7GU/lYdQFfQFoLjNhR+pcIYtQ=="
   },
   "wasmtime_aarch64_darwin": {
     "url": "https://github.com/type-dance/wasm-tools-static/releases/download/240412/wasm-tools-240412-darwin-aarch64.tar.zst",
-    "sha256": "01ki7qml2cvza2m7hais1by43h86yjymfjn0bkamy3fcvlqmij9c"
+    "hash": "sha512-D43nNNImEl2oHdGBbR88n3aTvewsrzN+ErTiPOE7n6neUTFNnfnwWkZdcIJqouQjf0yzvc+eqs8CATUXeyrNkQ=="
   },
   "wasmtime_x86_64_darwin": {
     "url": "https://github.com/type-dance/wasm-tools-static/releases/download/240412/wasm-tools-240412-darwin-x86_64.tar.zst",
-    "sha256": "1ryvdf2wrxilzm95z6iyjym128jj0vvmcd4v31kp0agb3b82d4iz"
+    "hash": "sha512-/trC9L5KWZRBeg+mOb4G5G8nLkNzJg6rnrF2xeLDGx4ZPG8g+pG04o+UCYU560PmhceypELuzIKN7YW3inwpAg=="
   },
   "wasmedge": {
     "url": "https://github.com/WasmEdge/WasmEdge/releases/download/0.13.5/WasmEdge-0.13.5-ubuntu20.04_x86_64.tar.gz",
-    "sha256": "1pjsc7xfcyrq4mc9izrq9wjwmww8x8z5idh0pya9ig32yb1b8nng"
+    "hash": "sha512-XOtdaFd82HtqaQJTX/o2tMciObMEQC227jzIM7C1F1KOrm8i7eir/s5lKq8Ir0UIJa+eHwC9M+OAHf6e3zaklw=="
   },
   "wazero": {
     "url": "https://github.com/tetratelabs/wazero/releases/download/v1.7.1/wazero_1.7.1_linux_amd64.tar.gz",
-    "sha256": "1iyx137qd8sa213dsf1sngrky05fs768ivnb272z6wrlxq8k87av"
+    "hash": "sha512-02SmU3UhVG1vyw/AoWkb3niJYYZ7qdrAGGHtN/DErH4/NG3By1h3yrLjfIUN2ATiQX7e/7Okp12bBNJQLE5UFA=="
   },
   "cabal": {
     "url": "https://downloads.haskell.org/cabal/cabal-install-3.10.3.0/cabal-install-3.10.3.0-x86_64-linux-alpine3_12.tar.xz",
-    "sha256": "197x35pkwp9zj6cv0c0131cyqn9kzglblb75g3v2mmfr8gd7hj98"
+    "hash": "sha512-i8+AznKLTyaz70k3H8sX8nSE4sVF5NFvdv8X0i0MdorpI2OdGfCuU93oBUM8X6jkR/HcHJ9OHRRSCzUQC73gyQ=="
   },
   "proot": {
     "url": "https://github.com/amesgen/ghc-wasm-bindists/releases/download/20230619T174420/proot",

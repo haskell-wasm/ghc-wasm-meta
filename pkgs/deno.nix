@@ -1,16 +1,21 @@
-{ autoPatchelfHook, stdenv, stdenvNoCC, }:
+{ autoPatchelfHook, fetchurl, stdenv, stdenvNoCC, unzip }:
 let
-  src = builtins.fetchTarball
+  src = fetchurl
     ((builtins.fromJSON (builtins.readFile ../autogen.json)).deno);
 in
 stdenvNoCC.mkDerivation {
   name = "deno";
   dontUnpack = true;
   buildInputs = [ stdenv.cc.cc.lib ];
-  nativeBuildInputs = [ autoPatchelfHook ];
+  nativeBuildInputs = [ autoPatchelfHook unzip ];
   installPhase = ''
+    runHook preInstall
+
+    unzip ${src}
     mkdir -p $out/bin
-    install -Dm755 ${src} $out/bin/deno
+    install -Dm755 deno $out/bin
+
+    runHook postInstall
   '';
   doInstallCheck = true;
   installCheckPhase = ''

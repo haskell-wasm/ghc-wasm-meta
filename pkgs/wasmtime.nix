@@ -1,10 +1,10 @@
-{ hostPlatform
+{ fetchurl
+, hostPlatform
 , lib
 , runtimeShellPackage
-, stdenv
 , stdenvNoCC
 , writeText
-,
+, zstd
 }:
 let
   wasmtime-key =
@@ -17,25 +17,29 @@ let
       "wasmtime_aarch64_linux"
     else
       "wasmtime";
-  src = builtins.fetchTarball
+  src = fetchurl
     ((builtins.fromJSON (builtins.readFile ../autogen.json))."${wasmtime-key}");
 in
 stdenvNoCC.mkDerivation {
   name = "wasmtime";
 
-  dontUnpack = true;
+  inherit src;
 
-  buildInputs = [ runtimeShellPackage ]
-    ++ lib.optionals hostPlatform.isLinux [ stdenv.cc.cc.lib ];
+  buildInputs = [ runtimeShellPackage ];
+
+  nativeBuildInputs = [ zstd ];
 
   installPhase = ''
-    mkdir -p $out/bin
-    cp ${src}/bin/* $out/bin
+    runHook preInstall
+
+    cp -R ./ $out
 
     install -Dm755 ${../wasm-run/wasmtime.sh} $out/bin/wasmtime.sh
     patchShebangs $out
     substituteInPlace $out/bin/wasmtime.sh \
       --replace wasmtime "$out/bin/wasmtime"
+
+    runHook postInstall
   '';
 
   dontStrip = true;

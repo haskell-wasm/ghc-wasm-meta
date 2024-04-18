@@ -1,14 +1,17 @@
-{ stdenvNoCC, }:
+{ fetchurl, stdenvNoCC, }:
 let
-  src = builtins.fetchTarball
+  src = fetchurl
     ((builtins.fromJSON (builtins.readFile ../autogen.json)).nodejs);
 in
 stdenvNoCC.mkDerivation {
   name = "nodejs";
-  dontUnpack = true;
+  inherit src;
   installPhase = ''
-    cp -a ${src} $out
-    chmod -R u+w $out
+    runHook preInstall
+
+    cp -R ./ $out
+
+    runHook postInstall
   '';
   doInstallCheck = true;
   installCheckPhase = ''

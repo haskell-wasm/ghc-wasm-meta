@@ -1,16 +1,19 @@
-{ autoPatchelfHook, ncurses, stdenv, stdenvNoCC, zlib, }:
+{ autoPatchelfHook, fetchurl, ncurses, stdenv, stdenvNoCC, zlib, }:
 let
-  src = builtins.fetchTarball
+  src = fetchurl
     ((builtins.fromJSON (builtins.readFile ../autogen.json)).wasmedge);
 in
 stdenvNoCC.mkDerivation {
   name = "wasmedge";
-  dontUnpack = true;
+  inherit src;
   buildInputs = [ ncurses stdenv.cc.cc.lib zlib ];
   nativeBuildInputs = [ autoPatchelfHook ];
   installPhase = ''
-    mkdir $out
-    cp -a ${src}/bin ${src}/lib $out
+    runHook preInstall
+
+    cp -R ./ $out
+
+    runHook postInstall
   '';
   doInstallCheck = true;
   installCheckPhase = ''
