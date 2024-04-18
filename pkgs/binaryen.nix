@@ -1,14 +1,18 @@
-{ stdenvNoCC }:
+{ fetchurl, stdenvNoCC, zstd }:
 let
-  src = builtins.fetchTarball
+  src = fetchurl
     ((builtins.fromJSON (builtins.readFile ../autogen.json)).binaryen);
 in
 stdenvNoCC.mkDerivation {
   name = "binaryen";
   inherit src;
+  nativeBuildInputs = [ zstd ];
   installPhase = ''
-    mkdir -p $out/bin
-    install -Dm755 ${src}/bin/* $out/bin
+    runHook preInstall
+
+    cp -R ./ $out
+
+    runHook postInstall
   '';
   doInstallCheck = true;
   installCheckPhase = ''

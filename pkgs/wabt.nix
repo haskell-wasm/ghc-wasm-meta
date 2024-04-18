@@ -1,16 +1,19 @@
-{ autoPatchelfHook, openssl, stdenv, stdenvNoCC, }:
+{ autoPatchelfHook, fetchurl, openssl, stdenv, stdenvNoCC, }:
 let
-  src = builtins.fetchTarball
+  src = fetchurl
     ((builtins.fromJSON (builtins.readFile ../autogen.json)).wabt);
 in
 stdenvNoCC.mkDerivation {
   name = "wabt";
-  dontUnpack = true;
+  inherit src;
   buildInputs = [ openssl stdenv.cc.cc.lib ];
   nativeBuildInputs = [ autoPatchelfHook ];
   installPhase = ''
-    mkdir -p $out/bin
-    install -Dm755 ${src}/bin/* $out/bin
+    runHook preInstall
+
+    cp -R ./ $out
+
+    runHook postInstall
   '';
   doInstallCheck = true;
   installCheckPhase = ''

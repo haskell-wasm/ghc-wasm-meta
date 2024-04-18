@@ -1,15 +1,20 @@
-{ autoPatchelfHook, stdenvNoCC, }:
+{ autoPatchelfHook, fetchurl, stdenvNoCC, unzip }:
 let
-  src = builtins.fetchTarball
+  src = fetchurl
     ((builtins.fromJSON (builtins.readFile ../autogen.json)).bun);
 in
 stdenvNoCC.mkDerivation {
   name = "bun";
   dontUnpack = true;
-  nativeBuildInputs = [ autoPatchelfHook ];
+  nativeBuildInputs = [ autoPatchelfHook unzip ];
   installPhase = ''
+    runHook preInstall
+
+    unzip ${src}
     mkdir -p $out/bin
-    install -Dm755 ${src}/bun $out/bin
+    install -Dm755 */bun $out/bin
+
+    runHook postInstall
   '';
   doInstallCheck = true;
   installCheckPhase = ''
