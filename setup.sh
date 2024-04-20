@@ -102,7 +102,7 @@ for e in \
   "OPT=/bin/false"
 do
   echo "export $e" >> "$PREFIX/env"
-  echo "echo $e >> \$GITHUB_PATH" >> "$PREFIX/add_to_github_path.sh"
+  echo "echo $e >> \$GITHUB_ENV" >> "$PREFIX/add_to_github_path.sh"
 done
 
 for e in \
