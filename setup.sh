@@ -116,6 +116,7 @@ for e in \
   'CROSS_EMULATOR=${CROSS_EMULATOR:-"'"$PREFIX/wasm-run/bin/wasmtime.sh"'"}'
 do
   echo "export $e" >> "$PREFIX/env"
+  echo "echo $e >> \$GITHUB_ENV" >> "$PREFIX/add_to_github_path.sh"
 done
 
 if [ -n "${SKIP_GHC}" ]
