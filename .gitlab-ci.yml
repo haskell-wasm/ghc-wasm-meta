@@ -116,7 +116,7 @@ x86_64-linux-ubuntu:
       wasm32-wasi-cabal install ./core-tests
       for test in tasty-core-tests exit-status-test resource-release-test failing-pattern-test; do
         echo '#!/bin/sh' > "$TEST_WRAPPERS/$test"
-        echo "exec /tmp/.ghc-wasm/wasmtime/bin/wasmtime run --env PATH= --env PWD=\"\$PWD\" --dir /::/ -W tail-call -- /tmp/.ghc-wasm/.cabal/bin/$test.wasm \"\$@\"" \
+        echo "exec /tmp/.ghc-wasm/wasmtime/bin/wasmtime run --env PATH= --env PWD=\"\$PWD\" --dir /::/ -- /tmp/.ghc-wasm/.cabal/bin/$test.wasm \"\$@\"" \
           >> "$TEST_WRAPPERS/$test"
         chmod +x "$TEST_WRAPPERS/$test"
       done
