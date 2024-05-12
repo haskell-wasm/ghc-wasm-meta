@@ -47,7 +47,7 @@ stdenvNoCC.mkDerivation {
     echo '#include <iostream>' >> test.cpp
     echo 'void ffi_alloc_prep_closure(void);' >> test.cpp
     echo 'int main(void) { std::cout << &ffi_alloc_prep_closure << std::endl; }' >> test.cpp
-    $out/bin/clang++ test.cpp -lffi -o test.wasm
+    $out/bin/wasm32-wasi-clang++ test.cpp -lffi -o test.wasm
     popd
 
     runHook postInstallCheck

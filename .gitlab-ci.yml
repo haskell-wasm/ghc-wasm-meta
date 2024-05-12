@@ -1,5 +1,5 @@
 variables:
-  DOCKER_REV: 064e90c26dffe5709bd5b87dbd211b9a8b21fc5b
+  DOCKER_REV: a3d251db44ff17cf85234ea959778fb23f77edf1
   GIT_DEPTH: 1
   GIT_STRATEGY: clone
 
@@ -68,7 +68,7 @@ x86_64-linux-alpine-9.10:
 x86_64-linux-ubuntu:
   tags:
     - x86_64-linux
-  image: registry.gitlab.haskell.org/ghc/ci-images/x86_64-linux-ubuntu22_04:$DOCKER_REV
+  image: registry.gitlab.haskell.org/ghc/ci-images/x86_64-linux-ubuntu24_04:$DOCKER_REV
   before_script:
     - |
       sudo apt update
@@ -107,6 +107,13 @@ x86_64-linux-ubuntu:
       popd
     - |
       pushd "$(mktemp -d)"
+      curl -f -L --retry 5 https://github.com/Bodigrim/bitvec/archive/refs/heads/master.tar.gz | tar xz --strip-components=1
+      mv cabal.project.wasi cabal.project.local
+      wasm32-wasi-cabal build --enable-tests
+      wasmtime run -- $(find . -type f -name bitvec-tests.wasm)
+      popd
+    - |
+      pushd "$(mktemp -d)"
       curl -f -L --retry 5 https://github.com/UnkindPartition/tasty/archive/refs/heads/master.tar.gz | tar xz --strip-components=1
       echo "allow-newer: all:base, all:deepseq, all:template-haskell" >> cabal.project.local
       wasm32-wasi-cabal build all
@@ -116,7 +123,7 @@ x86_64-linux-ubuntu:
       wasm32-wasi-cabal install ./core-tests
       for test in tasty-core-tests exit-status-test resource-release-test failing-pattern-test; do
         echo '#!/bin/sh' > "$TEST_WRAPPERS/$test"
-        echo "exec /tmp/.ghc-wasm/wasmtime/bin/wasmtime run --env PATH= --env PWD=\"\$PWD\" --dir /::/ -- /tmp/.ghc-wasm/.cabal/bin/$test.wasm \"\$@\"" \
+        echo "exec wasmtime run --env PATH= --env PWD=\"\$PWD\" --dir /::/ -- /tmp/.ghc-wasm/.cabal/bin/$test.wasm \"\$@\"" \
           >> "$TEST_WRAPPERS/$test"
         chmod +x "$TEST_WRAPPERS/$test"
       done
@@ -125,6 +132,12 @@ x86_64-linux-ubuntu:
       core-tests/exit-status-tests.sh
       core-tests/failing-pattern-test.sh
 
+      popd
+    - |
+      pushd "$(mktemp -d)"
+      curl -f -L --retry 5 https://github.com/Bodigrim/tasty-bench/archive/refs/heads/master.tar.gz | tar xz --strip-components=1
+      wasm32-wasi-cabal build --enable-benchmarks
+      wasmtime run -- $(find . -type f -name bench-fibo.wasm)
       popd
     - |
       npm install -g \
@@ -139,7 +152,7 @@ x86_64-linux-ubuntu:
 x86_64-linux-nix:
   tags:
     - x86_64-linux
-  image: nixos/nix:2.22.0
+  image: nixos/nix:2.22.1
   before_script:
     - echo "experimental-features = nix-command flakes" >> /etc/nix/nix.conf
     - nix run nixpkgs#gnused -- -i -e 's/ nixbld//' /etc/nix/nix.conf

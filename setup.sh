@@ -87,9 +87,9 @@ done
 
 for e in \
   "AR=$PREFIX/wasi-sdk/bin/llvm-ar" \
-  "CC=$PREFIX/wasi-sdk/bin/clang" \
+  "CC=$PREFIX/wasi-sdk/bin/wasm32-wasi-clang" \
   "CC_FOR_BUILD=cc" \
-  "CXX=$PREFIX/wasi-sdk/bin/clang++" \
+  "CXX=$PREFIX/wasi-sdk/bin/wasm32-wasi-clang++" \
   "LD=$PREFIX/wasi-sdk/bin/wasm-ld" \
   "NM=$PREFIX/wasi-sdk/bin/llvm-nm" \
   "OBJCOPY=$PREFIX/wasi-sdk/bin/llvm-objcopy" \
@@ -106,11 +106,11 @@ do
 done
 
 for e in \
-  'CONF_CC_OPTS_STAGE2=${CONF_CC_OPTS_STAGE2:-"-Wno-error=int-conversion -Wno-error=strict-prototypes -Wno-error=implicit-function-declaration -O3 -fno-strict-aliasing -msimd128 -mnontrapping-fptoint -msign-ext -mbulk-memory -mmutable-globals -mmultivalue -mreference-types"}' \
-  'CONF_CXX_OPTS_STAGE2=${CONF_CXX_OPTS_STAGE2:-"-Wno-error=int-conversion -Wno-error=strict-prototypes -Wno-error=implicit-function-declaration -fno-exceptions -O3 -fno-strict-aliasing -msimd128 -mnontrapping-fptoint -msign-ext -mbulk-memory -mmutable-globals -mmultivalue -mreference-types"}' \
+  'CONF_CC_OPTS_STAGE2=${CONF_CC_OPTS_STAGE2:-"-fno-strict-aliasing -Wno-error=implicit-function-declaration -Wno-error=int-conversion -O3 -msimd128 -mnontrapping-fptoint -msign-ext -mbulk-memory -mmutable-globals -mmultivalue -mreference-types"}' \
+  'CONF_CXX_OPTS_STAGE2=${CONF_CXX_OPTS_STAGE2:-"-fno-exceptions -fno-strict-aliasing -Wno-error=implicit-function-declaration -Wno-error=int-conversion -O3 -msimd128 -mnontrapping-fptoint -msign-ext -mbulk-memory -mmutable-globals -mmultivalue -mreference-types"}' \
   'CONF_GCC_LINKER_OPTS_STAGE2=${CONF_GCC_LINKER_OPTS_STAGE2:-"-Wl,--compress-relocations,--error-limit=0,--growable-table,--keep-section=ghc_wasm_jsffi,--stack-first,--strip-debug "}' \
-  'CONF_CC_OPTS_STAGE1=${CONF_CC_OPTS_STAGE1:-"-Wno-error=int-conversion -Wno-error=strict-prototypes -Wno-error=implicit-function-declaration -O3 -fno-strict-aliasing -msimd128 -mnontrapping-fptoint -msign-ext -mbulk-memory -mmutable-globals -mmultivalue -mreference-types"}' \
-  'CONF_CXX_OPTS_STAGE1=${CONF_CXX_OPTS_STAGE1:-"-Wno-error=int-conversion -Wno-error=strict-prototypes -Wno-error=implicit-function-declaration -fno-exceptions -O3 -fno-strict-aliasing -msimd128 -mnontrapping-fptoint -msign-ext -mbulk-memory -mmutable-globals -mmultivalue -mreference-types"}' \
+  'CONF_CC_OPTS_STAGE1=${CONF_CC_OPTS_STAGE1:-"-fno-strict-aliasing -Wno-error=implicit-function-declaration -Wno-error=int-conversion -O3 -msimd128 -mnontrapping-fptoint -msign-ext -mbulk-memory -mmutable-globals -mmultivalue -mreference-types"}' \
+  'CONF_CXX_OPTS_STAGE1=${CONF_CXX_OPTS_STAGE1:-"-fno-exceptions -fno-strict-aliasing -Wno-error=implicit-function-declaration -Wno-error=int-conversion -O3 -msimd128 -mnontrapping-fptoint -msign-ext -mbulk-memory -mmutable-globals -mmultivalue -mreference-types"}' \
   'CONF_GCC_LINKER_OPTS_STAGE1=${CONF_GCC_LINKER_OPTS_STAGE1:-"-Wl,--compress-relocations,--error-limit=0,--growable-table,--keep-section=ghc_wasm_jsffi,--stack-first,--strip-debug "}' \
   'CONFIGURE_ARGS=${CONFIGURE_ARGS:-"--host=x86_64-linux --target=wasm32-wasi --with-intree-gmp --with-system-libffi"}' \
   'CROSS_EMULATOR=${CROSS_EMULATOR:-"'"$PREFIX/wasm-run/bin/wasmtime.sh"'"}'

@@ -556,7 +556,7 @@ script to install it, as documented in previous sections.
 
 For simplicity, the following subsections all assume `wasi-sdk` is
 installed to `~/.ghc-wasm/wasi-sdk`, and
-`~/.ghc-wasm/wasi-sdk/bin/clang` works.
+`~/.ghc-wasm/wasi-sdk/bin/wasm32-wasi-clang` works.
 
 ### Install `libffi-wasm`
 
@@ -579,9 +579,9 @@ can save this to somewhere else and source that script.
 
 ```bash
 export AR=~/.ghc-wasm/wasi-sdk/bin/llvm-ar
-export CC=~/.ghc-wasm/wasi-sdk/bin/clang
+export CC=~/.ghc-wasm/wasi-sdk/bin/wasm32-wasi-clang
 export CC_FOR_BUILD=cc
-export CXX=~/.ghc-wasm/wasi-sdk/bin/clang++
+export CXX=~/.ghc-wasm/wasi-sdk/bin/wasm32-wasi-clang++
 export LD=~/.ghc-wasm/wasi-sdk/bin/wasm-ld
 export NM=~/.ghc-wasm/wasi-sdk/bin/llvm-nm
 export OBJCOPY=~/.ghc-wasm/wasi-sdk/bin/llvm-objcopy
@@ -590,19 +590,15 @@ export RANLIB=~/.ghc-wasm/wasi-sdk/bin/llvm-ranlib
 export SIZE=~/.ghc-wasm/wasi-sdk/bin/llvm-size
 export STRINGS=~/.ghc-wasm/wasi-sdk/bin/llvm-strings
 export STRIP=~/.ghc-wasm/wasi-sdk/bin/llvm-strip
-export CONF_CC_OPTS_STAGE2="-Wno-error=int-conversion -Wno-error=strict-prototypes -Wno-error=implicit-function-declaration -O3 -fno-strict-aliasing -msimd128 -mnontrapping-fptoint -msign-ext -mbulk-memory -mmutable-globals -mmultivalue -mreference-types"
-export CONF_CXX_OPTS_STAGE2="-Wno-error=int-conversion -Wno-error=strict-prototypes -Wno-error=implicit-function-declaration -fno-exceptions -O3 -fno-strict-aliasing -msimd128 -mnontrapping-fptoint -msign-ext -mbulk-memory -mmutable-globals -mmultivalue -mreference-types"
+export CONF_CC_OPTS_STAGE2="-fno-strict-aliasing -Wno-error=implicit-function-declaration -Wno-error=int-conversion -O3 -msimd128 -mnontrapping-fptoint -msign-ext -mbulk-memory -mmutable-globals -mmultivalue -mreference-types"
+export CONF_CXX_OPTS_STAGE2="-fno-exceptions -fno-strict-aliasing -Wno-error=implicit-function-declaration -Wno-error=int-conversion -O3 -msimd128 -mnontrapping-fptoint -msign-ext -mbulk-memory -mmutable-globals -mmultivalue -mreference-types"
 export CONF_GCC_LINKER_OPTS_STAGE2="-Wl,--compress-relocations,--error-limit=0,--growable-table,--keep-section=ghc_wasm_jsffi,--stack-first,--strip-debug "
 export CONFIGURE_ARGS="--target=wasm32-wasi --with-intree-gmp --with-system-libffi"
 ```
 
-### Checkout & patch GHC
+### Checkout GHC
 
-Checkout GHC. Latest `master` revision contains wasm backend support.
-Do apply the patches
-[here](https://gitlab.haskell.org/ghc/ghc/-/blob/cc25d52e0f65d54c052908c7d91d5946342ab88a/.gitlab-ci.yml#L816),
-they may get removed some time later but for now they're mandatory to
-get the wasm backend building.
+Checkout GHC.
 
 ### Boot & configure & build GHC
 
