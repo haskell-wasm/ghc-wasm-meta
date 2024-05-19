@@ -2,6 +2,14 @@
 
 set -euo pipefail
 
+FLAVOUR="${FLAVOUR:-gmp}"
+REPO=$(realpath "$(dirname "${BASH_SOURCE[0]}")")
+SKIP_GHC="${SKIP_GHC:-}"
+
+if [[ -z "${PREFIX:-}" ]]; then
+  PREFIX="$HOME/.ghc-wasm"
+fi
+
 host_specific() {
   if [[ $(uname -s) == "Linux" && $(uname -m) == "x86_64" ]]; then
     HOST="x86_64-linux"
@@ -14,6 +22,7 @@ host_specific() {
     BUN="bun"
     CABAL="cabal"
     BINARYEN="binaryen"
+    GHC="wasm32-wasi-ghc-$FLAVOUR"
   fi
 
   if [[ $(uname -s) == "Linux" && $(uname -m) == "aarch64" ]]; then
@@ -27,6 +36,8 @@ host_specific() {
     BUN="bun_aarch64_linux"
     CABAL="cabal_aarch64_linux"
     BINARYEN="binaryen_aarch64_linux"
+    GHC="wasm32-wasi-ghc-gmp-aarch64-linux"
+    FLAVOUR="gmp"
   fi
 
   if [[ $(uname -s) == "Darwin" && $(uname -m) == "arm64" ]]; then
@@ -40,6 +51,8 @@ host_specific() {
     BUN="bun_aarch64_darwin"
     CABAL="cabal_aarch64_darwin"
     BINARYEN="binaryen_aarch64_darwin"
+    GHC="wasm32-wasi-ghc-gmp-aarch64-darwin"
+    FLAVOUR="gmp"
   fi
 
   if [[ $(uname -s) == "Darwin" && $(uname -m) == "x86_64" ]]; then
@@ -53,18 +66,12 @@ host_specific() {
     BUN="bun_x86_64_darwin"
     CABAL="cabal_x86_64_darwin"
     BINARYEN="binaryen_x86_64_darwin"
+    GHC="wasm32-wasi-ghc-gmp-x86_64-darwin"
+    FLAVOUR="gmp"
   fi
 }
 
 host_specific
-
-FLAVOUR="${FLAVOUR:-gmp}"
-REPO=$(realpath "$(dirname "${BASH_SOURCE[0]}")")
-SKIP_GHC="${SKIP_GHC:-}"
-
-if [[ -z "${PREFIX:-}" ]]; then
-  PREFIX="$HOME/.ghc-wasm"
-fi
 
 # wtf macos
 # PREFIX=$(realpath "$PREFIX")
@@ -188,7 +195,13 @@ fi
 
 mkdir -p "$PREFIX/wasm32-wasi-ghc"
 mkdir ghc
-curl -f -L --retry 5 "$(jq -r '."wasm32-wasi-ghc-'"$FLAVOUR"'".url' "$REPO"/autogen.json)" | tar xJ -C ghc --strip-components=1
+if [[ $(uname -s) == "Linux" && $(uname -m) == "x86_64" ]]; then
+  curl -f -L --retry 5 "$(jq -r ".\"$GHC\".url" "$REPO"/autogen.json)" | tar xJ -C ghc --strip-components=1
+else
+  curl -f -L --retry 5 "$(jq -r ".\"$GHC\".url" "$REPO"/autogen.json)" -o ghc.zip
+  unzip ghc.zip
+  tar xf ghc-*.tar.zst --zstd -C ghc --strip-components=1
+fi
 pushd ghc
 sh -c ". $PREFIX/env && ./configure \$CONFIGURE_ARGS --prefix=$PREFIX/wasm32-wasi-ghc && make install"
 popd
