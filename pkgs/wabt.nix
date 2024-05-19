@@ -1,4 +1,4 @@
-{ autoPatchelfHook, fetchurl, openssl, stdenv, stdenvNoCC, }:
+{ autoPatchelfHook, fetchurl, openssl_1_1, stdenv, stdenvNoCC, }:
 let
   src = fetchurl
     ((builtins.fromJSON (builtins.readFile ../autogen.json)).wabt);
@@ -6,7 +6,7 @@ in
 stdenvNoCC.mkDerivation {
   name = "wabt";
   inherit src;
-  buildInputs = [ openssl stdenv.cc.cc.lib ];
+  buildInputs = [ openssl_1_1 stdenv.cc.cc.lib ];
   nativeBuildInputs = [ autoPatchelfHook ];
   installPhase = ''
     runHook preInstall

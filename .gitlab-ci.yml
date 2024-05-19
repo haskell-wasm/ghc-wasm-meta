@@ -1,3 +1,8 @@
+workflow:
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+
 variables:
   DOCKER_REV: a3d251db44ff17cf85234ea959778fb23f77edf1
   GIT_DEPTH: 1
@@ -104,6 +109,14 @@ x86_64-linux-ubuntu:
       pushd "$(mktemp -d)"
       curl -f -L --retry 5 https://github.com/corsis/clock/archive/refs/heads/master.tar.gz | tar xz --strip-components=1
       wasm32-wasi-cabal build
+      popd
+    - |
+      pushd "$(mktemp -d)"
+      curl -f -L --retry 5 https://github.com/haskell/zlib/archive/refs/heads/master.tar.gz | tar xz --strip-components=1
+      mv cabal.project.wasi cabal.project.local
+      wasm32-wasi-cabal build --allow-newer=all:base --enable-tests all
+      cd zlib
+      $CROSS_EMULATOR $(find .. -type f -name tests.wasm)
       popd
     - |
       pushd "$(mktemp -d)"

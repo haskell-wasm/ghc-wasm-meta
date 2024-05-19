@@ -7,7 +7,7 @@ async function fetchJSON(url) {
 }
 
 const _stableBindists = fetchJSON(
-  "https://raw.githubusercontent.com/amesgen/ghc-wasm-bindists/main/meta.json"
+  "https://raw.githubusercontent.com/tweag/ghc-wasm-bindists/main/meta.json"
 );
 
 async function fetchStableBindist(id) {
@@ -61,18 +61,76 @@ const _deno = fetchGitHubLatestRelease(
   "deno",
   "x86_64-unknown-linux-gnu.zip"
 );
+const _deno_aarch64_linux = fetchGitHubLatestRelease(
+  "denoland",
+  "deno",
+  "aarch64-unknown-linux-gnu.zip"
+);
+const _deno_aarch64_darwin = fetchGitHubLatestRelease(
+  "denoland",
+  "deno",
+  "aarch64-apple-darwin.zip"
+);
+const _deno_x86_64_darwin = fetchGitHubLatestRelease(
+  "denoland",
+  "deno",
+  "x86_64-apple-darwin.zip"
+);
 const _nodejs = fetchGitHubLatestRelease(
-  "type-dance",
+  "TerrorJack",
   "node-static",
   "linux-x64-static.tar.xz"
 );
+const _nodejs_aarch64_linux = fetchurl(
+  "https://nodejs.org/dist/v22.2.0/node-v22.2.0-linux-arm64.tar.xz"
+);
+const _nodejs_aarch64_darwin = fetchurl(
+  "https://nodejs.org/dist/v22.2.0/node-v22.2.0-darwin-arm64.tar.xz"
+);
+const _nodejs_x86_64_darwin = fetchurl(
+  "https://nodejs.org/dist/v22.2.0/node-v22.2.0-darwin-x64.tar.xz"
+);
 const _bun = fetchGitHubLatestRelease("oven-sh", "bun", "linux-x64.zip");
+const _bun_aarch64_linux = fetchGitHubLatestRelease(
+  "oven-sh",
+  "bun",
+  "linux-aarch64.zip"
+);
+const _bun_aarch64_darwin = fetchGitHubLatestRelease(
+  "oven-sh",
+  "bun",
+  "darwin-aarch64.zip"
+);
+const _bun_x86_64_darwin = fetchGitHubLatestRelease(
+  "oven-sh",
+  "bun",
+  "darwin-x64.zip"
+);
 const _binaryen = fetchGitHubLatestRelease(
   "type-dance",
   "binaryen",
   "x86_64-linux-musl.tar.zst"
 );
-const _wabt = fetchGitHubLatestRelease("WebAssembly", "wabt", "ubuntu.tar.gz");
+const _binaryen_aarch64_linux = fetchGitHubLatestRelease(
+  "WebAssembly",
+  "binaryen",
+  "aarch64-linux.tar.gz"
+);
+const _binaryen_aarch64_darwin = fetchGitHubLatestRelease(
+  "WebAssembly",
+  "binaryen",
+  "arm64-macos.tar.gz"
+);
+const _binaryen_x86_64_darwin = fetchGitHubLatestRelease(
+  "WebAssembly",
+  "binaryen",
+  "x86_64-macos.tar.gz"
+);
+const _wabt = fetchGitHubLatestRelease(
+  "WebAssembly",
+  "wabt",
+  "ubuntu-20.04.tar.gz"
+);
 const _wasmtime = fetchGitHubLatestRelease(
   "type-dance",
   "wasm-tools-static",
@@ -96,15 +154,54 @@ const _wasmtime_x86_64_darwin = fetchGitHubLatestRelease(
 const _wasmedge = fetchGitHubLatestRelease(
   "WasmEdge",
   "WasmEdge",
-  "ubuntu20.04_x86_64.tar.gz"
+  "alpine3.16_x86_64_static.tar.gz"
+);
+const _wasmedge_aarch64_linux = fetchGitHubLatestRelease(
+  "WasmEdge",
+  "WasmEdge",
+  "alpine3.16_aarch64_static.tar.gz"
+);
+const _wasmedge_aarch64_darwin = fetchGitHubLatestRelease(
+  "WasmEdge",
+  "WasmEdge",
+  "darwin_arm64.tar.gz"
+);
+const _wasmedge_x86_64_darwin = fetchGitHubLatestRelease(
+  "WasmEdge",
+  "WasmEdge",
+  "darwin_x86_64.tar.gz"
 );
 const _wazero = fetchGitHubLatestRelease(
   "tetratelabs",
   "wazero",
   "linux_amd64.tar.gz"
 );
+const _wazero_aarch64_linux = fetchGitHubLatestRelease(
+  "tetratelabs",
+  "wazero",
+  "linux_arm64.tar.gz"
+);
+const _wazero_aarch64_darwin = fetchGitHubLatestRelease(
+  "tetratelabs",
+  "wazero",
+  "darwin_arm64.tar.gz"
+);
+const _wazero_x86_64_darwin = fetchGitHubLatestRelease(
+  "tetratelabs",
+  "wazero",
+  "darwin_amd64.tar.gz"
+);
 const _cabal = fetchurl(
-  "https://downloads.haskell.org/cabal/cabal-install-3.10.3.0/cabal-install-3.10.3.0-x86_64-linux-alpine3_12.tar.xz"
+  "https://downloads.haskell.org/ghcup/unofficial-bindists/cabal/3.11.0.0.2024.4.19/cabal-install-3.11.0.0-x86_64-linux-unknown.tar.xz"
+);
+const _cabal_aarch64_linux = fetchurl(
+  "https://downloads.haskell.org/ghcup/unofficial-bindists/cabal/3.11.0.0.2024.4.19/cabal-install-3.11.0.0-aarch64-linux-deb10.tar.xz"
+);
+const _cabal_aarch64_darwin = fetchurl(
+  "https://downloads.haskell.org/ghcup/unofficial-bindists/cabal/3.11.0.0.2024.4.19/cabal-install-3.11.0.0-aarch64-apple-darwin.tar.xz"
+);
+const _cabal_x86_64_darwin = fetchurl(
+  "https://downloads.haskell.org/ghcup/unofficial-bindists/cabal/3.11.0.0.2024.4.19/cabal-install-3.11.0.0-x86_64-apple-darwin.tar.xz"
 );
 const _proot = fetchStableBindist("proot");
 
@@ -123,17 +220,38 @@ await Deno.writeTextFile(
       "wasi-sdk_aarch64_linux": await _wasi_sdk_aarch64_linux,
       "libffi-wasm": await _libffi_wasm,
       deno: await _deno,
+      deno_aarch64_linux: await _deno_aarch64_linux,
+      deno_aarch64_darwin: await _deno_aarch64_darwin,
+      deno_x86_64_darwin: await _deno_x86_64_darwin,
       nodejs: await _nodejs,
+      nodejs_aarch64_linux: await _nodejs_aarch64_linux,
+      nodejs_aarch64_darwin: await _nodejs_aarch64_darwin,
+      nodejs_x86_64_darwin: await _nodejs_x86_64_darwin,
       bun: await _bun,
+      bun_aarch64_linux: await _bun_aarch64_linux,
+      bun_aarch64_darwin: await _bun_aarch64_darwin,
+      bun_x86_64_darwin: await _bun_x86_64_darwin,
       binaryen: await _binaryen,
+      binaryen_aarch64_linux: await _binaryen_aarch64_linux,
+      binaryen_aarch64_darwin: await _binaryen_aarch64_darwin,
+      binaryen_x86_64_darwin: await _binaryen_x86_64_darwin,
       wabt: await _wabt,
       wasmtime: await _wasmtime,
       wasmtime_aarch64_linux: await _wasmtime_aarch64_linux,
       wasmtime_aarch64_darwin: await _wasmtime_aarch64_darwin,
       wasmtime_x86_64_darwin: await _wasmtime_x86_64_darwin,
       wasmedge: await _wasmedge,
+      wasmedge_aarch64_linux: await _wasmedge_aarch64_linux,
+      wasmedge_aarch64_darwin: await _wasmedge_aarch64_darwin,
+      wasmedge_x86_64_darwin: await _wasmedge_x86_64_darwin,
       wazero: await _wazero,
+      wazero_aarch64_linux: await _wazero_aarch64_linux,
+      wazero_aarch64_darwin: await _wazero_aarch64_darwin,
+      wazero_x86_64_darwin: await _wazero_x86_64_darwin,
       cabal: await _cabal,
+      cabal_aarch64_linux: await _cabal_aarch64_linux,
+      cabal_aarch64_darwin: await _cabal_aarch64_darwin,
+      cabal_x86_64_darwin: await _cabal_x86_64_darwin,
       proot: await _proot,
     },
     null,

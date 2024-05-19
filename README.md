@@ -32,11 +32,11 @@ flavours. See the next subsection for explanations of these flavours.
 
 ## Getting started without nix
 
-This repo also provides a `setup.sh` script that installs the provided
-tools to `~/.ghc-wasm`:
+This repo also provides an installation script that installs the
+provided tools to `~/.ghc-wasm`:
 
 ```sh
-$ ./setup.sh
+$ curl https://gitlab.haskell.org/ghc/ghc-wasm-meta/-/raw/master/bootstrap.sh | sh
 ...
 Everything set up in /home/username/.ghc-wasm.
 Run 'source /home/username/.ghc-wasm/env' to add tools to your PATH.
@@ -52,7 +52,9 @@ plus:
     actions, so later steps in the same job can access the same
     environment variables set by `env`
 
-`setup.sh` can be configured via these environment variables:
+`bootstrap.sh` is just a thin wrapper to download the `ghc-wasm-meta`
+repo tarball and invoke `setup.sh`. These scripts can be configured
+via these environment variables:
 
   - `PREFIX`: installation destination, defaults to `~/.ghc-wasm`
   - `FLAVOUR`: can be `gmp`, `native` or `unreg`.
@@ -217,7 +219,7 @@ to address this fact, and the command/reactor distinction arises:
 
 - A WASI command module must export a `_start` function. You can see
   how `_start` is defined in `wasi-libc`
-  [here](https://gitlab.haskell.org/ghc/wasi-libc/-/blob/main/libc-bottom-half/crt/crt1-command.c).
+  [here](https://gitlab.haskell.org/ghc/wasi-libc/-/blob/master/libc-bottom-half/crt/crt1-command.c).
   It'll call the ctors, then call the main function in user code, and
   finally call the dtors. Since the dtors are called, the program
   state is finalized, so attempting to call any export after this
@@ -225,7 +227,7 @@ to address this fact, and the command/reactor distinction arises:
 - A WASI reactor module may export an `_initialize` function, if it
   exists, it must be called exactly once before any other exports are
   called. See its definition
-  [here](https://gitlab.haskell.org/ghc/wasi-libc/-/blob/main/libc-bottom-half/crt/crt1-reactor.c),
+  [here](https://gitlab.haskell.org/ghc/wasi-libc/-/blob/master/libc-bottom-half/crt/crt1-reactor.c),
   it merely calls the ctors. So after `_initialize`, you can call the
   exports freely, reusing the instance state. If you want to
   "finalize", you're in charge of exporting and calling
@@ -326,7 +328,7 @@ Which functions can be exported via the `--export` flag?
 
 - Any C function which symbol is externally visible. For libc, there
   is a
-  [list](https://gitlab.haskell.org/ghc/wasi-libc/-/blob/main/expected/wasm32-wasi/defined-symbols.txt)
+  [list](https://gitlab.haskell.org/ghc/wasi-libc/-/blob/master/expected/wasm32-wasip1/defined-symbols.txt)
   of all externally visible symbols. For the GHC RTS, see
   [`HsFFI.h`](https://gitlab.haskell.org/ghc/ghc/-/blob/master/rts/include/HsFFI.h)
   and
