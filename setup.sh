@@ -98,7 +98,7 @@ mkdir -p "$PREFIX/bun/bin"
 install -m755 bun-*/bun "$PREFIX/bun/bin"
 
 mkdir -p "$PREFIX/binaryen"
-curl -f -L --retry 5 "$(jq -r ".\"$BINARYEN\".url" "$REPO"/autogen.json)" | tar x --zstd -C "$PREFIX/binaryen" --strip-components=1
+curl -f -L --retry 5 "$(jq -r ".\"$BINARYEN\".url" "$REPO"/autogen.json)" | tar xz -C "$PREFIX/binaryen" --strip-components=1
 
 mkdir -p "$PREFIX/wabt"
 curl -f -L --retry 5 "$(jq -r .wabt.url "$REPO"/autogen.json)" | tar xz -C "$PREFIX/wabt" --strip-components=1

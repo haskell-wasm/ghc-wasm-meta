@@ -88,8 +88,8 @@
     "hash": "sha512-Rc4c9QHTn0Geqw9g8GgE6z6XnFw+TJ7E0jBqm4FUoaRqD2LDu+Ql06a7YW0xPhW0busGHaEX5Ckezwr8+FAWXA=="
   },
   "binaryen": {
-    "url": "https://github.com/type-dance/binaryen/releases/download/version_117/binaryen-version_117-x86_64-linux-musl.tar.zst",
-    "hash": "sha512-3EHDuoVxrlS6srWIzBboC5GFSOVBft5zO246SheSSbIZe0I5fwehU61LY98tKyTh+sb4BY8u+f+Bicn7w6gtbA=="
+    "url": "https://github.com/type-dance/binaryen/releases/download/version_117/binaryen-version_117-x86_64-linux-musl.tar.gz",
+    "hash": "sha512-8cV8ZZKJK/ygavLI4JQfk7n21oxWaltLhvpg5FShvtKpVMk7aF6mnTqRwDjCMkG2AenzLiu62KsMF1ltfviGjQ=="
   },
   "binaryen_aarch64_linux": {
     "url": "https://github.com/WebAssembly/binaryen/releases/download/version_117/binaryen-version_117-aarch64-linux.tar.gz",

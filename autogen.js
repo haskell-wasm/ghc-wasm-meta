@@ -109,7 +109,7 @@ const _bun_x86_64_darwin = fetchGitHubLatestRelease(
 const _binaryen = fetchGitHubLatestRelease(
   "type-dance",
   "binaryen",
-  "x86_64-linux-musl.tar.zst"
+  "x86_64-linux-musl.tar.gz"
 );
 const _binaryen_aarch64_linux = fetchGitHubLatestRelease(
   "WebAssembly",
