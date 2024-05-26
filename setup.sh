@@ -182,13 +182,13 @@ for e in \
   'CONF_CXX_OPTS_STAGE1=${CONF_CXX_OPTS_STAGE1:-"-fno-exceptions -fno-strict-aliasing -Wno-error=implicit-function-declaration -Wno-error=int-conversion -O3 -msimd128 -mnontrapping-fptoint -msign-ext -mbulk-memory -mmutable-globals -mmultivalue -mreference-types"}' \
   'CONF_GCC_LINKER_OPTS_STAGE1=${CONF_GCC_LINKER_OPTS_STAGE1:-"-Wl,--compress-relocations,--error-limit=0,--growable-table,--keep-section=ghc_wasm_jsffi,--stack-first,--strip-debug "}' \
   "CONFIGURE_ARGS=\"--host=$HOST --target=wasm32-wasi --with-intree-gmp --with-system-libffi\"" \
-  'CROSS_EMULATOR=${CROSS_EMULATOR:-"'"$PREFIX/wasm-run/bin/wasmtime.sh"'"}'
+  'CROSS_EMULATOR=${CROSS_EMULATOR:-"'"$PREFIX/wasm-run/bin/wasm-run.mjs"'"}'
 do
   echo "export $e" >> "$PREFIX/env"
   echo "echo $e >> \$GITHUB_ENV" >> "$PREFIX/add_to_github_path.sh"
 done
 
-if [ -n "${SKIP_GHC}" ]
+if [[ -n "${SKIP_GHC}" ]]
 then
 	exit
 fi
@@ -198,12 +198,10 @@ mkdir ghc
 if [[ $(uname -s) == "Linux" && $(uname -m) == "x86_64" ]]; then
   curl -f -L --retry 5 "$(jq -r ".\"$GHC\".url" "$REPO"/autogen.json)" | tar xJ -C ghc --strip-components=1
 else
-  curl -f -L --retry 5 "$(jq -r ".\"$GHC\".url" "$REPO"/autogen.json)" -o ghc.zip
-  unzip ghc.zip
-  tar xf ghc-*.tar.zst --zstd -C ghc --strip-components=1
+  curl -f -L --retry 5 "$(jq -r ".\"$GHC\".url" "$REPO"/autogen.json)" | tar x --zstd -C ghc --strip-components=1
 fi
 pushd ghc
-sh -c ". $PREFIX/env && ./configure \$CONFIGURE_ARGS --prefix=$PREFIX/wasm32-wasi-ghc && make install"
+sh -c ". $PREFIX/env && ./configure \$CONFIGURE_ARGS --prefix=$PREFIX/wasm32-wasi-ghc && exec make install"
 popd
 
 mkdir -p "$PREFIX/cabal/bin"
@@ -222,7 +220,7 @@ echo \
 chmod 755 "$PREFIX/wasm32-wasi-cabal/bin/wasm32-wasi-cabal"
 
 mkdir "$PREFIX/.cabal"
-if [ "$FLAVOUR" != 9.6 ] && [ "$FLAVOUR" != 9.8 ] && [ "$FLAVOUR" != 9.10 ]
+if [[ "$FLAVOUR" != 9.6 ]] && [[ "$FLAVOUR" != 9.8 ]] && [[ "$FLAVOUR" != 9.10 ]]
 then
   cp "$REPO/cabal.config" "$PREFIX/.cabal/config"
 fi

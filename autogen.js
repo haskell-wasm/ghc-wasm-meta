@@ -58,6 +58,9 @@ const _wasm32_wasi_ghc_gmp_aarch64_darwin = fetchStableBindist(
 const _wasm32_wasi_ghc_gmp_x86_64_darwin = fetchStableBindist(
   "wasm32-wasi-ghc-gmp-x86_64-darwin"
 );
+const _wasm32_wasi_ghc_gmp_aarch64_linux = fetchStableBindist(
+  "wasm32-wasi-ghc-gmp-aarch64-linux"
+);
 const _wasi_sdk = fetchStableBindist("wasi-sdk");
 const _wasi_sdk_darwin = fetchStableBindist("wasi-sdk-darwin");
 const _wasi_sdk_aarch64_linux = fetchStableBindist("wasi-sdk-aarch64-linux");
@@ -138,34 +141,34 @@ const _wabt = fetchGitHubLatestRelease(
   "ubuntu-20.04.tar.gz"
 );
 const _wasmtime = fetchGitHubLatestRelease(
-  "type-dance",
+  "TerrorJack",
   "wasm-tools-static",
   "x86_64-linux.tar.zst"
 );
 const _wasmtime_aarch64_linux = fetchGitHubLatestRelease(
-  "type-dance",
+  "TerrorJack",
   "wasm-tools-static",
   "aarch64-linux.tar.zst"
 );
 const _wasmtime_aarch64_darwin = fetchGitHubLatestRelease(
-  "type-dance",
+  "TerrorJack",
   "wasm-tools-static",
   "darwin-aarch64.tar.zst"
 );
 const _wasmtime_x86_64_darwin = fetchGitHubLatestRelease(
-  "type-dance",
+  "TerrorJack",
   "wasm-tools-static",
   "darwin-x86_64.tar.zst"
 );
 const _wasmedge = fetchGitHubLatestRelease(
   "WasmEdge",
   "WasmEdge",
-  "alpine3.16_x86_64_static.tar.gz"
+  "ubuntu20.04_x86_64.tar.gz"
 );
 const _wasmedge_aarch64_linux = fetchGitHubLatestRelease(
   "WasmEdge",
   "WasmEdge",
-  "alpine3.16_aarch64_static.tar.gz"
+  "ubuntu20.04_aarch64.tar.gz"
 );
 const _wasmedge_aarch64_darwin = fetchGitHubLatestRelease(
   "WasmEdge",
@@ -225,6 +228,8 @@ await Deno.writeTextFile(
         await _wasm32_wasi_ghc_gmp_aarch64_darwin,
       "wasm32-wasi-ghc-gmp-x86_64-darwin":
         await _wasm32_wasi_ghc_gmp_x86_64_darwin,
+      "wasm32-wasi-ghc-gmp-aarch64-linux":
+        await _wasm32_wasi_ghc_gmp_aarch64_linux,
       "wasi-sdk": await _wasi_sdk,
       "wasi-sdk_darwin": await _wasi_sdk_darwin,
       "wasi-sdk_aarch64_linux": await _wasi_sdk_aarch64_linux,

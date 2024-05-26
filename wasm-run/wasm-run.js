@@ -1,4 +1,4 @@
-#!/usr/bin/env -S deno run --allow-read --allow-write --v8-flags=--liftoff-only,--no-wasm-bounds-checks,--no-wasm-stack-checks,--no-wasm-opt,--wasm-lazy-compilation,--wasm-lazy-validation
+#!/usr/bin/env -S deno run --allow-read --allow-write
 
 import WasiContext from "https://deno.land/std@0.206.0/wasi/snapshot_preview1.ts";
 
@@ -21,4 +21,19 @@ const instance = (
   })
 ).instance;
 
-context.start(instance);
+try {
+  let ec = context.start(instance);
+  if (ec === null) {
+    ec = 0;
+  }
+  if (ec >= 126) {
+    ec = 1;
+  }
+  Deno.exit(ec);
+} catch (err) {
+  if (!(err instanceof WebAssembly.RuntimeError)) {
+    throw err;
+  }
+  console.error(err.stack);
+  Deno.exit(134);
+}

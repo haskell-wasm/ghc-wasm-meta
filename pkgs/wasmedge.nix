@@ -15,7 +15,7 @@ stdenvNoCC.mkDerivation {
 
     runHook postInstall
   '';
-  doInstallCheck = false;
+  doInstallCheck = true;
   installCheckPhase = ''
     $out/bin/wasmedge --version
   '';

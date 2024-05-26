@@ -1,4 +1,4 @@
-#!/usr/bin/env -S node --no-warnings --experimental-wasi-unstable-preview1 --liftoff-only --no-wasm-bounds-checks --no-wasm-stack-checks --no-wasm-opt --wasm-lazy-compilation --wasm-lazy-validation
+#!/usr/bin/env -S node --no-turbo-fast-api-calls --no-warnings
 
 import fs from "node:fs/promises";
 import { WASI } from "node:wasi";
@@ -15,7 +15,6 @@ const wasi = new WASI({
   args: argv,
   env: { PATH: "", PWD: process.cwd() },
   preopens: { "/": "/" },
-  returnOnExit: false,
 });
 
 const instance = (
@@ -24,4 +23,18 @@ const instance = (
   })
 ).instance;
 
-wasi.start(instance);
+try {
+  let ec = wasi.start(instance);
+  // wasmtime reports "exit with invalid exit status outside of [0..126)"
+  if (ec >= 126) {
+    ec = 1;
+  }
+  process.exit(ec);
+} catch (err) {
+  if (!(err instanceof WebAssembly.RuntimeError)) {
+    throw err;
+  }
+  console.error(err.stack);
+  // wasmtime exits with 128+SIGABRT
+  process.exit(134);
+}

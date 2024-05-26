@@ -4,7 +4,7 @@ workflow:
     - if: $CI_PIPELINE_SOURCE == "merge_request_event"
 
 variables:
-  DOCKER_REV: a3d251db44ff17cf85234ea959778fb23f77edf1
+  DOCKER_REV: dbbc0f6f5b73930ead052ca8161e969f1755eed7
   GIT_DEPTH: 1
   GIT_STRATEGY: clone
 
@@ -34,7 +34,7 @@ variables:
       wasm32-wasi-ghc hello.hs -o hello.wasm
       $CROSS_EMULATOR ./hello.wasm "114 514" 233
       wasm-run ./hello.wasm "114 514" 233
-      wasm-run.mjs ./hello.wasm "114 514" 233
+      wasmtime run ./hello.wasm "114 514" 233
       bun run ./hello.wasm "114 514" 233
       # wasmedge run -- ./hello.wasm "114 514" 233
       wazero run ./hello.wasm -- "114 514" 233
@@ -123,7 +123,7 @@ x86_64-linux-ubuntu:
       curl -f -L --retry 5 https://github.com/Bodigrim/bitvec/archive/refs/heads/master.tar.gz | tar xz --strip-components=1
       mv cabal.project.wasi cabal.project.local
       wasm32-wasi-cabal build --enable-tests
-      wasmtime run -- $(find . -type f -name bitvec-tests.wasm)
+      $CROSS_EMULATOR $(find . -type f -name bitvec-tests.wasm)
       popd
     - |
       pushd "$(mktemp -d)"
@@ -136,7 +136,7 @@ x86_64-linux-ubuntu:
       wasm32-wasi-cabal install ./core-tests
       for test in tasty-core-tests exit-status-test resource-release-test failing-pattern-test; do
         echo '#!/bin/sh' > "$TEST_WRAPPERS/$test"
-        echo "exec wasmtime run --env PATH= --env PWD=\"\$PWD\" --dir /::/ -- /tmp/.ghc-wasm/.cabal/bin/$test.wasm \"\$@\"" \
+        echo "exec $CROSS_EMULATOR /tmp/.ghc-wasm/.cabal/bin/$test.wasm \"\$@\"" \
           >> "$TEST_WRAPPERS/$test"
         chmod +x "$TEST_WRAPPERS/$test"
       done
@@ -150,7 +150,18 @@ x86_64-linux-ubuntu:
       pushd "$(mktemp -d)"
       curl -f -L --retry 5 https://github.com/Bodigrim/tasty-bench/archive/refs/heads/master.tar.gz | tar xz --strip-components=1
       wasm32-wasi-cabal build --enable-benchmarks
-      wasmtime run -- $(find . -type f -name bench-fibo.wasm)
+      $CROSS_EMULATOR $(find . -type f -name bench-fibo.wasm)
+      popd
+    - |
+      pushd "$(mktemp -d)"
+      curl -f -L --retry 5 https://github.com/extism/haskell-pdk/archive/refs/heads/main.tar.gz | tar xz --strip-components=1
+      wasm32-wasi-cabal build all
+      popd
+    - |
+      pushd "$(mktemp -d)"
+      curl -f -L --retry 5 https://github.com/AntanasKal/SpaceInvaders/archive/refs/heads/develop.tar.gz | tar xz --strip-components=1
+      echo "allow-newer: all:deepseq" >> cabal.project.local
+      wasm32-wasi-cabal build wasmBuild
       popd
     - |
       npm install -g \
