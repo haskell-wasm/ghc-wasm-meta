@@ -201,16 +201,16 @@ const _wazero_x86_64_darwin = fetchGitHubLatestRelease(
   "darwin_amd64.tar.gz"
 );
 const _cabal = fetchurl(
-  "https://downloads.haskell.org/ghcup/unofficial-bindists/cabal/3.11.0.0.2024.4.19/cabal-install-3.11.0.0-x86_64-linux-unknown.tar.xz"
+  "https://downloads.haskell.org/ghcup/unofficial-bindists/cabal/3.12.1.0/cabal-install-3.12.1.0-x86_64-linux-unknown.tar.xz"
 );
 const _cabal_aarch64_linux = fetchurl(
-  "https://downloads.haskell.org/ghcup/unofficial-bindists/cabal/3.11.0.0.2024.4.19/cabal-install-3.11.0.0-aarch64-linux-deb10.tar.xz"
+  "https://downloads.haskell.org/ghcup/unofficial-bindists/cabal/3.12.1.0/cabal-install-3.12.1.0-aarch64-linux-deb10.tar.xz"
 );
 const _cabal_aarch64_darwin = fetchurl(
-  "https://downloads.haskell.org/ghcup/unofficial-bindists/cabal/3.11.0.0.2024.4.19/cabal-install-3.11.0.0-aarch64-apple-darwin.tar.xz"
+  "https://downloads.haskell.org/ghcup/unofficial-bindists/cabal/3.12.1.0/cabal-install-3.12.1.0-aarch64-apple-darwin.tar.xz"
 );
 const _cabal_x86_64_darwin = fetchurl(
-  "https://downloads.haskell.org/ghcup/unofficial-bindists/cabal/3.11.0.0.2024.4.19/cabal-install-3.11.0.0-x86_64-apple-darwin.tar.xz"
+  "https://downloads.haskell.org/ghcup/unofficial-bindists/cabal/3.12.1.0/cabal-install-3.12.1.0-x86_64-apple-darwin.tar.xz"
 );
 const _proot = fetchStableBindist("proot");
 
