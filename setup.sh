@@ -84,7 +84,7 @@ trap 'rm -rf "$workdir"' EXIT
 pushd "$workdir"
 
 mkdir -p "$PREFIX/wasi-sdk"
-curl -f -L --retry 5 "$(jq -r ".\"$WASI_SDK\".url" "$REPO"/autogen.json)" | tar xz -C "$PREFIX/wasi-sdk" --strip-components=1
+curl -f -L --retry 5 "$(jq -r ".\"$WASI_SDK\".url" "$REPO"/autogen.json)" | tar xz -C "$PREFIX/wasi-sdk" --no-same-owner --strip-components=1
 
 curl -f -L --retry 5 "$(jq -r '."libffi-wasm".url' "$REPO"/autogen.json)" -o out.zip
 unzip out.zip
@@ -97,7 +97,7 @@ mkdir -p "$PREFIX/deno/bin"
 install -m755 deno "$PREFIX/deno/bin"
 
 mkdir -p "$PREFIX/nodejs"
-curl -f -L --retry 5 "$(jq -r ".\"$NODEJS\".url" "$REPO"/autogen.json)" | tar xJ -C "$PREFIX/nodejs" --strip-components=1
+curl -f -L --retry 5 "$(jq -r ".\"$NODEJS\".url" "$REPO"/autogen.json)" | tar xJ -C "$PREFIX/nodejs" --no-same-owner --strip-components=1
 
 curl -f -L --retry 5 "$(jq -r ".\"$BUN\".url" "$REPO"/autogen.json)" -o bun.zip
 unzip bun.zip
@@ -105,19 +105,19 @@ mkdir -p "$PREFIX/bun/bin"
 install -m755 bun-*/bun "$PREFIX/bun/bin"
 
 mkdir -p "$PREFIX/binaryen"
-curl -f -L --retry 5 "$(jq -r ".\"$BINARYEN\".url" "$REPO"/autogen.json)" | tar xz -C "$PREFIX/binaryen" --strip-components=1
+curl -f -L --retry 5 "$(jq -r ".\"$BINARYEN\".url" "$REPO"/autogen.json)" | tar xz -C "$PREFIX/binaryen" --no-same-owner --strip-components=1
 
 mkdir -p "$PREFIX/wabt"
-curl -f -L --retry 5 "$(jq -r .wabt.url "$REPO"/autogen.json)" | tar xz -C "$PREFIX/wabt" --strip-components=1
+curl -f -L --retry 5 "$(jq -r .wabt.url "$REPO"/autogen.json)" | tar xz -C "$PREFIX/wabt" --no-same-owner --strip-components=1
 
 mkdir -p "$PREFIX/wasmtime"
-curl -f -L --retry 5 "$(jq -r ".\"$WASMTIME\".url" "$REPO"/autogen.json)" | tar x --zstd -C "$PREFIX/wasmtime" --strip-components=1
+curl -f -L --retry 5 "$(jq -r ".\"$WASMTIME\".url" "$REPO"/autogen.json)" | tar x --zstd -C "$PREFIX/wasmtime" --no-same-owner --strip-components=1
 
 mkdir -p "$PREFIX/wasmedge"
-curl -f -L --retry 5 "$(jq -r ".\"$WASMEDGE\".url" "$REPO"/autogen.json)" | tar xz -C "$PREFIX/wasmedge" --strip-components=1
+curl -f -L --retry 5 "$(jq -r ".\"$WASMEDGE\".url" "$REPO"/autogen.json)" | tar xz -C "$PREFIX/wasmedge" --no-same-owner --strip-components=1
 
 mkdir -p "$PREFIX/wazero/bin"
-curl -f -L --retry 5 "$(jq -r ".\"$WAZERO\".url" "$REPO"/autogen.json)" | tar xz -C "$PREFIX/wazero/bin"
+curl -f -L --retry 5 "$(jq -r ".\"$WAZERO\".url" "$REPO"/autogen.json)" | tar xz -C "$PREFIX/wazero/bin" --no-same-owner
 
 mkdir -p "$PREFIX/proot/bin"
 curl -f -L --retry 5 "$(jq -r .proot.url "$REPO"/autogen.json)" -o "$PREFIX/proot/bin/proot"
@@ -196,16 +196,16 @@ fi
 mkdir -p "$PREFIX/wasm32-wasi-ghc"
 mkdir ghc
 if [[ $(uname -s) == "Linux" && $(uname -m) == "x86_64" ]]; then
-  curl -f -L --retry 5 "$(jq -r ".\"$GHC\".url" "$REPO"/autogen.json)" | tar xJ -C ghc --strip-components=1
+  curl -f -L --retry 5 "$(jq -r ".\"$GHC\".url" "$REPO"/autogen.json)" | tar xJ -C ghc --no-same-owner --strip-components=1
 else
-  curl -f -L --retry 5 "$(jq -r ".\"$GHC\".url" "$REPO"/autogen.json)" | tar x --zstd -C ghc --strip-components=1
+  curl -f -L --retry 5 "$(jq -r ".\"$GHC\".url" "$REPO"/autogen.json)" | tar x --zstd -C ghc --no-same-owner --strip-components=1
 fi
 pushd ghc
 sh -c ". $PREFIX/env && ./configure \$CONFIGURE_ARGS --prefix=$PREFIX/wasm32-wasi-ghc && exec make install"
 popd
 
 mkdir -p "$PREFIX/cabal/bin"
-curl -f -L --retry 5 "$(jq -r ".\"$CABAL\".url" "$REPO"/autogen.json)" | tar xJ -C "$PREFIX/cabal/bin" 'cabal'
+curl -f -L --retry 5 "$(jq -r ".\"$CABAL\".url" "$REPO"/autogen.json)" | tar xJ -C "$PREFIX/cabal/bin" 'cabal' --no-same-owner
 
 mkdir -p "$PREFIX/wasm32-wasi-cabal/bin"
 echo "#!/bin/sh" >> "$PREFIX/wasm32-wasi-cabal/bin/wasm32-wasi-cabal"
