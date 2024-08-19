@@ -1,11 +1,18 @@
-{ fetchurl, hostPlatform, runtimeShellPackage, stdenv, stdenvNoCC, unzip, }:
+{
+  fetchurl,
+  hostPlatform,
+  runtimeShellPackage,
+  stdenv,
+  stdenvNoCC,
+  unzip,
+}:
 let
   common-src = builtins.fromJSON (builtins.readFile ../autogen.json);
   wasi-sdk-key =
     if hostPlatform.isDarwin then
-      "wasi-sdk_darwin"
+      if hostPlatform.isAarch64 then "wasi-sdk-aarch64-darwin" else "wasi-sdk-x86_64-darwin"
     else if hostPlatform.isAarch64 then
-      "wasi-sdk_aarch64_linux"
+      "wasi-sdk-aarch64-linux"
     else
       "wasi-sdk";
   wasi-sdk-src = fetchurl common-src."${wasi-sdk-key}";
@@ -14,7 +21,10 @@ in
 stdenvNoCC.mkDerivation {
   name = "wasi-sdk";
 
-  srcs = [ wasi-sdk-src libffi-wasm-src ];
+  srcs = [
+    wasi-sdk-src
+    libffi-wasm-src
+  ];
   setSourceRoot = "sourceRoot=$(echo wasi-sdk-*)";
 
   nativeBuildInputs = [ unzip ];
@@ -55,5 +65,9 @@ stdenvNoCC.mkDerivation {
 
   dontFixup = true;
 
-  allowedReferences = [ "out" runtimeShellPackage stdenv.cc ];
+  allowedReferences = [
+    "out"
+    runtimeShellPackage
+    stdenv.cc
+  ];
 }

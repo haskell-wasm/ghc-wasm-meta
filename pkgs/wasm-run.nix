@@ -1,7 +1,12 @@
-{ callPackage, coreutils, runtimeShell, stdenv, }:
+{
+  callPackage,
+  coreutils,
+  proot,
+  runtimeShell,
+  stdenv,
+}:
 let
   deno = callPackage ./deno.nix { };
-  proot = callPackage ./proot.nix { };
   argv = "$" + ''{1+"$@"}'';
 in
 stdenv.mkDerivation {

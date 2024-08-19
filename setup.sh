@@ -27,7 +27,7 @@ host_specific() {
 
   if [[ $(uname -s) == "Linux" && $(uname -m) == "aarch64" ]]; then
     HOST="aarch64-linux"
-    WASI_SDK="wasi-sdk_aarch64_linux"
+    WASI_SDK="wasi-sdk-aarch64-linux"
     WASMTIME="wasmtime_aarch64_linux"
     WASMEDGE="wasmedge_aarch64_linux"
     WAZERO="wazero_aarch64_linux"
@@ -42,7 +42,7 @@ host_specific() {
 
   if [[ $(uname -s) == "Darwin" && $(uname -m) == "arm64" ]]; then
     HOST="aarch64-apple-darwin"
-    WASI_SDK="wasi-sdk_darwin"
+    WASI_SDK="wasi-sdk-aarch64-darwin"
     WASMTIME="wasmtime_aarch64_darwin"
     WASMEDGE="wasmedge_aarch64_darwin"
     WAZERO="wazero_aarch64_darwin"
@@ -57,7 +57,7 @@ host_specific() {
 
   if [[ $(uname -s) == "Darwin" && $(uname -m) == "x86_64" ]]; then
     HOST="x86_64-apple-darwin"
-    WASI_SDK="wasi-sdk_darwin"
+    WASI_SDK="wasi-sdk-x86_64-darwin"
     WASMTIME="wasmtime_x86_64_darwin"
     WASMEDGE="wasmedge_x86_64_darwin"
     WAZERO="wazero_x86_64_darwin"
@@ -175,12 +175,12 @@ do
 done
 
 for e in \
-  'CONF_CC_OPTS_STAGE2=${CONF_CC_OPTS_STAGE2:-"-fno-strict-aliasing -Wno-error=implicit-function-declaration -Wno-error=int-conversion -O3 -msimd128 -mnontrapping-fptoint -msign-ext -mbulk-memory -mmutable-globals -mmultivalue -mreference-types"}' \
-  'CONF_CXX_OPTS_STAGE2=${CONF_CXX_OPTS_STAGE2:-"-fno-exceptions -fno-strict-aliasing -Wno-error=implicit-function-declaration -Wno-error=int-conversion -O3 -msimd128 -mnontrapping-fptoint -msign-ext -mbulk-memory -mmutable-globals -mmultivalue -mreference-types"}' \
-  'CONF_GCC_LINKER_OPTS_STAGE2=${CONF_GCC_LINKER_OPTS_STAGE2:-"-Wl,--compress-relocations,--error-limit=0,--growable-table,--keep-section=ghc_wasm_jsffi,--stack-first,--strip-debug "}' \
-  'CONF_CC_OPTS_STAGE1=${CONF_CC_OPTS_STAGE1:-"-fno-strict-aliasing -Wno-error=implicit-function-declaration -Wno-error=int-conversion -O3 -msimd128 -mnontrapping-fptoint -msign-ext -mbulk-memory -mmutable-globals -mmultivalue -mreference-types"}' \
-  'CONF_CXX_OPTS_STAGE1=${CONF_CXX_OPTS_STAGE1:-"-fno-exceptions -fno-strict-aliasing -Wno-error=implicit-function-declaration -Wno-error=int-conversion -O3 -msimd128 -mnontrapping-fptoint -msign-ext -mbulk-memory -mmutable-globals -mmultivalue -mreference-types"}' \
-  'CONF_GCC_LINKER_OPTS_STAGE1=${CONF_GCC_LINKER_OPTS_STAGE1:-"-Wl,--compress-relocations,--error-limit=0,--growable-table,--keep-section=ghc_wasm_jsffi,--stack-first,--strip-debug "}' \
+  'CONF_CC_OPTS_STAGE2=${CONF_CC_OPTS_STAGE2:-"-fno-strict-aliasing -Wno-error=int-conversion -O3 -msimd128 -mnontrapping-fptoint -msign-ext -mbulk-memory -mmutable-globals -mmultivalue -mreference-types"}' \
+  'CONF_CXX_OPTS_STAGE2=${CONF_CXX_OPTS_STAGE2:-"-fno-exceptions -fno-strict-aliasing -Wno-error=int-conversion -O3 -msimd128 -mnontrapping-fptoint -msign-ext -mbulk-memory -mmutable-globals -mmultivalue -mreference-types"}' \
+  'CONF_GCC_LINKER_OPTS_STAGE2=${CONF_GCC_LINKER_OPTS_STAGE2:-"-Wl,--compress-relocations,--error-limit=0,--keep-section=ghc_wasm_jsffi,--strip-all "}' \
+  'CONF_CC_OPTS_STAGE1=${CONF_CC_OPTS_STAGE1:-"-fno-strict-aliasing -Wno-error=int-conversion -O3 -msimd128 -mnontrapping-fptoint -msign-ext -mbulk-memory -mmutable-globals -mmultivalue -mreference-types"}' \
+  'CONF_CXX_OPTS_STAGE1=${CONF_CXX_OPTS_STAGE1:-"-fno-exceptions -fno-strict-aliasing -Wno-error=int-conversion -O3 -msimd128 -mnontrapping-fptoint -msign-ext -mbulk-memory -mmutable-globals -mmultivalue -mreference-types"}' \
+  'CONF_GCC_LINKER_OPTS_STAGE1=${CONF_GCC_LINKER_OPTS_STAGE1:-"-Wl,--compress-relocations,--error-limit=0,--keep-section=ghc_wasm_jsffi,--strip-all "}' \
   "CONFIGURE_ARGS=\"--host=$HOST --target=wasm32-wasi --with-intree-gmp --with-system-libffi\"" \
   'CROSS_EMULATOR=${CROSS_EMULATOR:-"'"$PREFIX/wasm-run/bin/wasm-run.mjs"'"}'
 do
@@ -205,7 +205,7 @@ sh -c ". $PREFIX/env && ./configure \$CONFIGURE_ARGS --prefix=$PREFIX/wasm32-was
 popd
 
 mkdir -p "$PREFIX/cabal/bin"
-curl -f -L --retry 5 "$(jq -r ".\"$CABAL\".url" "$REPO"/autogen.json)" | tar xJ -C "$PREFIX/cabal/bin" 'cabal' --no-same-owner
+curl -f -L --retry 5 "$(jq -r ".\"$CABAL\".url" "$REPO"/autogen.json)" | tar xJ --no-same-owner -C "$PREFIX/cabal/bin" 'cabal'
 
 mkdir -p "$PREFIX/wasm32-wasi-cabal/bin"
 echo "#!/bin/sh" >> "$PREFIX/wasm32-wasi-cabal/bin/wasm32-wasi-cabal"

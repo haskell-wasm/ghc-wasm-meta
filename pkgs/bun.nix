@@ -1,12 +1,29 @@
-{ autoPatchelfHook, fetchurl, stdenvNoCC, unzip }:
+{ autoPatchelfHook
+, fetchurl
+, fixDarwinDylibNames
+, hostPlatform
+, lib
+, stdenvNoCC
+, unzip
+,
+}:
 let
-  src = fetchurl
-    ((builtins.fromJSON (builtins.readFile ../autogen.json)).bun);
+  src = fetchurl ((builtins.fromJSON (builtins.readFile ../autogen.json))."${key}");
+  key =
+    {
+      x86_64-linux = "bun";
+      aarch64-linux = "bun_aarch64_linux";
+      aarch64-darwin = "bun_aarch64_darwin";
+      x86_64-darwin = "bun_x86_64_darwin";
+    }."${hostPlatform.system}";
 in
 stdenvNoCC.mkDerivation {
   name = "bun";
   dontUnpack = true;
-  nativeBuildInputs = [ autoPatchelfHook unzip ];
+  nativeBuildInputs =
+    lib.optionals hostPlatform.isLinux [ autoPatchelfHook ]
+    ++ lib.optionals hostPlatform.isDarwin [ fixDarwinDylibNames ]
+    ++ [ unzip ];
   installPhase = ''
     runHook preInstall
 

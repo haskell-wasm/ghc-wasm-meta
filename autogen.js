@@ -23,22 +23,18 @@ async function fetchGitHubLatestReleaseURL(owner, repo, suffix) {
   ).assets.find((e) => e.name.endsWith(suffix)).browser_download_url;
 }
 
-async function fetchHash(fetcher, fetcher_opts) {
-  const cmd = new Deno.Command("nix-prefetch", {
-    args: [
-      fetcher,
-      ...Object.entries(fetcher_opts).flatMap(([k, v]) => [`--${k}`, v]),
-    ],
+async function fetchurl(url) {
+  const cmd = new Deno.Command("nix", {
+    args: ["store", "prefetch-file", "--hash-type", "sha512", "--json", url],
     stdin: "null",
     stderr: "null",
   });
   const { stdout } = await cmd.output();
-  return new TextDecoder("utf-8", { fatal: true }).decode(stdout).trim();
-}
-
-async function fetchurl(url) {
-  const hash = await fetchHash("fetchurl", { url, "hash-algo": "sha512" });
-  return { url, hash };
+  return {
+    url,
+    hash: JSON.parse(new TextDecoder("utf-8", { fatal: true }).decode(stdout))
+      .hash,
+  };
 }
 
 async function fetchGitHubLatestRelease(owner, repo, suffix) {
@@ -62,7 +58,8 @@ const _wasm32_wasi_ghc_gmp_aarch64_linux = fetchStableBindist(
   "wasm32-wasi-ghc-gmp-aarch64-linux"
 );
 const _wasi_sdk = fetchStableBindist("wasi-sdk");
-const _wasi_sdk_darwin = fetchStableBindist("wasi-sdk-darwin");
+const _wasi_sdk_aarch64_darwin = fetchStableBindist("wasi-sdk-aarch64-darwin");
+const _wasi_sdk_x86_64_darwin = fetchStableBindist("wasi-sdk-x86_64-darwin");
 const _wasi_sdk_aarch64_linux = fetchStableBindist("wasi-sdk-aarch64-linux");
 const _libffi_wasm = fetchStableBindist("libffi-wasm");
 const _deno = fetchGitHubLatestRelease(
@@ -116,9 +113,9 @@ const _bun_x86_64_darwin = fetchGitHubLatestRelease(
   "darwin-x64.zip"
 );
 const _binaryen = fetchGitHubLatestRelease(
-  "type-dance",
+  "TerrorJack",
   "binaryen",
-  "x86_64-linux-musl.tar.gz"
+  "x86_64-linux-static.tar.gz"
 );
 const _binaryen_aarch64_linux = fetchGitHubLatestRelease(
   "WebAssembly",
@@ -231,8 +228,9 @@ await Deno.writeTextFile(
       "wasm32-wasi-ghc-gmp-aarch64-linux":
         await _wasm32_wasi_ghc_gmp_aarch64_linux,
       "wasi-sdk": await _wasi_sdk,
-      "wasi-sdk_darwin": await _wasi_sdk_darwin,
-      "wasi-sdk_aarch64_linux": await _wasi_sdk_aarch64_linux,
+      "wasi-sdk-aarch64-darwin": await _wasi_sdk_aarch64_darwin,
+      "wasi-sdk-x86_64-darwin": await _wasi_sdk_x86_64_darwin,
+      "wasi-sdk-aarch64-linux": await _wasi_sdk_aarch64_linux,
       "libffi-wasm": await _libffi_wasm,
       deno: await _deno,
       deno_aarch64_linux: await _deno_aarch64_linux,
