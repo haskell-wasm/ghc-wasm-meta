@@ -1,15 +1,15 @@
 {
   "wasm32-wasi-ghc-gmp": {
-    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20240901T200617/wasm32-wasi-ghc-gmp.tar.xz",
-    "hash": "sha256-YHbmO+/kl0LTp89+xiMS9Ly/Fih3A7pGQF6HajcB3Y0="
+    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20240915T200545/wasm32-wasi-ghc-gmp.tar.xz",
+    "hash": "sha256-wwqAb8WC1K4hfDF7O1acNr8LLYB9MBeXQluRrlRjR90="
   },
   "wasm32-wasi-ghc-native": {
-    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20240901T200617/wasm32-wasi-ghc-native.tar.xz",
-    "hash": "sha256-db3Riu3hjCkU4FSN4Cx2nm1EMkDqi0cHayFdvV5jOAQ="
+    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20240915T200545/wasm32-wasi-ghc-native.tar.xz",
+    "hash": "sha256-5rsHhnmq8ScP54ObUL8ak21d4zTujQ/FPfjwhM2JkD8="
   },
   "wasm32-wasi-ghc-unreg": {
-    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20240901T200617/wasm32-wasi-ghc-unreg.tar.xz",
-    "hash": "sha256-cWPEz8jY2dM+dhrmxaZ8RKflCOa9rSuTOqdRo1rgVaI="
+    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20240915T200545/wasm32-wasi-ghc-unreg.tar.xz",
+    "hash": "sha256-cSvMkXnInVnnXC/UxTzXYrZPxPShxE3LYyJNXMs0XPI="
   },
   "wasm32-wasi-ghc-9.6": {
     "url": "https://github.com/amesgen/ghc-wasm-bindists/releases/download/20240218T031934/wasm32-wasi-ghc-9.6.tar.xz",
@@ -24,16 +24,16 @@
     "hash": "sha256-eR9QrXHyil/r0Q5bc4RUXHTYeAUiil5UHYAaqrcnRIo="
   },
   "wasm32-wasi-ghc-gmp-aarch64-darwin": {
-    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20240901T200617/wasm32-wasi-ghc-gmp-aarch64-darwin.tar.zst",
-    "hash": "sha256-2iNwUytnhIfF0SB4KiNv/OHxrhHwJjW0trYtGRuDiHU="
+    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20240915T200545/wasm32-wasi-ghc-gmp-aarch64-darwin.tar.zst",
+    "hash": "sha256-Tphdmh1M7yqdrLxtvza3ZPsNyOVgNyqOgep4Ei8uOfM="
   },
   "wasm32-wasi-ghc-gmp-x86_64-darwin": {
-    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20240901T200617/wasm32-wasi-ghc-gmp-x86_64-darwin.tar.zst",
-    "hash": "sha256-JdeebeSN7HyjVdBFgwFZcKRDlyL37E9rtZSQoL5xf7w="
+    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20240915T200545/wasm32-wasi-ghc-gmp-x86_64-darwin.tar.zst",
+    "hash": "sha256-WsOwnn6t55oAnvANjlKK5QO8iJhLWiIE4Yr1gctKxfQ="
   },
   "wasm32-wasi-ghc-gmp-aarch64-linux": {
-    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20240901T200617/wasm32-wasi-ghc-gmp-aarch64-linux.tar.zst",
-    "hash": "sha256-3tEwrvwpdT6e+RVxK5pxT22o9wi7qcmG3JISq113WIU="
+    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20240915T200545/wasm32-wasi-ghc-gmp-aarch64-linux.tar.zst",
+    "hash": "sha256-Eb+e4BxXwcFTEyePZHF21WtvRNFpwQEmhebyRB6SYho="
   },
   "wasi-sdk": {
     "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20240819T053204/wasi-sdk.tar.gz",
@@ -56,24 +56,24 @@
     "hash": "sha256-Qqm8abz+05JXqeBxG6V6oBJix46esIKvAiYgkERmt78="
   },
   "deno": {
-    "url": "https://github.com/denoland/deno/releases/download/v1.46.2/deno-x86_64-unknown-linux-gnu.zip",
-    "hash": "sha512-qKdUePCm2ULD7394WgoVOEwSEn0Q8WPNXVdV3SeJjMgnYe/fdJsCAaAO2DHfmYLx+vgVq4fUByHWJj64a9c9yg=="
+    "url": "https://github.com/denoland/deno/releases/download/v1.46.3/deno-x86_64-unknown-linux-gnu.zip",
+    "hash": "sha512-dtu9pfq1e8Vvtr4ZQ9z0N17FmR5alfaJpf0GDcCt58aqE1Oj+GEUQ8VxWhVlYdkXuUUk4M72HSf9BJLws8SF3A=="
   },
   "deno_aarch64_linux": {
-    "url": "https://github.com/denoland/deno/releases/download/v1.46.2/deno-aarch64-unknown-linux-gnu.zip",
-    "hash": "sha512-gDSiedEF7OJgbx6JJSAPBK5G3h8gQxVMv0JMitXbIApqv+bURGqlWIFM/ofpaIbliiokrvJtmzMUuMeNWXZtUQ=="
+    "url": "https://github.com/denoland/deno/releases/download/v1.46.3/deno-aarch64-unknown-linux-gnu.zip",
+    "hash": "sha512-EoEuQmxfO/6v9CKSPxaf9PrxnBN8zqkAeK7qo0xRqdlFyu3eM05y+UYB1ds7eBoL30AS77SR8RZxsvV0wmNVSQ=="
   },
   "deno_aarch64_darwin": {
-    "url": "https://github.com/denoland/deno/releases/download/v1.46.2/deno-aarch64-apple-darwin.zip",
-    "hash": "sha512-Um9X6Ot2BL9At4KViSvpgVovTnNZEQWUTEMPifeuNNjpHPhCwRi0B4V7wB0Fs0Jf2TnbMVhtGs1ld7LzprTitg=="
+    "url": "https://github.com/denoland/deno/releases/download/v1.46.3/deno-aarch64-apple-darwin.zip",
+    "hash": "sha512-zHA9Gf6Zfaf0bGSjJXvr3SKo7S8p5DqxaE64AGZ5mgqBRuClYaewpFNIdSSQpyXihMK/Y5ylo/hhKNgCBvlTVA=="
   },
   "deno_x86_64_darwin": {
-    "url": "https://github.com/denoland/deno/releases/download/v1.46.2/deno-x86_64-apple-darwin.zip",
-    "hash": "sha512-iY5DKbvwOG6V2GqQ61jBmq9wF3ajjK1r+WgZnquzDr89uVXJZvMXTfwOjPS6NEHni98MpbjBCj0MW7gDa3vBqQ=="
+    "url": "https://github.com/denoland/deno/releases/download/v1.46.3/deno-x86_64-apple-darwin.zip",
+    "hash": "sha512-szH2nLIQyESkJb8E6tEMOMl4IlzYyFddEZA8/+vofxITdnl4xpdgyb3cCNNghkEkEA1QbzSayQwVcKckhRpkgw=="
   },
   "nodejs": {
-    "url": "https://github.com/TerrorJack/node-static/releases/download/v22.7.0/node-v22.7.0-linux-x64-static.tar.xz",
-    "hash": "sha512-JEnEkTtMXQFSiirD6d4Vr9GRZXJU/2ZhkNc6UGl7XkTeh45HCdB2rUxkwvNGrHyezFliokdyT29yYUn9WnwW3w=="
+    "url": "https://github.com/TerrorJack/node-static/releases/download/v22.9.0/node-v22.9.0-linux-x64-static.tar.xz",
+    "hash": "sha512-bnpWG8wTSLUrWVA5Gn6cUfJanLLZT8pKMivUHHIgqwmn+8huY0wkTEEIgx4CrCuVitDe/+4I3TCWYY77TdrjQg=="
   },
   "nodejs_aarch64_linux": {
     "url": "https://nodejs.org/dist/v22.2.0/node-v22.2.0-linux-arm64.tar.xz",
@@ -88,72 +88,72 @@
     "hash": "sha512-AoA6jTwh5cWpk2Xr+Z2IRWMSpwz7ZI04/TtJ1W2d9Z/3fij9n8mu8fLb+KQSgAS0GMROeqHsqc44uvKak/rbeQ=="
   },
   "bun": {
-    "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.1.26/bun-linux-x64.zip",
-    "hash": "sha512-VDtdpbRsdbZEIWT1G65u7vPdePpCQBR7UjO4llZp1LYEGfMVcNd/Y5/EcpsHEuS2XL+Mu6dO6jlbE0MI75Ulcg=="
+    "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.1.29/bun-linux-x64.zip",
+    "hash": "sha512-RCVKW1LR7CKwslc5nz3KNlWk1uUrmvID7vxh312zUien4fuzqasraXLBds1aZMPL1HG5oVQQ50FKEQFa3k7xYA=="
   },
   "bun_aarch64_linux": {
-    "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.1.26/bun-linux-aarch64.zip",
-    "hash": "sha512-Atl/VmgRpkLsY3KGJISW9g8hdRtLxSCRVfrSr61SoYJESARFA7Dtl/wxuqFUuEgezNBRmP4no7FjsCxQsxq2zQ=="
+    "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.1.29/bun-linux-aarch64.zip",
+    "hash": "sha512-I/6ZN6aBTxWHF4A6XCCc8YCMwe1+tSBAAcjelZ6FKa9WkDVrLHm7G+dO9ukpvTtfQkl1a91qoqPlyD5C2ybJWg=="
   },
   "bun_aarch64_darwin": {
-    "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.1.26/bun-darwin-aarch64.zip",
-    "hash": "sha512-UVF2pD5g0yr4Fk6DNagK6wxG1vs1exf9MFtNpPDu/cI4z55bs+Cn7/Omlek8OCGd6R+a9FbHeXZ4HP2GZb6y9A=="
+    "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.1.29/bun-darwin-aarch64.zip",
+    "hash": "sha512-Myo3bhxQCydVq8LCPtYN93xK4UTIWsqkjB9b2d8wFFHWWdACM41N+EWqR9N8VOc0Ds5YzZUvDjakeRbiglj0DA=="
   },
   "bun_x86_64_darwin": {
-    "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.1.26/bun-darwin-x64.zip",
-    "hash": "sha512-RSLVhbwRwRUKS3C+Zr+fNEg3k0dyAnrlDie1I8EhHum/YRmBGxubjAzia5eG7uJMHX7xZOz7wWMxRBmWAkKIwg=="
+    "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.1.29/bun-darwin-x64.zip",
+    "hash": "sha512-poXdL4iUyYJ2CMGLrP5NOanGl5p3nXjq9lyDUtOl4MKs9ug+0Tlfp20sBQlxPSTCjSFCLIWmgcAVyTlNvamObA=="
   },
   "binaryen": {
-    "url": "https://github.com/TerrorJack/binaryen/releases/download/version_118/binaryen-version_118-x86_64-linux-static.tar.gz",
-    "hash": "sha512-BzgDx2cAAc0e0o7LZApS0OxSd7apyr+VZkt2jY5FBg2NfjUlCdgRD5DqV2czqaNIcAy08BoKukhPMz/rNubLcw=="
+    "url": "https://github.com/TerrorJack/binaryen/releases/download/version_119/binaryen-version_119-x86_64-linux-static.tar.gz",
+    "hash": "sha512-isBeealeW+nQ6JXWdGN66WUquphbFa+6U5eZZ/VnUl1eqMjXNkBXpfmMkZJvocISjbHrRbKrwvzxTDtiD0x/fQ=="
   },
   "binaryen_aarch64_linux": {
-    "url": "https://github.com/WebAssembly/binaryen/releases/download/version_118/binaryen-version_118-aarch64-linux.tar.gz",
-    "hash": "sha512-SOZwwe75EzJoOHEw3ylv89cifHXQivI7XvtCdJSZm5hC8bBuZgAPMZsQqUxnwKUsFhSxGAml630aFRaP2hJUmg=="
+    "url": "https://github.com/WebAssembly/binaryen/releases/download/version_119/binaryen-version_119-aarch64-linux.tar.gz",
+    "hash": "sha512-4pgoFa+o0CfXe+k9buz783dL2a4uMau/8DZHE+Z+Onw8fMMsjYMCv6DM73ziNV+SYggCX7SiIHDkuLlOKSErlA=="
   },
   "binaryen_aarch64_darwin": {
-    "url": "https://github.com/WebAssembly/binaryen/releases/download/version_118/binaryen-version_118-arm64-macos.tar.gz",
-    "hash": "sha512-PivF5IrvVsFTJvzY84rxLg7tjVNtiTte7FHO31Kj634EmleleRfdov4L2yr8EYAH7b+/nuVMOfdoDF0u8GdhPw=="
+    "url": "https://github.com/WebAssembly/binaryen/releases/download/version_119/binaryen-version_119-arm64-macos.tar.gz",
+    "hash": "sha512-c3g4SDHjgpolfLNTWLppY+/e11StAXY1CobsjqN2OhCCb9ZmPA/Jl5DPp1Zjj5dYV62kPhlLLDJYycsARzA85Q=="
   },
   "binaryen_x86_64_darwin": {
-    "url": "https://github.com/WebAssembly/binaryen/releases/download/version_118/binaryen-version_118-x86_64-macos.tar.gz",
-    "hash": "sha512-+N+XkqcuGfovf3PYntA/1zoW2brjbwdWjjTKERDVxEHPZrs7V14ZcDh08MmOMnF4I3qZXXnWstlZCn8I2tFGAQ=="
+    "url": "https://github.com/WebAssembly/binaryen/releases/download/version_119/binaryen-version_119-x86_64-macos.tar.gz",
+    "hash": "sha512-mf25M+z5IIpNJS1Klm9HNI0JHm/0I/19kiTms5zMGwtnjhnbx86J+rukZYyhWeQGhvlL21WkgO0U6WMXFDn1Gg=="
   },
   "wabt": {
     "url": "https://github.com/WebAssembly/wabt/releases/download/1.0.36/wabt-1.0.36-ubuntu-20.04.tar.gz",
     "hash": "sha512-0y1a/qJcmic9B8dFcbDfjK3UQcqydnKUpgzGg9IQe2w0TRixLnvN2ruNp7hbYlbd1dfB0BsjczJzscfL1Jo8bw=="
   },
   "wasmtime": {
-    "url": "https://github.com/TerrorJack/wasm-tools-static/releases/download/240821/wasm-tools-240821-x86_64-linux.tar.zst",
-    "hash": "sha512-J1vYPhPYfZ/YKYCsQ7NUaMsdtMjKF5vEYMqJdpYa/62NyrcWkMQ75/fn0VCNLjL+pBOraTvgMKPToS90OZ5S7Q=="
+    "url": "https://github.com/TerrorJack/wasm-tools-static/releases/download/240921/wasm-tools-240921-x86_64-linux.tar.zst",
+    "hash": "sha512-tw+o6ozqVdvsT5uGGtH+MVsreOv4grOpXOnUj41/zc79gaQGaEcaJpCAGozBQktmAmIKAiuiGjk5nzl6pcVJFg=="
   },
   "wasmtime_aarch64_linux": {
-    "url": "https://github.com/TerrorJack/wasm-tools-static/releases/download/240821/wasm-tools-240821-aarch64-linux.tar.zst",
-    "hash": "sha512-2+7LwMSNcxj+bPy0rn8Or0F17At/QqOkp8+HOW9gf5XSDf5K0y3UczF6Xk6TUehcLqCKjkfs1YGstpFL3aj2GQ=="
+    "url": "https://github.com/TerrorJack/wasm-tools-static/releases/download/240921/wasm-tools-240921-aarch64-linux.tar.zst",
+    "hash": "sha512-D+ajk3thCeNYj82ouABDrTDGfIL7YQlPAcS0/Mem9rTPPPBvlHP83eihoMjCuvc0ClGfe+d+OmeuUlVab5lT0A=="
   },
   "wasmtime_aarch64_darwin": {
-    "url": "https://github.com/TerrorJack/wasm-tools-static/releases/download/240821/wasm-tools-240821-darwin-aarch64.tar.zst",
-    "hash": "sha512-zNQdXgR02tMwfBE0vxePjG84Ivbw/TecWbuTEcFxzcHVV+t8E+QgmBGjBJkuTjU7k++pL/uZJ2JdL0o1b327Cg=="
+    "url": "https://github.com/TerrorJack/wasm-tools-static/releases/download/240921/wasm-tools-240921-darwin-aarch64.tar.zst",
+    "hash": "sha512-fdbOCp4G0K8lpVFdRkTyv4rk06qBsLUytklyU4x/9M2zYU7o3GU1aMDr9H9icWc/8m0rkjg9j4jw9Pnn4w6hVQ=="
   },
   "wasmtime_x86_64_darwin": {
-    "url": "https://github.com/TerrorJack/wasm-tools-static/releases/download/240821/wasm-tools-240821-darwin-x86_64.tar.zst",
-    "hash": "sha512-VxgqEtQ0Qk5eVh3EPp4T3rKOXvlfmsh+r9JgV7onZX2srDeHhbqLFNu2WU6M2sykneJChI9mmiAi14TnQXG5Pw=="
+    "url": "https://github.com/TerrorJack/wasm-tools-static/releases/download/240921/wasm-tools-240921-darwin-x86_64.tar.zst",
+    "hash": "sha512-bGliOB8i5Q8eJ/eVJgt+gSgcuTYFMvIrRcz2143BpvrkcL6MR4jWk+Brw3xLQhshM3pz7w0UCnZKwPjRJ6ILHw=="
   },
   "wasmedge": {
-    "url": "https://github.com/WasmEdge/WasmEdge/releases/download/0.14.0/WasmEdge-0.14.0-ubuntu20.04_x86_64.tar.gz",
-    "hash": "sha512-wpS8a3g2F3EeHSmw8cdznf6IfnOutGPI1oR7MNQ7mAKDVQC7lG7zWlAomPPTBa+qrrvu7NCXfqAUUz6pxUXeUQ=="
+    "url": "https://github.com/WasmEdge/WasmEdge/releases/download/0.14.1/WasmEdge-0.14.1-ubuntu20.04_x86_64.tar.gz",
+    "hash": "sha512-nfdE+g9Oq9OegTNGxFwniUWXY4w3ChIEMsi6VZmos8i04kc/Afjy4P1WxvQUNhBmsppq69q+HVJCrJ+RA4Ra1g=="
   },
   "wasmedge_aarch64_linux": {
-    "url": "https://github.com/WasmEdge/WasmEdge/releases/download/0.14.0/WasmEdge-0.14.0-ubuntu20.04_aarch64.tar.gz",
-    "hash": "sha512-SX4tB7CjN7aRQ9Bwz5rdKLt0TQqlskmVWuPo7dElQkrB9tPk/7ZOTbv0wsMVsbUt8P7+S3MTo2QiI/Bwn1E0jg=="
+    "url": "https://github.com/WasmEdge/WasmEdge/releases/download/0.14.1/WasmEdge-0.14.1-ubuntu20.04_aarch64.tar.gz",
+    "hash": "sha512-A7E8hUkx6WG2rovlasyoKZx8cueE/9JOYZHbZxDbe9DAI5WmWAEkcIPzkf7KEmLMchP0GE2vv2/Jd/bXZG72Qg=="
   },
   "wasmedge_aarch64_darwin": {
-    "url": "https://github.com/WasmEdge/WasmEdge/releases/download/0.14.0/WasmEdge-0.14.0-darwin_arm64.tar.gz",
-    "hash": "sha512-hLB1KjKiF+cZR3CjnoUfUJlMAKDHJssPSB9cPSQaXmui7t3CXvEgBds9uMi15w87mjzWyaZy57SkihrQsEdIyg=="
+    "url": "https://github.com/WasmEdge/WasmEdge/releases/download/0.14.1/WasmEdge-0.14.1-darwin_arm64.tar.gz",
+    "hash": "sha512-pDtpjfDHJMvOb8FIJyoI65GELiA4RqhRZgwU8VizMaQlCts4qBG3e0GxvuXFOhNee95FIfxNnkJ1fpzYXUlYqA=="
   },
   "wasmedge_x86_64_darwin": {
-    "url": "https://github.com/WasmEdge/WasmEdge/releases/download/0.14.0/WasmEdge-0.14.0-darwin_x86_64.tar.gz",
-    "hash": "sha512-Yu891bPPozu1u2CpUrUQtYQUgdbNb0fAD+KgM7xgg8CV7bBYWoVC2VaXKxQfklix7l4q9qAE4Bno58otV928Nw=="
+    "url": "https://github.com/WasmEdge/WasmEdge/releases/download/0.14.1/WasmEdge-0.14.1-darwin_x86_64.tar.gz",
+    "hash": "sha512-/kkiOE78iYgdfFcpnP+PCuUuGfhxHsYVEPuIdVKARhNjWL05DeAAJAhnitGcSMA7R/081Z5W3kjQRqnYbqz+IA=="
   },
   "wazero": {
     "url": "https://github.com/tetratelabs/wazero/releases/download/v1.8.0/wazero_1.8.0_linux_amd64.tar.gz",
