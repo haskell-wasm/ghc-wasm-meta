@@ -4,7 +4,7 @@ workflow:
     - if: $CI_PIPELINE_SOURCE == "merge_request_event"
 
 variables:
-  DOCKER_REV: 486541129a8e7bf77c2cf7cd76ca998f690d5685
+  DOCKER_REV: 6efac743853f9c2172777e934d7aea44434415ec
   GIT_DEPTH: 1
   GIT_STRATEGY: clone
 
@@ -177,7 +177,7 @@ x86_64-linux-ubuntu:
 x86_64-linux-nix:
   tags:
     - x86_64-linux
-  image: nixos/nix:2.24.7
+  image: nixos/nix:2.24.9
   before_script:
     - echo "experimental-features = nix-command flakes" >> /etc/nix/nix.conf
     - nix run nixpkgs#gnused -- -i -e 's/ nixbld//' /etc/nix/nix.conf
