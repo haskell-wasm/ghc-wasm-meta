@@ -1,4 +1,4 @@
-#!/usr/bin/env -S node --no-turbo-fast-api-calls --no-warnings
+#!/usr/bin/env -S node --disable-warning=ExperimentalWarning --no-turbo-fast-api-calls --wasm-lazy-validation
 
 import fs from "node:fs/promises";
 import { WASI } from "node:wasi";

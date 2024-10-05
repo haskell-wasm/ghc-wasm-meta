@@ -83,7 +83,7 @@ const _deno_x86_64_darwin = fetchGitHubLatestRelease(
   "x86_64-apple-darwin.zip"
 );
 const _nodejs = fetchGitHubLatestRelease(
-  "TerrorJack",
+  "tweag",
   "node-static",
   "linux-x64-static.tar.xz"
 );
