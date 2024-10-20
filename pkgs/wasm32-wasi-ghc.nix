@@ -1,5 +1,6 @@
 {
   callPackage,
+  coreutils,
   fetchurl,
   flavour,
   hostPlatform,
@@ -23,6 +24,7 @@ let
     }
     ."${hostPlatform.system}";
   wasi-sdk = callPackage ./wasi-sdk.nix { };
+  nodejs = callPackage ./nodejs.nix { };
 in
 stdenvNoCC.mkDerivation {
   name = "wasm32-wasi-ghc-${flavour}";
@@ -36,7 +38,11 @@ stdenvNoCC.mkDerivation {
   buildInputs = [ runtimeShellPackage ];
 
   preConfigure = ''
+    substituteInPlace lib/*.mjs \
+      --replace '/usr/bin/env -S node' "${coreutils}/bin/env -S ${nodejs}/bin/node"
+
     patchShebangs .
+
     configureFlags="$configureFlags --build=$system --host=$system $CONFIGURE_ARGS"
   '';
 

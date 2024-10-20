@@ -87,14 +87,20 @@ const _nodejs = fetchGitHubLatestRelease(
   "node-static",
   "linux-x64-static.tar.xz"
 );
-const _nodejs_aarch64_linux = fetchurl(
-  "https://nodejs.org/dist/v22.2.0/node-v22.2.0-linux-arm64.tar.xz"
+const _nodejs_aarch64_linux = fetchGitHubLatestRelease(
+  "tweag",
+  "node-static",
+  "linux-arm64-static.tar.xz"
 );
-const _nodejs_aarch64_darwin = fetchurl(
-  "https://nodejs.org/dist/v22.2.0/node-v22.2.0-darwin-arm64.tar.xz"
+const _nodejs_aarch64_darwin = fetchGitHubLatestRelease(
+  "tweag",
+  "node-static",
+  "darwin-arm64.tar.xz"
 );
-const _nodejs_x86_64_darwin = fetchurl(
-  "https://nodejs.org/dist/v22.2.0/node-v22.2.0-darwin-x64.tar.xz"
+const _nodejs_x86_64_darwin = fetchGitHubLatestRelease(
+  "tweag",
+  "node-static",
+  "darwin-x64.tar.xz"
 );
 const _bun = fetchGitHubLatestRelease("oven-sh", "bun", "linux-x64.zip");
 const _bun_aarch64_linux = fetchGitHubLatestRelease(
@@ -197,18 +203,10 @@ const _wazero_x86_64_darwin = fetchGitHubLatestRelease(
   "wazero",
   "darwin_amd64.tar.gz"
 );
-const _cabal = fetchurl(
-  "https://downloads.haskell.org/ghcup/unofficial-bindists/cabal/3.12.1.0/cabal-install-3.12.1.0-x86_64-linux-unknown.tar.xz"
-);
-const _cabal_aarch64_linux = fetchurl(
-  "https://downloads.haskell.org/ghcup/unofficial-bindists/cabal/3.12.1.0/cabal-install-3.12.1.0-aarch64-linux-deb10.tar.xz"
-);
-const _cabal_aarch64_darwin = fetchurl(
-  "https://downloads.haskell.org/ghcup/unofficial-bindists/cabal/3.12.1.0/cabal-install-3.12.1.0-aarch64-apple-darwin.tar.xz"
-);
-const _cabal_x86_64_darwin = fetchurl(
-  "https://downloads.haskell.org/ghcup/unofficial-bindists/cabal/3.12.1.0/cabal-install-3.12.1.0-x86_64-apple-darwin.tar.xz"
-);
+const _cabal = fetchStableBindist("cabal");
+const _cabal_aarch64_linux = fetchStableBindist("cabal-aarch64-linux");
+const _cabal_aarch64_darwin = fetchStableBindist("cabal-aarch64-darwin");
+const _cabal_x86_64_darwin = fetchStableBindist("cabal-x86_64-darwin");
 const _proot = fetchStableBindist("proot");
 
 await Deno.writeTextFile(

@@ -1,5 +1,4 @@
-{ autoPatchelfHook
-, fetchurl
+{ fetchurl
 , fixDarwinDylibNames
 , gmp
 , hostPlatform
@@ -21,8 +20,7 @@ stdenvNoCC.mkDerivation {
   name = "cabal";
   dontUnpack = true;
   nativeBuildInputs =
-    lib.optionals hostPlatform.isLinux [ autoPatchelfHook ]
-    ++ lib.optionals hostPlatform.isDarwin [ fixDarwinDylibNames ];
+    lib.optionals hostPlatform.isDarwin [ fixDarwinDylibNames ];
   buildInputs = [ gmp ];
   installPhase = ''
     runHook preInstall

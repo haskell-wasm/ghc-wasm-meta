@@ -1,9 +1,7 @@
-{ autoPatchelfHook
-, fetchurl
+{ fetchurl
 , fixDarwinDylibNames
 , hostPlatform
 , lib
-, stdenv
 , stdenvNoCC
 ,
 }:
@@ -21,9 +19,7 @@ stdenvNoCC.mkDerivation {
   name = "nodejs";
   inherit src;
   nativeBuildInputs =
-    lib.optionals hostPlatform.isLinux [ autoPatchelfHook ]
-    ++ lib.optionals hostPlatform.isDarwin [ fixDarwinDylibNames ];
-  buildInputs = [ stdenv.cc.cc.lib ];
+    lib.optionals hostPlatform.isDarwin [ fixDarwinDylibNames ];
   installPhase = ''
     runHook preInstall
 
