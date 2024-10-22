@@ -70,6 +70,11 @@ x86_64-linux-alpine-9.10:
   variables:
     FLAVOUR: "9.10"
 
+x86_64-linux-alpine-9.12:
+  extends: .x86_64-linux-alpine
+  variables:
+    FLAVOUR: "9.12"
+
 x86_64-linux-ubuntu:
   allow_failure: true # TODO: colour-2.3.6 regression in HEAD
   tags:
@@ -183,4 +188,4 @@ x86_64-linux-nix:
     - nix run nixpkgs#gnused -- -i -e 's/ nixbld//' /etc/nix/nix.conf
   script:
     - |
-      nix build --json --no-link . .#all_native .#all_unreg .#all_9_6 .#all_9_8 .#all_9_10
+      nix build --json --no-link . .#all_native .#all_unreg .#all_9_6 .#all_9_8 .#all_9_10 .#all_9_12

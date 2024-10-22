@@ -72,15 +72,15 @@ via these environment variables:
       compile-time performance is noticeably worse. May be useful for
       debugging the native codegen, since there are less GHC test
       suite failures in the unregisterised codegen at the moment.
-    - The `9.6`/`9.8`/`9.10` flavour tracks the
-      `ghc-9.6`/`ghc-9.8`/`ghc-9.10` release branch instead of the
-      `master` branch. It uses the `gmp` bignum backend and the wasm
-      native codegen.
+    - The `9.6`/`9.8`/`9.10`/`9.12` flavour tracks the
+      `ghc-9.6`/`ghc-9.8`/`ghc-9.10`/`ghc-9.12` release branch instead
+      of the `master` branch. It uses the `gmp` bignum backend and the
+      wasm native codegen.
   - `SKIP_GHC`: set this to skip installing `cabal` and `ghc`
 
-Note that if you use the `9.6`/`9.8`/`9.10` flavour, the
+Note that if you use the `9.6`/`9.8`/`9.10`/`9.12` flavour, the
 `wasm32-wasi-cabal` wrapper won't automatically set up `head.hackage`
-in the global config file. In the early days of `ghc-9.10`, this may
+in the global config file. In the early days of `ghc-9.12`, this may
 result in more packages being rejected at compile time. This is true
 for both nix/non-nix installation methods.
 

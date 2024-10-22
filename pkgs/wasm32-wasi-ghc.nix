@@ -4,6 +4,7 @@
   fetchurl,
   flavour,
   hostPlatform,
+  runtimeShell,
   runtimeShellPackage,
   stdenvNoCC,
   zstd,
@@ -47,6 +48,16 @@ stdenvNoCC.mkDerivation {
   '';
 
   configurePlatforms = [ ];
+
+  postInstall = ''
+    pushd $out/lib/wasm32-wasi-ghc-*/lib
+    touch dyld.mjs
+    mv dyld.mjs dyld.real.mjs
+    echo "#!${runtimeShell}" >> dyld.mjs
+    echo "exec ${nodejs}/bin/node --disable-warning=ExperimentalWarning --experimental-wasm-type-reflection --max-old-space-size=65536 --no-turbo-fast-api-calls --wasm-lazy-validation $PWD/dyld.real.mjs" '$@' >> dyld.mjs
+    chmod +x dyld.mjs
+    popd
+  '';
 
   dontBuild = true;
   dontFixup = true;
