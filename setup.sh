@@ -219,9 +219,12 @@ echo \
 chmod 755 "$PREFIX/wasm32-wasi-cabal/bin/wasm32-wasi-cabal"
 
 mkdir "$PREFIX/.cabal"
-if [[ "$FLAVOUR" != 9.6 ]] && [[ "$FLAVOUR" != 9.8 ]] && [[ "$FLAVOUR" != 9.10 ]] && [[ "$FLAVOUR" != 9.12 ]]
-then
-  cp "$REPO/cabal.config" "$PREFIX/.cabal/config"
+if [[ "$FLAVOUR" != 9.6 ]] && [[ "$FLAVOUR" != 9.8 ]] && [[ "$FLAVOUR" != 9.10 ]] && [[ "$FLAVOUR" != 9.12 ]]; then
+  cp "$REPO/cabal.head.config" "$PREFIX/.cabal/config"
+elif [[ "$FLAVOUR" == 9.10 ]] || [[ "$FLAVOUR" == 9.12 ]]; then
+  cp "$REPO/cabal.th.config" "$PREFIX/.cabal/config"
+else
+  cp "$REPO/cabal.legacy.config" "$PREFIX/.cabal/config"
 fi
 "$PREFIX/wasm32-wasi-cabal/bin/wasm32-wasi-cabal" update
 

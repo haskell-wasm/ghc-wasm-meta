@@ -1,15 +1,15 @@
 {
   "wasm32-wasi-ghc-gmp": {
-    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241020T011334/wasm32-wasi-ghc-gmp.tar.xz",
-    "hash": "sha256-EHGmksV2KlhFYDh/PL8JGJ4jv7XCmKHVW+7u6K5RXTc="
+    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241023T080146/wasm32-wasi-ghc-gmp.tar.xz",
+    "hash": "sha256-ergJOFJESwQRpfgcsavzhw9dxTXja8Ivqo6w/GjkDNM="
   },
   "wasm32-wasi-ghc-native": {
-    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241020T011334/wasm32-wasi-ghc-native.tar.xz",
-    "hash": "sha256-K/UejnynvTqKrow8K2CNPV8moW7sFQSTWQNC9hCtQsc="
+    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241023T080146/wasm32-wasi-ghc-native.tar.xz",
+    "hash": "sha256-NF/VnRwlluWhLgkRwsRLxCLkrJZfHsMK2UcJ2kvH3+E="
   },
   "wasm32-wasi-ghc-unreg": {
-    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241020T011334/wasm32-wasi-ghc-unreg.tar.xz",
-    "hash": "sha256-AK4T62O51A+k4AkWtZGwI9JsBa32KLZQKfhVh3nfDtU="
+    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241023T080146/wasm32-wasi-ghc-unreg.tar.xz",
+    "hash": "sha256-NKD+XJFqynmKLpRlz1JIZ+ACexdMSZQGJCpOMpC8hpw="
   },
   "wasm32-wasi-ghc-9.6": {
     "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241022T075120/wasm32-wasi-ghc-9.6.tar.xz",
@@ -28,16 +28,16 @@
     "hash": "sha256-7+RdX2G8fFuWuW+NraBSObaMazx0XvJBrPPbCKwNmXk="
   },
   "wasm32-wasi-ghc-gmp-aarch64-darwin": {
-    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241021T133651/wasm32-wasi-ghc-gmp-aarch64-darwin.tar.zst",
-    "hash": "sha256-vrMiPTMPZofxk/9cRk7L9ZGk9VOfMFWKpgoSD5kFZZE="
+    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241023T080146/wasm32-wasi-ghc-gmp-aarch64-darwin.tar.zst",
+    "hash": "sha256-QhBkIECCfwkhIFsY3dc8H29Oy3idR2slRAVG12+rLXs="
   },
   "wasm32-wasi-ghc-gmp-x86_64-darwin": {
-    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241021T133651/wasm32-wasi-ghc-gmp-x86_64-darwin.tar.zst",
-    "hash": "sha256-Y5RCAI6sQoyAKPfghH2ks84UGXmGTneSBBThV2e2TAg="
+    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241023T080146/wasm32-wasi-ghc-gmp-x86_64-darwin.tar.zst",
+    "hash": "sha256-vzI+cg6lfSS2W60Wqg8hrBbp//Os3vmGn00IluP2hZw="
   },
   "wasm32-wasi-ghc-gmp-aarch64-linux": {
-    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241021T133651/wasm32-wasi-ghc-gmp-aarch64-linux.tar.zst",
-    "hash": "sha256-p3JWdtsHPMCZBFF9M4a36N4yqXU8lSb+ep4uQf1mLxw="
+    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241023T080146/wasm32-wasi-ghc-gmp-aarch64-linux.tar.zst",
+    "hash": "sha256-5i1C+5WZboVSppwHoeiSSj+L9j5zc4gDv5SAJt0SwmY="
   },
   "wasi-sdk": {
     "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241006T173037/wasi-sdk.tar.gz",
