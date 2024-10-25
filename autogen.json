@@ -20,12 +20,12 @@
     "hash": "sha256-Ou+G5ifqLkpiIb95XulgLuQcaFxLQM6y1LfRXqPkrw8="
   },
   "wasm32-wasi-ghc-9.10": {
-    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241022T075120/wasm32-wasi-ghc-9.10.tar.xz",
-    "hash": "sha256-dLyRON/BIhVkoyWUQ29ON2iHtfLwuGx6P5AtmHRCOfM="
+    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241025T003014/wasm32-wasi-ghc-9.10.tar.xz",
+    "hash": "sha256-SUcbomqkl6BqoBP/fp8NYQr7UM/edvFd79GV45gCZDE="
   },
   "wasm32-wasi-ghc-9.12": {
-    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241022T075120/wasm32-wasi-ghc-9.12.tar.xz",
-    "hash": "sha256-7+RdX2G8fFuWuW+NraBSObaMazx0XvJBrPPbCKwNmXk="
+    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241025T003014/wasm32-wasi-ghc-9.12.tar.xz",
+    "hash": "sha256-75AmSPsYTMjMySE0yNoQq/RbIKmrkIq5WEYTZuhA6TM="
   },
   "wasm32-wasi-ghc-gmp-aarch64-darwin": {
     "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241023T080146/wasm32-wasi-ghc-gmp-aarch64-darwin.tar.zst",
@@ -92,20 +92,20 @@
     "hash": "sha512-fpkSyLI9aMOPew1IzLHqg4k++X/eiY2bhfLiInVbEZXSD6XL40jlD6AhbJmHaAmQh2I/fuHezOSSPCB8Vmfqqw=="
   },
   "bun": {
-    "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.1.32/bun-linux-x64.zip",
-    "hash": "sha512-PP5IH2pRBwDaGTJxjCKsanXy9/kJQc0ifY097HUkU3jU7HX1baPmb+1Kh8JDGJ17DqkGK+kiBIU6m6I7SmnKoQ=="
+    "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.1.33/bun-linux-x64.zip",
+    "hash": "sha512-Ta2AQSxeW0ozihH3nybDWg/ZgYsaFKNaITHLr8vHoxutaGXkFmyjms8CABJ/Kx1DN8XZyQnJd52P2Shc0W0T6A=="
   },
   "bun_aarch64_linux": {
-    "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.1.32/bun-linux-aarch64.zip",
-    "hash": "sha512-kfjJi8jpgV0iuIo6fGmrgZBWEHSxPy7DWpgGdGh1/m9QqpxpUqMEJUmkSplqo1rqjeIME92nW2XqKLpfAZaV2w=="
+    "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.1.33/bun-linux-aarch64.zip",
+    "hash": "sha512-uRyJmZlJBxSb/dSjbnUROoAHdC0DUsyICM2EFD/z53xl7T9jgNuZDDEFchi9TulcFItfmPdQ4iqbgFP3k4AYlw=="
   },
   "bun_aarch64_darwin": {
-    "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.1.32/bun-darwin-aarch64.zip",
-    "hash": "sha512-3f3I4dV6yCzpRcqQaRbdvKX0+4b4u8+EWwP9TAxZ2+Ymzu3uFhZmSgEj6c92Bs7YVhMmEiqc6znSTLKIz8bx8w=="
+    "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.1.33/bun-darwin-aarch64.zip",
+    "hash": "sha512-yMC3JQ1ffvoRLC33S7qpc+ri0F67QVQcuqEkjxwOWGDfKmna7njW4qzN4oXUTnYHmd1/HPqRd6j89GCJscsYcA=="
   },
   "bun_x86_64_darwin": {
-    "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.1.32/bun-darwin-x64.zip",
-    "hash": "sha512-9wl1YqgmuMY8+xmMi2M8L3uMcABzShb6MEHmsXqXRiGelwECnu5rL1Sg/x0WF4S9D+Mc2a79fwKzWx7oPc9l3w=="
+    "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.1.33/bun-darwin-x64.zip",
+    "hash": "sha512-6qqS+gg32jXTnp8XjWw1W0D9qgwDYvRivp5fJCRJy07nHG0n4yjy416uBUJ1EL0GNFheUM3BB/IGK9uUBtt+sg=="
   },
   "binaryen": {
     "url": "https://github.com/TerrorJack/binaryen/releases/download/version_119/binaryen-version_119-x86_64-linux-static.tar.gz",
