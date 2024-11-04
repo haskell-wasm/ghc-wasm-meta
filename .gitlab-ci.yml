@@ -182,7 +182,7 @@ x86_64-linux-ubuntu:
 x86_64-linux-nix:
   tags:
     - x86_64-linux
-  image: nixos/nix:2.24.9
+  image: nixos/nix:2.24.10
   before_script:
     - echo "experimental-features = nix-command flakes" >> /etc/nix/nix.conf
     - nix run nixpkgs#gnused -- -i -e 's/ nixbld//' /etc/nix/nix.conf
