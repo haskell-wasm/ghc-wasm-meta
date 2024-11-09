@@ -12,7 +12,7 @@ This repo is a nix flake. The default output is a derivation that
 bundles all provided tools:
 
 ```sh
-$ nix shell https://gitlab.haskell.org/ghc/ghc-wasm-meta/-/archive/master/ghc-wasm-meta-master.tar.gz
+$ nix shell gitlab:ghc/ghc-wasm-meta?host=gitlab.haskell.org
 $ echo 'main = putStrLn "hello world"' > hello.hs
 $ wasm32-wasi-ghc hello.hs -o hello.wasm
 [1 of 2] Compiling Main             ( hello.hs, hello.o )

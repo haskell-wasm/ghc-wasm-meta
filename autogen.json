@@ -1,43 +1,43 @@
 {
   "wasm32-wasi-ghc-gmp": {
-    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241103T200558/wasm32-wasi-ghc-gmp.tar.xz",
-    "hash": "sha256-4vpADr/8CHBvitmpgUlXgKoOqp596vcdDB6JEl7SkN0="
+    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241110T200600/wasm32-wasi-ghc-gmp.tar.xz",
+    "hash": "sha256-/NC/zOnQkDlkN24wPs4CqifeKmTAvPF0O+YRBW1xJvQ="
   },
   "wasm32-wasi-ghc-native": {
-    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241103T200558/wasm32-wasi-ghc-native.tar.xz",
-    "hash": "sha256-L0RmybSaVWjT9e2nLx/2shA1dMbYaOeGcJ0CzcKJnEo="
+    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241110T200600/wasm32-wasi-ghc-native.tar.xz",
+    "hash": "sha256-jkLgpSq6LOnIoXVwkCryxjPEt/VlTao0SoGuMRGeyiU="
   },
   "wasm32-wasi-ghc-unreg": {
-    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241103T200558/wasm32-wasi-ghc-unreg.tar.xz",
-    "hash": "sha256-1be7l5kklt7E0OoHIFxCZLWxew5McA42zL3PBgk8unA="
+    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241110T200600/wasm32-wasi-ghc-unreg.tar.xz",
+    "hash": "sha256-SaSiYuO7l/BYSkIa7eVEfZjnVrVDgyG8zh2vpbJqnr0="
   },
   "wasm32-wasi-ghc-9.6": {
-    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241022T075120/wasm32-wasi-ghc-9.6.tar.xz",
-    "hash": "sha256-0eX0P3BAX2+WndzVyu0oEzoECyxO3v5LpPEq523dJTo="
+    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241110T200600/wasm32-wasi-ghc-9.6.tar.xz",
+    "hash": "sha256-a2Gx6foDDyYECNPRVEGlDPrXFRgDWiyoVze7l5mNyWo="
   },
   "wasm32-wasi-ghc-9.8": {
-    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241022T075120/wasm32-wasi-ghc-9.8.tar.xz",
-    "hash": "sha256-Ou+G5ifqLkpiIb95XulgLuQcaFxLQM6y1LfRXqPkrw8="
+    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241110T200600/wasm32-wasi-ghc-9.8.tar.xz",
+    "hash": "sha256-IH2QgbJwFhNK2sHrHExjN1ujbQpKFARyNHamQ4qXRmo="
   },
   "wasm32-wasi-ghc-9.10": {
-    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241025T003014/wasm32-wasi-ghc-9.10.tar.xz",
-    "hash": "sha256-SUcbomqkl6BqoBP/fp8NYQr7UM/edvFd79GV45gCZDE="
+    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241110T200600/wasm32-wasi-ghc-9.10.tar.xz",
+    "hash": "sha256-6UWeWTl0rcqESZxlra54A7XINUpDwEbVbZtVlQCFeMo="
   },
   "wasm32-wasi-ghc-9.12": {
-    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241025T003014/wasm32-wasi-ghc-9.12.tar.xz",
-    "hash": "sha256-75AmSPsYTMjMySE0yNoQq/RbIKmrkIq5WEYTZuhA6TM="
+    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241110T200600/wasm32-wasi-ghc-9.12.tar.xz",
+    "hash": "sha256-Ls3OzLLxG4ip4liyOTiM5MVolXU0H54W1wBbbEUcFLA="
   },
   "wasm32-wasi-ghc-gmp-aarch64-darwin": {
-    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241103T200558/wasm32-wasi-ghc-gmp-aarch64-darwin.tar.zst",
-    "hash": "sha256-abhhbeP1OB3jVRvTeVxZW4p5GhsDvJRRqiftF+2c3eo="
+    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241110T200600/wasm32-wasi-ghc-gmp-aarch64-darwin.tar.zst",
+    "hash": "sha256-k04IV6dEOgMWApSyp1Tq9UEGbImP9pIMIfFlQp29Qf8="
   },
   "wasm32-wasi-ghc-gmp-x86_64-darwin": {
-    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241103T200558/wasm32-wasi-ghc-gmp-x86_64-darwin.tar.zst",
-    "hash": "sha256-0PF1ixVevLqVmJO5DBODvEx+V7LC6DIYaW00eHTiWBQ="
+    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241110T200600/wasm32-wasi-ghc-gmp-x86_64-darwin.tar.zst",
+    "hash": "sha256-TRCeJs7DgYgIDWam2aCpILP4Z5DQoIYVmRKsjYitOMw="
   },
   "wasm32-wasi-ghc-gmp-aarch64-linux": {
-    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241103T200558/wasm32-wasi-ghc-gmp-aarch64-linux.tar.zst",
-    "hash": "sha256-0PSIsPu6Yi2crXXt5t+nu2H5U/Un1xcMsSSyNonsTJ4="
+    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241110T200600/wasm32-wasi-ghc-gmp-aarch64-linux.tar.zst",
+    "hash": "sha256-ExzR1EQkalq1QK72mCPDl8WfCcXTeBY0IJQOnYtoplE="
   },
   "wasi-sdk": {
     "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241006T173037/wasi-sdk.tar.gz",
@@ -60,20 +60,20 @@
     "hash": "sha256-nppLAzkiVJNEjYAPtFp2bXSblk7Wr30hqKHY8WTL460="
   },
   "deno": {
-    "url": "https://github.com/denoland/deno/releases/download/v2.0.4/deno-x86_64-unknown-linux-gnu.zip",
-    "hash": "sha512-EiU0Tp7QaF1R3bhMR/C+mMT0lMtdgRXGG3g4Nr6bIIrO4Jooi7A+TMGDTlQq1PrkPYG/KqakXHJaK6bo27Xovw=="
+    "url": "https://github.com/denoland/deno/releases/download/v2.0.6/deno-x86_64-unknown-linux-gnu.zip",
+    "hash": "sha512-cAYQm7efTBIjKiYghUU07clY1LUcLXrBFvZGO4HIm8asmtDa2HJ+0QvBr1Ih7vuZHXsOXrd0D56kqG+8S9yGUw=="
   },
   "deno_aarch64_linux": {
-    "url": "https://github.com/denoland/deno/releases/download/v2.0.4/deno-aarch64-unknown-linux-gnu.zip",
-    "hash": "sha512-Qp4HTni605HFZw+FAXBogx6/bN6SZiMJFuHnebBZn+nuDNsamo7yg51e+Abjqc7zeyd96ahd5o+JaIGpFafC1A=="
+    "url": "https://github.com/denoland/deno/releases/download/v2.0.6/deno-aarch64-unknown-linux-gnu.zip",
+    "hash": "sha512-xv/2/EDqGxQD9kYp5sS6XSQSsXL6vCHzvUUPwPp5a6cAD6afBBRKE3JJcKi1Sfcp9Pmc9+ZdrFTLBHy8CvZNfg=="
   },
   "deno_aarch64_darwin": {
-    "url": "https://github.com/denoland/deno/releases/download/v2.0.4/deno-aarch64-apple-darwin.zip",
-    "hash": "sha512-2nmVpH7jtOdSePZyps9BPK5CKr7AqorT2yu5i3EtJEEE9P+9b7UF96MUa6gcEKyQhsReyRsd30Oy1/LRqZWwXw=="
+    "url": "https://github.com/denoland/deno/releases/download/v2.0.6/deno-aarch64-apple-darwin.zip",
+    "hash": "sha512-hlgzK7EcH2Vu9bIQ+nNbun058r0ZrusWQiBnl6wyYcsd/l6IfCe7SFu9Z6lIAl67dOoihUtWvk/wXPo1BzdoTw=="
   },
   "deno_x86_64_darwin": {
-    "url": "https://github.com/denoland/deno/releases/download/v2.0.4/deno-x86_64-apple-darwin.zip",
-    "hash": "sha512-rBqm9APa1icA/kfxsWaYH/6e0YMcqETsvu9zwg+AofqpTdWhkqDsErsvhbMAFxP24YKWcankVHZY7zgUXcrIfA=="
+    "url": "https://github.com/denoland/deno/releases/download/v2.0.6/deno-x86_64-apple-darwin.zip",
+    "hash": "sha512-kK/F4ZL8cv7iNXFiSooX/mxMkufA9LQ4i6aA8VHf3IrP7Rmfmxss1UhaS5p3U4C0hRUNZHQfcFKSIcAGOvXY5g=="
   },
   "nodejs": {
     "url": "https://github.com/tweag/node-static/releases/download/v23.1.0/node-v23.1.0-linux-x64-static.tar.xz",
