@@ -30,6 +30,7 @@ x86_64-linux-ubuntu-gmp:
     - ./tests/basic.sh
     - ./tests/ghci.sh
     - ./tests/misc.sh
+    - ./tests/pandoc.sh
 
 x86_64-linux-ubuntu-native:
   extends: .x86_64-linux-ubuntu
@@ -39,6 +40,7 @@ x86_64-linux-ubuntu-native:
     - ./tests/basic.sh
     - ./tests/ghci.sh
     - ./tests/misc.sh
+    - ./tests/pandoc.sh
 
 x86_64-linux-ubuntu-unreg:
   extends: .x86_64-linux-ubuntu
@@ -48,6 +50,7 @@ x86_64-linux-ubuntu-unreg:
     - ./tests/basic.sh
     - ./tests/ghci.sh
     - ./tests/misc.sh
+    - ./tests/pandoc.sh
 
 x86_64-linux-ubuntu-9.6:
   extends: .x86_64-linux-ubuntu
@@ -75,6 +78,7 @@ x86_64-linux-ubuntu-9.10:
     - ./tests/humblr.sh
     - ./tests/misc.sh
     - ./tests/miso-ormolu.sh
+    - ./tests/pandoc.sh
 
 x86_64-linux-ubuntu-9.12:
   extends: .x86_64-linux-ubuntu
@@ -83,6 +87,7 @@ x86_64-linux-ubuntu-9.12:
   script:
     - ./tests/basic.sh
     - ./tests/ghci.sh
+    - ./tests/pandoc.sh
 
 x86_64-linux-nix:
   tags:
