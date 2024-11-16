@@ -40,20 +40,20 @@
     "hash": "sha256-ExzR1EQkalq1QK72mCPDl8WfCcXTeBY0IJQOnYtoplE="
   },
   "wasi-sdk": {
-    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241006T173037/wasi-sdk.tar.gz",
-    "hash": "sha256-vTR//uISO8fu7rkNQdUtqKOtZ6FBwb2b3niBhIjO8YU="
+    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241116T180537/wasi-sdk.tar.gz",
+    "hash": "sha256-CXbqGq3RmvbIKWNoYRHewPsrR5x8fJE5G6J+oURgXVM="
   },
   "wasi-sdk-aarch64-darwin": {
-    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241006T173037/wasi-sdk-aarch64-darwin.tar.gz",
-    "hash": "sha256-xlIHEcGHzrRGLT7wMq6zd97+TVGwq+4skmfjyZeZjCs="
+    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241116T180537/wasi-sdk-aarch64-darwin.tar.gz",
+    "hash": "sha256-zTyVe8ZmRwEGjfFz5JniH3CemR++Fw4uy1MFe/DFCCU="
   },
   "wasi-sdk-x86_64-darwin": {
-    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241006T173037/wasi-sdk-x86_64-darwin.tar.gz",
-    "hash": "sha256-mJ8rDF3QrztsBsgMhNKid0u6pgIJ2d6Rp7uhf2QoF0c="
+    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241116T180537/wasi-sdk-x86_64-darwin.tar.gz",
+    "hash": "sha256-wvTzTeb3LbAUc7KxnJ48sMpvomc33Ti4SBExXH8iDbs="
   },
   "wasi-sdk-aarch64-linux": {
-    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241006T173037/wasi-sdk-aarch64-linux.tar.gz",
-    "hash": "sha256-ZgbSJhyLhl5kpfbR4hIRqpGVsCSUFn+LpMyDvKk2WTc="
+    "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20241116T180537/wasi-sdk-aarch64-linux.tar.gz",
+    "hash": "sha256-hVhDKP7RU+fdP1Hp7RbrVA2HnLIAc+HZ8LHXgmFGaPw="
   },
   "libffi-wasm": {
     "url": "https://github.com/tweag/ghc-wasm-bindists/releases/download/20240930T111148/libffi-wasm",
