@@ -36,8 +36,12 @@ host_specific() {
     BUN="bun_aarch64_linux"
     CABAL="cabal_aarch64_linux"
     BINARYEN="binaryen_aarch64_linux"
-    GHC="wasm32-wasi-ghc-gmp-aarch64-linux"
-    FLAVOUR="gmp"
+    if [[ "$FLAVOUR" == gmp ]]; then
+      GHC="wasm32-wasi-ghc-gmp-aarch64-linux"
+    else
+      echo "Unsupported flavour $FLAVOUR on aarch64-linux"
+      exit 1
+    fi
   fi
 
   if [[ $(uname -s) == "Darwin" && $(uname -m) == "arm64" ]]; then
@@ -51,8 +55,16 @@ host_specific() {
     BUN="bun_aarch64_darwin"
     CABAL="cabal_aarch64_darwin"
     BINARYEN="binaryen_aarch64_darwin"
-    GHC="wasm32-wasi-ghc-gmp-aarch64-darwin"
-    FLAVOUR="gmp"
+    if [[ "$FLAVOUR" == gmp ]]; then
+      GHC="wasm32-wasi-ghc-gmp-aarch64-darwin"
+    elif [[ "$FLAVOUR" == 9.10 ]]; then
+      GHC="wasm32-wasi-ghc-gmp-aarch64-darwin-9.10"
+    elif [[ "$FLAVOUR" == 9.12 ]]; then
+      GHC="wasm32-wasi-ghc-gmp-aarch64-darwin-9.12"
+    else
+      echo "Unsupported flavour $FLAVOUR on aarch64-darwin"
+      exit 1
+    fi
   fi
 
   if [[ $(uname -s) == "Darwin" && $(uname -m) == "x86_64" ]]; then
@@ -66,8 +78,12 @@ host_specific() {
     BUN="bun_x86_64_darwin"
     CABAL="cabal_x86_64_darwin"
     BINARYEN="binaryen_x86_64_darwin"
-    GHC="wasm32-wasi-ghc-gmp-x86_64-darwin"
-    FLAVOUR="gmp"
+    if [[ "$FLAVOUR" == gmp ]]; then
+      GHC="wasm32-wasi-ghc-gmp-x86_64-darwin"
+    else
+      echo "Unsupported flavour $FLAVOUR on x86_64-darwin"
+      exit 1
+    fi
   fi
 }
 
