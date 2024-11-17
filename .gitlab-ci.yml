@@ -23,35 +23,28 @@ variables:
       PREFIX=/tmp/.ghc-wasm ./setup.sh
       . /tmp/.ghc-wasm/env
 
-x86_64-linux-ubuntu-gmp:
+.x86_64-linux-ubuntu-head:
   extends: .x86_64-linux-ubuntu
+  script:
+    - ./tests/basic.sh
+    - ./tests/ghci.sh
+    - ./tests/misc.sh
+    - ./tests/pandoc.sh
+
+x86_64-linux-ubuntu-gmp:
+  extends: .x86_64-linux-ubuntu-head
   variables:
     FLAVOUR: gmp
-  script:
-    - ./tests/basic.sh
-    - ./tests/ghci.sh
-    - ./tests/misc.sh
-    - ./tests/pandoc.sh
 
 x86_64-linux-ubuntu-native:
-  extends: .x86_64-linux-ubuntu
+  extends: .x86_64-linux-ubuntu-head
   variables:
     FLAVOUR: native
-  script:
-    - ./tests/basic.sh
-    - ./tests/ghci.sh
-    - ./tests/misc.sh
-    - ./tests/pandoc.sh
 
 x86_64-linux-ubuntu-unreg:
-  extends: .x86_64-linux-ubuntu
+  extends: .x86_64-linux-ubuntu-head
   variables:
     FLAVOUR: unreg
-  script:
-    - ./tests/basic.sh
-    - ./tests/ghci.sh
-    - ./tests/misc.sh
-    - ./tests/pandoc.sh
 
 x86_64-linux-ubuntu-9.6:
   extends: .x86_64-linux-ubuntu
