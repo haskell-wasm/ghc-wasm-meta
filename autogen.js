@@ -52,6 +52,12 @@ const _wasm32_wasi_ghc_9_12 = fetchStableBindist("wasm32-wasi-ghc-9.12");
 const _wasm32_wasi_ghc_gmp_aarch64_darwin = fetchStableBindist(
   "wasm32-wasi-ghc-gmp-aarch64-darwin"
 );
+const _wasm32_wasi_ghc_gmp_aarch64_darwin_9_10 = fetchStableBindist(
+  "wasm32-wasi-ghc-gmp-aarch64-darwin-9.10"
+);
+const _wasm32_wasi_ghc_gmp_aarch64_darwin_9_12 = fetchStableBindist(
+  "wasm32-wasi-ghc-gmp-aarch64-darwin-9.12"
+);
 const _wasm32_wasi_ghc_gmp_x86_64_darwin = fetchStableBindist(
   "wasm32-wasi-ghc-gmp-x86_64-darwin"
 );
@@ -223,6 +229,10 @@ await Deno.writeTextFile(
       "wasm32-wasi-ghc-9.12": await _wasm32_wasi_ghc_9_12,
       "wasm32-wasi-ghc-gmp-aarch64-darwin":
         await _wasm32_wasi_ghc_gmp_aarch64_darwin,
+      "wasm32-wasi-ghc-gmp-aarch64-darwin-9.10":
+        await _wasm32_wasi_ghc_gmp_aarch64_darwin_9_10,
+      "wasm32-wasi-ghc-gmp-aarch64-darwin-9.12":
+        await _wasm32_wasi_ghc_gmp_aarch64_darwin_9_12,
       "wasm32-wasi-ghc-gmp-x86_64-darwin":
         await _wasm32_wasi_ghc_gmp_x86_64_darwin,
       "wasm32-wasi-ghc-gmp-aarch64-linux":
