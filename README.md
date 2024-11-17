@@ -134,33 +134,29 @@ The output `.wasm` modules are known to run on these runtimes:
 
 ### Non-browser non-JavaScript runtimes
 
-These tools are all packaged in this repo, available in both the nix
-flake & `setup.sh` installation. The recommended default runtime is
-`wasmtime`, other ones are included for testing purposes.
-
 - [`wasmtime`](https://wasmtime.dev)
 - [`wasmedge`](https://wasmedge.org)
 - [`wazero`](https://wazero.io)
+- [`toywasm`](https://github.com/yamt/toywasm)
 
 ### Non-browser JavaScript runtimes
 
-- [`deno`](https://deno.land), using
-  https://deno.land/std/wasi/snapshot_preview1.ts as WASI
-  implementation
 - [`node`](https://nodejs.org), using the builtin
   [`wasi`](https://nodejs.org/api/wasi.html) module to provide WASI
   implementation
 - [`bun`](https://bun.sh), using the builtin WASI
-  [implementation](https://github.com/oven-sh/bun/blob/main/src/bun.js/wasi.exports.js)
+  [implementation](https://github.com/oven-sh/bun/blob/main/src/js/node/wasi.ts)
+- [`deno`](https://deno.land), using a legacy WASI
+  [implementation](https://deno.land/std@0.206.0/wasi/snapshot_preview1.ts)
+  in `std`
 
 ### Browsers
 
 Latest releases of Chrome/Firefox/Safari. A JavaScript library is
-needed to provide the WASI implementation, the following are known to
-work to some extent:
+needed to provide the WASI implementation, the following one is known
+to work for our use cases:
 
-- [`wasi-js`](https://github.com/sagemathinc/cowasm/tree/main/core/wasi-js)
-- [`browser_wasi_shim`](https://github.com/bjorn3/browser_wasi_shim)
+- [`browser_wasi_shim`](https://www.jsdelivr.com/package/npm/@bjorn3/browser_wasi_shim)
 
 ## Compiling to WASI reactor module with user-specified exports
 
