@@ -10,11 +10,10 @@ let
   init-cabal-config =
     lib.optionalString
       (
-        !(lib.elem flavour [
-          "9.6"
-          "9.8"
-          "9.10"
-          "9.12"
+        (lib.elem flavour [
+          "gmp"
+          "native"
+          "unreg"
         ])
       )
       ''
