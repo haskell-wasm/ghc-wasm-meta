@@ -1,31 +1,34 @@
-{
-  callPackage,
-  coreutils,
-  fetchurl,
-  flavour,
-  hostPlatform,
-  lib,
-  makeWrapper,
-  runtimeShell,
-  runtimeShellPackage,
-  stdenvNoCC,
-  zstd,
+{ callPackage
+, coreutils
+, fetchurl
+, flavour
+, hostPlatform
+, lib
+, makeWrapper
+, runtimeShell
+, runtimeShellPackage
+, stdenvNoCC
+, zstd
+,
 }:
 let
   common-src = builtins.fromJSON (builtins.readFile ../autogen.json);
-  src = fetchurl (
-    if hostPlatform.isx86_64 && hostPlatform.isLinux then
-      common-src."wasm32-wasi-ghc-${flavour}"
-    else
-      common-src."${key}"
-  );
+  src = fetchurl common-src."${key}";
   key =
     {
-      aarch64-linux = "wasm32-wasi-ghc-gmp-aarch64-linux";
-      aarch64-darwin = "wasm32-wasi-ghc-gmp-aarch64-darwin";
-      x86_64-darwin = "wasm32-wasi-ghc-gmp-x86_64-darwin";
-    }
-    ."${hostPlatform.system}";
+      x86_64-linux-gmp = "wasm32-wasi-ghc-gmp";
+      "x86_64-linux-native" = "wasm32-wasi-ghc-native";
+      "x86_64-linux-unreg" = "wasm32-wasi-ghc-unreg";
+      "x86_64-linux-9.6" = "wasm32-wasi-ghc-9.6";
+      "x86_64-linux-9.8" = "wasm32-wasi-ghc-9.8";
+      "x86_64-linux-9.10" = "wasm32-wasi-ghc-9.10";
+      "x86_64-linux-9.12" = "wasm32-wasi-ghc-9.12";
+      "aarch64-darwin-gmp" = "wasm32-wasi-ghc-gmp-aarch64-darwin";
+      "aarch64-darwin-9.10" = "wasm32-wasi-ghc-gmp-aarch64-darwin-9.10";
+      "aarch64-darwin-9.12" = "wasm32-wasi-ghc-gmp-aarch64-darwin-9.12";
+      "aarch64-linux-gmp" = "wasm32-wasi-ghc-gmp-aarch64-linux";
+      "x86_64-darwin-gmp" = "wasm32-wasi-ghc-gmp-x86_64-darwin";
+    }."${hostPlatform.system}-${flavour}";
   wasi-sdk = callPackage ./wasi-sdk.nix { };
   nodejs = callPackage ./nodejs.nix { };
 in
@@ -41,14 +44,24 @@ stdenvNoCC.mkDerivation {
   ];
   buildInputs = [ runtimeShellPackage ];
 
-  preConfigure = ''
-    substituteInPlace lib/*.mjs \
-      --replace "/usr/bin/env" "${coreutils}/bin/env"
+  preConfigure =
+    lib.optionalString
+      (lib.elem flavour [
+        "gmp"
+        "native"
+        "unreg"
+        "9.10"
+        "9.12"
+      ])
+      ''
+        substituteInPlace lib/*.mjs \
+          --replace "/usr/bin/env" "${coreutils}/bin/env"
+      ''
+    + ''
+      patchShebangs .
 
-    patchShebangs .
-
-    configureFlags="$configureFlags --build=$system --host=$system $CONFIGURE_ARGS"
-  '';
+      configureFlags="$configureFlags --build=$system --host=$system $CONFIGURE_ARGS"
+    '';
 
   configurePlatforms = [ ];
 
