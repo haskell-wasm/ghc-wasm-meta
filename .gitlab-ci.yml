@@ -26,7 +26,6 @@ variables:
 .x86_64-linux-ubuntu-head:
   extends: .x86_64-linux-ubuntu
   script:
-    - ./tests/basic.sh
     - ./tests/ghci.sh
     - ./tests/misc.sh
     - ./tests/pandoc.sh
@@ -51,7 +50,6 @@ x86_64-linux-ubuntu-9.6:
   variables:
     FLAVOUR: "9.6"
   script:
-    - ./tests/basic.sh
     - ./tests/misc.sh
 
 x86_64-linux-ubuntu-9.8:
@@ -59,7 +57,6 @@ x86_64-linux-ubuntu-9.8:
   variables:
     FLAVOUR: "9.8"
   script:
-    - ./tests/basic.sh
     - ./tests/misc.sh
 
 x86_64-linux-ubuntu-9.10:
@@ -67,7 +64,6 @@ x86_64-linux-ubuntu-9.10:
   variables:
     FLAVOUR: "9.10"
   script:
-    - ./tests/basic.sh
     - ./tests/ghci.sh
     - ./tests/humblr.sh
     - ./tests/misc.sh
@@ -79,7 +75,6 @@ x86_64-linux-ubuntu-9.12:
   variables:
     FLAVOUR: "9.12"
   script:
-    - ./tests/basic.sh
     - ./tests/ghci.sh
     - ./tests/pandoc.sh
 

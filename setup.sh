@@ -15,11 +15,7 @@ host_specific() {
     HOST="x86_64-linux"
     WASI_SDK="wasi-sdk"
     WASMTIME="wasmtime"
-    WASMEDGE="wasmedge"
-    WAZERO="wazero"
     NODEJS="nodejs"
-    DENO="deno"
-    BUN="bun"
     CABAL="cabal"
     BINARYEN="binaryen"
     GHC="wasm32-wasi-ghc-$FLAVOUR"
@@ -29,11 +25,7 @@ host_specific() {
     HOST="aarch64-linux"
     WASI_SDK="wasi-sdk-aarch64-linux"
     WASMTIME="wasmtime_aarch64_linux"
-    WASMEDGE="wasmedge_aarch64_linux"
-    WAZERO="wazero_aarch64_linux"
     NODEJS="nodejs_aarch64_linux"
-    DENO="deno_aarch64_linux"
-    BUN="bun_aarch64_linux"
     CABAL="cabal_aarch64_linux"
     BINARYEN="binaryen_aarch64_linux"
     if [[ "$FLAVOUR" == gmp ]]; then
@@ -48,11 +40,7 @@ host_specific() {
     HOST="aarch64-apple-darwin"
     WASI_SDK="wasi-sdk-aarch64-darwin"
     WASMTIME="wasmtime_aarch64_darwin"
-    WASMEDGE="wasmedge_aarch64_darwin"
-    WAZERO="wazero_aarch64_darwin"
     NODEJS="nodejs_aarch64_darwin"
-    DENO="deno_aarch64_darwin"
-    BUN="bun_aarch64_darwin"
     CABAL="cabal_aarch64_darwin"
     BINARYEN="binaryen_aarch64_darwin"
     if [[ "$FLAVOUR" == gmp ]]; then
@@ -71,11 +59,7 @@ host_specific() {
     HOST="x86_64-apple-darwin"
     WASI_SDK="wasi-sdk-x86_64-darwin"
     WASMTIME="wasmtime_x86_64_darwin"
-    WASMEDGE="wasmedge_x86_64_darwin"
-    WAZERO="wazero_x86_64_darwin"
     NODEJS="nodejs_x86_64_darwin"
-    DENO="deno_x86_64_darwin"
-    BUN="bun_x86_64_darwin"
     CABAL="cabal_x86_64_darwin"
     BINARYEN="binaryen_x86_64_darwin"
     if [[ "$FLAVOUR" == gmp ]]; then
@@ -107,44 +91,17 @@ unzip out.zip
 cp -a out/libffi-wasm/include/. "$PREFIX/wasi-sdk/share/wasi-sysroot/include/wasm32-wasi"
 cp -a out/libffi-wasm/lib/. "$PREFIX/wasi-sdk/share/wasi-sysroot/lib/wasm32-wasi"
 
-curl -f -L --retry 5 "$(jq -r ".\"$DENO\".url" "$REPO"/autogen.json)" -o deno.zip
-unzip deno.zip
-mkdir -p "$PREFIX/deno/bin"
-install -m755 deno "$PREFIX/deno/bin"
-
 mkdir -p "$PREFIX/nodejs"
 curl -f -L --retry 5 "$(jq -r ".\"$NODEJS\".url" "$REPO"/autogen.json)" | tar xJ -C "$PREFIX/nodejs" --no-same-owner --strip-components=1
-
-curl -f -L --retry 5 "$(jq -r ".\"$BUN\".url" "$REPO"/autogen.json)" -o bun.zip
-unzip bun.zip
-mkdir -p "$PREFIX/bun/bin"
-install -m755 bun-*/bun "$PREFIX/bun/bin"
 
 mkdir -p "$PREFIX/binaryen"
 curl -f -L --retry 5 "$(jq -r ".\"$BINARYEN\".url" "$REPO"/autogen.json)" | tar xz -C "$PREFIX/binaryen" --no-same-owner --strip-components=1
 
-mkdir -p "$PREFIX/wabt"
-curl -f -L --retry 5 "$(jq -r .wabt.url "$REPO"/autogen.json)" | tar xz -C "$PREFIX/wabt" --no-same-owner --strip-components=1
-
 mkdir -p "$PREFIX/wasmtime"
 curl -f -L --retry 5 "$(jq -r ".\"$WASMTIME\".url" "$REPO"/autogen.json)" | tar x --zstd -C "$PREFIX/wasmtime" --no-same-owner --strip-components=1
 
-mkdir -p "$PREFIX/wasmedge"
-curl -f -L --retry 5 "$(jq -r ".\"$WASMEDGE\".url" "$REPO"/autogen.json)" | tar xz -C "$PREFIX/wasmedge" --no-same-owner --strip-components=1
-
-mkdir -p "$PREFIX/wazero/bin"
-curl -f -L --retry 5 "$(jq -r ".\"$WAZERO\".url" "$REPO"/autogen.json)" | tar xz -C "$PREFIX/wazero/bin" --no-same-owner
-
-mkdir -p "$PREFIX/proot/bin"
-curl -f -L --retry 5 "$(jq -r .proot.url "$REPO"/autogen.json)" -o "$PREFIX/proot/bin/proot"
-chmod 755 "$PREFIX/proot/bin/proot"
-
 mkdir -p "$PREFIX/wasm-run/bin"
-cp -a "$REPO"/wasm-run/*.js "$REPO"/wasm-run/*.mjs "$REPO"/wasm-run/*.sh "$PREFIX/wasm-run/bin"
-cc -DWASM_RUN="\"$PREFIX/wasm-run/bin/wasm-run.js\"" -Wall -O3 "$REPO/wasm-run/qemu-system-wasm32.c" -o "$PREFIX/wasm-run/bin/qemu-system-wasm32"
-echo "#!/bin/sh" >> "$PREFIX/wasm-run/bin/wasm-run"
-echo "exec $PREFIX/proot/bin/proot -q $PREFIX/wasm-run/bin/qemu-system-wasm32" '${1+"$@"}' >> "$PREFIX/wasm-run/bin/wasm-run"
-chmod 755 "$PREFIX/wasm-run/bin/wasm-run"
+cp -a "$REPO"/wasm-run/*.mjs "$REPO"/wasm-run/*.sh "$PREFIX/wasm-run/bin"
 sed -i -e "s@wasmtime@$PREFIX/wasmtime/bin/wasmtime@" "$PREFIX/wasm-run/bin/wasmtime.sh"
 
 echo "#!/bin/sh" >> "$PREFIX/add_to_github_path.sh"
@@ -152,16 +109,10 @@ chmod 755 "$PREFIX/add_to_github_path.sh"
 
 for p in \
   "$PREFIX/wasm-run/bin" \
-  "$PREFIX/proot/bin" \
   "$PREFIX/wasm32-wasi-cabal/bin" \
-  "$PREFIX/wazero/bin" \
-  "$PREFIX/wasmedge/bin" \
   "$PREFIX/wasmtime/bin" \
-  "$PREFIX/wabt/bin" \
   "$PREFIX/binaryen/bin" \
-  "$PREFIX/bun/bin" \
   "$PREFIX/nodejs/bin" \
-  "$PREFIX/deno/bin" \
   "$PREFIX/wasi-sdk/bin" \
   "$PREFIX/wasm32-wasi-ghc/bin"
 do

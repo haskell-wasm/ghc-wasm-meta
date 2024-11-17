@@ -69,26 +69,6 @@ const _wasi_sdk_aarch64_darwin = fetchStableBindist("wasi-sdk-aarch64-darwin");
 const _wasi_sdk_x86_64_darwin = fetchStableBindist("wasi-sdk-x86_64-darwin");
 const _wasi_sdk_aarch64_linux = fetchStableBindist("wasi-sdk-aarch64-linux");
 const _libffi_wasm = fetchStableBindist("libffi-wasm");
-const _deno = fetchGitHubLatestRelease(
-  "denoland",
-  "deno",
-  "x86_64-unknown-linux-gnu.zip"
-);
-const _deno_aarch64_linux = fetchGitHubLatestRelease(
-  "denoland",
-  "deno",
-  "aarch64-unknown-linux-gnu.zip"
-);
-const _deno_aarch64_darwin = fetchGitHubLatestRelease(
-  "denoland",
-  "deno",
-  "aarch64-apple-darwin.zip"
-);
-const _deno_x86_64_darwin = fetchGitHubLatestRelease(
-  "denoland",
-  "deno",
-  "x86_64-apple-darwin.zip"
-);
 const _nodejs = fetchGitHubLatestRelease(
   "tweag",
   "node-static",
@@ -108,22 +88,6 @@ const _nodejs_x86_64_darwin = fetchGitHubLatestRelease(
   "tweag",
   "node-static",
   "darwin-x64.tar.xz"
-);
-const _bun = fetchGitHubLatestRelease("oven-sh", "bun", "linux-x64.zip");
-const _bun_aarch64_linux = fetchGitHubLatestRelease(
-  "oven-sh",
-  "bun",
-  "linux-aarch64.zip"
-);
-const _bun_aarch64_darwin = fetchGitHubLatestRelease(
-  "oven-sh",
-  "bun",
-  "darwin-aarch64.zip"
-);
-const _bun_x86_64_darwin = fetchGitHubLatestRelease(
-  "oven-sh",
-  "bun",
-  "darwin-x64.zip"
 );
 const _binaryen = fetchGitHubLatestRelease(
   "TerrorJack",
@@ -145,11 +109,6 @@ const _binaryen_x86_64_darwin = fetchGitHubLatestRelease(
   "binaryen",
   "x86_64-macos.tar.gz"
 );
-const _wabt = fetchGitHubLatestRelease(
-  "WebAssembly",
-  "wabt",
-  "ubuntu-20.04.tar.gz"
-);
 const _wasmtime = fetchGitHubLatestRelease(
   "TerrorJack",
   "wasm-tools-static",
@@ -170,51 +129,10 @@ const _wasmtime_x86_64_darwin = fetchGitHubLatestRelease(
   "wasm-tools-static",
   "darwin-x86_64.tar.zst"
 );
-const _wasmedge = fetchGitHubLatestRelease(
-  "WasmEdge",
-  "WasmEdge",
-  "ubuntu20.04_x86_64.tar.gz"
-);
-const _wasmedge_aarch64_linux = fetchGitHubLatestRelease(
-  "WasmEdge",
-  "WasmEdge",
-  "ubuntu20.04_aarch64.tar.gz"
-);
-const _wasmedge_aarch64_darwin = fetchGitHubLatestRelease(
-  "WasmEdge",
-  "WasmEdge",
-  "darwin_arm64.tar.gz"
-);
-const _wasmedge_x86_64_darwin = fetchGitHubLatestRelease(
-  "WasmEdge",
-  "WasmEdge",
-  "darwin_x86_64.tar.gz"
-);
-const _wazero = fetchGitHubLatestRelease(
-  "tetratelabs",
-  "wazero",
-  "linux_amd64.tar.gz"
-);
-const _wazero_aarch64_linux = fetchGitHubLatestRelease(
-  "tetratelabs",
-  "wazero",
-  "linux_arm64.tar.gz"
-);
-const _wazero_aarch64_darwin = fetchGitHubLatestRelease(
-  "tetratelabs",
-  "wazero",
-  "darwin_arm64.tar.gz"
-);
-const _wazero_x86_64_darwin = fetchGitHubLatestRelease(
-  "tetratelabs",
-  "wazero",
-  "darwin_amd64.tar.gz"
-);
 const _cabal = fetchStableBindist("cabal");
 const _cabal_aarch64_linux = fetchStableBindist("cabal-aarch64-linux");
 const _cabal_aarch64_darwin = fetchStableBindist("cabal-aarch64-darwin");
 const _cabal_x86_64_darwin = fetchStableBindist("cabal-x86_64-darwin");
-const _proot = fetchStableBindist("proot");
 
 await Deno.writeTextFile(
   "autogen.json",
@@ -242,40 +160,22 @@ await Deno.writeTextFile(
       "wasi-sdk-x86_64-darwin": await _wasi_sdk_x86_64_darwin,
       "wasi-sdk-aarch64-linux": await _wasi_sdk_aarch64_linux,
       "libffi-wasm": await _libffi_wasm,
-      deno: await _deno,
-      deno_aarch64_linux: await _deno_aarch64_linux,
-      deno_aarch64_darwin: await _deno_aarch64_darwin,
-      deno_x86_64_darwin: await _deno_x86_64_darwin,
       nodejs: await _nodejs,
       nodejs_aarch64_linux: await _nodejs_aarch64_linux,
       nodejs_aarch64_darwin: await _nodejs_aarch64_darwin,
       nodejs_x86_64_darwin: await _nodejs_x86_64_darwin,
-      bun: await _bun,
-      bun_aarch64_linux: await _bun_aarch64_linux,
-      bun_aarch64_darwin: await _bun_aarch64_darwin,
-      bun_x86_64_darwin: await _bun_x86_64_darwin,
       binaryen: await _binaryen,
       binaryen_aarch64_linux: await _binaryen_aarch64_linux,
       binaryen_aarch64_darwin: await _binaryen_aarch64_darwin,
       binaryen_x86_64_darwin: await _binaryen_x86_64_darwin,
-      wabt: await _wabt,
       wasmtime: await _wasmtime,
       wasmtime_aarch64_linux: await _wasmtime_aarch64_linux,
       wasmtime_aarch64_darwin: await _wasmtime_aarch64_darwin,
       wasmtime_x86_64_darwin: await _wasmtime_x86_64_darwin,
-      wasmedge: await _wasmedge,
-      wasmedge_aarch64_linux: await _wasmedge_aarch64_linux,
-      wasmedge_aarch64_darwin: await _wasmedge_aarch64_darwin,
-      wasmedge_x86_64_darwin: await _wasmedge_x86_64_darwin,
-      wazero: await _wazero,
-      wazero_aarch64_linux: await _wazero_aarch64_linux,
-      wazero_aarch64_darwin: await _wazero_aarch64_darwin,
-      wazero_x86_64_darwin: await _wazero_x86_64_darwin,
       cabal: await _cabal,
       cabal_aarch64_linux: await _cabal_aarch64_linux,
       cabal_aarch64_darwin: await _cabal_aarch64_darwin,
       cabal_x86_64_darwin: await _cabal_x86_64_darwin,
-      proot: await _proot,
     },
     null,
     2

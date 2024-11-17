@@ -34,20 +34,12 @@
                   pkgs.haskellPackages.happy
                   (pkgs.callPackage ./pkgs/wasm32-wasi-ghc.nix { inherit flavour; })
                   wasi-sdk
-                  deno
                   pkgs.cacert
                   nodejs
-                  bun
                   binaryen
-                  wabt
                   wasmtime
-                  wasmedge
                   cabal
                   (pkgs.callPackage ./pkgs/wasm32-wasi-cabal.nix { inherit flavour; })
-                ]
-                ++ pkgs.lib.optionals pkgs.hostPlatform.isLinux [
-                  proot
-                  wasm-run
                 ];
             };
           wasm32-wasi-ghc-gmp = pkgs.callPackage ./pkgs/wasm32-wasi-ghc.nix { flavour = "gmp"; };
@@ -65,17 +57,10 @@
           wasm32-wasi-cabal-9_10 = pkgs.callPackage ./pkgs/wasm32-wasi-cabal.nix { flavour = "9.10"; };
           wasm32-wasi-cabal-9_12 = pkgs.callPackage ./pkgs/wasm32-wasi-cabal.nix { flavour = "9.12"; };
           wasi-sdk = pkgs.callPackage ./pkgs/wasi-sdk.nix { };
-          deno = pkgs.callPackage ./pkgs/deno.nix { };
           nodejs = pkgs.callPackage ./pkgs/nodejs.nix { };
-          bun = pkgs.callPackage ./pkgs/bun.nix { };
           binaryen = pkgs.callPackage ./pkgs/binaryen.nix { };
-          wabt = pkgs.wabt;
           wasmtime = pkgs.callPackage ./pkgs/wasmtime.nix { };
-          wasmedge = pkgs.callPackage ./pkgs/wasmedge.nix { };
-          wazero = pkgs.callPackage ./pkgs/wazero.nix { };
           cabal = pkgs.callPackage ./pkgs/cabal.nix { };
-          proot = pkgs.proot;
-          wasm-run = pkgs.callPackage ./pkgs/wasm-run.nix { };
         in
         {
           packages = {
@@ -96,17 +81,10 @@
               wasm32-wasi-cabal-9_10
               wasm32-wasi-cabal-9_12
               wasi-sdk
-              deno
               nodejs
-              bun
               binaryen
-              wabt
               wasmtime
-              wasmedge
-              wazero
               cabal
-              proot
-              wasm-run
               ;
             default = all "gmp";
             all_gmp = all "gmp";
