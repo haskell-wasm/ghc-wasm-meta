@@ -4,6 +4,8 @@ set -euo pipefail
 
 pushd "$(mktemp -d)"
 curl -f -L --retry 5 https://github.com/haskell/time/archive/refs/heads/master.tar.gz | tar xz --strip-components=1
+cp $CI_PROJECT_DIR/cabal.project.local .
+sed -i -e '/time/d' cabal.project.local
 autoreconf -i
 wasm32-wasi-cabal build test:ShowDefaultTZAbbreviations
 $CROSS_EMULATOR $(wasm32-wasi-cabal list-bin test:ShowDefaultTZAbbreviations)
@@ -33,12 +35,14 @@ cd zlib
 $CROSS_EMULATOR $(find .. -type f -name tests.wasm)
 popd
 
-pushd "$(mktemp -d)"
-curl -f -L --retry 5 https://github.com/Bodigrim/bitvec/archive/refs/heads/master.tar.gz | tar xz --strip-components=1
-mv cabal.project.wasi cabal.project.local
-wasm32-wasi-cabal build --enable-tests
-$CROSS_EMULATOR $(find . -type f -name bitvec-tests.wasm)
-popd
+if [[ "$FLAVOUR" == 9.6 ]] || [[ "$FLAVOUR" == 9.8 ]] || [[ "$FLAVOUR" == 9.10 ]] || [[ "$FLAVOUR" == 9.12 ]]; then
+  pushd "$(mktemp -d)"
+  curl -f -L --retry 5 https://github.com/Bodigrim/bitvec/archive/refs/heads/master.tar.gz | tar xz --strip-components=1
+  mv cabal.project.wasi cabal.project.local
+  wasm32-wasi-cabal build --enable-tests
+  $CROSS_EMULATOR $(find . -type f -name bitvec-tests.wasm)
+  popd
+fi
 
 pushd "$(mktemp -d)"
 curl -f -L --retry 5 https://github.com/UnkindPartition/tasty/archive/refs/heads/master.tar.gz | tar xz --strip-components=1
@@ -68,6 +72,7 @@ popd
 
 pushd "$(mktemp -d)"
 curl -f -L --retry 5 https://github.com/extism/haskell-pdk/archive/refs/heads/main.tar.gz | tar xz --strip-components=1
+cp $CI_PROJECT_DIR/cabal.project.local .
 wasm32-wasi-cabal build all
 popd
 

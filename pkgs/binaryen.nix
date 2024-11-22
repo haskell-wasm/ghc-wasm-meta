@@ -1,5 +1,4 @@
 {
-  autoPatchelfHook,
   fetchurl,
   fixDarwinDylibNames,
   hostPlatform,
@@ -21,8 +20,7 @@ stdenv.mkDerivation {
   name = "binaryen";
   inherit src;
   nativeBuildInputs =
-    lib.optionals hostPlatform.isLinux [ autoPatchelfHook ]
-    ++ lib.optionals hostPlatform.isDarwin [ fixDarwinDylibNames ];
+    lib.optionals hostPlatform.isDarwin [ fixDarwinDylibNames ];
   installPhase = ''
     runHook preInstall
 

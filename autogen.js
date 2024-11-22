@@ -7,7 +7,7 @@ async function fetchJSON(url) {
 }
 
 const _stableBindists = fetchJSON(
-  "https://raw.githubusercontent.com/tweag/ghc-wasm-bindists/main/meta.json"
+  "https://raw.githubusercontent.com/haskell-wasm/ghc-wasm-bindists/main/meta.json"
 );
 
 async function fetchStableBindist(id) {
@@ -70,34 +70,34 @@ const _wasi_sdk_x86_64_darwin = fetchStableBindist("wasi-sdk-x86_64-darwin");
 const _wasi_sdk_aarch64_linux = fetchStableBindist("wasi-sdk-aarch64-linux");
 const _libffi_wasm = fetchStableBindist("libffi-wasm");
 const _nodejs = fetchGitHubLatestRelease(
-  "tweag",
+  "haskell-wasm",
   "node-static",
   "linux-x64-static.tar.xz"
 );
 const _nodejs_aarch64_linux = fetchGitHubLatestRelease(
-  "tweag",
+  "haskell-wasm",
   "node-static",
   "linux-arm64-static.tar.xz"
 );
 const _nodejs_aarch64_darwin = fetchGitHubLatestRelease(
-  "tweag",
+  "haskell-wasm",
   "node-static",
   "darwin-arm64.tar.xz"
 );
 const _nodejs_x86_64_darwin = fetchGitHubLatestRelease(
-  "tweag",
+  "haskell-wasm",
   "node-static",
   "darwin-x64.tar.xz"
 );
 const _binaryen = fetchGitHubLatestRelease(
-  "TerrorJack",
+  "haskell-wasm",
   "binaryen",
   "x86_64-linux-static.tar.gz"
 );
 const _binaryen_aarch64_linux = fetchGitHubLatestRelease(
-  "WebAssembly",
+  "haskell-wasm",
   "binaryen",
-  "aarch64-linux.tar.gz"
+  "aarch64-linux-static.tar.gz"
 );
 const _binaryen_aarch64_darwin = fetchGitHubLatestRelease(
   "WebAssembly",
@@ -110,22 +110,22 @@ const _binaryen_x86_64_darwin = fetchGitHubLatestRelease(
   "x86_64-macos.tar.gz"
 );
 const _wasmtime = fetchGitHubLatestRelease(
-  "TerrorJack",
+  "haskell-wasm",
   "wasm-tools-static",
   "x86_64-linux.tar.zst"
 );
 const _wasmtime_aarch64_linux = fetchGitHubLatestRelease(
-  "TerrorJack",
+  "haskell-wasm",
   "wasm-tools-static",
   "aarch64-linux.tar.zst"
 );
 const _wasmtime_aarch64_darwin = fetchGitHubLatestRelease(
-  "TerrorJack",
+  "haskell-wasm",
   "wasm-tools-static",
   "darwin-aarch64.tar.zst"
 );
 const _wasmtime_x86_64_darwin = fetchGitHubLatestRelease(
-  "TerrorJack",
+  "haskell-wasm",
   "wasm-tools-static",
   "darwin-x86_64.tar.zst"
 );
