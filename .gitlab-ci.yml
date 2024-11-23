@@ -80,6 +80,7 @@ x86_64-linux-ubuntu-9.12:
   script:
     - ./tests/ghci.sh
     - ./tests/misc.sh
+    - ./tests/miso-ormolu.sh
     - ./tests/pandoc.sh
 
 x86_64-linux-nix:
