@@ -4,7 +4,7 @@ default:
 workflow:
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_PROJECT_NAMESPACE == "haskell-wasm"
 
 variables:
   DOCKER_REV: eb4d3389fd62e4f7321a0c8799014ec1f4da0708
