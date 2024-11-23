@@ -15,7 +15,6 @@ variables:
   tags:
     - x86_64-linux
   image: registry.gitlab.haskell.org/ghc/ci-images/x86_64-linux-ubuntu24_04:$DOCKER_REV
-  retry: 2
   before_script:
     - |
       sudo apt update
@@ -86,7 +85,6 @@ x86_64-linux-nix:
   tags:
     - x86_64-linux
   image: nixos/nix:2.25.2
-  retry: 2
   before_script:
     - echo "experimental-features = nix-command flakes" >> /etc/nix/nix.conf
     - nix run nixpkgs#gnused -- -i -e 's/ nixbld//' /etc/nix/nix.conf
