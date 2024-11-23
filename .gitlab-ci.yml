@@ -23,6 +23,7 @@ variables:
     - sudo chown ghc:ghc -R .
     - |
       PREFIX=/tmp/.ghc-wasm ./setup.sh
+      sed -i -e "s/\$ncpus/$CPUS/" /tmp/.ghc-wasm/.cabal/config
       . /tmp/.ghc-wasm/env
 
 .x86_64-linux-ubuntu-head:
@@ -87,6 +88,8 @@ x86_64-linux-nix:
   image: nixos/nix:2.25.2
   before_script:
     - echo "experimental-features = nix-command flakes" >> /etc/nix/nix.conf
+    - echo "cores = $CPUS" >> /etc/nix/nix.conf
+    - echo "max-jobs = $CPUS" >> /etc/nix/nix.conf
     - nix run nixpkgs#gnused -- -i -e 's/ nixbld//' /etc/nix/nix.conf
   script:
     - |
