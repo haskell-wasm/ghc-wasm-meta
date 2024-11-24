@@ -2,6 +2,8 @@
 
 set -euo pipefail
 
+export PATH=$PATH:/opt/toolchain/bin
+
 pushd "$(mktemp -d)"
 curl -f -L --retry 5 https://github.com/haskell/time/archive/refs/heads/master.tar.gz | tar xz --strip-components=1
 cp $CI_PROJECT_DIR/cabal.project.local .
@@ -81,3 +83,11 @@ curl -f -L --retry 5 https://github.com/AntanasKal/SpaceInvaders/archive/refs/he
 cp $CI_PROJECT_DIR/cabal.project.local .
 wasm32-wasi-cabal build wasmBuild
 popd
+
+if [[ "$FLAVOUR" != 9.6 ]] && [[ "$FLAVOUR" != 9.8 ]]; then
+  pushd "$(mktemp -d)"
+  curl -f -L --retry 5 https://github.com/pointfree-wasm/pointfree-wasm.github.io/archive/refs/heads/master.tar.gz | tar xz --strip-components=1
+  wasm32-wasi-cabal build all --enable-tests --enable-benchmarks
+  $(wasm32-wasi-ghc --print-libdir)/post-link.mjs -i $(wasm32-wasi-cabal list-bin pointfree-wasm:exe:pointfree-wasm) -o pointfree-wasm.js
+  popd
+fi
