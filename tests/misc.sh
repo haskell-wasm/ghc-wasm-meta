@@ -91,3 +91,9 @@ if [[ "$FLAVOUR" != 9.6 ]] && [[ "$FLAVOUR" != 9.8 ]]; then
   $(wasm32-wasi-ghc --print-libdir)/post-link.mjs -i $(wasm32-wasi-cabal list-bin pointfree-wasm:exe:pointfree-wasm) -o pointfree-wasm.js
   popd
 fi
+
+pushd "$(mktemp -d)"
+curl -f -L --retry 5 https://github.com/tusharad/sql2er/archive/refs/heads/main.tar.gz | tar xz --strip-components=1
+cp $CI_PROJECT_DIR/cabal.project.local .
+wasm32-wasi-cabal build sql2er-wasm -fbuild-sql2er-wasm
+popd
