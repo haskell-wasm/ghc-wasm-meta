@@ -30,6 +30,7 @@ variables:
   extends: .x86_64-linux-ubuntu
   script:
     - ./tests/ghci.sh
+    - ./tests/agda.sh
     - ./tests/misc.sh
     - ./tests/miso-ormolu.sh
     - ./tests/pandoc.sh
@@ -54,6 +55,7 @@ x86_64-linux-ubuntu-9.6:
   variables:
     FLAVOUR: "9.6"
   script:
+    - ./tests/agda.sh
     - ./tests/misc.sh
 
 x86_64-linux-ubuntu-9.8:
@@ -61,6 +63,7 @@ x86_64-linux-ubuntu-9.8:
   variables:
     FLAVOUR: "9.8"
   script:
+    - ./tests/agda.sh
     - ./tests/misc.sh
 
 x86_64-linux-ubuntu-9.10:
@@ -69,6 +72,7 @@ x86_64-linux-ubuntu-9.10:
     FLAVOUR: "9.10"
   script:
     - ./tests/ghci.sh
+    - ./tests/agda.sh
     - ./tests/humblr.sh
     - ./tests/misc.sh
     - ./tests/miso-ormolu.sh
@@ -80,6 +84,7 @@ x86_64-linux-ubuntu-9.12:
     FLAVOUR: "9.12"
   script:
     - ./tests/ghci.sh
+    - ./tests/agda.sh
     - ./tests/humblr.sh
     - ./tests/misc.sh
     - ./tests/miso-ormolu.sh
