@@ -12,7 +12,7 @@ This repo is a nix flake. The default output is a derivation that
 bundles all provided tools:
 
 ```sh
-$ nix shell gitlab:ghc/ghc-wasm-meta?host=gitlab.haskell.org
+$ nix shell 'gitlab:haskell-wasm/ghc-wasm-meta?host=gitlab.haskell.org'
 $ echo 'main = putStrLn "hello world"' > hello.hs
 $ wasm32-wasi-ghc hello.hs -o hello.wasm
 [1 of 2] Compiling Main             ( hello.hs, hello.o )
@@ -36,7 +36,7 @@ This repo also provides an installation script that installs the
 provided tools to `~/.ghc-wasm`:
 
 ```sh
-$ curl https://gitlab.haskell.org/ghc/ghc-wasm-meta/-/raw/master/bootstrap.sh | sh
+$ curl https://gitlab.haskell.org/haskell-wasm/ghc-wasm-meta/-/raw/master/bootstrap.sh | sh
 ...
 Everything set up in /home/username/.ghc-wasm.
 Run 'source /home/username/.ghc-wasm/env' to add tools to your PATH.
@@ -90,7 +90,7 @@ for both nix/non-nix installation methods.
 
 Besides wasm MVP, certain extensions are used. The feature flags are
 enabled globally in our
-[wasi-sdk](https://gitlab.haskell.org/ghc/wasi-sdk) build, passed at
+[wasi-sdk](https://gitlab.haskell.org/haskell-wasm/wasi-sdk) build, passed at
 GHC configure time, and the wasm NCG may make use of the features. The
 rationale of post-MVP wasm feature inclusion:
 
@@ -215,7 +215,7 @@ to address this fact, and the command/reactor distinction arises:
 
 - A WASI command module must export a `_start` function. You can see
   how `_start` is defined in `wasi-libc`
-  [here](https://gitlab.haskell.org/ghc/wasi-libc/-/blob/master/libc-bottom-half/crt/crt1-command.c).
+  [here](https://gitlab.haskell.org/haskell-wasm/wasi-libc/-/blob/master/libc-bottom-half/crt/crt1-command.c).
   It'll call the ctors, then call the main function in user code, and
   finally call the dtors. Since the dtors are called, the program
   state is finalized, so attempting to call any export after this
@@ -223,7 +223,7 @@ to address this fact, and the command/reactor distinction arises:
 - A WASI reactor module may export an `_initialize` function, if it
   exists, it must be called exactly once before any other exports are
   called. See its definition
-  [here](https://gitlab.haskell.org/ghc/wasi-libc/-/blob/master/libc-bottom-half/crt/crt1-reactor.c),
+  [here](https://gitlab.haskell.org/haskell-wasm/wasi-libc/-/blob/master/libc-bottom-half/crt/crt1-reactor.c),
   it merely calls the ctors. So after `_initialize`, you can call the
   exports freely, reusing the instance state. If you want to
   "finalize", you're in charge of exporting and calling
@@ -324,7 +324,7 @@ Which functions can be exported via the `--export` flag?
 
 - Any C function which symbol is externally visible. For libc, there
   is a
-  [list](https://gitlab.haskell.org/ghc/wasi-libc/-/blob/master/expected/wasm32-wasip1/defined-symbols.txt)
+  [list](https://gitlab.haskell.org/haskell-wasm/wasi-libc/-/blob/master/expected/wasm32-wasip1/defined-symbols.txt)
   of all externally visible symbols. For the GHC RTS, see
   [`HsFFI.h`](https://gitlab.haskell.org/ghc/ghc/-/blob/master/rts/include/HsFFI.h)
   and
@@ -539,7 +539,7 @@ GHC.
 
 To build the wasm backend, the systemwide C/C++ toolchain won't work.
 You need to install our `wasi-sdk`
-[fork](https://gitlab.haskell.org/ghc/wasi-sdk). Upstream `wasi-sdk`
+[fork](https://gitlab.haskell.org/haskell-wasm/wasi-sdk). Upstream `wasi-sdk`
 won't work yet.
 
 If your host system is one of `{x86_64,aarch64}-{linux,darwin}`, then
@@ -562,7 +562,7 @@ Skip this subsection if `wasi-sdk` is installed by `setup.sh` instead
 of extracting CI artifacts directly.
 
 Extract the CI artifact of
-[`libffi-wasm`](https://gitlab.haskell.org/ghc/libffi-wasm), and copy
+[`libffi-wasm`](https://gitlab.haskell.org/haskell-wasm/libffi-wasm), and copy
 its contents:
 
 - `cp *.h ~/.ghc-wasm/wasi-sdk/share/wasi-sysroot/include/wasm32-wasi`
