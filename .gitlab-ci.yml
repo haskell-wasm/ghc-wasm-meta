@@ -90,15 +90,44 @@ x86_64-linux-ubuntu-9.12:
     - ./tests/miso-ormolu.sh
     - ./tests/pandoc.sh
 
-x86_64-linux-nix:
-  tags:
-    - x86_64-linux
+.nix:
+  script:
+    - |
+      nix shell nixpkgs#autoconf nixpkgs#dart-sass nixpkgs#gawk nixpkgs#gnused .#$NIX_FLAVOUR --command bash -euo pipefail -c 'export CROSS_EMULATOR=$CI_PROJECT_DIR/wasm-run/wasm-run.mjs && wasm32-wasi-cabal update --ignore-project && sed -i -e "s/\$ncpus/$CPUS/" $HOME/.ghc-wasm/.cabal/config && ./tests/ghci.sh && ./tests/agda.sh && ./tests/misc.sh && ./tests/miso-ormolu.sh && ./tests/pandoc.sh'
+
+.linux-nix:
+  extends: .nix
   image: nixos/nix:2.25.2
   before_script:
     - echo "experimental-features = nix-command flakes" >> /etc/nix/nix.conf
     - echo "cores = $CPUS" >> /etc/nix/nix.conf
     - echo "max-jobs = $CPUS" >> /etc/nix/nix.conf
-    - nix run nixpkgs#gnused -- -i -e 's/ nixbld//' /etc/nix/nix.conf
-  script:
-    - |
-      nix build --json --no-link . .#all_native .#all_unreg .#all_9_6 .#all_9_8 .#all_9_10 .#all_9_12
+
+aarch64-linux-nix-gmp:
+  extends: .linux-nix
+  tags:
+    - aarch64-linux
+  variables:
+    FLAVOUR: gmp
+    NIX_FLAVOUR: all_gmp
+
+.darwin-nix:
+  extends: .nix
+  before_script:
+    - export HOME=$(mktemp -d)
+
+aarch64-darwin-nix-9.12:
+  extends: .darwin-nix
+  tags:
+    - aarch64-darwin
+  variables:
+    FLAVOUR: "9.12"
+    NIX_FLAVOUR: all_9_12
+
+aarch64-darwin-nix-9.10:
+  extends: .darwin-nix
+  tags:
+    - aarch64-darwin
+  variables:
+    FLAVOUR: "9.10"
+    NIX_FLAVOUR: all_9_10

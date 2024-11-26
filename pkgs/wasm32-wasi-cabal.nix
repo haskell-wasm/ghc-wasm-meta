@@ -1,4 +1,5 @@
-{ lib
+{ coreutils
+, lib
 , callPackage
 , flavour
 , writeShellScriptBin
@@ -17,8 +18,8 @@ let
         ])
       )
       ''
-        cp ${../cabal.head.config} "$CABAL_DIR/config"
-        chmod u+w "$CABAL_DIR/config"
+        ${coreutils}/bin/cp ${../cabal.head.config} "$CABAL_DIR/config"
+        ${coreutils}/bin/chmod u+w "$CABAL_DIR/config"
       ''
     +
     lib.optionalString
@@ -27,8 +28,8 @@ let
         "9.12"
       ])
       ''
-        cp ${../cabal.th.config} "$CABAL_DIR/config"
-        chmod u+w "$CABAL_DIR/config"
+        ${coreutils}/bin/cp ${../cabal.th.config} "$CABAL_DIR/config"
+        ${coreutils}/bin/chmod u+w "$CABAL_DIR/config"
       ''
     +
     lib.optionalString
@@ -37,8 +38,8 @@ let
         "9.8"
       ])
       ''
-        cp ${../cabal.legacy.config} "$CABAL_DIR/config"
-        chmod u+w "$CABAL_DIR/config"
+        ${coreutils}/bin/cp ${../cabal.legacy.config} "$CABAL_DIR/config"
+        ${coreutils}/bin/chmod u+w "$CABAL_DIR/config"
       '';
 in
 writeShellScriptBin "wasm32-wasi-cabal" ''
@@ -46,7 +47,7 @@ writeShellScriptBin "wasm32-wasi-cabal" ''
 
   if [ ! -f "$CABAL_DIR/config" ]
   then
-    mkdir -p "$CABAL_DIR"
+    ${coreutils}/bin/mkdir -p "$CABAL_DIR"
     ${init-cabal-config}
   fi
 

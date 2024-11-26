@@ -17,7 +17,6 @@ popd
 
 pushd "$(mktemp -d)"
 curl -f -L --retry 5 https://github.com/haskell/unix/archive/refs/heads/master.tar.gz | tar xz --strip-components=1
-cp /tmp/.ghc-wasm/wasi-sdk/share/misc/config.* .
 autoreconf -i
 wasm32-wasi-cabal --project-file=cabal.project.wasm32-wasi build
 ./test-wasm32-wasi.mjs
