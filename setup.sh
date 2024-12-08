@@ -83,8 +83,15 @@ trap 'rm -rf "$workdir"' EXIT
 
 pushd "$workdir"
 
+if [[ -z "${UPSTREAM_WASI_SDK_PIPELINE_ID:-}" ]]; then
+  WASI_SDK_BINDIST=$(jq -r ".\"$WASI_SDK\".url" "$REPO"/autogen.json)
+else
+  UPSTREAM_WASI_SDK_JOB_ID=$(curl -f -L --retry 5 https://gitlab.haskell.org/api/v4/projects/3212/pipelines/$UPSTREAM_WASI_SDK_PIPELINE_ID/jobs?scope[]=success | jq -r ".[] | select(.name == \"x86_64-linux\") | .id")
+  WASI_SDK_BINDIST=https://gitlab.haskell.org/haskell-wasm/wasi-sdk/-/jobs/$UPSTREAM_WASI_SDK_JOB_ID/artifacts/raw/dist/wasi-sdk-25.0-x86_64-linux.tar.gz
+fi
+echo "Installing wasi-sdk from $WASI_SDK_BINDIST"
 mkdir -p "$PREFIX/wasi-sdk"
-curl -f -L --retry 5 "$(jq -r ".\"$WASI_SDK\".url" "$REPO"/autogen.json)" | tar xz -C "$PREFIX/wasi-sdk" --no-same-owner --strip-components=1
+curl -f -L --retry 5 "$WASI_SDK_BINDIST" | tar xz -C "$PREFIX/wasi-sdk" --no-same-owner --strip-components=1
 
 curl -f -L --retry 5 "$(jq -r '."libffi-wasm".url' "$REPO"/autogen.json)" -o out.zip
 unzip out.zip
@@ -161,10 +168,22 @@ fi
 
 mkdir -p "$PREFIX/wasm32-wasi-ghc"
 mkdir ghc
-if [[ $(uname -s) == "Linux" && $(uname -m) == "x86_64" ]]; then
-  curl -f -L --retry 5 "$(jq -r ".\"$GHC\".url" "$REPO"/autogen.json)" | tar xJ -C ghc --no-same-owner --strip-components=1
+if [[ -z "${UPSTREAM_GHC_PIPELINE_ID:-}" ]]; then
+  GHC_BINDIST="$(jq -r ".\"$GHC\".url" "$REPO"/autogen.json)"
 else
-  curl -f -L --retry 5 "$(jq -r ".\"$GHC\".url" "$REPO"/autogen.json)" | tar x --zstd -C ghc --no-same-owner --strip-components=1
+  if [[ "$FLAVOUR" == 9.6 ]] || [[ "$FLAVOUR" == 9.8 ]] || [[ "$FLAVOUR" == 9.10 ]]; then
+    UPSTREAM_GHC_JOB_NAME=x86_64-linux-alpine3_20-wasm-cross_wasm32-wasi-release+host_fully_static
+  else
+    UPSTREAM_GHC_JOB_NAME=x86_64-linux-alpine3_20-wasm-cross_wasm32-wasi-release+host_fully_static+text_simdutf
+  fi
+  UPSTREAM_GHC_JOB_ID=$(curl -f -L --retry 5 https://gitlab.haskell.org/api/v4/projects/224/pipelines/$UPSTREAM_GHC_PIPELINE_ID/jobs?scope[]=success | jq -r ".[] | select(.name == \"$UPSTREAM_GHC_JOB_NAME\") | .id")
+  GHC_BINDIST=https://gitlab.haskell.org/haskell-wasm/ghc/-/jobs/$UPSTREAM_GHC_JOB_ID/artifacts/raw/ghc-$UPSTREAM_GHC_JOB_NAME.tar.xz
+fi
+echo "Installing wasm32-wasi-ghc from $GHC_BINDIST"
+if [[ $(uname -s) == "Linux" && $(uname -m) == "x86_64" ]]; then
+  curl -f -L --retry 5 "$GHC_BINDIST" | tar xJ -C ghc --no-same-owner --strip-components=1
+else
+  curl -f -L --retry 5 "$GHC_BINDIST" | tar x --zstd -C ghc --no-same-owner --strip-components=1
 fi
 pushd ghc
 sh -c ". $PREFIX/env && ./configure \$CONFIGURE_ARGS --prefix=$PREFIX/wasm32-wasi-ghc && exec make install"

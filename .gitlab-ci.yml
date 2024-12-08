@@ -3,8 +3,9 @@ default:
 
 workflow:
   rules:
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-    - if: $CI_PROJECT_NAMESPACE == "haskell-wasm"
+    - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $UPSTREAM_GHC_FLAVOUR != null
 
 variables:
   DOCKER_REV: eb4d3389fd62e4f7321a0c8799014ec1f4da0708
@@ -15,6 +16,11 @@ variables:
   tags:
     - x86_64-linux
   image: registry.gitlab.haskell.org/ghc/ci-images/x86_64-linux-ubuntu24_04:$DOCKER_REV
+  rules:
+    - if: $UPSTREAM_GHC_FLAVOUR == null
+    - if: $UPSTREAM_GHC_FLAVOUR == $FLAVOUR
+  variables:
+    GITLAB_HOST: https://gitlab.haskell.org
   before_script:
     - |
       sudo apt update
@@ -91,13 +97,15 @@ x86_64-linux-ubuntu-9.12:
     - ./tests/pandoc.sh
 
 .nix:
+  rules:
+    - if: $UPSTREAM_GHC_FLAVOUR == null
   script:
     - |
       nix shell nixpkgs#autoconf nixpkgs#dart-sass nixpkgs#gawk nixpkgs#gnused .#$NIX_FLAVOUR --command bash -euo pipefail -c 'export CROSS_EMULATOR=$CI_PROJECT_DIR/wasm-run/wasm-run.mjs && wasm32-wasi-cabal update --ignore-project && sed -i -e "s/\$ncpus/$CPUS/" $HOME/.ghc-wasm/.cabal/config && ./tests/ghci.sh && ./tests/agda.sh && ./tests/misc.sh && ./tests/miso-ormolu.sh && ./tests/pandoc.sh'
 
 .linux-nix:
   extends: .nix
-  image: nixos/nix:2.25.2
+  image: nixos/nix:2.25.3
   before_script:
     - echo "experimental-features = nix-command flakes" >> /etc/nix/nix.conf
     - echo "cores = $CPUS" >> /etc/nix/nix.conf
@@ -113,21 +121,19 @@ aarch64-linux-nix-gmp:
 
 .darwin-nix:
   extends: .nix
+  tags:
+    - aarch64-darwin
   before_script:
     - export HOME=$(mktemp -d)
 
 aarch64-darwin-nix-9.12:
   extends: .darwin-nix
-  tags:
-    - aarch64-darwin
   variables:
     FLAVOUR: "9.12"
     NIX_FLAVOUR: all_9_12
 
 aarch64-darwin-nix-9.10:
   extends: .darwin-nix
-  tags:
-    - aarch64-darwin
   variables:
     FLAVOUR: "9.10"
     NIX_FLAVOUR: all_9_10
