@@ -129,10 +129,18 @@ const _wasmtime_x86_64_darwin = fetchGitHubLatestRelease(
   "wasm-tools-static",
   "darwin-x86_64.tar.zst"
 );
-const _cabal = fetchStableBindist("cabal");
-const _cabal_aarch64_linux = fetchStableBindist("cabal-aarch64-linux");
-const _cabal_aarch64_darwin = fetchStableBindist("cabal-aarch64-darwin");
-const _cabal_x86_64_darwin = fetchStableBindist("cabal-x86_64-darwin");
+const _cabal = fetchurl(
+  "https://downloads.haskell.org/cabal/cabal-install-3.14.1.0/cabal-install-3.14.1.0-x86_64-linux-alpine3_18.tar.xz"
+);
+const _cabal_aarch64_linux = fetchurl(
+  "https://downloads.haskell.org/cabal/cabal-install-3.14.1.0/cabal-install-3.14.1.0-aarch64-linux-alpine3_18.tar.xz"
+);
+const _cabal_aarch64_darwin = fetchurl(
+  "https://downloads.haskell.org/cabal/cabal-install-3.14.1.0/cabal-install-3.14.1.0-aarch64-darwin.tar.xz"
+);
+const _cabal_x86_64_darwin = fetchurl(
+  "https://downloads.haskell.org/cabal/cabal-install-3.14.1.0/cabal-install-3.14.1.0-x86_64-darwin.tar.xz"
+);
 
 await Deno.writeTextFile(
   "autogen.json",
