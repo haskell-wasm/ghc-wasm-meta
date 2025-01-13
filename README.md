@@ -1,6 +1,6 @@
 # `ghc-wasm-meta`
 
-[![Chat on Matrix](https://matrix.to/img/matrix-badge.svg)](https://matrix.to/#/#haskell-wasm:matrix.terrorjack.com)
+[![Chat on Matrix](https://matrix.to/img/matrix-badge.svg)](https://matrix.to/#/#haskell-wasm:matrix.org)
 
 This repo provides convenient methods of using binary artifacts of
 GHC's wasm backend. It's also a staging area for the GHC wasm backend
@@ -73,9 +73,10 @@ via these environment variables:
       debugging the native codegen, since there are less GHC test
       suite failures in the unregisterised codegen at the moment.
     - The `9.6`/`9.8`/`9.10`/`9.12` flavour tracks the
-      `ghc-9.6`/`ghc-9.8`/`ghc-9.10`/`ghc-9.12` release branch instead
-      of the `master` branch. It uses the `gmp` bignum backend and the
-      wasm native codegen.
+      `ghc-9.6`/`ghc-9.8`/`ghc-9.10`/`ghc-9.12` release branches in
+      our [fork](https://gitlab.haskell.org/haskell-wasm/ghc) instead
+      of the upstream `master` branch. It uses the `gmp` bignum
+      backend and the wasm native codegen.
   - `SKIP_GHC`: set this to skip installing `cabal` and `ghc`
 
 Note that if you use the `9.6`/`9.8`/`9.10`/`9.12` flavour, the
