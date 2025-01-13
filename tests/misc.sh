@@ -80,6 +80,7 @@ popd
 pushd "$(mktemp -d)"
 curl -f -L --retry 5 https://github.com/AntanasKal/SpaceInvaders/archive/refs/heads/develop.tar.gz | tar xz --strip-components=1
 cp $CI_PROJECT_DIR/cabal.project.local .
+echo "constraints: Yampa >= 0.14.12" >> cabal.project.local
 wasm32-wasi-cabal build wasmBuild
 popd
 
