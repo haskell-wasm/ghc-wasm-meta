@@ -14,6 +14,8 @@ host_specific() {
   if [[ $(uname -s) == "Linux" && $(uname -m) == "x86_64" ]]; then
     HOST="x86_64-linux"
     WASI_SDK="wasi-sdk"
+    WASI_SDK_JOB_NAME="x86_64-linux"
+    WASI_SDK_ARTIFACT_PATH="dist/wasi-sdk-25.0-x86_64-linux.tar.gz"
     WASMTIME="wasmtime"
     NODEJS="nodejs"
     CABAL="cabal"
@@ -24,6 +26,8 @@ host_specific() {
   if [[ $(uname -s) == "Linux" && $(uname -m) == "aarch64" ]]; then
     HOST="aarch64-linux"
     WASI_SDK="wasi-sdk-aarch64-linux"
+    WASI_SDK_JOB_NAME="aarch64-linux"
+    WASI_SDK_ARTIFACT_PATH="dist/wasi-sdk-25.0-aarch64-linux.tar.gz"
     WASMTIME="wasmtime_aarch64_linux"
     NODEJS="nodejs_aarch64_linux"
     CABAL="cabal_aarch64_linux"
@@ -39,6 +43,8 @@ host_specific() {
   if [[ $(uname -s) == "Darwin" && $(uname -m) == "arm64" ]]; then
     HOST="aarch64-apple-darwin"
     WASI_SDK="wasi-sdk-aarch64-darwin"
+    WASI_SDK_JOB_NAME="aarch64-darwin"
+    WASI_SDK_ARTIFACT_PATH="dist/wasi-sdk-25.0-arm64-macos.tar.gz"
     WASMTIME="wasmtime_aarch64_darwin"
     NODEJS="nodejs_aarch64_darwin"
     CABAL="cabal_aarch64_darwin"
@@ -58,6 +64,8 @@ host_specific() {
   if [[ $(uname -s) == "Darwin" && $(uname -m) == "x86_64" ]]; then
     HOST="x86_64-apple-darwin"
     WASI_SDK="wasi-sdk-x86_64-darwin"
+    WASI_SDK_JOB_NAME="x86_64-darwin"
+    WASI_SDK_ARTIFACT_PATH="dist/wasi-sdk-25.0-arm64-macos.tar.gz"
     WASMTIME="wasmtime_x86_64_darwin"
     NODEJS="nodejs_x86_64_darwin"
     CABAL="cabal_x86_64_darwin"
@@ -86,8 +94,8 @@ pushd "$workdir"
 if [[ -z "${UPSTREAM_WASI_SDK_PIPELINE_ID:-}" ]]; then
   WASI_SDK_BINDIST=$(jq -r ".\"$WASI_SDK\".url" "$REPO"/autogen.json)
 else
-  UPSTREAM_WASI_SDK_JOB_ID=$(curl -f -L --retry 5 https://gitlab.haskell.org/api/v4/projects/3212/pipelines/$UPSTREAM_WASI_SDK_PIPELINE_ID/jobs?scope[]=success | jq -r ".[] | select(.name == \"x86_64-linux\") | .id")
-  WASI_SDK_BINDIST=https://gitlab.haskell.org/haskell-wasm/wasi-sdk/-/jobs/$UPSTREAM_WASI_SDK_JOB_ID/artifacts/raw/dist/wasi-sdk-25.0-x86_64-linux.tar.gz
+  UPSTREAM_WASI_SDK_JOB_ID=$(curl -f -L --retry 5 https://gitlab.haskell.org/api/v4/projects/3212/pipelines/$UPSTREAM_WASI_SDK_PIPELINE_ID/jobs?scope[]=success | jq -r ".[] | select(.name == \"$WASI_SDK_JOB_NAME\") | .id")
+  WASI_SDK_BINDIST=https://gitlab.haskell.org/haskell-wasm/wasi-sdk/-/jobs/$UPSTREAM_WASI_SDK_JOB_ID/artifacts/raw/$WASI_SDK_ARTIFACT_PATH
 fi
 echo "Installing wasi-sdk from $WASI_SDK_BINDIST"
 mkdir -p "$PREFIX/wasi-sdk"
