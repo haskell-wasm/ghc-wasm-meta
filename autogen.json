@@ -68,67 +68,67 @@
     "hash": "sha256-nppLAzkiVJNEjYAPtFp2bXSblk7Wr30hqKHY8WTL460="
   },
   "nodejs": {
-    "url": "https://github.com/haskell-wasm/node-static/releases/download/v23.6.0/node-v23.6.0-linux-x64-static.tar.xz",
-    "hash": "sha512-hTuFguxKWNND0BWfxttMZjUnQiqQ1BcG8jcINX1KQC7PHyGsEtVVkoe20SfPan6alCj5Fv0zGTbBByfGk/YlnA=="
+    "url": "https://github.com/haskell-wasm/node-static/releases/download/v23.7.0/node-v23.7.0-linux-x64-static.tar.xz",
+    "hash": "sha512-z6LpxrzBZc7V6kTFv4/76AraD8Zf+fvLiNKOxi6NJHe+D7DxDMswcT6bXVH2wDPRLsvktqToZrQHHE7jBGSpRA=="
   },
   "nodejs_aarch64_linux": {
-    "url": "https://github.com/haskell-wasm/node-static/releases/download/v23.6.0/node-v23.6.0-linux-arm64-static.tar.xz",
-    "hash": "sha512-eOYmU2PNWFtj1Z4hZ4O8eFmUPnLapVJmCyc786WMShR1PgHAZ3dlfEYQefx7t3FHNDCnIS1SEcAVDFZKYJdFmg=="
+    "url": "https://github.com/haskell-wasm/node-static/releases/download/v23.7.0/node-v23.7.0-linux-arm64-static.tar.xz",
+    "hash": "sha512-vRTfZybwdx35NTLHPCRO9PcuJs6QzSOkMWahuiImMQ0yqS627fggRVJPrHV/2YqTSQGHEi1AUdsoGkUASMK6Sw=="
   },
   "nodejs_aarch64_darwin": {
-    "url": "https://github.com/haskell-wasm/node-static/releases/download/v23.6.0/node-v23.6.0-darwin-arm64.tar.xz",
-    "hash": "sha512-FXwLefxEb1ZWeKe+xIK7bJVpv7n900/06pTwqEDYxdFhGyI9AiKtWSI6GvpboIzFePBRZDwQPFLydG3iqR7R/Q=="
+    "url": "https://github.com/haskell-wasm/node-static/releases/download/v23.7.0/node-v23.7.0-darwin-arm64.tar.xz",
+    "hash": "sha512-LM0POm9lyUI/RGCQWXoQG0yztgFUyIjMktxvUp3yjSr+YRhXR2cFMite799F9/e/H64Z1AMk6I4JJ8vEHzhlRw=="
   },
   "nodejs_x86_64_darwin": {
-    "url": "https://github.com/haskell-wasm/node-static/releases/download/v23.6.0/node-v23.6.0-darwin-x64.tar.xz",
-    "hash": "sha512-sSLGCfGPMJe5gF50torFTKrlnULQMvefZ6Yq89MHHGkhWyrf0aV2pXdPRHCMeWIafXiNsoJ/S+oX6fuNXforeQ=="
+    "url": "https://github.com/haskell-wasm/node-static/releases/download/v23.7.0/node-v23.7.0-darwin-x64.tar.xz",
+    "hash": "sha512-KdDA9ffUrV+WY2bKNjLMaX5Yv7OEdTPsbxgaCSIKX2N/cQOefPrjpqOaXzsofp6/V4513UY4Ck6vZOiFjR8NdA=="
   },
   "binaryen": {
-    "url": "https://github.com/haskell-wasm/binaryen/releases/download/version_121-2/binaryen-version_121-2-x86_64-linux-static.tar.gz",
-    "hash": "sha512-xxu2fAbbSfJyfq4mcYqTTxuGk2Cgh//xwQ6pFD9Sn9iNy7LOf1Rvh8u82LWgcHLMsNDL5T6oVSZix8A+kIdGIA=="
+    "url": "https://github.com/haskell-wasm/binaryen/releases/download/version_122/binaryen-version_122-x86_64-linux-static.tar.gz",
+    "hash": "sha512-6u9bMG22rw+Y2TcnSioxTr8NYK1jjPSu+kJRvJHXw2bvs344FYovU21FU7w3HollXQXIGVWO+lbD/Djnsxw56A=="
   },
   "binaryen_aarch64_linux": {
-    "url": "https://github.com/haskell-wasm/binaryen/releases/download/version_121-2/binaryen-version_121-2-aarch64-linux-static.tar.gz",
-    "hash": "sha512-KWr7IWTlQj/Khult8EeiW3dMwIySTQc3Cgph1VCZ02bI0NZ1sPFVLLNyeSJ8rZ7hMt4n5OWVnA+ApGk/zYKSjw=="
+    "url": "https://github.com/haskell-wasm/binaryen/releases/download/version_122/binaryen-version_122-aarch64-linux-static.tar.gz",
+    "hash": "sha512-y4J2/4bj226V1ORi9uMg/v8ZnLsf0xeT6VQB8aQ1jfYGMgzdCvEFCG/ccF7yuJ4AMA21570YbuRVW5q7s4gjLg=="
   },
   "binaryen_aarch64_darwin": {
-    "url": "https://github.com/WebAssembly/binaryen/releases/download/version_121/binaryen-version_121-arm64-macos.tar.gz",
-    "hash": "sha512-RAEB1yAZOFjTSnTKYGV2KoxKTkpOBYq2Ptq81wGbjjzQOr6hVCL2quO5dk6S7oHKuJnnUIQBy3jRMlwKabrC4A=="
+    "url": "https://github.com/WebAssembly/binaryen/releases/download/version_122/binaryen-version_122-arm64-macos.tar.gz",
+    "hash": "sha512-ocmLLpe33wemM38YZ/2/mYHI2RVKcSKT/r7xIre414czgF/VuyE5pQZYEGzh2jvpq2t4ygmf6HXiVqmeBqptxw=="
   },
   "binaryen_x86_64_darwin": {
-    "url": "https://github.com/WebAssembly/binaryen/releases/download/version_121/binaryen-version_121-x86_64-macos.tar.gz",
-    "hash": "sha512-u/dEsU7uS5cgSvFLakHoALjDdSPAI+fUbojPwKT//pqEy8J/CaHAmMRpUaMZf4WkmwB0x0ZpHzBvFMV/pd3uTQ=="
+    "url": "https://github.com/WebAssembly/binaryen/releases/download/version_122/binaryen-version_122-x86_64-macos.tar.gz",
+    "hash": "sha512-SvMjXph8cvuvqH0UScFTv2a5Hc1ZVeE+GMmorAi8LZot5l1zYXyD3M5l01PA1PP+7EwwHpW07C3GEcwB3vfZ/g=="
   },
   "wasmtime": {
-    "url": "https://github.com/haskell-wasm/wasm-tools-static/releases/download/250106/wasm-tools-250106-x86_64-linux.tar.zst",
-    "hash": "sha512-zem2JLe3WzPS4ncJ4NTwvk8VT5QJ4MRGmpdbq3r+kFeI5KLEm7d05gRUabARaO1R837jT75crVJphDgnfUs29g=="
+    "url": "https://github.com/haskell-wasm/wasm-tools-static/releases/download/250121/wasm-tools-250121-x86_64-linux.tar.zst",
+    "hash": "sha512-ATlxird5KeF+Y1p1CVtyzJPHMN2jjOfvD7TMQqwTve6F5Hoj1rQUlFcrtfrjL+SOUJ2MafMc3vAnYp6P0Vpqcw=="
   },
   "wasmtime_aarch64_linux": {
-    "url": "https://github.com/haskell-wasm/wasm-tools-static/releases/download/250106/wasm-tools-250106-aarch64-linux.tar.zst",
-    "hash": "sha512-cMR1bZe/PaEJLhnczxTE1NfVlFrtPduBW1Dq8RiNcF/Zc0dfggzQS2/pllU5vsuQRTw5LmR+hVUE5QhG2Og4UQ=="
+    "url": "https://github.com/haskell-wasm/wasm-tools-static/releases/download/250121/wasm-tools-250121-aarch64-linux.tar.zst",
+    "hash": "sha512-pu6hdtf+gjboQ1cvPp+js/Ofeu2HiaFPk/YjW/SDnrxMHFQxzcDwvajLJNPEaSlfhDfFZhSkA8OXtpO5eE0Y7w=="
   },
   "wasmtime_aarch64_darwin": {
-    "url": "https://github.com/haskell-wasm/wasm-tools-static/releases/download/250106/wasm-tools-250106-darwin-aarch64.tar.zst",
-    "hash": "sha512-5nkp5ygJgzRmXxvv5u8MBYQQXdpDKWRt0SRK5EMKsYX0oHgJROsWzrfMAR8GI3VGTv3p2RtLKBurssR829O/cA=="
+    "url": "https://github.com/haskell-wasm/wasm-tools-static/releases/download/250121/wasm-tools-250121-darwin-aarch64.tar.zst",
+    "hash": "sha512-NusybGJsdtVCatsk/fpZHum4SQqIXBLQJwUzFwcCX2jc3VbvBwfBhomINy039LOhwrey4HEVcD4VyZ0Qaq3npQ=="
   },
   "wasmtime_x86_64_darwin": {
-    "url": "https://github.com/haskell-wasm/wasm-tools-static/releases/download/250106/wasm-tools-250106-darwin-x86_64.tar.zst",
-    "hash": "sha512-9XihEdtAj8U96vDFKTG3hckzR0g92LzvaYfNf32gtAW/nwJGesKlrypL9ig+L54ZZf8FC/aTaHRGh4f83H7EHg=="
+    "url": "https://github.com/haskell-wasm/wasm-tools-static/releases/download/250121/wasm-tools-250121-darwin-x86_64.tar.zst",
+    "hash": "sha512-WRBVjzObF/3aOW6hfG6+V7axyQo5NyP9dOzCCttiSTk7x1otq1fJjYt/Jdlf9z64vqd4ygoIAOF05ERGgIP9pA=="
   },
   "cabal": {
-    "url": "https://downloads.haskell.org/cabal/cabal-install-3.14.1.0/cabal-install-3.14.1.0-x86_64-linux-alpine3_18.tar.xz",
-    "hash": "sha512-fA2jXzWbwn5qe5zrZsrIh2uIEdJGSoNwHA4FzqJuV2EBkwR8mGhVwbvBhhbvS1NPrH2DE0UOqFAqwzwZAqkjJQ=="
+    "url": "https://downloads.haskell.org/cabal/cabal-install-3.14.1.1/cabal-install-3.14.1.1-x86_64-linux-alpine3_18.tar.xz",
+    "hash": "sha512-xYQPsxqPJP+NYydpYm3Er7uD7W+NyWnD3h0d1Mw4pCJTSZTcspterjdNlxd0MqsvTaK8hObta7Kj7MzkTB97Rw=="
   },
   "cabal_aarch64_linux": {
-    "url": "https://downloads.haskell.org/cabal/cabal-install-3.14.1.0/cabal-install-3.14.1.0-aarch64-linux-alpine3_18.tar.xz",
-    "hash": "sha512-owE20T1tbJ7HYIw4aax0d1p5VlK5v1tXYqvNih56rRwPLUfCTjrBuUMGzJLoGjnGEMd0cGNXUXfNtruyTb7XGg=="
+    "url": "https://downloads.haskell.org/cabal/cabal-install-3.14.1.1/cabal-install-3.14.1.1-aarch64-linux-alpine3_18.tar.xz",
+    "hash": "sha512-DRSGAxnGtgK9KuSqNMGxAdcxocIS87M6f+BPCEQWS73b3/0Z4Ngj1UZZeMzAM9CqWu2eA/jWgcVJqkHw7xeD9w=="
   },
   "cabal_aarch64_darwin": {
-    "url": "https://downloads.haskell.org/cabal/cabal-install-3.14.1.0/cabal-install-3.14.1.0-aarch64-darwin.tar.xz",
-    "hash": "sha512-bwjs/J0YAd4I7LvS0M7DHbCt6+Hp6YPYQ191ICtF5e/VFxTIZSPQXltYecG7WEFCV6FfuONjFv59Q9t18BZ4/Q=="
+    "url": "https://downloads.haskell.org/cabal/cabal-install-3.14.1.1/cabal-install-3.14.1.1-aarch64-darwin.tar.xz",
+    "hash": "sha512-gDpI/essYQDjVhL20gpD/AZkrfomMJQv8MMJl4QVc9y5hxjhxGetWUocjG27IHHi6VQfKbOGC+3m6xu8NLvX1g=="
   },
   "cabal_x86_64_darwin": {
-    "url": "https://downloads.haskell.org/cabal/cabal-install-3.14.1.0/cabal-install-3.14.1.0-x86_64-darwin.tar.xz",
-    "hash": "sha512-CmRNlL5pSD1hWjB+p1i2J86EEXMeT+u/nYnvRZGCWzyU7RXJGbG5l168i1MUMDK8mNtj7i4k3cUUmYpUtFvfaw=="
+    "url": "https://downloads.haskell.org/cabal/cabal-install-3.14.1.1/cabal-install-3.14.1.1-x86_64-darwin.tar.xz",
+    "hash": "sha512-tqvxBed/GF+zhTYrkOYIxpgi9+FI08P7rfZoQ0NgpOilduyYj+ldb47FiSBZTu1ok4oUIW0kcjk1sy0cdMMW3g=="
   }
 }

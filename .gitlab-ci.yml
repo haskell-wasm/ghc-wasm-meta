@@ -8,7 +8,7 @@ workflow:
     - if: $UPSTREAM_GHC_FLAVOUR != null
 
 variables:
-  DOCKER_REV: eb4d3389fd62e4f7321a0c8799014ec1f4da0708
+  DOCKER_REV: 66be29543a78357dfcdd90c112989d006dbed0ba
   GIT_DEPTH: 1
   GIT_STRATEGY: clone
 
@@ -105,7 +105,7 @@ x86_64-linux-ubuntu-9.12:
 
 .linux-nix:
   extends: .nix
-  image: nixos/nix:2.25.3
+  image: nixos/nix:2.26.1
   before_script:
     - echo "experimental-features = nix-command flakes" >> /etc/nix/nix.conf
     - echo "cores = $CPUS" >> /etc/nix/nix.conf
