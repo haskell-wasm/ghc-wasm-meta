@@ -32,10 +32,12 @@ host_specific() {
     NODEJS="nodejs_aarch64_linux"
     CABAL="cabal_aarch64_linux"
     BINARYEN="binaryen_aarch64_linux"
-    if [[ "$FLAVOUR" == gmp ]]; then
-      GHC="wasm32-wasi-ghc-gmp-aarch64-linux"
+    if [[ "$FLAVOUR" == 9.10 ]]; then
+      GHC="wasm32-wasi-ghc-gmp-aarch64-linux-9.10"
+    elif [[ "$FLAVOUR" == 9.12 ]]; then
+      GHC="wasm32-wasi-ghc-gmp-aarch64-linux-9.12"
     else
-      echo "Unsupported flavour $FLAVOUR on aarch64-linux"
+      echo "No prebuilt GHC wasm bindist with flavour $FLAVOUR on aarch64-linux"
       exit 1
     fi
   fi
@@ -49,14 +51,12 @@ host_specific() {
     NODEJS="nodejs_aarch64_darwin"
     CABAL="cabal_aarch64_darwin"
     BINARYEN="binaryen_aarch64_darwin"
-    if [[ "$FLAVOUR" == gmp ]]; then
-      GHC="wasm32-wasi-ghc-gmp-aarch64-darwin"
-    elif [[ "$FLAVOUR" == 9.10 ]]; then
+    if [[ "$FLAVOUR" == 9.10 ]]; then
       GHC="wasm32-wasi-ghc-gmp-aarch64-darwin-9.10"
     elif [[ "$FLAVOUR" == 9.12 ]]; then
       GHC="wasm32-wasi-ghc-gmp-aarch64-darwin-9.12"
     else
-      echo "Unsupported flavour $FLAVOUR on aarch64-darwin"
+      echo "No prebuilt GHC wasm bindist with flavour $FLAVOUR on aarch64-darwin"
       exit 1
     fi
   fi
@@ -70,10 +70,8 @@ host_specific() {
     NODEJS="nodejs_x86_64_darwin"
     CABAL="cabal_x86_64_darwin"
     BINARYEN="binaryen_x86_64_darwin"
-    if [[ "$FLAVOUR" == gmp ]]; then
-      GHC="wasm32-wasi-ghc-gmp-x86_64-darwin"
-    else
-      echo "Unsupported flavour $FLAVOUR on x86_64-darwin"
+    if [[ -z "${SKIP_GHC:-}" ]]; then
+      echo "No prebuilt GHC wasm bindist for x86_64-darwin"
       exit 1
     fi
   fi
@@ -188,11 +186,7 @@ else
   GHC_BINDIST=https://gitlab.haskell.org/haskell-wasm/ghc/-/jobs/$UPSTREAM_GHC_JOB_ID/artifacts/raw/ghc-$UPSTREAM_GHC_JOB_NAME.tar.xz
 fi
 echo "Installing wasm32-wasi-ghc from $GHC_BINDIST"
-if [[ $(uname -s) == "Linux" && $(uname -m) == "x86_64" ]]; then
-  curl -f -L --retry 5 "$GHC_BINDIST" | tar xJ -C ghc --no-same-owner --strip-components=1
-else
-  curl -f -L --retry 5 "$GHC_BINDIST" | tar x --zstd -C ghc --no-same-owner --strip-components=1
-fi
+curl -f -L --retry 5 "$GHC_BINDIST" | tar xJ -C ghc --no-same-owner --strip-components=1
 pushd ghc
 sh -c ". $PREFIX/env && ./configure \$CONFIGURE_ARGS --prefix=$PREFIX/wasm32-wasi-ghc && exec make install"
 popd

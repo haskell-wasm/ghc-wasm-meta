@@ -8,7 +8,6 @@
 , runtimeShell
 , runtimeShellPackage
 , stdenvNoCC
-, zstd
 ,
 }:
 let
@@ -23,11 +22,10 @@ let
       "x86_64-linux-9.8" = "wasm32-wasi-ghc-9.8";
       "x86_64-linux-9.10" = "wasm32-wasi-ghc-9.10";
       "x86_64-linux-9.12" = "wasm32-wasi-ghc-9.12";
-      "aarch64-darwin-gmp" = "wasm32-wasi-ghc-gmp-aarch64-darwin";
       "aarch64-darwin-9.10" = "wasm32-wasi-ghc-gmp-aarch64-darwin-9.10";
       "aarch64-darwin-9.12" = "wasm32-wasi-ghc-gmp-aarch64-darwin-9.12";
-      "aarch64-linux-gmp" = "wasm32-wasi-ghc-gmp-aarch64-linux";
-      "x86_64-darwin-gmp" = "wasm32-wasi-ghc-gmp-x86_64-darwin";
+      "aarch64-linux-9.10" = "wasm32-wasi-ghc-gmp-aarch64-linux-9.10";
+      "aarch64-linux-9.12" = "wasm32-wasi-ghc-gmp-aarch64-linux-9.12";
     }."${hostPlatform.system}-${flavour}";
   wasi-sdk = callPackage ./wasi-sdk.nix { };
   nodejs = callPackage ./nodejs.nix { };
@@ -40,7 +38,6 @@ stdenvNoCC.mkDerivation {
   nativeBuildInputs = [
     makeWrapper
     wasi-sdk
-    zstd
   ];
   buildInputs = [ runtimeShellPackage ];
 
