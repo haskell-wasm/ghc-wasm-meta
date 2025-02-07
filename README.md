@@ -88,6 +88,25 @@ installation methods.
 
 `setup.sh` requires `cc`, `curl`, `jq`, `unzip`, `zstd` to run.
 
+## Using `ghcup`
+
+We also maintain our own `ghcup` channel in this repo. In case you
+prefer to use `ghcup` to install `wasm32-wasi-ghc`:
+
+```sh
+$ curl https://gitlab.haskell.org/haskell-wasm/ghc-wasm-meta/-/raw/master/bootstrap.sh | SKIP_GHC=1 sh
+$ source ~/.ghc-wasm/env
+$ ghcup config add-release-channel https://gitlab.haskell.org/haskell-wasm/ghc-wasm-meta/-/raw/master/ghcup-wasm-0.0.9.yaml
+$ ghcup install ghc wasm32-wasi-ghc-9.12 -- $CONFIGURE_ARGS
+$ cabal --with-compiler=wasm32-wasi-ghc-9.12 --with-hc-pkg=wasm32-wasi-ghc-pkg-9.12 --with-hsc2hs=wasm32-wasi-hsc2hs-9.12 build
+```
+
+In case you encounter any issue with `ghcup` based installation,
+please seek support in our [matrix
+channel](https://matrix.to/#/#haskell-wasm:matrix.org) and do not open
+a `ghcup` issue or involve `ghcup` maintainer. Our `ghcup` channel is
+*not* affiliated with the `ghcup` project.
+
 ## What it emits when it emits a `.wasm` file?
 
 Besides wasm MVP, certain extensions are used. The feature flags are
