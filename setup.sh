@@ -179,7 +179,7 @@ mkdir ghc
 if [[ -z "${UPSTREAM_GHC_PIPELINE_ID:-}" ]]; then
   GHC_BINDIST="$(jq -r ".\"$GHC\".url" "$REPO"/autogen.json)"
 else
-  if [[ "$FLAVOUR" == 9.6 ]] || [[ "$FLAVOUR" == 9.8 ]] || [[ "$FLAVOUR" == 9.10 ]]; then
+  if [[ "$FLAVOUR" == 9.6 ]] || [[ "$FLAVOUR" == 9.8 ]]; then
     UPSTREAM_GHC_JOB_NAME=x86_64-linux-alpine3_20-wasm-cross_wasm32-wasi-release+host_fully_static
   else
     UPSTREAM_GHC_JOB_NAME=x86_64-linux-alpine3_20-wasm-cross_wasm32-wasi-release+host_fully_static+text_simdutf
