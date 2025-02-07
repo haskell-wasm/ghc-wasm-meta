@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-FLAVOUR="${FLAVOUR:-gmp}"
+FLAVOUR="${FLAVOUR:-9.12}"
 REPO=$(realpath "$(dirname "${BASH_SOURCE[0]}")")
 SKIP_GHC="${SKIP_GHC:-}"
 

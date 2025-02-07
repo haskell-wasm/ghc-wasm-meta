@@ -57,9 +57,9 @@ repo tarball and invoke `setup.sh`. These scripts can be configured
 via these environment variables:
 
   - `PREFIX`: installation destination, defaults to `~/.ghc-wasm`
-  - `FLAVOUR`: can be `gmp`, `native` or `unreg`.
-    - The `gmp` flavour uses the `gmp` bignum backend and the wasm
-      native codegen. It's the default flavour, offers good
+  - `FLAVOUR`:
+    - The `gmp` flavour tracks GHC's `master` branch and uses the
+      `gmp` bignum backend & the wasm native codegen. It offers good
       compile-time and run-time performance.
     - `native` uses the `native` bignum backend and the wasm native
       codegen. Compared to the `gmp` flavour, the run-time performance
@@ -79,11 +79,12 @@ via these environment variables:
       backend and the wasm native codegen.
   - `SKIP_GHC`: set this to skip installing `cabal` and `ghc`
 
-Note that if you use the `9.6`/`9.8`/`9.10`/`9.12` flavour, the
-`wasm32-wasi-cabal` wrapper won't automatically set up `head.hackage`
-in the global config file. In the early days of `ghc-9.12`, this may
-result in more packages being rejected at compile time. This is true
-for both nix/non-nix installation methods.
+The default flavour is `9.12`. Note that if you use the
+`9.6`/`9.8`/`9.10`/`9.12` flavour, the `wasm32-wasi-cabal` wrapper
+won't automatically set up `head.hackage` in the global config file.
+In the early days of `ghc-9.12`, this may result in more packages
+being rejected at compile time. This is true for both nix/non-nix
+installation methods.
 
 `setup.sh` requires `cc`, `curl`, `jq`, `unzip`, `zstd` to run.
 
