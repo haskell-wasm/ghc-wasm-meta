@@ -5,6 +5,7 @@ workflow:
   rules:
     - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
     - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_PIPELINE_SOURCE == "web"
     - if: $UPSTREAM_GHC_FLAVOUR != null
 
 variables:
