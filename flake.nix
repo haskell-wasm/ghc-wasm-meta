@@ -86,7 +86,7 @@
               wasmtime
               cabal
               ;
-            default = all "gmp";
+            default = all "9.12";
             all_gmp = all "gmp";
             all_native = all "native";
             all_unreg = all "unreg";

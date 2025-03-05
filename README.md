@@ -26,9 +26,9 @@ since it just patches the binaries and performs no compilation. There
 is no need to set up a binary cache.
 
 Note that there are different GHC flavours available. The default
-flake output uses the `gmp` flavour, though you can also use the
-`all_native`, `all_unreg` and `all_9_6` flake outputs to get different
-flavours. See the next subsection for explanations of these flavours.
+flake output uses the `all_9_12` flavour, though you can also use the
+`all_native`, `all_gmp` etc flake outputs to get different flavours.
+See the next subsection for explanations of these flavours.
 
 ## Getting started without nix
 
