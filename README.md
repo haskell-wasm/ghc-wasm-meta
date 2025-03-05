@@ -136,18 +136,11 @@ List of wasm extensions that we use:
 - [Multi-value](https://github.com/WebAssembly/spec/blob/master/proposals/multi-value/Overview.md)
 - [Reference
   Types](https://github.com/WebAssembly/spec/blob/master/proposals/reference-types/Overview.md)
+- [Tail
+  Call](https://github.com/WebAssembly/tail-call/blob/main/proposals/tail-call/Overview.md)
 
 The target triple is `wasm32-wasi`, and it uses WASI snapshot 1 as
 used in `wasi-libc`.
-
-List of wasm extensions that we don't use yet but are keeping an eye
-on:
-
-- [Tail
-  Call](https://github.com/WebAssembly/tail-call/blob/main/proposals/tail-call/Overview.md),
-  blocked by [webkit](https://bugs.webkit.org/show_bug.cgi?id=215275).
-  Note that we already support wasm tail calls, but it's an opt-in
-  feature for now.
 
 ## What runtimes support those `.wasm` files?
 
@@ -609,8 +602,8 @@ export RANLIB=~/.ghc-wasm/wasi-sdk/bin/llvm-ranlib
 export SIZE=~/.ghc-wasm/wasi-sdk/bin/llvm-size
 export STRINGS=~/.ghc-wasm/wasi-sdk/bin/llvm-strings
 export STRIP=~/.ghc-wasm/wasi-sdk/bin/llvm-strip
-export CONF_CC_OPTS_STAGE2="-Wno-error=int-conversion -O3 -msimd128 -mnontrapping-fptoint -msign-ext -mbulk-memory -mmutable-globals -mmultivalue -mreference-types"
-export CONF_CXX_OPTS_STAGE2="-fno-exceptions -Wno-error=int-conversion -O3 -msimd128 -mnontrapping-fptoint -msign-ext -mbulk-memory -mmutable-globals -mmultivalue -mreference-types"
+export CONF_CC_OPTS_STAGE2="-Wno-error=int-conversion -O3 -mcpu=lime1 -mreference-types -msimd128 -mtail-call"
+export CONF_CXX_OPTS_STAGE2="-fno-exceptions -Wno-error=int-conversion -O3 -mcpu=lime1 -mreference-types -msimd128 -mtail-call"
 export CONF_GCC_LINKER_OPTS_STAGE2="-Wl,--error-limit=0,--keep-section=ghc_wasm_jsffi,--keep-section=target_features,--stack-first,--strip-debug "
 export CONFIGURE_ARGS="--target=wasm32-wasi --with-intree-gmp --with-system-libffi"
 ```
