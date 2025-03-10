@@ -48,6 +48,7 @@ fi
 pushd "$(mktemp -d)"
 curl -f -L --retry 5 https://github.com/UnkindPartition/tasty/archive/refs/heads/master.tar.gz | tar xz --strip-components=1
 cp $CI_PROJECT_DIR/cabal.project.local .
+echo "constraints: random == 1.2.1.3" >> cabal.project.local
 wasm32-wasi-cabal build all
 
 readonly TEST_WRAPPERS="$(mktemp -d -p /tmp)"
