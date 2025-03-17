@@ -106,6 +106,7 @@ cp -a out/libffi-wasm/lib/. "$PREFIX/wasi-sdk/share/wasi-sysroot/lib/wasm32-wasi
 
 mkdir -p "$PREFIX/nodejs"
 curl -f -L --retry 5 "$(jq -r ".\"$NODEJS\".url" "$REPO"/autogen.json)" | tar xJ -C "$PREFIX/nodejs" --no-same-owner --strip-components=1
+"$PREFIX/nodejs/bin/node" "$PREFIX/nodejs/bin/npm" install -g --prefix "$PREFIX/nodejs" puppeteer-core@^24.4.0 ws@^8.18.1
 
 mkdir -p "$PREFIX/binaryen"
 curl -f -L --retry 5 "$(jq -r ".\"$BINARYEN\".url" "$REPO"/autogen.json)" | tar xz -C "$PREFIX/binaryen" --no-same-owner --strip-components=1
@@ -161,7 +162,8 @@ for e in \
   'CONF_CXX_OPTS_STAGE1=${CONF_CXX_OPTS_STAGE1:-"-fno-exceptions -Wno-error=int-conversion -O3 -mcpu=lime1 -mreference-types -msimd128 -mtail-call"}' \
   'CONF_GCC_LINKER_OPTS_STAGE1=${CONF_GCC_LINKER_OPTS_STAGE1:-"-Wl,--error-limit=0,--keep-section=ghc_wasm_jsffi,--keep-section=target_features,--stack-first,--strip-debug "}' \
   "CONFIGURE_ARGS=\"--host=$HOST --target=wasm32-wasi --with-intree-gmp --with-system-libffi\"" \
-  'CROSS_EMULATOR=${CROSS_EMULATOR:-"'"$PREFIX/wasm-run/bin/wasm-run.mjs"'"}'
+  'CROSS_EMULATOR=${CROSS_EMULATOR:-"'"$PREFIX/wasm-run/bin/wasm-run.mjs"'"}' \
+  'NODE_PATH=${NODE_PATH:-"'"$PREFIX/nodejs/lib/node_modules"'"}'
 do
   echo "export $e" >> "$PREFIX/env"
   echo "echo $e >> \$GITHUB_ENV" >> "$PREFIX/add_to_github_path.sh"
