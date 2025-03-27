@@ -29,6 +29,7 @@ let
     }."${hostPlatform.system}-${flavour}";
   wasi-sdk = callPackage ./wasi-sdk.nix { };
   nodejs = callPackage ./nodejs.nix { };
+  npm-deps = callPackage ./npm-deps.nix { inherit nodejs; };
 in
 stdenvNoCC.mkDerivation {
   name = "wasm32-wasi-ghc-${flavour}";
@@ -64,7 +65,8 @@ stdenvNoCC.mkDerivation {
 
   postInstall = ''
     wrapProgram $out/lib/wasm32-wasi-ghc-9.*/bin/wasm32-wasi-ghc-9.* \
-      --prefix PATH : ${lib.makeBinPath [ nodejs ]}
+      --prefix PATH : ${lib.makeBinPath [ nodejs ]} \
+      --set-default NODE_PATH ${npm-deps}
   '';
 
   dontBuild = true;
