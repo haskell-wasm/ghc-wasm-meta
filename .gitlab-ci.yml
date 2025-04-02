@@ -20,8 +20,6 @@ variables:
   rules:
     - if: $UPSTREAM_GHC_FLAVOUR == null
     - if: $UPSTREAM_GHC_FLAVOUR == $FLAVOUR
-  variables:
-    GITLAB_HOST: https://gitlab.haskell.org
   before_script:
     - |
       sudo apt update
