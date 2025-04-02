@@ -184,8 +184,8 @@ else
   else
     UPSTREAM_GHC_JOB_NAME=x86_64-linux-alpine3_20-wasm-cross_wasm32-wasi-release+host_fully_static+text_simdutf
   fi
-  UPSTREAM_GHC_JOB_ID=$(curl -f -L --retry 5 https://gitlab.haskell.org/api/v4/projects/224/pipelines/$UPSTREAM_GHC_PIPELINE_ID/jobs?scope[]=success | jq -r ".[] | select(.name == \"$UPSTREAM_GHC_JOB_NAME\") | .id")
-  GHC_BINDIST=https://gitlab.haskell.org/haskell-wasm/ghc/-/jobs/$UPSTREAM_GHC_JOB_ID/artifacts/raw/ghc-$UPSTREAM_GHC_JOB_NAME.tar.xz
+  UPSTREAM_GHC_JOB_ID=$(curl -f -L --retry 5 https://gitlab.haskell.org/api/v4/projects/$UPSTREAM_GHC_PROJECT_ID/pipelines/$UPSTREAM_GHC_PIPELINE_ID/jobs?per_page=100 | jq -r ".[] | select(.name == \"$UPSTREAM_GHC_JOB_NAME\") | .id")
+  GHC_BINDIST=https://gitlab.haskell.org/api/v4/projects/$UPSTREAM_GHC_PROJECT_ID/jobs/$UPSTREAM_GHC_JOB_ID/artifacts/ghc-$UPSTREAM_GHC_JOB_NAME.tar.xz
 fi
 echo "Installing wasm32-wasi-ghc from $GHC_BINDIST"
 curl -f -L --retry 5 "$GHC_BINDIST" | tar xJ -C ghc --no-same-owner --strip-components=1
