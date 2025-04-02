@@ -64,20 +64,20 @@
     "hash": "sha256-Um9Gcu9zKl0pzFYL3RmAnyFJozOPKVoq1NnU2jilI0s="
   },
   "nodejs": {
-    "url": "https://github.com/haskell-wasm/node-static/releases/download/v23.10.0/node-v23.10.0-linux-x64-static.tar.xz",
-    "hash": "sha512-0ScglGxiELSR1oGUKyo8L2O6ruQ8DON6BgTGhHQSFH9J86kx3PHmq0kOUVuj42ctm62EgvzDNG4xN7n75sQJkg=="
+    "url": "https://github.com/haskell-wasm/node-static/releases/download/v23.11.0/node-v23.11.0-linux-x64-static.tar.xz",
+    "hash": "sha512-sG6VaTwGhTGd6Wt7dcD1S0MSKWXS+d1xae1mtmVIjvrBidAYaqxngExQn3vH/VBZyoLxMrqNSqHyDI0wlBOM8A=="
   },
   "nodejs_aarch64_linux": {
-    "url": "https://github.com/haskell-wasm/node-static/releases/download/v23.10.0/node-v23.10.0-linux-arm64-static.tar.xz",
-    "hash": "sha512-vTgnbfNZ+3kf4c68ex+xw4ylx53fMMq1jGKiwqB0L9VTOllw92QbTaLUUynqyO1y3OaYMhLc+kGn9WY6Al1h5Q=="
+    "url": "https://github.com/haskell-wasm/node-static/releases/download/v23.11.0/node-v23.11.0-linux-arm64-static.tar.xz",
+    "hash": "sha512-gBX0VBAHwFD+0Fgew5cF10xhtXUaMHCYNUfNR4NysCbHU7IsFvq7fNg59PUpC5M5v6LZBwb//9sxOAy+vow5Lg=="
   },
   "nodejs_aarch64_darwin": {
-    "url": "https://github.com/haskell-wasm/node-static/releases/download/v23.10.0/node-v23.10.0-darwin-arm64.tar.xz",
-    "hash": "sha512-1i1UbdvSZDiCRJyq8AIKupOsavZHF92DWUfAX2oiTpd0+wZcdoboX8T21MoZ7FbQcI6HnnOPXt1njhfx6ae3Rg=="
+    "url": "https://github.com/haskell-wasm/node-static/releases/download/v23.11.0/node-v23.11.0-darwin-arm64.tar.xz",
+    "hash": "sha512-Y7dWW8LenfR+xMy2EEi+WhWcxHiTR9P1cgJYbyTrOZVeDA1Vt8dusYllbUwNv5Vu41XOvXq0kSbBNSZBbctVNw=="
   },
   "nodejs_x86_64_darwin": {
-    "url": "https://github.com/haskell-wasm/node-static/releases/download/v23.10.0/node-v23.10.0-darwin-x64.tar.xz",
-    "hash": "sha512-r/SwTpSssec2Xj1jx24xB7HVqBvtr7BTftHRnY/46QosWsSK2tGA1CDOT/Si1m1mpSNgkGYOKYkAzkxeZrVDpQ=="
+    "url": "https://github.com/haskell-wasm/node-static/releases/download/v23.11.0/node-v23.11.0-darwin-x64.tar.xz",
+    "hash": "sha512-vutS5yh9ogGpJYSVgAmebgxqozTtHOt7Z9wir+DR1EiltsCXSG+EG4bCc+iwAYlq+JPOAx4LlVZhTPq1dnYlIQ=="
   },
   "binaryen": {
     "url": "https://github.com/haskell-wasm/binaryen/releases/download/version_123/binaryen-version_123-x86_64-linux-static.tar.gz",
