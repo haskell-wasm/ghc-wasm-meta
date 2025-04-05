@@ -95,3 +95,41 @@ x86_64-linux-ubuntu-9.12:
     - ./tests/misc.sh
     - ./tests/miso-ormolu.sh
     - ./tests/pandoc.sh
+
+.nix:
+  rules:
+    - if: $UPSTREAM_GHC_FLAVOUR == null
+  script:
+    - |
+      nix build --json --no-link $NIX_FLAKE_OUTPUTS
+      nix shell .#all_9_12 --command ./tests/ghci.sh
+      nix shell .#all_9_10 --command ./tests/ghci.sh
+
+.linux-nix:
+  extends: .nix
+  image: nixos/nix
+  before_script:
+    - echo "experimental-features = nix-command flakes" >> /etc/nix/nix.conf
+    - echo "cores = $CPUS" >> /etc/nix/nix.conf
+    - echo "max-jobs = $CPUS" >> /etc/nix/nix.conf
+
+x86_64-linux-nix:
+  extends: .linux-nix
+  tags:
+    - x86_64-linux
+  variables:
+    NIX_FLAKE_OUTPUTS: .#all_gmp .#all_native .#all_unreg .#all_9_12 .#all_9_10 .#all_9_8 .#all_9_6
+
+aarch64-linux-nix:
+  extends: .linux-nix
+  tags:
+    - aarch64-linux
+  variables:
+    NIX_FLAKE_OUTPUTS: .#all_9_12 .#all_9_10
+
+aarch64-darwin-nix:
+  extends: .nix
+  tags:
+    - aarch64-darwin
+  variables:
+    NIX_FLAKE_OUTPUTS: .#all_9_12 .#all_9_10
