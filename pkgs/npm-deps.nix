@@ -1,4 +1,5 @@
 { buildNpmPackage
+, lib
 , nodejs
 ,
 }:
@@ -7,7 +8,10 @@ buildNpmPackage {
 
   inherit nodejs;
 
-  src = ../.;
+  src = lib.sourceFilesBySuffices ../. [
+    "package.json"
+    "package-lock.json"
+  ];
   npmDepsHash = "sha512-zTbluExUr1sLXSYkBdAwHyI77Z2eo1tlrp97VVMfGufrZU8Gvb+BmCGv0mQPpQ0/SN7l9PpjcwG1D+dhpgPnYA==";
 
   dontNpmBuild = true;
