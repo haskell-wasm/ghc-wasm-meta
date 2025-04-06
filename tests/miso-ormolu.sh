@@ -18,7 +18,7 @@ curl -f -L --retry 5 https://github.com/haskell-wasm/playwright/archive/refs/hea
 cd examples/todomvc
 npm install
 npx playwright install --with-deps
-npx playwright test --workers=$CPUS
+npx playwright test --workers=$(($CPUS > 8 ? 8 : $CPUS))
 popd
 popd
 popd
