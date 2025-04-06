@@ -153,3 +153,49 @@ aarch64-darwin-nix:
   variables:
     NIX_FLAKE_OUTPUTS: .#all_9_12 .#all_9_10
     NIX_BROWSERS: ""
+
+.linux-ghcup:
+  image: debian:12
+  rules:
+    - if: $UPSTREAM_GHC_FLAVOUR == null
+  before_script:
+    - |
+      apt update
+      apt full-upgrade -y
+      apt install -y \
+        build-essential \
+        curl \
+        chromium \
+        firefox-esr \
+        jq \
+        unzip \
+        zstd
+    - |
+      curl -f -L --retry 5 https://get-ghcup.haskell.org | BOOTSTRAP_HASKELL_NONINTERACTIVE=1 BOOTSTRAP_HASKELL_MINIMAL=1 sh
+      . ~/.ghcup/env
+      ghcup install cabal latest --set
+  script:
+    - |
+      SKIP_GHC=1 ./setup.sh
+      . ~/.ghc-wasm/env
+    - |
+      ghcup config add-release-channel file://$PWD/ghcup-wasm-0.0.9.yaml
+
+      ghcup install ghc wasm32-wasi-9.12 -- $CONFIGURE_ARGS
+      ghcup install ghc wasm32-wasi-9.10 -- $CONFIGURE_ARGS
+
+      ghcup set ghc wasm32-wasi-9.12
+      ./tests/ghci.sh
+
+      ghcup set ghc wasm32-wasi-9.10
+      ./tests/ghci.sh
+
+x86_64-linux-ghcup:
+  extends: .linux-ghcup
+  tags:
+    - x86_64-linux
+
+aarch64-linux-ghcup:
+  extends: .linux-ghcup
+  tags:
+    - aarch64-linux
