@@ -25,7 +25,24 @@ variables:
       sudo apt update
       sudo apt full-upgrade -y
       sudo apt install -y \
+        gnupg \
         zstd
+
+      curl -f -L --retry 5 https://packages.mozilla.org/apt/repo-signing-key.gpg | sudo tee /usr/share/keyrings/packages.mozilla.org.asc
+      echo "deb [signed-by=/usr/share/keyrings/packages.mozilla.org.asc] https://packages.mozilla.org/apt mozilla main" | sudo tee /etc/apt/sources.list.d/mozilla.list
+      echo '
+      Package: *
+      Pin: origin packages.mozilla.org
+      Pin-Priority: 1000
+      ' | sudo tee /etc/apt/preferences.d/mozilla
+
+      curl -f -L --retry 5 https://dl.google.com/linux/linux_signing_key.pub | sudo gpg --dearmor -o /usr/share/keyrings/google-chrome.gpg
+      echo "deb [signed-by=/usr/share/keyrings/google-chrome.gpg] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
+
+      sudo apt update
+      sudo apt install -y \
+        firefox \
+        google-chrome-stable
     - sudo chown ghc:ghc -R .
     - |
       PREFIX=/tmp/.ghc-wasm ./setup.sh
@@ -102,12 +119,14 @@ x86_64-linux-ubuntu-9.12:
   script:
     - |
       nix build --json --no-link $NIX_FLAKE_OUTPUTS
-      nix shell .#all_9_12 --command ./tests/ghci.sh
-      nix shell .#all_9_10 --command ./tests/ghci.sh
+      nix shell $NIX_BROWSERS .#all_9_12 --command ./tests/ghci.sh
+      nix shell $NIX_BROWSERS .#all_9_10 --command ./tests/ghci.sh
 
 .linux-nix:
   extends: .nix
   image: nixos/nix
+  variables:
+    NIX_BROWSERS: nixpkgs#firefox-bin
   before_script:
     - echo "experimental-features = nix-command flakes" >> /etc/nix/nix.conf
     - echo "cores = $CPUS" >> /etc/nix/nix.conf
@@ -133,3 +152,4 @@ aarch64-darwin-nix:
     - aarch64-darwin
   variables:
     NIX_FLAKE_OUTPUTS: .#all_9_12 .#all_9_10
+    NIX_BROWSERS: ""
