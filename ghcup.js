@@ -24,6 +24,7 @@ function meta2ghcup(obj) {
     dlHash: sri2hex(obj.sriHash),
     dlSubdir: obj.ghcSubdir,
     dlUri: obj.mirrorUrl,
+    dlOutput: `${obj.ghcSubdir}.tar.xz`,
   };
 }
 
