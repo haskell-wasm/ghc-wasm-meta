@@ -12,7 +12,7 @@ if [[ $FIREFOX_PATH != "" ]]; then
   echo -e "$GHCI_SCRIPT" | wasm32-wasi-ghc --interactive -fghci-browser -fghci-browser-puppeteer-launch-opts="{\"browser\":\"firefox\",\"executablePath\":\"$FIREFOX_PATH\"}"
 fi
 
-CHROME_PATH=$(type -P google-chrome || type -P chromium || echo "")
+CHROME_PATH=$(type -P google-chrome-stable || type -P chromium || echo "")
 
 if [[ $CHROME_PATH != "" ]]; then
   echo -e "$GHCI_SCRIPT" | wasm32-wasi-ghc --interactive -fghci-browser -fghci-browser-puppeteer-launch-opts="{\"browser\":\"chrome\",\"protocol\":\"webDriverBiDi\",\"executablePath\":\"$CHROME_PATH\",\"args\":[\"--no-sandbox\"]}"

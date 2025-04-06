@@ -116,17 +116,17 @@ x86_64-linux-ubuntu-9.12:
 .nix:
   rules:
     - if: $UPSTREAM_GHC_FLAVOUR == null
+  variables:
+    NIXPKGS_ALLOW_UNFREE: "1"
   script:
     - |
       nix build --json --no-link $NIX_FLAKE_OUTPUTS
-      nix shell $NIX_BROWSERS .#all_9_12 --command ./tests/ghci.sh
-      nix shell $NIX_BROWSERS .#all_9_10 --command ./tests/ghci.sh
+      nix shell --impure $NIX_BROWSERS .#all_9_12 --command ./tests/ghci.sh
+      nix shell --impure $NIX_BROWSERS .#all_9_10 --command ./tests/ghci.sh
 
 .linux-nix:
   extends: .nix
   image: nixos/nix
-  variables:
-    NIX_BROWSERS: nixpkgs#firefox-bin
   before_script:
     - echo "experimental-features = nix-command flakes" >> /etc/nix/nix.conf
     - echo "cores = $CPUS" >> /etc/nix/nix.conf
@@ -138,6 +138,7 @@ x86_64-linux-nix:
     - x86_64-linux
   variables:
     NIX_FLAKE_OUTPUTS: .#all_gmp .#all_native .#all_unreg .#all_9_12 .#all_9_10 .#all_9_8 .#all_9_6
+    NIX_BROWSERS: nixpkgs#firefox-bin nixpkgs#google-chrome
 
 aarch64-linux-nix:
   extends: .linux-nix
@@ -145,6 +146,7 @@ aarch64-linux-nix:
     - aarch64-linux
   variables:
     NIX_FLAKE_OUTPUTS: .#all_9_12 .#all_9_10
+    NIX_BROWSERS: nixpkgs#firefox-bin
 
 aarch64-darwin-nix:
   extends: .nix
@@ -152,7 +154,7 @@ aarch64-darwin-nix:
     - aarch64-darwin
   variables:
     NIX_FLAKE_OUTPUTS: .#all_9_12 .#all_9_10
-    NIX_BROWSERS: ""
+    NIX_BROWSERS: nixpkgs#google-chrome
 
 .linux-ghcup:
   image: debian:12
