@@ -156,27 +156,14 @@ aarch64-darwin-nix:
     NIX_FLAKE_OUTPUTS: .#all_9_12 .#all_9_10
     NIX_BROWSERS: nixpkgs#google-chrome
 
-.linux-ghcup:
-  image: debian:12
+.ghcup:
   rules:
     - if: $UPSTREAM_GHC_FLAVOUR == null
-  before_script:
-    - |
-      apt update
-      apt full-upgrade -y
-      apt install -y \
-        build-essential \
-        curl \
-        chromium \
-        firefox-esr \
-        jq \
-        unzip \
-        zstd
+  script:
     - |
       curl -f -L --retry 5 https://get-ghcup.haskell.org | BOOTSTRAP_HASKELL_NONINTERACTIVE=1 BOOTSTRAP_HASKELL_MINIMAL=1 sh
       . ~/.ghcup/env
       ghcup install cabal latest --set
-  script:
     - |
       SKIP_GHC=1 ./setup.sh
       . ~/.ghc-wasm/env
@@ -192,6 +179,22 @@ aarch64-darwin-nix:
       ghcup set ghc wasm32-wasi-9.10
       ./tests/ghci.sh
 
+.linux-ghcup:
+  extends: .ghcup
+  image: debian:12
+  before_script:
+    - |
+      apt update
+      apt full-upgrade -y
+      apt install -y \
+        build-essential \
+        curl \
+        chromium \
+        firefox-esr \
+        jq \
+        unzip \
+        zstd
+
 x86_64-linux-ghcup:
   extends: .linux-ghcup
   tags:
@@ -201,3 +204,24 @@ aarch64-linux-ghcup:
   extends: .linux-ghcup
   tags:
     - aarch64-linux
+
+aarch64-darwin-ghcup:
+  extends: .ghcup
+  tags:
+    - aarch64-darwin
+  before_script:
+    - |
+      export HOME=$(mktemp -d)
+      trap 'rm -rf "$HOME"' EXIT
+    - |
+      mkdir wrappers
+
+      echo '#!/bin/sh' >> wrappers/firefox
+      echo 'exec "/Applications/Firefox.app/Contents/MacOS/firefox" ${1+"$@"}' >> wrappers/firefox
+      chmod +x wrappers/firefox
+
+      echo '#!/bin/sh' >> wrappers/google-chrome-stable
+      echo 'exec "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" ${1+"$@"}' >> wrappers/google-chrome-stable
+      chmod +x wrappers/google-chrome-stable
+
+      export PATH=$PATH:$PWD/wrappers
