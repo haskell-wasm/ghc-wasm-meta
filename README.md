@@ -150,7 +150,6 @@ The output `.wasm` modules are known to run on these runtimes:
 
 - [`wasmtime`](https://wasmtime.dev)
 - [`wasmedge`](https://wasmedge.org)
-- [`wazero`](https://wazero.io)
 - [`toywasm`](https://github.com/yamt/toywasm)
 
 ### Non-browser JavaScript runtimes
