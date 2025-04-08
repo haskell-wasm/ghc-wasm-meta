@@ -18,7 +18,7 @@ let
 in
 stdenvNoCC.mkDerivation {
   name = "nodejs";
-  version = "23.10.0";
+  version = "23.11.0";
 
   inherit src;
   nativeBuildInputs = lib.optionals hostPlatform.isDarwin [ fixDarwinDylibNames ];
