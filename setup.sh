@@ -79,6 +79,8 @@ host_specific() {
 
 host_specific
 
+SED_IS_GNU=$(sed --version &> /dev/null && echo 1 || echo 0)
+
 # wtf macos
 # PREFIX=$(realpath "$PREFIX")
 
@@ -116,7 +118,11 @@ curl -f -L --retry 5 "$(jq -r ".\"$WASMTIME\".url" "$REPO"/autogen.json)" | tar 
 
 mkdir -p "$PREFIX/wasm-run/bin"
 cp -a "$REPO"/wasm-run/*.mjs "$REPO"/wasm-run/*.sh "$PREFIX/wasm-run/bin"
-sed -i -e "s@wasmtime@$PREFIX/wasmtime/bin/wasmtime@" "$PREFIX/wasm-run/bin/wasmtime.sh"
+if [[ $SED_IS_GNU == "1" ]]; then
+  sed -i "s@wasmtime@$PREFIX/wasmtime/bin/wasmtime@" "$PREFIX/wasm-run/bin/wasmtime.sh"
+else
+  sed -i "" "s@wasmtime@$PREFIX/wasmtime/bin/wasmtime@" "$PREFIX/wasm-run/bin/wasmtime.sh"
+fi
 
 echo "#!/bin/sh" >> "$PREFIX/add_to_github_path.sh"
 chmod 755 "$PREFIX/add_to_github_path.sh"
@@ -185,7 +191,15 @@ fi
 echo "Installing wasm32-wasi-ghc from $GHC_BINDIST"
 curl -f -L --retry 5 "$GHC_BINDIST" | tar xJ -C ghc --no-same-owner --strip-components=1
 pushd ghc
-sh -c ". $PREFIX/env && ./configure \$CONFIGURE_ARGS --prefix=$PREFIX/wasm32-wasi-ghc && exec make install"
+sh -c ". $PREFIX/env && ./configure \$CONFIGURE_ARGS --prefix=$PREFIX/wasm32-wasi-ghc && RelocatableBuild=YES exec make install"
+if [[ "$FLAVOUR" != 9.6 ]] && [[ "$FLAVOUR" != 9.8 ]]; then
+  if [[ $SED_IS_GNU == "1" ]]; then
+    grep -lrIF "$PREFIX" "$PREFIX/wasm32-wasi-ghc" | xargs sed -i "s@$PREFIX@\$topdir/../..@g"
+  else
+    grep -lrIF "$PREFIX" "$PREFIX/wasm32-wasi-ghc" | xargs sed -i "" "s@$PREFIX@\$topdir/../..@g"
+  fi
+  "$PREFIX/wasm32-wasi-ghc/bin/wasm32-wasi-ghc-pkg" recache
+fi
 popd
 
 mkdir -p "$PREFIX/cabal/bin"
@@ -193,13 +207,14 @@ curl -f -L --retry 5 "$(jq -r ".\"$CABAL\".url" "$REPO"/autogen.json)" | tar xJ 
 
 mkdir -p "$PREFIX/wasm32-wasi-cabal/bin"
 echo "#!/bin/sh" >> "$PREFIX/wasm32-wasi-cabal/bin/wasm32-wasi-cabal"
+echo 'PREFIX=$(realpath "$(dirname "$0")"/../..)' >> "$PREFIX/wasm32-wasi-cabal/bin/wasm32-wasi-cabal"
 echo \
-  "CABAL_DIR=$PREFIX/.cabal" \
-  "exec" \
-  "$PREFIX/cabal/bin/cabal" \
-  "--with-compiler=$PREFIX/wasm32-wasi-ghc/bin/wasm32-wasi-ghc" \
-  "--with-hc-pkg=$PREFIX/wasm32-wasi-ghc/bin/wasm32-wasi-ghc-pkg" \
-  "--with-hsc2hs=$PREFIX/wasm32-wasi-ghc/bin/wasm32-wasi-hsc2hs" \
+  'CABAL_DIR=$PREFIX/.cabal' \
+  'exec' \
+  '$PREFIX/cabal/bin/cabal' \
+  '--with-compiler=$PREFIX/wasm32-wasi-ghc/bin/wasm32-wasi-ghc' \
+  '--with-hc-pkg=$PREFIX/wasm32-wasi-ghc/bin/wasm32-wasi-ghc-pkg' \
+  '--with-hsc2hs=$PREFIX/wasm32-wasi-ghc/bin/wasm32-wasi-hsc2hs' \
   '${1+"$@"}' >> "$PREFIX/wasm32-wasi-cabal/bin/wasm32-wasi-cabal"
 chmod 755 "$PREFIX/wasm32-wasi-cabal/bin/wasm32-wasi-cabal"
 
