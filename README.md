@@ -86,7 +86,7 @@ In the early days of `ghc-9.12`, this may result in more packages
 being rejected at compile time. This is true for both nix/non-nix
 installation methods.
 
-`setup.sh` requires `cc`, `curl`, `jq`, `unzip`, `zstd` to run.
+`setup.sh` requires `curl`, `jq`, `unzip`, `zstd` to run.
 
 ## Using `ghcup`
 
@@ -151,6 +151,7 @@ The output `.wasm` modules are known to run on these runtimes:
 - [`wasmtime`](https://wasmtime.dev)
 - [`wasmedge`](https://wasmedge.org)
 - [`toywasm`](https://github.com/yamt/toywasm)
+- [`wasmi`](https://github.com/wasmi-labs/wasmi)
 
 ### Non-browser JavaScript runtimes
 
