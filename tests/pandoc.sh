@@ -23,7 +23,7 @@ head --lines=20 README.rst
 rm README.rst
 
 pushd "$(mktemp -d)"
-curl -f -L --retry 5 https://github.com/yamt/toywasm/releases/download/v66.0.0/toywasm-v66.0.0-full-ubuntu-20.04-amd64.tgz | tar xz
+curl -f -L --retry 5 https://github.com/yamt/toywasm/releases/download/v67.0.0/toywasm-v67.0.0-full-ubuntu-20.04-amd64.tgz | tar xz
 export PATH=$PATH:$PWD/bin
 popd
 
