@@ -113,6 +113,31 @@ x86_64-linux-ubuntu-9.12:
     - ./tests/miso-ormolu.sh
     - ./tests/pandoc.sh
 
+x86_64-linux-chimera-9.12:
+  tags:
+    - x86_64-linux
+  image: terrorjack/chimera:bash
+  rules:
+    - if: $UPSTREAM_GHC_FLAVOUR == null
+  before_script:
+    - |
+      apk upgrade --no-interactive
+      apk add --no-interactive \
+        curl \
+        firefox \
+        gmake \
+        jq \
+        libarchive-progs
+      cd /usr/bin
+      ln -s bsdunzip unzip
+      cd $OLDPWD
+  script:
+    - |
+      PREFIX=/tmp/.ghc-wasm ./setup.sh
+      sed -i "" "s/\$ncpus/$CPUS/" /tmp/.ghc-wasm/.cabal/config
+      . /tmp/.ghc-wasm/env
+    - ./tests/ghci.sh
+
 .nix:
   rules:
     - if: $UPSTREAM_GHC_FLAVOUR == null
