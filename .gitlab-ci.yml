@@ -206,19 +206,21 @@ aarch64-darwin-nix:
 
 .linux-ghcup:
   extends: .ghcup
-  image: debian:12
+  image: rockylinux:8
   before_script:
     - |
-      apt update
-      apt full-upgrade -y
-      apt install -y \
-        build-essential \
-        curl \
+      dnf upgrade -y
+      dnf install -y \
+        epel-release
+      crb enable
+      dnf install -y \
         chromium \
-        firefox-esr \
+        firefox \
         jq \
+        make \
         unzip \
         zstd
+      ln -s /etc/ssl/certs/ca-bundle.crt /etc/ssl/certs/ca-certificates.crt
 
 x86_64-linux-ghcup:
   extends: .linux-ghcup
