@@ -63,6 +63,8 @@ stdenvNoCC.mkDerivation {
 
   configurePlatforms = [ ];
 
+  enableParallelInstalling = true;
+
   postInstall = ''
     wrapProgram $out/lib/wasm32-wasi-ghc-9.*/bin/wasm32-wasi-ghc-9.* \
       --prefix PATH : ${lib.makeBinPath [ nodejs ]} \
