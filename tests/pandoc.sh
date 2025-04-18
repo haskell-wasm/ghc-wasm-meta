@@ -23,7 +23,7 @@ head --lines=20 README.rst
 rm README.rst
 
 pushd "$(mktemp -d)"
-curl -f -L --retry 5 https://github.com/yamt/toywasm/releases/download/v67.0.0/toywasm-v67.0.0-full-ubuntu-20.04-amd64.tgz | tar xz
+curl -f -L --retry 5 https://github.com/yamt/toywasm/releases/download/v68.0.0/toywasm-v68.0.0-full-ubuntu-22.04-amd64.tgz | tar xz
 export PATH=$PATH:$PWD/bin
 popd
 
@@ -32,7 +32,7 @@ head --lines=20 README.rst
 rm README.rst
 
 pushd "$(mktemp -d)"
-curl -f -L --retry 5 https://github.com/oven-sh/bun/releases/download/bun-v1.2.9/bun-linux-x64.zip -O
+curl -f -L --retry 5 https://github.com/oven-sh/bun/releases/download/bun-v1.2.10/bun-linux-x64.zip -O
 unzip bun-linux-x64.zip
 BUN=$PWD/bun-linux-x64/bun
 popd
