@@ -13,6 +13,10 @@ wasmtime run --dir "$PWD"::/ -- "$PANDOC_WASM" README.md -o README.rst
 head --lines=20 README.rst
 rm README.rst
 
+wasmi_cli --dir "$PWD" -- "$PANDOC_WASM" "$PWD/README.md" -o "$PWD/README.rst"
+head --lines=20 README.rst
+rm README.rst
+
 pushd "$(mktemp -d)"
 curl -f -L --retry 5 https://github.com/WasmEdge/WasmEdge/releases/download/0.14.1/WasmEdge-0.14.1-ubuntu20.04_x86_64.tar.gz | tar xz --strip-components=1
 export PATH=$PATH:$PWD/bin
