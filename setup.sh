@@ -99,7 +99,8 @@ else
 fi
 echo "Installing wasi-sdk from $WASI_SDK_BINDIST"
 mkdir -p "$PREFIX/wasi-sdk"
-curl -f -L --retry 5 "$WASI_SDK_BINDIST" | tar xz -C "$PREFIX/wasi-sdk" --no-same-owner --strip-components=1
+curl -f -L --retry 5 "$WASI_SDK_BINDIST" -o wasi-sdk.tar.gz
+tar xzf wasi-sdk.tar.gz -C "$PREFIX/wasi-sdk" --no-same-owner --strip-components=1
 
 curl -f -L --retry 5 "$(jq -r '."libffi-wasm".url' "$REPO"/autogen.json)" -o out.zip
 unzip out.zip
@@ -107,14 +108,18 @@ cp -a out/libffi-wasm/include/. "$PREFIX/wasi-sdk/share/wasi-sysroot/include/was
 cp -a out/libffi-wasm/lib/. "$PREFIX/wasi-sdk/share/wasi-sysroot/lib/wasm32-wasi"
 
 mkdir -p "$PREFIX/nodejs"
-curl -f -L --retry 5 "$(jq -r ".\"$NODEJS\".url" "$REPO"/autogen.json)" | tar xJ -C "$PREFIX/nodejs" --no-same-owner --strip-components=1
+curl -f -L --retry 5 "$(jq -r ".\"$NODEJS\".url" "$REPO"/autogen.json)" -o nodejs.tar.xz
+tar xJf nodejs.tar.xz -C "$PREFIX/nodejs" --no-same-owner --strip-components=1
 "$PREFIX/nodejs/bin/node" "$PREFIX/nodejs/bin/npm" install -g --prefix "$PREFIX/nodejs" puppeteer-core@^24.7.2 ws@^8.18.1
 
 mkdir -p "$PREFIX/binaryen"
-curl -f -L --retry 5 "$(jq -r ".\"$BINARYEN\".url" "$REPO"/autogen.json)" | tar xz -C "$PREFIX/binaryen" --no-same-owner --strip-components=1
+curl -f -L --retry 5 "$(jq -r ".\"$BINARYEN\".url" "$REPO"/autogen.json)" -o binaryen.tar.gz
+tar xzf binaryen.tar.gz -C "$PREFIX/binaryen" --no-same-owner --strip-components=1
 
 mkdir -p "$PREFIX/wasmtime"
-curl -f -L --retry 5 "$(jq -r ".\"$WASMTIME\".url" "$REPO"/autogen.json)" | unzstd | tar x -C "$PREFIX/wasmtime" --no-same-owner --strip-components=1
+curl -f -L --retry 5 "$(jq -r ".\"$WASMTIME\".url" "$REPO"/autogen.json)" -o wasmtime.tar.zst
+unzstd wasmtime.tar.zst -o wasmtime.tar
+tar xf wasmtime.tar -C "$PREFIX/wasmtime" --no-same-owner --strip-components=1
 
 mkdir -p "$PREFIX/wasm-run/bin"
 cp -a "$REPO"/wasm-run/*.mjs "$REPO"/wasm-run/*.sh "$PREFIX/wasm-run/bin"
@@ -189,7 +194,8 @@ else
   GHC_BINDIST=https://gitlab.haskell.org/api/v4/projects/$UPSTREAM_GHC_PROJECT_ID/jobs/$UPSTREAM_GHC_JOB_ID/artifacts/ghc-$UPSTREAM_GHC_JOB_NAME.tar.xz
 fi
 echo "Installing wasm32-wasi-ghc from $GHC_BINDIST"
-curl -f -L --retry 5 "$GHC_BINDIST" | tar xJ -C ghc --no-same-owner --strip-components=1
+curl -f -L --retry 5 "$GHC_BINDIST" -o wasm32-wasi-ghc.tar.xz
+tar xJf wasm32-wasi-ghc.tar.xz -C ghc --no-same-owner --strip-components=1
 pushd ghc
 sh -c ". $PREFIX/env && ./configure \$CONFIGURE_ARGS --prefix=$PREFIX/wasm32-wasi-ghc && RelocatableBuild=YES exec make install"
 if [[ "$FLAVOUR" != 9.6 ]] && [[ "$FLAVOUR" != 9.8 ]]; then
@@ -203,7 +209,8 @@ fi
 popd
 
 mkdir -p "$PREFIX/cabal/bin"
-curl -f -L --retry 5 "$(jq -r ".\"$CABAL\".url" "$REPO"/autogen.json)" | tar xJ --no-same-owner -C "$PREFIX/cabal/bin" 'cabal'
+curl -f -L --retry 5 "$(jq -r ".\"$CABAL\".url" "$REPO"/autogen.json)" -o cabal.tar.xz
+tar xJf cabal.tar.xz --no-same-owner -C "$PREFIX/cabal/bin" 'cabal'
 
 mkdir -p "$PREFIX/wasm32-wasi-cabal/bin"
 echo "#!/bin/sh" >> "$PREFIX/wasm32-wasi-cabal/bin/wasm32-wasi-cabal"
