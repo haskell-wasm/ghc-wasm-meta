@@ -110,7 +110,13 @@ cp -a out/libffi-wasm/lib/. "$PREFIX/wasi-sdk/share/wasi-sysroot/lib/wasm32-wasi
 mkdir -p "$PREFIX/nodejs"
 curl -f -L --retry 5 "$(jq -r ".\"$NODEJS\".url" "$REPO"/autogen.json)" -o nodejs.tar.xz
 tar xJf nodejs.tar.xz -C "$PREFIX/nodejs" --no-same-owner --strip-components=1
-"$PREFIX/nodejs/bin/node" "$PREFIX/nodejs/bin/npm" install -g --prefix "$PREFIX/nodejs" puppeteer-core@^24.7.2 ws@^8.18.1
+"$PREFIX/nodejs/bin/node" "$PREFIX/nodejs/bin/npm" install -g --prefix "$PREFIX/nodejs" \
+  puppeteer-core@^24.7.2 \
+  ws@^8.18.1 \
+  playwright@^1.52.0
+if [[ -v PLAYWRIGHT ]]; then
+  PATH=$PREFIX/nodejs/bin:$PATH playwright install --with-deps
+fi
 
 mkdir -p "$PREFIX/binaryen"
 curl -f -L --retry 5 "$(jq -r ".\"$BINARYEN\".url" "$REPO"/autogen.json)" -o binaryen.tar.gz

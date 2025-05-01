@@ -20,6 +20,8 @@ variables:
   rules:
     - if: $UPSTREAM_GHC_FLAVOUR == null
     - if: $UPSTREAM_GHC_FLAVOUR == $FLAVOUR
+  variables:
+    PLAYWRIGHT: 1
   before_script:
     - |
       sudo apt update
