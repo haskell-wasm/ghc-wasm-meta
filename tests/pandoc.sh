@@ -36,7 +36,7 @@ head --lines=20 README.rst
 rm README.rst
 
 pushd "$(mktemp -d)"
-curl -f -L --retry 5 https://github.com/oven-sh/bun/releases/download/bun-v1.2.10/bun-linux-x64.zip -O
+curl -f -L --retry 5 https://github.com/oven-sh/bun/releases/download/bun-v1.2.11/bun-linux-x64.zip -O
 unzip bun-linux-x64.zip
 BUN=$PWD/bun-linux-x64/bun
 popd
