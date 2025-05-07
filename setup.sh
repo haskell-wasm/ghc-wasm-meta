@@ -114,7 +114,7 @@ tar xJf nodejs.tar.xz -C "$PREFIX/nodejs" --no-same-owner --strip-components=1
   puppeteer-core@^24.7.2 \
   ws@^8.18.1 \
   playwright@^1.52.0
-if [[ -v PLAYWRIGHT ]]; then
+if [[ -n "${PLAYWRIGHT:-}" ]]; then
   PATH=$PREFIX/nodejs/bin:$PATH playwright install --with-deps
 fi
 
