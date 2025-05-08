@@ -111,10 +111,11 @@ mkdir -p "$PREFIX/nodejs"
 curl -f -L --retry 5 "$(jq -r ".\"$NODEJS\".url" "$REPO"/autogen.json)" -o nodejs.tar.xz
 tar xJf nodejs.tar.xz -C "$PREFIX/nodejs" --no-same-owner --strip-components=1
 "$PREFIX/nodejs/bin/node" "$PREFIX/nodejs/bin/npm" install -g --prefix "$PREFIX/nodejs" \
-  puppeteer-core@^24.8.1 \
-  ws@^8.18.2 \
-  playwright@^1.52.0
+  puppeteer-core@^24.8.2 \
+  ws@^8.18.2
 if [[ -n "${PLAYWRIGHT:-}" ]]; then
+  "$PREFIX/nodejs/bin/node" "$PREFIX/nodejs/bin/npm" install -g --prefix "$PREFIX/nodejs" \
+    playwright
   PATH=$PREFIX/nodejs/bin:$PATH playwright install --with-deps
 fi
 
