@@ -27,24 +27,19 @@ variables:
       sudo apt update
       sudo apt full-upgrade -y
       sudo apt install -y \
-        gnupg \
         zstd
 
-      curl -f -L --retry 5 https://packages.mozilla.org/apt/repo-signing-key.gpg | sudo tee /usr/share/keyrings/packages.mozilla.org.asc
+      curl -f -L https://packages.mozilla.org/apt/repo-signing-key.gpg | sudo tee /usr/share/keyrings/packages.mozilla.org.asc
       echo "deb [signed-by=/usr/share/keyrings/packages.mozilla.org.asc] https://packages.mozilla.org/apt mozilla main" | sudo tee /etc/apt/sources.list.d/mozilla.list
-      echo '
-      Package: *
-      Pin: origin packages.mozilla.org
-      Pin-Priority: 1000
-      ' | sudo tee /etc/apt/preferences.d/mozilla
 
-      curl -f -L --retry 5 https://dl.google.com/linux/linux_signing_key.pub | sudo gpg --dearmor -o /usr/share/keyrings/google-chrome.gpg
-      echo "deb [signed-by=/usr/share/keyrings/google-chrome.gpg] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
+      curl -f -L https://dl.google.com/linux/linux_signing_key.pub | sudo tee /usr/share/keyrings/google.asc
+      echo "deb [signed-by=/usr/share/keyrings/google.asc] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
 
       sudo apt update
       sudo apt install -y \
-        firefox \
         google-chrome-stable
+      sudo apt install -y --target-release=mozilla \
+        firefox
     - sudo chown ghc:ghc -R .
     - |
       PREFIX=/tmp/.ghc-wasm ./setup.sh
