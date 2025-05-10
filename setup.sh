@@ -222,14 +222,26 @@ tar xJf cabal.tar.xz --no-same-owner -C "$PREFIX/cabal/bin" 'cabal'
 mkdir -p "$PREFIX/wasm32-wasi-cabal/bin"
 echo "#!/bin/sh" >> "$PREFIX/wasm32-wasi-cabal/bin/wasm32-wasi-cabal"
 echo 'PREFIX=$(realpath "$(dirname "$0")"/../..)' >> "$PREFIX/wasm32-wasi-cabal/bin/wasm32-wasi-cabal"
-echo \
-  'CABAL_DIR=$PREFIX/.cabal' \
-  'exec' \
-  '$PREFIX/cabal/bin/cabal' \
-  '--with-compiler=$PREFIX/wasm32-wasi-ghc/bin/wasm32-wasi-ghc' \
-  '--with-hc-pkg=$PREFIX/wasm32-wasi-ghc/bin/wasm32-wasi-ghc-pkg' \
-  '--with-hsc2hs=$PREFIX/wasm32-wasi-ghc/bin/wasm32-wasi-hsc2hs' \
-  '${1+"$@"}' >> "$PREFIX/wasm32-wasi-cabal/bin/wasm32-wasi-cabal"
+if [[ "$FLAVOUR" != 9.6 ]] && [[ "$FLAVOUR" != 9.8 ]]; then
+  echo \
+    'CABAL_DIR=$PREFIX/.cabal' \
+    'exec' \
+    '$PREFIX/cabal/bin/cabal' \
+    '--with-compiler=$PREFIX/wasm32-wasi-ghc/bin/wasm32-wasi-ghc' \
+    '--with-hc-pkg=$PREFIX/wasm32-wasi-ghc/bin/wasm32-wasi-ghc-pkg' \
+    '--with-hsc2hs=$PREFIX/wasm32-wasi-ghc/bin/wasm32-wasi-hsc2hs' \
+    '--with-haddock=$PREFIX/wasm32-wasi-ghc/bin/wasm32-wasi-haddock' \
+    '${1+"$@"}' >> "$PREFIX/wasm32-wasi-cabal/bin/wasm32-wasi-cabal"
+else
+  echo \
+    'CABAL_DIR=$PREFIX/.cabal' \
+    'exec' \
+    '$PREFIX/cabal/bin/cabal' \
+    '--with-compiler=$PREFIX/wasm32-wasi-ghc/bin/wasm32-wasi-ghc' \
+    '--with-hc-pkg=$PREFIX/wasm32-wasi-ghc/bin/wasm32-wasi-ghc-pkg' \
+    '--with-hsc2hs=$PREFIX/wasm32-wasi-ghc/bin/wasm32-wasi-hsc2hs' \
+    '${1+"$@"}' >> "$PREFIX/wasm32-wasi-cabal/bin/wasm32-wasi-cabal"
+fi
 chmod 755 "$PREFIX/wasm32-wasi-cabal/bin/wasm32-wasi-cabal"
 
 mkdir "$PREFIX/.cabal"
