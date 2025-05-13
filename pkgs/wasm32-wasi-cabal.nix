@@ -41,6 +41,13 @@ let
         ${coreutils}/bin/cp ${../cabal.legacy.config} "$CABAL_DIR/config"
         ${coreutils}/bin/chmod u+w "$CABAL_DIR/config"
       '';
+  withHaddock = lib.optionalString
+    (
+      !lib.elem flavour [
+        "9.6"
+        "9.8"
+      ]
+    ) "--with-haddock=${wasm32-wasi-ghc}/bin/wasm32-wasi-haddock";
 in
 writeShellScriptBin "wasm32-wasi-cabal" ''
   export CABAL_DIR="''${CABAL_DIR:-$HOME/.ghc-wasm/.cabal}"
@@ -55,5 +62,6 @@ writeShellScriptBin "wasm32-wasi-cabal" ''
     --with-compiler=${wasm32-wasi-ghc}/bin/wasm32-wasi-ghc \
     --with-hc-pkg=${wasm32-wasi-ghc}/bin/wasm32-wasi-ghc-pkg \
     --with-hsc2hs=${wasm32-wasi-ghc}/bin/wasm32-wasi-hsc2hs \
+    ${withHaddock} \
     ''${1+"$@"}
 ''
