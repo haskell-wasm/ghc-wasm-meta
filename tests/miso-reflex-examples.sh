@@ -3,7 +3,7 @@
 set -euo pipefail
 
 pushd "$(mktemp -d)"
-curl -f -L --retry 5 https://github.com/sass/dart-sass/releases/download/1.86.3/dart-sass-1.86.3-linux-x64.tar.gz | tar xz --strip-components=1
+curl -f -L https://github.com/sass/dart-sass/releases/download/1.88.0/dart-sass-1.88.0-linux-x64.tar.gz | tar xz --strip-components=1
 export PATH=$PATH:$PWD:/opt/toolchain/bin
 popd
 
@@ -30,15 +30,3 @@ pushd frontend
 ./build.sh
 popd
 popd
-
-if [[ "$FLAVOUR" == 9.12 ]]; then
-  pushd "$(mktemp -d)"
-  curl -L https://hackage.haskell.org/package/ormolu-0.8.0.0/ormolu-0.8.0.0.tar.gz | tar xz --strip-components=1
-  cp $CI_PROJECT_DIR/cabal.project.local .
-  sed -i \
-    -e '/-threaded/d' \
-    -e '/-with-rtsopts/d' \
-    ormolu.cabal
-  wasm32-wasi-cabal build -finternal-bundle-fixities
-  popd
-fi

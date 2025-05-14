@@ -51,10 +51,22 @@ variables:
   allow_failure: true
   script:
     - ./tests/ghci.sh
-    - ./tests/agda.sh
+    - ./tests/canary.sh
+    - ./tests/ghc-wasm-earthly.sh
+    - ./tests/miso.sh
+    - ./tests/reflex-dom.sh
+    - ./tests/time.sh
+    - ./tests/clock.sh
+    - ./tests/unix-compat.sh
+    - ./tests/hashtables.sh
+    - ./tests/bzlib.sh
+    - ./tests/hfsnotify.sh
+    - ./tests/xxhash-ffi.sh
     - ./tests/misc.sh
-    - ./tests/miso-ormolu.sh
+    - ./tests/miso-reflex-examples.sh
     - ./tests/pandoc.sh
+    - ./tests/tinyapl.sh
+    - ./tests/agda.sh
 
 x86_64-linux-ubuntu-gmp:
   extends: .x86_64-linux-ubuntu-head
@@ -76,16 +88,23 @@ x86_64-linux-ubuntu-9.6:
   variables:
     FLAVOUR: "9.6"
   script:
-    - ./tests/agda.sh
+    - ./tests/clock.sh
+    - ./tests/bzlib.sh
+    - ./tests/xxhash-ffi.sh
     - ./tests/misc.sh
+    - ./tests/agda.sh
 
 x86_64-linux-ubuntu-9.8:
   extends: .x86_64-linux-ubuntu
   variables:
     FLAVOUR: "9.8"
   script:
-    - ./tests/agda.sh
+    - ./tests/time.sh
+    - ./tests/clock.sh
+    - ./tests/bzlib.sh
+    - ./tests/xxhash-ffi.sh
     - ./tests/misc.sh
+    - ./tests/agda.sh
 
 x86_64-linux-ubuntu-9.10:
   extends: .x86_64-linux-ubuntu
@@ -93,10 +112,22 @@ x86_64-linux-ubuntu-9.10:
     FLAVOUR: "9.10"
   script:
     - ./tests/ghci.sh
-    - ./tests/agda.sh
+    - ./tests/canary.sh
+    - ./tests/ghc-wasm-earthly.sh
+    - ./tests/miso.sh
+    - ./tests/reflex-dom.sh
+    - ./tests/time.sh
+    - ./tests/clock.sh
+    - ./tests/unix-compat.sh
+    - ./tests/hashtables.sh
+    - ./tests/bzlib.sh
+    - ./tests/hfsnotify.sh
+    - ./tests/xxhash-ffi.sh
     - ./tests/misc.sh
-    - ./tests/miso-ormolu.sh
+    - ./tests/miso-reflex-examples.sh
     - ./tests/pandoc.sh
+    - ./tests/tinyapl.sh
+    - ./tests/agda.sh
 
 x86_64-linux-ubuntu-9.12:
   extends: .x86_64-linux-ubuntu
@@ -104,10 +135,22 @@ x86_64-linux-ubuntu-9.12:
     FLAVOUR: "9.12"
   script:
     - ./tests/ghci.sh
-    - ./tests/agda.sh
+    - ./tests/canary.sh
+    - ./tests/ghc-wasm-earthly.sh
+    - ./tests/miso.sh
+    - ./tests/reflex-dom.sh
+    - ./tests/time.sh
+    - ./tests/clock.sh
+    - ./tests/unix-compat.sh
+    - ./tests/hashtables.sh
+    - ./tests/bzlib.sh
+    - ./tests/hfsnotify.sh
+    - ./tests/xxhash-ffi.sh
     - ./tests/misc.sh
-    - ./tests/miso-ormolu.sh
+    - ./tests/miso-reflex-examples.sh
     - ./tests/pandoc.sh
+    - ./tests/tinyapl.sh
+    - ./tests/agda.sh
 
 x86_64-linux-chimera-9.12:
   tags:

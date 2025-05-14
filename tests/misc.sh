@@ -5,26 +5,10 @@ set -euo pipefail
 export PATH=$PATH:/opt/toolchain/bin
 
 pushd "$(mktemp -d)"
-curl -f -L --retry 5 https://github.com/haskell/time/archive/refs/heads/master.tar.gz | tar xz --strip-components=1
-cp $CI_PROJECT_DIR/cabal.project.local .
-sed -i -e '/time/d' cabal.project.local
-autoreconf -i
-wasm32-wasi-cabal build test:ShowDefaultTZAbbreviations
-$CROSS_EMULATOR $(wasm32-wasi-cabal list-bin test:ShowDefaultTZAbbreviations)
-wasm32-wasi-cabal build test:ShowTime
-$CROSS_EMULATOR $(wasm32-wasi-cabal list-bin test:ShowTime)
-popd
-
-pushd "$(mktemp -d)"
 curl -f -L --retry 5 https://github.com/haskell/unix/archive/refs/heads/master.tar.gz | tar xz --strip-components=1
 autoreconf -i
 wasm32-wasi-cabal --project-file=cabal.project.wasm32-wasi build
 ./test-wasm32-wasi.mjs
-popd
-
-pushd "$(mktemp -d)"
-curl -f -L --retry 5 https://github.com/corsis/clock/archive/refs/heads/master.tar.gz | tar xz --strip-components=1
-wasm32-wasi-cabal build
 popd
 
 pushd "$(mktemp -d)"
