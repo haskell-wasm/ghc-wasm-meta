@@ -52,6 +52,9 @@ variables:
   script:
     - ./tests/ghci.sh
     - ./tests/canary.sh
+    - ./tests/foundation.sh
+    - ./tests/network.sh
+    - ./tests/jsaddle-wasm.sh
     - ./tests/ghc-wasm-earthly.sh
     - ./tests/miso.sh
     - ./tests/reflex-dom.sh
@@ -88,6 +91,8 @@ x86_64-linux-ubuntu-9.6:
   variables:
     FLAVOUR: "9.6"
   script:
+    - ./tests/foundation.sh
+    - ./tests/network.sh
     - ./tests/clock.sh
     - ./tests/bzlib.sh
     - ./tests/xxhash-ffi.sh
@@ -99,7 +104,9 @@ x86_64-linux-ubuntu-9.8:
   variables:
     FLAVOUR: "9.8"
   script:
+    - ./tests/foundation.sh
     - ./tests/time.sh
+    - ./tests/network.sh
     - ./tests/clock.sh
     - ./tests/bzlib.sh
     - ./tests/xxhash-ffi.sh
@@ -113,6 +120,9 @@ x86_64-linux-ubuntu-9.10:
   script:
     - ./tests/ghci.sh
     - ./tests/canary.sh
+    - ./tests/foundation.sh
+    - ./tests/network.sh
+    - ./tests/jsaddle-wasm.sh
     - ./tests/ghc-wasm-earthly.sh
     - ./tests/miso.sh
     - ./tests/reflex-dom.sh
@@ -136,6 +146,9 @@ x86_64-linux-ubuntu-9.12:
   script:
     - ./tests/ghci.sh
     - ./tests/canary.sh
+    - ./tests/foundation.sh
+    - ./tests/network.sh
+    - ./tests/jsaddle-wasm.sh
     - ./tests/ghc-wasm-earthly.sh
     - ./tests/miso.sh
     - ./tests/reflex-dom.sh
