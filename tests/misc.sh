@@ -13,7 +13,6 @@ popd
 
 pushd "$(mktemp -d)"
 curl -f -L --retry 5 https://github.com/haskell/zlib/archive/refs/heads/master.tar.gz | tar xz --strip-components=1
-mv cabal.project.wasi cabal.project
 cp $CI_PROJECT_DIR/cabal.project.local .
 wasm32-wasi-cabal build --enable-tests all
 cd zlib
@@ -23,7 +22,6 @@ popd
 if [[ "$FLAVOUR" == 9.6 ]] || [[ "$FLAVOUR" == 9.8 ]] || [[ "$FLAVOUR" == 9.10 ]] || [[ "$FLAVOUR" == 9.12 ]]; then
   pushd "$(mktemp -d)"
   curl -f -L --retry 5 https://github.com/Bodigrim/bitvec/archive/refs/heads/master.tar.gz | tar xz --strip-components=1
-  mv cabal.project.wasi cabal.project.local
   wasm32-wasi-cabal build --enable-tests
   $CROSS_EMULATOR $(find . -type f -name bitvec-tests.wasm)
   popd
