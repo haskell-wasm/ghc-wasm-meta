@@ -57,7 +57,7 @@
           wasm32-wasi-cabal-9_10 = pkgs.callPackage ./pkgs/wasm32-wasi-cabal.nix { flavour = "9.10"; };
           wasm32-wasi-cabal-9_12 = pkgs.callPackage ./pkgs/wasm32-wasi-cabal.nix { flavour = "9.12"; };
           wasi-sdk = pkgs.callPackage ./pkgs/wasi-sdk.nix { };
-          nodejs = pkgs.callPackage ./pkgs/nodejs.nix { };
+          nodejs = pkgs.nodejs_latest;
           binaryen = pkgs.callPackage ./pkgs/binaryen.nix { };
           wasmtime = pkgs.callPackage ./pkgs/wasmtime.nix { };
           cabal = pkgs.callPackage ./pkgs/cabal.nix { };

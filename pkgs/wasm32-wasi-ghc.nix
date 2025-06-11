@@ -5,6 +5,7 @@
 , hostPlatform
 , lib
 , makeWrapper
+, nodejs_latest
 , runtimeShell
 , runtimeShellPackage
 , stdenvNoCC
@@ -28,7 +29,7 @@ let
       "aarch64-linux-9.12" = "wasm32-wasi-ghc-gmp-aarch64-linux-9.12";
     }."${hostPlatform.system}-${flavour}";
   wasi-sdk = callPackage ./wasi-sdk.nix { };
-  nodejs = callPackage ./nodejs.nix { };
+  nodejs = nodejs_latest;
   npm-deps = callPackage ./npm-deps.nix { inherit nodejs; };
 in
 stdenvNoCC.mkDerivation {
