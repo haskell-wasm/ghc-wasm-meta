@@ -64,20 +64,20 @@
     "hash": "sha256-Um9Gcu9zKl0pzFYL3RmAnyFJozOPKVoq1NnU2jilI0s="
   },
   "nodejs": {
-    "url": "https://github.com/haskell-wasm/node-static/releases/download/v23.11.0/node-v23.11.0-linux-x64-static.tar.xz",
-    "hash": "sha512-sG6VaTwGhTGd6Wt7dcD1S0MSKWXS+d1xae1mtmVIjvrBidAYaqxngExQn3vH/VBZyoLxMrqNSqHyDI0wlBOM8A=="
+    "url": "https://github.com/haskell-wasm/node-static/releases/download/v24.2.0/node-v24.2.0-linux-x64-static.tar.xz",
+    "hash": "sha512-7AYTMUqeG5cRMAsZRqVrbuUBEyP9Obt8/sQp+lLPjz3/9pqeMTulJ5OOo4UuIIrNX96JnQKWkepyp9dM1eeaLg=="
   },
   "nodejs_aarch64_linux": {
-    "url": "https://github.com/haskell-wasm/node-static/releases/download/v23.11.0/node-v23.11.0-linux-arm64-static.tar.xz",
-    "hash": "sha512-gBX0VBAHwFD+0Fgew5cF10xhtXUaMHCYNUfNR4NysCbHU7IsFvq7fNg59PUpC5M5v6LZBwb//9sxOAy+vow5Lg=="
+    "url": "https://github.com/haskell-wasm/node-static/releases/download/v24.2.0/node-v24.2.0-linux-arm64-static.tar.xz",
+    "hash": "sha512-djs7Jn8h/5JNsdLKXzE/aMGjpqX3YFueP2d2qK5D5sKEwZ6h4oAUEStqoWVPmuqMezUrPOeFU5aFxHyHhsBbVg=="
   },
   "nodejs_aarch64_darwin": {
-    "url": "https://github.com/haskell-wasm/node-static/releases/download/v23.11.0/node-v23.11.0-darwin-arm64.tar.xz",
-    "hash": "sha512-Y7dWW8LenfR+xMy2EEi+WhWcxHiTR9P1cgJYbyTrOZVeDA1Vt8dusYllbUwNv5Vu41XOvXq0kSbBNSZBbctVNw=="
+    "url": "https://nodejs.org/dist/latest/node-v24.2.0-darwin-arm64.tar.xz",
+    "hash": "sha512-9CE8sA1VWIQB22kKha68b7BaSgxcvnj4vnHaiNVhzDUE+SDbazRFSUOePjYp93OQOdWEFIWdIrZ8pm5Ufctl6g=="
   },
   "nodejs_x86_64_darwin": {
-    "url": "https://github.com/haskell-wasm/node-static/releases/download/v23.11.0/node-v23.11.0-darwin-x64.tar.xz",
-    "hash": "sha512-vutS5yh9ogGpJYSVgAmebgxqozTtHOt7Z9wir+DR1EiltsCXSG+EG4bCc+iwAYlq+JPOAx4LlVZhTPq1dnYlIQ=="
+    "url": "https://nodejs.org/dist/latest/node-v24.2.0-darwin-x64.tar.xz",
+    "hash": "sha512-F7mmbnij4bK6XnkkO3E4IE4Qux8Tyor+jt1oehQREHJd2k7o6ZSXHnfK/5b0rJxvUwMu09ldbhm4f0gunoMj+A=="
   },
   "binaryen": {
     "url": "https://github.com/haskell-wasm/binaryen/releases/download/version_123/binaryen-version_123-x86_64-linux-static.tar.gz",
@@ -96,20 +96,20 @@
     "hash": "sha512-teemLcIwnSEI0SUx+cADbi0g5Nc1VJa+OrwIbL/TYy5yaTNF+dinvNXE8ZrX3+XfJlC7QfmAFXdixlXm3RCvLg=="
   },
   "wasmtime": {
-    "url": "https://github.com/haskell-wasm/wasm-tools-static/releases/download/250422/wasm-tools-250422-x86_64-linux.tar.zst",
-    "hash": "sha512-IDPJQpij/BK6Nt+uysoOqy2NpVZbd4jXyEWSDNJXKKyNjjVhEg2PEvEV8DWaou8mcYyiOBYiTtBFVptT/PZpZA=="
+    "url": "https://github.com/haskell-wasm/wasm-tools-static/releases/download/250611/wasm-tools-250611-x86_64-linux.tar.zst",
+    "hash": "sha512-P1HwngROLyvug3Ana2DRnr9HjwzJnQkLJd4Y9GQFBAcgEYJ8W4G270PRteZTBDm+f5VwkoWhZ4gDYoyGfWXCoA=="
   },
   "wasmtime_aarch64_linux": {
-    "url": "https://github.com/haskell-wasm/wasm-tools-static/releases/download/250422/wasm-tools-250422-aarch64-linux.tar.zst",
-    "hash": "sha512-NC+UMYfIpGbrIr7H2ORs/em6ExOGHMoievPcPNtyU95W6ZKBLQEBuGgBopsPoJVHO66VIdnjSzgEhyYHuSrxew=="
+    "url": "https://github.com/haskell-wasm/wasm-tools-static/releases/download/250611/wasm-tools-250611-aarch64-linux.tar.zst",
+    "hash": "sha512-ho4DTp3mmu8+ngMYLZMPDIyX6Ss2OItGonBk6uO/WPfU4IZ27+QqPHCTMUpgRXgNQXpbHM5QusMvK96arnRasQ=="
   },
   "wasmtime_aarch64_darwin": {
-    "url": "https://github.com/haskell-wasm/wasm-tools-static/releases/download/250422/wasm-tools-250422-darwin-aarch64.tar.zst",
-    "hash": "sha512-fzkdkAMFxxNuKEOXDTIxDzbFm47XHnUkjRg5CDP3hkwUl8QamN4q4k5jzcDABJDYJDOplgbrrkiijo3JrtpX+A=="
+    "url": "https://github.com/haskell-wasm/wasm-tools-static/releases/download/250611/wasm-tools-250611-darwin-aarch64.tar.zst",
+    "hash": "sha512-Ka+yzKbmbMOoOfHo+cVgmsNkFyk/SBisfMcwbFbDxNYlKdELcft6Wwjm9pzP9/hTYot7dxCe3CgGvyJ4PigqwA=="
   },
   "wasmtime_x86_64_darwin": {
-    "url": "https://github.com/haskell-wasm/wasm-tools-static/releases/download/250422/wasm-tools-250422-darwin-x86_64.tar.zst",
-    "hash": "sha512-SxCtl2NgZzW9MDHK+y8ylEm0NyIXFFrnsIZKrzIUIuWbKv0GE0oyT5ZxNaocd/Jygvts8wxmjGEeL/0o7ZeiNw=="
+    "url": "https://github.com/haskell-wasm/wasm-tools-static/releases/download/250611/wasm-tools-250611-darwin-x86_64.tar.zst",
+    "hash": "sha512-BDG0/PLvgr1ER7EVZJB8SMrPFeYwgWt2VCprOHkHMV5bwlhj8OEjFo+1h+ljN9NwMwmk7+0EcQ46F209jLdZsA=="
   },
   "cabal": {
     "url": "https://downloads.haskell.org/cabal/cabal-install-3.14.2.0/cabal-install-3.14.2.0-x86_64-linux-alpine3_18.tar.xz",
