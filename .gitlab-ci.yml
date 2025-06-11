@@ -259,7 +259,6 @@ aarch64-darwin-nix:
         make \
         unzip \
         zstd
-      ln -s /etc/ssl/certs/ca-bundle.crt /etc/ssl/certs/ca-certificates.crt
 
 x86_64-linux-ghcup:
   extends: .linux-ghcup
