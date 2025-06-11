@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "puppeteer-core": "^24.8.2",
+    "puppeteer-core": "^24.10.0",
     "ws": "^8.18.2"
   }
 }
