@@ -15,5 +15,5 @@ fi
 CHROME_PATH=$(type -P google-chrome-stable || type -P google-chrome-beta || type -P google-chrome-unstable || type -P google-chrome-canary || type -P chromium || type -P chromium-browser || echo "")
 
 if [[ $CHROME_PATH != "" ]]; then
-  echo -e "$GHCI_SCRIPT" | wasm32-wasi-ghc --interactive -fghci-browser -fghci-browser-puppeteer-launch-opts="{\"browser\":\"chrome\",\"protocol\":\"webDriverBiDi\",\"executablePath\":\"$CHROME_PATH\",\"args\":[\"--no-sandbox\"]}"
+  echo -e "$GHCI_SCRIPT" | wasm32-wasi-ghc --interactive -package ghc -package Cabal -fghci-browser -fghci-browser-puppeteer-launch-opts="{\"browser\":\"chrome\",\"protocol\":\"webDriverBiDi\",\"executablePath\":\"$CHROME_PATH\",\"args\":[\"--no-sandbox\"]}"
 fi
