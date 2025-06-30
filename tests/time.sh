@@ -7,5 +7,5 @@ curl -f -L https://github.com/haskell/time/archive/refs/heads/master.tar.gz | ta
 cp "$CI_PROJECT_DIR/cabal.project.local" .
 sed -i -e '/time/d' cabal.project.local
 autoreconf -i
-wasm32-wasi-cabal test --test-wrapper="$CROSS_EMULATOR"
+wasm32-wasi-cabal test --test-wrapper=wasmtime
 popd
