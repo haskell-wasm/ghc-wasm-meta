@@ -64,20 +64,20 @@
     "hash": "sha256-Um9Gcu9zKl0pzFYL3RmAnyFJozOPKVoq1NnU2jilI0s="
   },
   "nodejs": {
-    "url": "https://github.com/haskell-wasm/node-static/releases/download/v24.3.0/node-v24.3.0-linux-x64-static.tar.xz",
-    "hash": "sha512-aXLfvKeg90/iuFkmKHVzyc7toSYi1hAztoeBXXJJmq6RQuLu8fFslOkSCJJyesqOGfJ2AVIReBBknALIt8AyYg=="
+    "url": "https://github.com/haskell-wasm/node-static/releases/download/v24.6.0/node-v24.6.0-linux-x64-static.tar.xz",
+    "hash": "sha512-DwXHtR/pLkQyYjk6/4j0bbugiqC0ieuejn/lOI/MT0pLt6SSBYRHiQVfMmNdsVMqbGy6D1vxXPt1q1VRoN/F4g=="
   },
   "nodejs_aarch64_linux": {
-    "url": "https://github.com/haskell-wasm/node-static/releases/download/v24.3.0/node-v24.3.0-linux-arm64-static.tar.xz",
-    "hash": "sha512-UD6CRpCnnKKani+7zqgghsXbMMRArHcTfEYRONpHDl8JjpEfYYxFmo7aqJ82DiTRj91VBl9tpP52P3tMT74duA=="
+    "url": "https://github.com/haskell-wasm/node-static/releases/download/v24.6.0/node-v24.6.0-linux-arm64-static.tar.xz",
+    "hash": "sha512-iA90kfTMq+8lkI8h40kE2yKgSHPUQwMYVjOVGbCtIWU8LoL17lHB5RL6xNlFPbdT5NTKVfHHRxYanWYxwCnAtA=="
   },
   "nodejs_aarch64_darwin": {
-    "url": "https://nodejs.org/dist/latest/node-v24.3.0-darwin-arm64.tar.xz",
-    "hash": "sha512-zLKowTRdNFiS2es4mnhXTVIE/V8CMf/tjuk0g3jJPMPz7YKik4IPcthT1X2FB61pwBUa6sLBSnKxkU4gOrPORQ=="
+    "url": "https://nodejs.org/dist/v24.6.0/node-v24.6.0-darwin-arm64.tar.xz",
+    "hash": "sha512-LPsJPAsgeR+b+fAz5xnQlwhcUdwcInaN9DJ6d28+AKmOv7Fat2XnkCJsKVTD2UU+NpnpUSwDtqM+gGdVFCdf/w=="
   },
   "nodejs_x86_64_darwin": {
-    "url": "https://nodejs.org/dist/latest/node-v24.3.0-darwin-x64.tar.xz",
-    "hash": "sha512-EL5IAjjLJrlSA7WodKuvwnY625ibTzbwtMEHRs8N4RtgrFXztQHL3ZclkEkIRLqOxIfmQqFEhShMgS0bABZp9w=="
+    "url": "https://nodejs.org/dist/v24.6.0/node-v24.6.0-darwin-x64.tar.xz",
+    "hash": "sha512-qFYibotl+CieJGJ9j95eOXzuZLzGTyXO74Jqrq2ZMc1w121cTUeWmZf255F2T0L8W6ByQa7AWgBjSRkXUOKLpQ=="
   },
   "binaryen": {
     "url": "https://github.com/haskell-wasm/binaryen/releases/download/version_123/binaryen-version_123-x86_64-linux-static.tar.gz",
@@ -96,35 +96,35 @@
     "hash": "sha512-teemLcIwnSEI0SUx+cADbi0g5Nc1VJa+OrwIbL/TYy5yaTNF+dinvNXE8ZrX3+XfJlC7QfmAFXdixlXm3RCvLg=="
   },
   "wasmtime": {
-    "url": "https://github.com/haskell-wasm/wasm-tools-static/releases/download/250630/wasm-tools-250630-x86_64-linux.tar.zst",
-    "hash": "sha512-463xTD4HWeo5cmwe/fulIl68AuBmuvNnqxFtpNGrR2ILNhyb4xzS3+f92KvIIEY3bAz6bjO/k4M/ZI24D7Q3zg=="
+    "url": "https://github.com/haskell-wasm/wasm-tools-static/releases/download/250824/wasm-tools-250824-x86_64-linux.tar.zst",
+    "hash": "sha512-wcRvyDG0cZzHU1zwUclgREiG/GmJoEiccsLCYukYC8d4izywkEKWd1J7IDxILP6jl1IDRpRaQ2nGsQLNZXGraA=="
   },
   "wasmtime_aarch64_linux": {
-    "url": "https://github.com/haskell-wasm/wasm-tools-static/releases/download/250630/wasm-tools-250630-aarch64-linux.tar.zst",
-    "hash": "sha512-040ZN9f/nRedBw1GuoQwkLRwrtrEVjkNy4b9z4I/KGfK2YdWha+wEAZ1NwIX2ioNQC5mv2ySoM3qGjUS60UtGg=="
+    "url": "https://github.com/haskell-wasm/wasm-tools-static/releases/download/250824/wasm-tools-250824-aarch64-linux.tar.zst",
+    "hash": "sha512-J3hag/RldaruD03i64DQ79Z5vy5bhl7btFIdGCfmKzQobPHtxDXG/8+DlJvuadA1qxZcNSZu3P7j1fnSOOaSvA=="
   },
   "wasmtime_aarch64_darwin": {
-    "url": "https://github.com/haskell-wasm/wasm-tools-static/releases/download/250630/wasm-tools-250630-darwin-aarch64.tar.zst",
-    "hash": "sha512-kAMFQGhyMww/0vbaa8N43ryY3+KbTicVCjB7Y3CEmiZkmukq5PfFGtnjOi1+a1ZmHz6ajtxJsX1OJWeIyIKv8w=="
+    "url": "https://github.com/haskell-wasm/wasm-tools-static/releases/download/250824/wasm-tools-250824-darwin-aarch64.tar.zst",
+    "hash": "sha512-t7No7PbejQ8eld46CGa3cvj7Dob9o99rzuym7FFbyAgE/OZ25dZIHXR9PP61JIqz2DoGyDgcmS/GFZYfByXFaQ=="
   },
   "wasmtime_x86_64_darwin": {
-    "url": "https://github.com/haskell-wasm/wasm-tools-static/releases/download/250630/wasm-tools-250630-darwin-x86_64.tar.zst",
-    "hash": "sha512-RCQ60HTMWtMCBaA4hbd6k9U6ILtXH9upiv5AZ0GDsx31Qpze8wijBFgo3QOOKPkW8ybaRFM4bKruHTQ0kIrGbw=="
+    "url": "https://github.com/haskell-wasm/wasm-tools-static/releases/download/250824/wasm-tools-250824-darwin-x86_64.tar.zst",
+    "hash": "sha512-3NF5BqvQsIME2QrIpH53yY6T6DyYiM+YA22ewWn7VWYFYZTMgwMDR8GnDHmWrj6i48OzLmImcii4LhFffgARLg=="
   },
   "cabal": {
-    "url": "https://downloads.haskell.org/cabal/cabal-install-3.14.2.0/cabal-install-3.14.2.0-x86_64-linux-alpine3_18.tar.xz",
-    "hash": "sha512-Hq45Oz6To2FJs8N/E3lDZddZo1jCRbJ2/l315i+GuHm3AEC6Msfp2Kh7A4UjZBklU4L8ehhdw19htjr53hxSOA=="
+    "url": "https://downloads.haskell.org/cabal/cabal-install-3.16.0.0/cabal-install-3.16.0.0-x86_64-linux-alpine3_20.tar.xz",
+    "hash": "sha512-9Wj6+uMlliyDy4uOI9BPJt0enKY1LWUrMBx4d9z9cpZCNU/tuMQstZT0hbtfoRyIgX/G7U22Lf5qDM2SJPaUOA=="
   },
   "cabal_aarch64_linux": {
-    "url": "https://downloads.haskell.org/cabal/cabal-install-3.14.2.0/cabal-install-3.14.2.0-aarch64-linux-alpine3_18.tar.xz",
-    "hash": "sha512-JaDF/3wgzsfhiOyLni25ms6P+R3tMTmQuWLlTGDN+7C2l89vZ1NFf+BebwN7/FbVh650yWmM/QNxQblIcJ5hYQ=="
+    "url": "https://downloads.haskell.org/cabal/cabal-install-3.16.0.0/cabal-install-3.16.0.0-aarch64-linux-alpine3_18.tar.xz",
+    "hash": "sha512-tipbv9fU3e68uQqfNg7rIZsoVpGb+nWBh08rDAOg905rLjp2CsVCR9DSdqXZU0MZ/OS4jb6yTcxZotc9s7W2Lg=="
   },
   "cabal_aarch64_darwin": {
-    "url": "https://downloads.haskell.org/cabal/cabal-install-3.14.2.0/cabal-install-3.14.2.0-aarch64-darwin.tar.xz",
-    "hash": "sha512-sll3WAoA2YGf41WFJNGxTnvfndyqrB8jzFuQH6iLQwcxb21/8//hruEo82a+bp+i79CYmmHDzKZzrhZpEvqrPQ=="
+    "url": "https://downloads.haskell.org/cabal/cabal-install-3.16.0.0/cabal-install-3.16.0.0-aarch64-darwin.tar.xz",
+    "hash": "sha512-fRSXiRpwTkaaEJsiFD8YivgYcBuhHVdxTmYobpdWBwGdPowtHenITKHORkkQTyNlupScQYIqvekGi+2ePEWotw=="
   },
   "cabal_x86_64_darwin": {
-    "url": "https://downloads.haskell.org/cabal/cabal-install-3.14.2.0/cabal-install-3.14.2.0-x86_64-darwin.tar.xz",
-    "hash": "sha512-eS1cl/omMcm/ojN2zMoQs8MdEOodhPvwSWFtmYzaVhk5u9mwFKOm42Yvv97NWLbgolb/1bIydjCR5jG4Pkn4Vw=="
+    "url": "https://downloads.haskell.org/cabal/cabal-install-3.16.0.0/cabal-install-3.16.0.0-x86_64-darwin.tar.xz",
+    "hash": "sha512-wJjLD+KCi9ihbpBlQBKhoJhQX72Ue0xOGLCKtbDIFzsxCSxRzyE5IJ4Z6grAGDTfEfk5bRQtk4ZdFW+0BywyHg=="
   }
 }

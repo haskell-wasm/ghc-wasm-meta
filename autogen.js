@@ -77,10 +77,10 @@ const _nodejs_aarch64_linux = fetchGitHubLatestRelease(
   "linux-arm64-static.tar.xz"
 );
 const _nodejs_aarch64_darwin = fetchurl(
-  "https://nodejs.org/dist/latest/node-v24.3.0-darwin-arm64.tar.xz"
+  "https://nodejs.org/dist/v24.6.0/node-v24.6.0-darwin-arm64.tar.xz"
 );
 const _nodejs_x86_64_darwin = fetchurl(
-  "https://nodejs.org/dist/latest/node-v24.3.0-darwin-x64.tar.xz"
+  "https://nodejs.org/dist/v24.6.0/node-v24.6.0-darwin-x64.tar.xz"
 );
 const _binaryen = fetchGitHubLatestRelease(
   "haskell-wasm",
@@ -123,16 +123,16 @@ const _wasmtime_x86_64_darwin = fetchGitHubLatestRelease(
   "darwin-x86_64.tar.zst"
 );
 const _cabal = fetchurl(
-  "https://downloads.haskell.org/cabal/cabal-install-3.14.2.0/cabal-install-3.14.2.0-x86_64-linux-alpine3_18.tar.xz"
+  "https://downloads.haskell.org/cabal/cabal-install-3.16.0.0/cabal-install-3.16.0.0-x86_64-linux-alpine3_20.tar.xz"
 );
 const _cabal_aarch64_linux = fetchurl(
-  "https://downloads.haskell.org/cabal/cabal-install-3.14.2.0/cabal-install-3.14.2.0-aarch64-linux-alpine3_18.tar.xz"
+  "https://downloads.haskell.org/cabal/cabal-install-3.16.0.0/cabal-install-3.16.0.0-aarch64-linux-alpine3_18.tar.xz"
 );
 const _cabal_aarch64_darwin = fetchurl(
-  "https://downloads.haskell.org/cabal/cabal-install-3.14.2.0/cabal-install-3.14.2.0-aarch64-darwin.tar.xz"
+  "https://downloads.haskell.org/cabal/cabal-install-3.16.0.0/cabal-install-3.16.0.0-aarch64-darwin.tar.xz"
 );
 const _cabal_x86_64_darwin = fetchurl(
-  "https://downloads.haskell.org/cabal/cabal-install-3.14.2.0/cabal-install-3.14.2.0-x86_64-darwin.tar.xz"
+  "https://downloads.haskell.org/cabal/cabal-install-3.16.0.0/cabal-install-3.16.0.0-x86_64-darwin.tar.xz"
 );
 
 await Deno.writeTextFile(
