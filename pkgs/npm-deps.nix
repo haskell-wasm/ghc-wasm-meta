@@ -12,7 +12,7 @@ buildNpmPackage {
     "package.json"
     "package-lock.json"
   ];
-  npmDepsHash = "sha512-Te3X3qz5PXLYbXVjT+Z1mUY0STHLJSYTCSsFjR3KcMDG8zBMzB151njqsm/na9449rrGTSpYtdoy/DCfiTHqIw==";
+  npmDepsHash = "sha512-dR4R5c/6ZAorn6zLn40uZVCVWBD0C9+FhkeR0BZh14FDw1FimzvNLt8d0wmNZmBbc1IeMtBIeuzRlZD+WdxctQ==";
 
   dontNpmBuild = true;
   dontNpmInstall = true;
