@@ -3,7 +3,7 @@
 set -euo pipefail
 
 pushd "$(mktemp -d)"
-curl -f -L https://github.com/sass/dart-sass/releases/download/1.89.2/dart-sass-1.89.2-linux-x64.tar.gz | tar xz --strip-components=1
+curl -f -L https://github.com/sass/dart-sass/releases/download/1.90.0/dart-sass-1.90.0-linux-x64.tar.gz | tar xz --strip-components=1
 export PATH=$PATH:$PWD:/opt/toolchain/bin
 popd
 
@@ -16,7 +16,7 @@ pushd frontend
 ./build.sh
 export TODOMVC_DIST_DIR=$PWD/dist
 pushd "$(mktemp -d)"
-curl -f -L --retry 5 https://github.com/haskell-wasm/playwright/archive/refs/heads/release-1.53.tar.gz | tar xz --strip-components=1
+curl -f -L --retry 5 https://github.com/haskell-wasm/playwright/archive/refs/heads/release-1.55.tar.gz | tar xz --strip-components=1
 cd examples/todomvc
 npm install
 npx playwright install --with-deps --no-shell
