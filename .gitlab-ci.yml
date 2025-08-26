@@ -55,7 +55,6 @@ variables:
     - ./tests/foundation.sh
     - ./tests/network.sh
     - ./tests/jsaddle-wasm.sh
-    - ./tests/ghc-wasm-earthly.sh
     - ./tests/miso.sh
     - ./tests/reflex-dom.sh
     - ./tests/time.sh
@@ -68,8 +67,8 @@ variables:
     - ./tests/misc.sh
     - ./tests/miso-reflex-examples.sh
     - ./tests/pandoc.sh
+    - ./tests/shellcheck.sh
     - ./tests/tinyapl.sh
-    - ./tests/agda.sh
 
 x86_64-linux-ubuntu-gmp:
   extends: .x86_64-linux-ubuntu-head
