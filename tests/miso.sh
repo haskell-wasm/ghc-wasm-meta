@@ -8,5 +8,5 @@ cp "$CI_PROJECT_DIR/cabal.project.local" .
 sed -i \
   -e '/index-state:/d' \
   cabal.project
-wasm32-wasi-cabal build examples
+wasm32-wasi-cabal build
 popd
