@@ -15,7 +15,7 @@ host_specific() {
     HOST="x86_64-linux"
     WASI_SDK="wasi-sdk"
     WASI_SDK_JOB_NAME="x86_64-linux"
-    WASI_SDK_ARTIFACT_PATH="dist/wasi-sdk-26.0-x86_64-linux.tar.gz"
+    WASI_SDK_ARTIFACT_PATH="dist/wasi-sdk-27.0-x86_64-linux.tar.gz"
     WASMTIME="wasmtime"
     NODEJS="nodejs"
     CABAL="cabal"
@@ -27,7 +27,7 @@ host_specific() {
     HOST="aarch64-linux"
     WASI_SDK="wasi-sdk-aarch64-linux"
     WASI_SDK_JOB_NAME="aarch64-linux"
-    WASI_SDK_ARTIFACT_PATH="dist/wasi-sdk-26.0-aarch64-linux.tar.gz"
+    WASI_SDK_ARTIFACT_PATH="dist/wasi-sdk-27.0-aarch64-linux.tar.gz"
     WASMTIME="wasmtime_aarch64_linux"
     NODEJS="nodejs_aarch64_linux"
     CABAL="cabal_aarch64_linux"
@@ -42,37 +42,37 @@ host_specific() {
     fi
   fi
 
-  if [[ $(uname -s) == "Darwin" && $(uname -m) == "arm64" ]]; then
-    HOST="aarch64-apple-darwin"
-    WASI_SDK="wasi-sdk-aarch64-darwin"
-    WASI_SDK_JOB_NAME="aarch64-darwin"
-    WASI_SDK_ARTIFACT_PATH="dist/wasi-sdk-26.0-arm64-macos.tar.gz"
-    WASMTIME="wasmtime_aarch64_darwin"
-    NODEJS="nodejs_aarch64_darwin"
-    CABAL="cabal_aarch64_darwin"
-    BINARYEN="binaryen_aarch64_darwin"
-    if [[ "$FLAVOUR" == 9.10 ]]; then
-      GHC="wasm32-wasi-ghc-gmp-aarch64-darwin-9.10"
-    elif [[ "$FLAVOUR" == 9.12 ]]; then
-      GHC="wasm32-wasi-ghc-gmp-aarch64-darwin-9.12"
+  if [[ $(uname -s) == "Darwin" ]]; then
+    if [[ "${NIX_SYSTEM:-}" == "x86_64-darwin" || $(uname -m) == "x86_64" ]]; then
+      HOST="x86_64-apple-darwin"
+      WASI_SDK="wasi-sdk-x86_64-darwin"
+      WASI_SDK_JOB_NAME="x86_64-darwin"
+      WASI_SDK_ARTIFACT_PATH="dist/wasi-sdk-27.0-arm64-macos.tar.gz"
+      WASMTIME="wasmtime_x86_64_darwin"
+      NODEJS="nodejs_x86_64_darwin"
+      CABAL="cabal_x86_64_darwin"
+      BINARYEN="binaryen_x86_64_darwin"
+      if [[ -z "${SKIP_GHC:-}" ]]; then
+        echo "No prebuilt GHC wasm bindist for x86_64-darwin"
+        exit 1
+      fi
     else
-      echo "No prebuilt GHC wasm bindist with flavour $FLAVOUR on aarch64-darwin"
-      exit 1
-    fi
-  fi
-
-  if [[ $(uname -s) == "Darwin" && $(uname -m) == "x86_64" ]]; then
-    HOST="x86_64-apple-darwin"
-    WASI_SDK="wasi-sdk-x86_64-darwin"
-    WASI_SDK_JOB_NAME="x86_64-darwin"
-    WASI_SDK_ARTIFACT_PATH="dist/wasi-sdk-26.0-arm64-macos.tar.gz"
-    WASMTIME="wasmtime_x86_64_darwin"
-    NODEJS="nodejs_x86_64_darwin"
-    CABAL="cabal_x86_64_darwin"
-    BINARYEN="binaryen_x86_64_darwin"
-    if [[ -z "${SKIP_GHC:-}" ]]; then
-      echo "No prebuilt GHC wasm bindist for x86_64-darwin"
-      exit 1
+      HOST="aarch64-apple-darwin"
+      WASI_SDK="wasi-sdk-aarch64-darwin"
+      WASI_SDK_JOB_NAME="aarch64-darwin"
+      WASI_SDK_ARTIFACT_PATH="dist/wasi-sdk-27.0-arm64-macos.tar.gz"
+      WASMTIME="wasmtime_aarch64_darwin"
+      NODEJS="nodejs_aarch64_darwin"
+      CABAL="cabal_aarch64_darwin"
+      BINARYEN="binaryen_aarch64_darwin"
+      if [[ "$FLAVOUR" == 9.10 ]]; then
+        GHC="wasm32-wasi-ghc-gmp-aarch64-darwin-9.10"
+      elif [[ "$FLAVOUR" == 9.12 ]]; then
+        GHC="wasm32-wasi-ghc-gmp-aarch64-darwin-9.12"
+      else
+        echo "No prebuilt GHC wasm bindist with flavour $FLAVOUR on aarch64-darwin"
+        exit 1
+      fi
     fi
   fi
 }
