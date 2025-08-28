@@ -112,19 +112,19 @@
     "hash": "sha512-3NF5BqvQsIME2QrIpH53yY6T6DyYiM+YA22ewWn7VWYFYZTMgwMDR8GnDHmWrj6i48OzLmImcii4LhFffgARLg=="
   },
   "cabal": {
-    "url": "https://downloads.haskell.org/cabal/cabal-install-3.16.0.0/cabal-install-3.16.0.0-x86_64-linux-alpine3_20.tar.xz",
-    "hash": "sha512-9Wj6+uMlliyDy4uOI9BPJt0enKY1LWUrMBx4d9z9cpZCNU/tuMQstZT0hbtfoRyIgX/G7U22Lf5qDM2SJPaUOA=="
+    "url": "https://downloads.haskell.org/cabal/cabal-install-3.14.2.0/cabal-install-3.14.2.0-x86_64-linux-alpine3_18.tar.xz",
+    "hash": "sha512-Hq45Oz6To2FJs8N/E3lDZddZo1jCRbJ2/l315i+GuHm3AEC6Msfp2Kh7A4UjZBklU4L8ehhdw19htjr53hxSOA=="
   },
   "cabal_aarch64_linux": {
-    "url": "https://downloads.haskell.org/cabal/cabal-install-3.16.0.0/cabal-install-3.16.0.0-aarch64-linux-alpine3_18.tar.xz",
-    "hash": "sha512-tipbv9fU3e68uQqfNg7rIZsoVpGb+nWBh08rDAOg905rLjp2CsVCR9DSdqXZU0MZ/OS4jb6yTcxZotc9s7W2Lg=="
+    "url": "https://downloads.haskell.org/cabal/cabal-install-3.14.2.0/cabal-install-3.14.2.0-aarch64-linux-alpine3_18.tar.xz",
+    "hash": "sha512-JaDF/3wgzsfhiOyLni25ms6P+R3tMTmQuWLlTGDN+7C2l89vZ1NFf+BebwN7/FbVh650yWmM/QNxQblIcJ5hYQ=="
   },
   "cabal_aarch64_darwin": {
-    "url": "https://downloads.haskell.org/cabal/cabal-install-3.16.0.0/cabal-install-3.16.0.0-aarch64-darwin.tar.xz",
-    "hash": "sha512-fRSXiRpwTkaaEJsiFD8YivgYcBuhHVdxTmYobpdWBwGdPowtHenITKHORkkQTyNlupScQYIqvekGi+2ePEWotw=="
+    "url": "https://downloads.haskell.org/cabal/cabal-install-3.14.2.0/cabal-install-3.14.2.0-aarch64-darwin.tar.xz",
+    "hash": "sha512-sll3WAoA2YGf41WFJNGxTnvfndyqrB8jzFuQH6iLQwcxb21/8//hruEo82a+bp+i79CYmmHDzKZzrhZpEvqrPQ=="
   },
   "cabal_x86_64_darwin": {
-    "url": "https://downloads.haskell.org/cabal/cabal-install-3.16.0.0/cabal-install-3.16.0.0-x86_64-darwin.tar.xz",
-    "hash": "sha512-wJjLD+KCi9ihbpBlQBKhoJhQX72Ue0xOGLCKtbDIFzsxCSxRzyE5IJ4Z6grAGDTfEfk5bRQtk4ZdFW+0BywyHg=="
+    "url": "https://downloads.haskell.org/cabal/cabal-install-3.14.2.0/cabal-install-3.14.2.0-x86_64-darwin.tar.xz",
+    "hash": "sha512-eS1cl/omMcm/ojN2zMoQs8MdEOodhPvwSWFtmYzaVhk5u9mwFKOm42Yvv97NWLbgolb/1bIydjCR5jG4Pkn4Vw=="
   }
 }
