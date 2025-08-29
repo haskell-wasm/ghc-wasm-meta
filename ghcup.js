@@ -33,7 +33,7 @@ const ghcup_metadata = {
   ghcupDownloads: { GHC: {} },
 };
 
-for (const flavour of ["gmp", "9.12", "9.10", "9.8", "9.6"]) {
+for (const flavour of ["gmp", "9.14", "9.12", "9.10", "9.8", "9.6"]) {
   const ver = meta_json[`wasm32-wasi-ghc-${flavour}`].ghcSubdir
     .replaceAll("ghc-", "")
     .replaceAll("-wasm32-wasi", "");
@@ -59,6 +59,16 @@ for (const flavour of ["gmp", "9.12", "9.10", "9.8", "9.6"]) {
       },
     };
   }
+
+  if (meta_json[`wasm32-wasi-ghc-gmp-x86_64-darwin-${flavour}`]) {
+    ghcup_metadata.ghcupDownloads.GHC[`wasm32-wasi-${ver}`].viArch.A_64.Darwin =
+      {
+        unknown_versioning: meta2ghcup(
+          meta_json[`wasm32-wasi-ghc-gmp-x86_64-darwin-${flavour}`]
+        ),
+      };
+  }
+
   if (meta_json[`wasm32-wasi-ghc-gmp-aarch64-linux-${flavour}`]) {
     const aarch64_linux = {
       unknown_versioning: meta2ghcup(

@@ -19,7 +19,7 @@ cd zlib
 $CROSS_EMULATOR $(find .. -type f -name tests.wasm)
 popd
 
-if [[ "$FLAVOUR" == 9.6 ]] || [[ "$FLAVOUR" == 9.8 ]] || [[ "$FLAVOUR" == 9.10 ]] || [[ "$FLAVOUR" == 9.12 ]]; then
+if [[ "$FLAVOUR" == 9.6 ]] || [[ "$FLAVOUR" == 9.8 ]] || [[ "$FLAVOUR" == 9.10 ]] || [[ "$FLAVOUR" == 9.12 ]] || [[ "$FLAVOUR" == 9.14 ]]; then
   pushd "$(mktemp -d)"
   curl -f -L --retry 5 https://github.com/Bodigrim/bitvec/archive/refs/heads/master.tar.gz | tar xz --strip-components=1
   cp $CI_PROJECT_DIR/cabal.project.local .

@@ -49,6 +49,7 @@
           wasm32-wasi-ghc-9_8 = pkgs.callPackage ./pkgs/wasm32-wasi-ghc.nix { flavour = "9.8"; };
           wasm32-wasi-ghc-9_10 = pkgs.callPackage ./pkgs/wasm32-wasi-ghc.nix { flavour = "9.10"; };
           wasm32-wasi-ghc-9_12 = pkgs.callPackage ./pkgs/wasm32-wasi-ghc.nix { flavour = "9.12"; };
+          wasm32-wasi-ghc-9_14 = pkgs.callPackage ./pkgs/wasm32-wasi-ghc.nix { flavour = "9.14"; };
           wasm32-wasi-cabal-gmp = pkgs.callPackage ./pkgs/wasm32-wasi-cabal.nix { flavour = "gmp"; };
           wasm32-wasi-cabal-native = pkgs.callPackage ./pkgs/wasm32-wasi-cabal.nix { flavour = "native"; };
           wasm32-wasi-cabal-unreg = pkgs.callPackage ./pkgs/wasm32-wasi-cabal.nix { flavour = "unreg"; };
@@ -56,6 +57,7 @@
           wasm32-wasi-cabal-9_8 = pkgs.callPackage ./pkgs/wasm32-wasi-cabal.nix { flavour = "9.8"; };
           wasm32-wasi-cabal-9_10 = pkgs.callPackage ./pkgs/wasm32-wasi-cabal.nix { flavour = "9.10"; };
           wasm32-wasi-cabal-9_12 = pkgs.callPackage ./pkgs/wasm32-wasi-cabal.nix { flavour = "9.12"; };
+          wasm32-wasi-cabal-9_14 = pkgs.callPackage ./pkgs/wasm32-wasi-cabal.nix { flavour = "9.14"; };
           wasi-sdk = pkgs.callPackage ./pkgs/wasi-sdk.nix { };
           nodejs = pkgs.nodejs_latest;
           binaryen = pkgs.callPackage ./pkgs/binaryen.nix { };
@@ -86,7 +88,7 @@
               wasmtime
               cabal
               ;
-            default = all "9.12";
+            default = all "9.14";
             all_gmp = all "gmp";
             all_native = all "native";
             all_unreg = all "unreg";
@@ -94,6 +96,7 @@
             all_9_8 = all "9.8";
             all_9_10 = all "9.10";
             all_9_12 = all "9.12";
+            all_9_14 = all "9.14";
           };
         }
       );

@@ -6,6 +6,7 @@
 , lib
 , makeWrapper
 , nodejs_latest
+, python3
 , runtimeShell
 , runtimeShellPackage
 , stdenvNoCC
@@ -23,10 +24,16 @@ let
       "x86_64-linux-9.8" = "wasm32-wasi-ghc-9.8";
       "x86_64-linux-9.10" = "wasm32-wasi-ghc-9.10";
       "x86_64-linux-9.12" = "wasm32-wasi-ghc-9.12";
+      "x86_64-linux-9.14" = "wasm32-wasi-ghc-9.14";
       "aarch64-darwin-9.10" = "wasm32-wasi-ghc-gmp-aarch64-darwin-9.10";
       "aarch64-darwin-9.12" = "wasm32-wasi-ghc-gmp-aarch64-darwin-9.12";
+      "aarch64-darwin-9.14" = "wasm32-wasi-ghc-gmp-aarch64-darwin-9.14";
+      "x86_64-darwin-9.10" = "wasm32-wasi-ghc-gmp-x86_64-darwin-9.10";
+      "x86_64-darwin-9.12" = "wasm32-wasi-ghc-gmp-x86_64-darwin-9.12";
+      "x86_64-darwin-9.14" = "wasm32-wasi-ghc-gmp-x86_64-darwin-9.14";
       "aarch64-linux-9.10" = "wasm32-wasi-ghc-gmp-aarch64-linux-9.10";
       "aarch64-linux-9.12" = "wasm32-wasi-ghc-gmp-aarch64-linux-9.12";
+      "aarch64-linux-9.14" = "wasm32-wasi-ghc-gmp-aarch64-linux-9.14";
     }."${hostPlatform.system}-${flavour}";
   wasi-sdk = callPackage ./wasi-sdk.nix { };
   nodejs = nodejs_latest;
@@ -40,6 +47,7 @@ stdenvNoCC.mkDerivation {
   nativeBuildInputs = [
     makeWrapper
     wasi-sdk
+    python3
   ];
   buildInputs = [ runtimeShellPackage ];
 
@@ -51,6 +59,7 @@ stdenvNoCC.mkDerivation {
         "unreg"
         "9.10"
         "9.12"
+        "9.14"
       ])
       ''
         substituteInPlace lib/*.mjs \

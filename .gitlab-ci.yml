@@ -135,6 +135,7 @@ x86_64-linux-ubuntu-9.10:
     - ./tests/misc.sh
     - ./tests/miso-reflex-examples.sh
     - ./tests/pandoc.sh
+    - ./tests/shellcheck.sh
     - ./tests/tinyapl.sh
     - ./tests/agda.sh
 
@@ -161,10 +162,36 @@ x86_64-linux-ubuntu-9.12:
     - ./tests/misc.sh
     - ./tests/miso-reflex-examples.sh
     - ./tests/pandoc.sh
+    - ./tests/shellcheck.sh
     - ./tests/tinyapl.sh
     - ./tests/agda.sh
 
-x86_64-linux-chimera-9.12:
+x86_64-linux-ubuntu-9.14:
+  extends: .x86_64-linux-ubuntu
+  variables:
+    FLAVOUR: "9.14"
+  script:
+    - ./tests/ghci.sh
+    - ./tests/canary.sh
+    - ./tests/foundation.sh
+    - ./tests/network.sh
+    - ./tests/jsaddle-wasm.sh
+    - ./tests/miso.sh
+    - ./tests/reflex-dom.sh
+    - ./tests/time.sh
+    - ./tests/clock.sh
+    - ./tests/unix-compat.sh
+    - ./tests/hashtables.sh
+    - ./tests/bzlib.sh
+    - ./tests/hfsnotify.sh
+    - ./tests/xxhash-ffi.sh
+    - ./tests/misc.sh
+    - ./tests/miso-reflex-examples.sh
+    - ./tests/pandoc.sh
+    - ./tests/shellcheck.sh
+    - ./tests/tinyapl.sh
+
+x86_64-linux-chimera-9.14:
   tags:
     - x86_64-linux
   image: terrorjack/chimera:bash
@@ -196,9 +223,10 @@ x86_64-linux-chimera-9.12:
     NIXPKGS_ALLOW_UNFREE: "1"
   script:
     - |
-      nix build --json --no-link $NIX_FLAKE_OUTPUTS
-      nix shell --impure $NIX_BROWSERS .#all_9_12 --command ./tests/ghci.sh
-      nix shell --impure $NIX_BROWSERS .#all_9_10 --command ./tests/ghci.sh
+      nix build --system $NIX_SYSTEM --json --no-link $NIX_FLAKE_OUTPUTS
+      nix shell --system $NIX_SYSTEM --impure $NIX_BROWSERS .#all_9_14 --command ./tests/ghci.sh
+      nix shell --system $NIX_SYSTEM --impure $NIX_BROWSERS .#all_9_12 --command ./tests/ghci.sh
+      nix shell --system $NIX_SYSTEM --impure $NIX_BROWSERS .#all_9_10 --command ./tests/ghci.sh
 
 .linux-nix:
   extends: .nix
@@ -213,24 +241,36 @@ x86_64-linux-nix:
   tags:
     - x86_64-linux
   variables:
-    NIX_FLAKE_OUTPUTS: .#all_gmp .#all_native .#all_unreg .#all_9_12 .#all_9_10 .#all_9_8 .#all_9_6
+    NIX_FLAKE_OUTPUTS: .#all_gmp .#all_native .#all_unreg .#all_9_14 .#all_9_12 .#all_9_10 .#all_9_8 .#all_9_6
     NIX_BROWSERS: nixpkgs#firefox-bin nixpkgs#google-chrome
+    NIX_SYSTEM: x86_64-linux
 
 aarch64-linux-nix:
   extends: .linux-nix
   tags:
     - aarch64-linux
   variables:
-    NIX_FLAKE_OUTPUTS: .#all_9_12 .#all_9_10
+    NIX_FLAKE_OUTPUTS: .#all_9_14 .#all_9_12 .#all_9_10
     NIX_BROWSERS: nixpkgs#firefox-bin
+    NIX_SYSTEM: aarch64-linux
 
 aarch64-darwin-nix:
   extends: .nix
   tags:
     - aarch64-darwin
   variables:
-    NIX_FLAKE_OUTPUTS: .#all_9_12 .#all_9_10
+    NIX_FLAKE_OUTPUTS: .#all_9_14 .#all_9_12 .#all_9_10
     NIX_BROWSERS: nixpkgs#google-chrome
+    NIX_SYSTEM: aarch64-darwin
+
+x86_64-darwin-nix:
+  extends: .nix
+  tags:
+    - x86_64-darwin-m1
+  variables:
+    NIX_FLAKE_OUTPUTS: .#all_9_14 .#all_9_12 .#all_9_10
+    NIX_BROWSERS: ""
+    NIX_SYSTEM: x86_64-darwin
 
 .ghcup:
   rules:
@@ -239,15 +279,19 @@ aarch64-darwin-nix:
     - |
       curl -f -L --retry 5 https://get-ghcup.haskell.org | BOOTSTRAP_HASKELL_NONINTERACTIVE=1 BOOTSTRAP_HASKELL_MINIMAL=1 sh
       . ~/.ghcup/env
-      ghcup install cabal latest --set
+      ghcup install cabal 3.14 --set
     - |
       SKIP_GHC=1 ./setup.sh
       . ~/.ghc-wasm/env
     - |
       ghcup config add-release-channel file://$PWD/ghcup-wasm-0.0.9.yaml
 
+      ghcup install ghc wasm32-wasi-9.14 -- $CONFIGURE_ARGS
       ghcup install ghc wasm32-wasi-9.12 -- $CONFIGURE_ARGS
       ghcup install ghc wasm32-wasi-9.10 -- $CONFIGURE_ARGS
+
+      ghcup set ghc wasm32-wasi-9.14
+      ./tests/ghci.sh
 
       ghcup set ghc wasm32-wasi-9.12
       ./tests/ghci.sh
@@ -269,6 +313,7 @@ aarch64-darwin-nix:
         firefox \
         jq \
         make \
+        python3.12 \
         unzip \
         zstd
 

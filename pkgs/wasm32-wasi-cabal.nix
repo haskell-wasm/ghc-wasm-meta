@@ -26,6 +26,7 @@ let
       (lib.elem flavour [
         "9.10"
         "9.12"
+        "9.14"
       ])
       ''
         ${coreutils}/bin/cp ${../cabal.th.config} "$CABAL_DIR/config"

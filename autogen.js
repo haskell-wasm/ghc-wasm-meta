@@ -49,17 +49,33 @@ const _wasm32_wasi_ghc_9_6 = fetchStableBindist("wasm32-wasi-ghc-9.6");
 const _wasm32_wasi_ghc_9_8 = fetchStableBindist("wasm32-wasi-ghc-9.8");
 const _wasm32_wasi_ghc_9_10 = fetchStableBindist("wasm32-wasi-ghc-9.10");
 const _wasm32_wasi_ghc_9_12 = fetchStableBindist("wasm32-wasi-ghc-9.12");
+const _wasm32_wasi_ghc_9_14 = fetchStableBindist("wasm32-wasi-ghc-9.14");
 const _wasm32_wasi_ghc_gmp_aarch64_darwin_9_10 = fetchStableBindist(
   "wasm32-wasi-ghc-gmp-aarch64-darwin-9.10"
 );
 const _wasm32_wasi_ghc_gmp_aarch64_darwin_9_12 = fetchStableBindist(
   "wasm32-wasi-ghc-gmp-aarch64-darwin-9.12"
 );
+const _wasm32_wasi_ghc_gmp_aarch64_darwin_9_14 = fetchStableBindist(
+  "wasm32-wasi-ghc-gmp-aarch64-darwin-9.14"
+);
+const _wasm32_wasi_ghc_gmp_x86_64_darwin_9_10 = fetchStableBindist(
+  "wasm32-wasi-ghc-gmp-x86_64-darwin-9.10"
+);
+const _wasm32_wasi_ghc_gmp_x86_64_darwin_9_12 = fetchStableBindist(
+  "wasm32-wasi-ghc-gmp-x86_64-darwin-9.12"
+);
+const _wasm32_wasi_ghc_gmp_x86_64_darwin_9_14 = fetchStableBindist(
+  "wasm32-wasi-ghc-gmp-x86_64-darwin-9.14"
+);
 const _wasm32_wasi_ghc_gmp_aarch64_linux_9_10 = fetchStableBindist(
   "wasm32-wasi-ghc-gmp-aarch64-linux-9.10"
 );
 const _wasm32_wasi_ghc_gmp_aarch64_linux_9_12 = fetchStableBindist(
   "wasm32-wasi-ghc-gmp-aarch64-linux-9.12"
+);
+const _wasm32_wasi_ghc_gmp_aarch64_linux_9_14 = fetchStableBindist(
+  "wasm32-wasi-ghc-gmp-aarch64-linux-9.14"
 );
 const _wasi_sdk = fetchStableBindist("wasi-sdk");
 const _wasi_sdk_aarch64_darwin = fetchStableBindist("wasi-sdk-aarch64-darwin");
@@ -146,14 +162,25 @@ await Deno.writeTextFile(
       "wasm32-wasi-ghc-9.8": await _wasm32_wasi_ghc_9_8,
       "wasm32-wasi-ghc-9.10": await _wasm32_wasi_ghc_9_10,
       "wasm32-wasi-ghc-9.12": await _wasm32_wasi_ghc_9_12,
+      "wasm32-wasi-ghc-9.14": await _wasm32_wasi_ghc_9_14,
       "wasm32-wasi-ghc-gmp-aarch64-darwin-9.10":
         await _wasm32_wasi_ghc_gmp_aarch64_darwin_9_10,
       "wasm32-wasi-ghc-gmp-aarch64-darwin-9.12":
         await _wasm32_wasi_ghc_gmp_aarch64_darwin_9_12,
+      "wasm32-wasi-ghc-gmp-aarch64-darwin-9.14":
+        await _wasm32_wasi_ghc_gmp_aarch64_darwin_9_14,
+      "wasm32-wasi-ghc-gmp-x86_64-darwin-9.10":
+        await _wasm32_wasi_ghc_gmp_x86_64_darwin_9_10,
+      "wasm32-wasi-ghc-gmp-x86_64-darwin-9.12":
+        await _wasm32_wasi_ghc_gmp_x86_64_darwin_9_12,
+      "wasm32-wasi-ghc-gmp-x86_64-darwin-9.14":
+        await _wasm32_wasi_ghc_gmp_x86_64_darwin_9_14,
       "wasm32-wasi-ghc-gmp-aarch64-linux-9.10":
         await _wasm32_wasi_ghc_gmp_aarch64_linux_9_10,
       "wasm32-wasi-ghc-gmp-aarch64-linux-9.12":
         await _wasm32_wasi_ghc_gmp_aarch64_linux_9_12,
+      "wasm32-wasi-ghc-gmp-aarch64-linux-9.14":
+        await _wasm32_wasi_ghc_gmp_aarch64_linux_9_14,
       "wasi-sdk": await _wasi_sdk,
       "wasi-sdk-aarch64-darwin": await _wasi_sdk_aarch64_darwin,
       "wasi-sdk-x86_64-darwin": await _wasi_sdk_x86_64_darwin,

@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-FLAVOUR="${FLAVOUR:-9.12}"
+FLAVOUR="${FLAVOUR:-9.14}"
 REPO=$(realpath "$(dirname "${BASH_SOURCE[0]}")")
 SKIP_GHC="${SKIP_GHC:-}"
 
@@ -36,6 +36,8 @@ host_specific() {
       GHC="wasm32-wasi-ghc-gmp-aarch64-linux-9.10"
     elif [[ "$FLAVOUR" == 9.12 ]]; then
       GHC="wasm32-wasi-ghc-gmp-aarch64-linux-9.12"
+    elif [[ "$FLAVOUR" == 9.14 ]]; then
+      GHC="wasm32-wasi-ghc-gmp-aarch64-linux-9.14"
     else
       echo "No prebuilt GHC wasm bindist with flavour $FLAVOUR on aarch64-linux"
       exit 1
@@ -52,8 +54,14 @@ host_specific() {
       NODEJS="nodejs_x86_64_darwin"
       CABAL="cabal_x86_64_darwin"
       BINARYEN="binaryen_x86_64_darwin"
-      if [[ -z "${SKIP_GHC:-}" ]]; then
-        echo "No prebuilt GHC wasm bindist for x86_64-darwin"
+      if [[ "$FLAVOUR" == 9.10 ]]; then
+        GHC="wasm32-wasi-ghc-gmp-x86_64-darwin-9.10"
+      elif [[ "$FLAVOUR" == 9.12 ]]; then
+        GHC="wasm32-wasi-ghc-gmp-x86_64-darwin-9.12"
+      elif [[ "$FLAVOUR" == 9.14 ]]; then
+        GHC="wasm32-wasi-ghc-gmp-x86_64-darwin-9.14"
+      else
+        echo "No prebuilt GHC wasm bindist with flavour $FLAVOUR on x86_64-darwin"
         exit 1
       fi
     else
@@ -69,6 +77,8 @@ host_specific() {
         GHC="wasm32-wasi-ghc-gmp-aarch64-darwin-9.10"
       elif [[ "$FLAVOUR" == 9.12 ]]; then
         GHC="wasm32-wasi-ghc-gmp-aarch64-darwin-9.12"
+      elif [[ "$FLAVOUR" == 9.14 ]]; then
+        GHC="wasm32-wasi-ghc-gmp-aarch64-darwin-9.14"
       else
         echo "No prebuilt GHC wasm bindist with flavour $FLAVOUR on aarch64-darwin"
         exit 1
@@ -245,9 +255,9 @@ fi
 chmod 755 "$PREFIX/wasm32-wasi-cabal/bin/wasm32-wasi-cabal"
 
 mkdir "$PREFIX/.cabal"
-if [[ "$FLAVOUR" != 9.6 ]] && [[ "$FLAVOUR" != 9.8 ]] && [[ "$FLAVOUR" != 9.10 ]] && [[ "$FLAVOUR" != 9.12 ]]; then
+if [[ "$FLAVOUR" != 9.6 ]] && [[ "$FLAVOUR" != 9.8 ]] && [[ "$FLAVOUR" != 9.10 ]] && [[ "$FLAVOUR" != 9.12 ]] && [[ "$FLAVOUR" != 9.14 ]]; then
   cp "$REPO/cabal.head.config" "$PREFIX/.cabal/config"
-elif [[ "$FLAVOUR" == 9.10 ]] || [[ "$FLAVOUR" == 9.12 ]]; then
+elif [[ "$FLAVOUR" == 9.10 ]] || [[ "$FLAVOUR" == 9.12 ]] || [[ "$FLAVOUR" == 9.14 ]]; then
   cp "$REPO/cabal.th.config" "$PREFIX/.cabal/config"
 else
   cp "$REPO/cabal.legacy.config" "$PREFIX/.cabal/config"

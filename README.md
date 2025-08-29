@@ -26,7 +26,7 @@ since it just patches the binaries and performs no compilation. There
 is no need to set up a binary cache.
 
 Note that there are different GHC flavours available. The default
-flake output uses the `all_9_12` flavour, though you can also use the
+flake output uses the `all_9_14` flavour, though you can also use the
 `all_native`, `all_gmp` etc flake outputs to get different flavours.
 See the next subsection for explanations of these flavours.
 
@@ -72,19 +72,20 @@ via these environment variables:
       compile-time performance is noticeably worse. May be useful for
       debugging the native codegen, since there are less GHC test
       suite failures in the unregisterised codegen at the moment.
-    - The `9.6`/`9.8`/`9.10`/`9.12` flavour tracks the
-      `ghc-9.6`/`ghc-9.8`/`ghc-9.10`/`ghc-9.12` release branches in
-      our [fork](https://gitlab.haskell.org/haskell-wasm/ghc) instead
-      of the upstream `master` branch. It uses the `gmp` bignum
-      backend and the wasm native codegen.
+    - The `9.6`/`9.8`/`9.10`/`9.12`/`9.14` flavour tracks the
+      `ghc-9.6`/`ghc-9.8`/`ghc-9.10`/`ghc-9.12`/`ghc-9.14` release
+      branches in our
+      [fork](https://gitlab.haskell.org/haskell-wasm/ghc) instead of
+      the upstream `master` branch. It uses the `gmp` bignum backend
+      and the wasm native codegen.
   - `SKIP_GHC`: set this to skip installing `cabal` and `ghc`
 
-The default flavour is `9.12`. Note that if you use the
-`9.6`/`9.8`/`9.10`/`9.12` flavour, the `wasm32-wasi-cabal` wrapper
-won't automatically set up `head.hackage` in the global config file.
-In the early days of `ghc-9.12`, this may result in more packages
-being rejected at compile time. This is true for both nix/non-nix
-installation methods.
+The default flavour is `9.14`. Note that if you use the
+`9.6`/`9.8`/`9.10`/`9.12`/`9.14` flavour, the `wasm32-wasi-cabal`
+wrapper won't automatically set up `head.hackage` in the global config
+file. In the early days of `ghc-9.12`, this may result in more
+packages being rejected at compile time. This is true for both
+nix/non-nix installation methods.
 
 `setup.sh` requires `curl`, `jq`, `unzip`, `zstd` to run.
 
@@ -97,8 +98,8 @@ prefer to use `ghcup` to install `wasm32-wasi-ghc`:
 $ curl https://gitlab.haskell.org/haskell-wasm/ghc-wasm-meta/-/raw/master/bootstrap.sh | SKIP_GHC=1 sh
 $ source ~/.ghc-wasm/env
 $ ghcup config add-release-channel https://gitlab.haskell.org/haskell-wasm/ghc-wasm-meta/-/raw/master/ghcup-wasm-0.0.9.yaml
-$ ghcup install ghc wasm32-wasi-9.12 -- $CONFIGURE_ARGS
-$ cabal --with-compiler=wasm32-wasi-ghc-9.12 --with-hc-pkg=wasm32-wasi-ghc-pkg-9.12 --with-hsc2hs=wasm32-wasi-hsc2hs-9.12 --with-haddock=wasm32-wasi-haddock-9.12 build
+$ ghcup install ghc wasm32-wasi-9.14 -- $CONFIGURE_ARGS
+$ cabal --with-compiler=wasm32-wasi-ghc-9.14 --with-hc-pkg=wasm32-wasi-ghc-pkg-9.14 --with-hsc2hs=wasm32-wasi-hsc2hs-9.14 --with-haddock=wasm32-wasi-haddock-9.14 build
 ```
 
 In case you encounter any issue with `ghcup` based installation,
@@ -106,6 +107,9 @@ please seek support in our [matrix
 channel](https://matrix.to/#/#haskell-wasm:matrix.org) and do not open
 a `ghcup` issue or involve `ghcup` maintainer. Our `ghcup` channel is
 *not* affiliated with the `ghcup` project.
+
+Ensure you use cabal 3.14 or earlier version, there's a fatal
+regression in 3.16 that we're looking into.
 
 ## What it emits when it emits a `.wasm` file?
 
