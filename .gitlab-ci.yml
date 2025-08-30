@@ -228,10 +228,15 @@ x86_64-linux-chimera-9.14:
       nix shell --system $NIX_SYSTEM --impure $NIX_BROWSERS .#all_9_12 --command ./tests/ghci.sh
       nix shell --system $NIX_SYSTEM --impure $NIX_BROWSERS .#all_9_10 --command ./tests/ghci.sh
 
+      if [[ $NIX_SYSTEM == "x86_64-linux" ]]; then
+        ./tests/cardano-api.sh
+      fi
+
 .linux-nix:
   extends: .nix
   image: nixos/nix
   before_script:
+    - echo "accept-flake-config = true" >> /etc/nix/nix.conf
     - echo "experimental-features = nix-command flakes" >> /etc/nix/nix.conf
     - echo "cores = $CPUS" >> /etc/nix/nix.conf
     - echo "max-jobs = $CPUS" >> /etc/nix/nix.conf
