@@ -1,6 +1,6 @@
 # `ghc-wasm-meta`
 
-[![Chat on Matrix](https://matrix.to/img/matrix-badge.svg)](https://matrix.to/#/#haskell-wasm:matrix.org)
+[![Chat on Matrix](https://matrix.to/img/matrix-badge.svg)](https://matrix.to/#/#haskell.wasm:matrix.org)
 
 This repo provides convenient methods of using binary artifacts of
 GHC's wasm backend. It's also a staging area for the GHC wasm backend
