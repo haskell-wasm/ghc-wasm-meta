@@ -141,6 +141,7 @@ x86_64-linux-ubuntu-9.10:
     - ./tests/shellcheck.sh
     - ./tests/tinyapl.sh
     - ./tests/agda.sh
+    - ./tests/agda-language-server.sh
     - ./tests/type-inference-zoo.sh
 
 x86_64-linux-ubuntu-9.12:
@@ -169,6 +170,7 @@ x86_64-linux-ubuntu-9.12:
     - ./tests/shellcheck.sh
     - ./tests/tinyapl.sh
     - ./tests/agda.sh
+    - ./tests/agda-language-server.sh
     - ./tests/type-inference-zoo.sh
 
 x86_64-linux-ubuntu-9.14:
