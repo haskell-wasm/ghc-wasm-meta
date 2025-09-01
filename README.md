@@ -267,7 +267,7 @@ actual `fib` Haskell function. Now you need to compile and link it
 with special flags:
 
 ```sh
-$ wasm32-wasi-ghc Hello.hs -o Hello.wasm -no-hs-main -optl-mexec-model=reactor -optl-Wl,--export=hs_init,--export=myMain
+$ wasm32-wasi-ghc Hello.hs -o Hello.wasm -no-hs-main -optl-mexec-model=reactor -optl-Wl,--export=hs_init,--export=fib
 ```
 
 Some explainers:
