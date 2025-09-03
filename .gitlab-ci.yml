@@ -239,6 +239,7 @@ x86_64-linux-chimera-9.14:
       if [[ $NIX_SYSTEM == "x86_64-linux" ]]; then
         ./tests/cardano-api.sh
         ./tests/ding-dong.sh
+        ./tests/primer.sh
       fi
 
 .linux-nix:
