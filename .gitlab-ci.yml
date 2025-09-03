@@ -249,6 +249,8 @@ x86_64-linux-chimera-9.14:
     - echo "experimental-features = nix-command flakes" >> /etc/nix/nix.conf
     - echo "cores = $CPUS" >> /etc/nix/nix.conf
     - echo "max-jobs = $CPUS" >> /etc/nix/nix.conf
+    - echo "extra-substituters = https://cache.iog.io" >> /etc/nix/nix.conf
+    - echo "extra-trusted-public-keys = hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ=" >> /etc/nix/nix.conf
 
 x86_64-linux-nix:
   extends: .linux-nix
