@@ -104,7 +104,7 @@ $ cabal --with-compiler=wasm32-wasi-ghc-9.14 --with-hc-pkg=wasm32-wasi-ghc-pkg-9
 
 In case you encounter any issue with `ghcup` based installation,
 please seek support in our [matrix
-channel](https://matrix.to/#/#haskell-wasm:matrix.org) and do not open
+channel](https://matrix.to/#/#haskell.wasm:matrix.org) and do not open
 a `ghcup` issue or involve `ghcup` maintainer. Our `ghcup` channel is
 *not* affiliated with the `ghcup` project.
 
