@@ -121,7 +121,7 @@ mkdir -p "$PREFIX/nodejs"
 curl -f -L --retry 5 "$(jq -r ".\"$NODEJS\".url" "$REPO"/autogen.json)" -o nodejs.tar.xz
 tar xJf nodejs.tar.xz -C "$PREFIX/nodejs" --no-same-owner --strip-components=1
 "$PREFIX/nodejs/bin/node" "$PREFIX/nodejs/bin/npm" install -g --prefix "$PREFIX/nodejs" \
-  puppeteer-core@^24.18.0 \
+  puppeteer-core@^24.19.0 \
   ws@^8.18.3
 if [[ -n "${PLAYWRIGHT:-}" ]]; then
   "$PREFIX/nodejs/bin/node" "$PREFIX/nodejs/bin/npm" install -g --prefix "$PREFIX/nodejs" \
