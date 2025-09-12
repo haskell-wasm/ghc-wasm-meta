@@ -88,20 +88,20 @@
     "hash": "sha256-Um9Gcu9zKl0pzFYL3RmAnyFJozOPKVoq1NnU2jilI0s="
   },
   "nodejs": {
-    "url": "https://github.com/haskell-wasm/node-static/releases/download/v24.7.0/node-v24.7.0-linux-x64-static.tar.xz",
-    "hash": "sha512-e4VLcWlWBZ76/HJZ4h+MPqHZ/NSd3g1sykFjIqtvxUwaQqkJFiZhZdKzFvywsgx3NSOMu5A4R32Wzm+R9eqZWA=="
+    "url": "https://github.com/haskell-wasm/node-static/releases/download/v24.8.0/node-v24.8.0-linux-x64-static.tar.xz",
+    "hash": "sha512-Ys1W2sONDpRBgk5ZKu8lsLWf0nfp06tB3hm5EcvPq2mh0fy5MBwIRSxAV/5MvvnP3oXnWY9mGEu7ltqrKby7tQ=="
   },
   "nodejs_aarch64_linux": {
-    "url": "https://github.com/haskell-wasm/node-static/releases/download/v24.7.0/node-v24.7.0-linux-arm64-static.tar.xz",
-    "hash": "sha512-+LgNUJQKaCUO59JXGOoRtxA6Z74wmJeRGS6ogTXAjkrtwQKjJK+J7lb/lXN8xMzw6EutJOuHSTCKA26WVfjl1w=="
+    "url": "https://github.com/haskell-wasm/node-static/releases/download/v24.8.0/node-v24.8.0-linux-arm64-static.tar.xz",
+    "hash": "sha512-cg8dIMAuyRX7/RjYNBk4n1/OQkFjcQCq4Y5VumrZ6kdthQhGjpss/KrkYc5gDyx0tdJFE3j+byaqMZ/o59s1EQ=="
   },
   "nodejs_aarch64_darwin": {
-    "url": "https://nodejs.org/dist/v24.7.0/node-v24.7.0-darwin-arm64.tar.xz",
-    "hash": "sha512-BDURrRDDUCv/QcfMDbN4rAFHzTX4md2OHfgG2Yjslv7TWlapANuRWe+fSeR8iTFjBIL5g4qOfAM+jbFyMCX5nw=="
+    "url": "https://nodejs.org/dist/v24.8.0/node-v24.8.0-darwin-arm64.tar.xz",
+    "hash": "sha512-k/+yPSmVocM2oosxYb3ZOj6FLZuSPLmIFCWxphoU46nebqNSL9n6Yjx5rgot+i8Om1MWqhTVey6NE/+aODp/4A=="
   },
   "nodejs_x86_64_darwin": {
-    "url": "https://nodejs.org/dist/v24.7.0/node-v24.7.0-darwin-x64.tar.xz",
-    "hash": "sha512-Mb7J7GLTb8ggbfpjcxFe5i50izY2SGWk2ppz3YsDSuR9nlg755KZke2kM6XU3e5v7eCG6Xm0MxwdR07F6clVaA=="
+    "url": "https://nodejs.org/dist/v24.8.0/node-v24.8.0-darwin-x64.tar.xz",
+    "hash": "sha512-YFlK4eIpGfXkcB6iybgquFdvTbRDkWYPIB/n56DYES2L76ce0xCeOegzYc2k9suQDfAINCCoLQbaQWhY9Im8QA=="
   },
   "binaryen": {
     "url": "https://github.com/haskell-wasm/binaryen/releases/download/version_124/binaryen-version_124-x86_64-linux-static.tar.gz",
