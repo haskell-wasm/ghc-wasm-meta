@@ -75,6 +75,7 @@
               wasm32-wasi-ghc-9_8
               wasm32-wasi-ghc-9_10
               wasm32-wasi-ghc-9_12
+              wasm32-wasi-ghc-9_14
               wasm32-wasi-cabal-gmp
               wasm32-wasi-cabal-native
               wasm32-wasi-cabal-unreg
@@ -82,6 +83,7 @@
               wasm32-wasi-cabal-9_8
               wasm32-wasi-cabal-9_10
               wasm32-wasi-cabal-9_12
+              wasm32-wasi-cabal-9_14
               wasi-sdk
               nodejs
               binaryen
