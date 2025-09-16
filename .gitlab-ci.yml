@@ -248,11 +248,14 @@ x86_64-linux-chimera-9.14:
   image: nixos/nix
   before_script:
     - echo "accept-flake-config = true" >> /etc/nix/nix.conf
+    - echo "compress-build-log = false" >> /etc/nix/nix.conf
     - echo "experimental-features = nix-command flakes" >> /etc/nix/nix.conf
     - echo "cores = $CPUS" >> /etc/nix/nix.conf
     - echo "max-jobs = $CPUS" >> /etc/nix/nix.conf
-    - echo "extra-substituters = https://cache.iog.io" >> /etc/nix/nix.conf
-    - echo "extra-trusted-public-keys = hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ=" >> /etc/nix/nix.conf
+    - echo "download-buffer-size = 1073741824" >> /etc/nix/nix.conf
+    - echo "extra-substituters = https://cache.iog.io https://nixcache.reflex-frp.org" >> /etc/nix/nix.conf
+    - echo "extra-trusted-public-keys = hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ= ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI=" >> /etc/nix/nix.conf
+    - echo "sandbox = true" >> /etc/nix/nix.conf
 
 x86_64-linux-nix:
   extends: .linux-nix
