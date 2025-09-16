@@ -235,6 +235,9 @@ x86_64-linux-chimera-9.14:
       nix shell --system $NIX_SYSTEM --impure $NIX_BROWSERS .#all_9_10 --command ./tests/ghci.sh
 
       if [[ $NIX_SYSTEM == "x86_64-linux" ]]; then
+        nix shell --command wasm32-wasi-cabal update --ignore-project
+        nix run nixpkgs#gnused -- -i -e "s/\$ncpus/$CPUS/" "$HOME/.ghc-wasm/.cabal/config"
+
         ./tests/cardano-api.sh
         ./tests/ding-dong.sh
         ./tests/primer.sh

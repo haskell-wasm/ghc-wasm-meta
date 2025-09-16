@@ -8,10 +8,10 @@ git clone --depth=1 https://github.com/IntersectMBO/cardano-api.git .
 
 nix flake lock --allow-dirty-locks --override-input ghc-wasm-meta "git+file://$CI_PROJECT_DIR"
 
-nix develop .#wasm -c bash -c "exec wasm32-wasi-cabal update"
+. <(nix print-dev-env .#wasm)
 
-nix run nixpkgs#gnused -- -i -e "s/\$ncpus/$CPUS/" "$HOME/.ghc-wasm/.cabal/config"
+wasm32-wasi-cabal update
 
-nix develop .#wasm -c bash -c "exec wasm32-wasi-cabal build cardano-wasm"
+wasm32-wasi-cabal build cardano-wasm
 
 popd
