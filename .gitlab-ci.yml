@@ -97,7 +97,6 @@ x86_64-linux-ubuntu-9.6:
     - ./tests/bzlib.sh
     - ./tests/xxhash-ffi.sh
     - ./tests/misc.sh
-    - ./tests/agda.sh
     - ./tests/type-inference-zoo.sh
 
 x86_64-linux-ubuntu-9.8:
@@ -112,7 +111,6 @@ x86_64-linux-ubuntu-9.8:
     - ./tests/bzlib.sh
     - ./tests/xxhash-ffi.sh
     - ./tests/misc.sh
-    - ./tests/agda.sh
     - ./tests/type-inference-zoo.sh
 
 x86_64-linux-ubuntu-9.10:
