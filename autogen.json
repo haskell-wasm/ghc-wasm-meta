@@ -120,20 +120,20 @@
     "hash": "sha512-jHiLFluoTtFqBBvM68t9p8OJs5EiMiXM3AeixWMwLtcktKXU9PTgbE1Z94FHjdcdJmND/S69K+3/h1/ng/UTOg=="
   },
   "wasmtime": {
-    "url": "https://github.com/haskell-wasm/wasm-tools-static/releases/download/250824/wasm-tools-250824-x86_64-linux.tar.zst",
-    "hash": "sha512-wcRvyDG0cZzHU1zwUclgREiG/GmJoEiccsLCYukYC8d4izywkEKWd1J7IDxILP6jl1IDRpRaQ2nGsQLNZXGraA=="
+    "url": "https://github.com/haskell-wasm/wasm-tools-static/releases/download/250923/wasm-tools-250923-x86_64-linux.tar.zst",
+    "hash": "sha512-TTR784WCGKvUj5Ae0tWkTBne6Xkmu0MAukydi9at50EqViqQ0EnPqbjv2tZAubiKH10iFftORHad+1B6zScTPQ=="
   },
   "wasmtime_aarch64_linux": {
-    "url": "https://github.com/haskell-wasm/wasm-tools-static/releases/download/250824/wasm-tools-250824-aarch64-linux.tar.zst",
-    "hash": "sha512-J3hag/RldaruD03i64DQ79Z5vy5bhl7btFIdGCfmKzQobPHtxDXG/8+DlJvuadA1qxZcNSZu3P7j1fnSOOaSvA=="
+    "url": "https://github.com/haskell-wasm/wasm-tools-static/releases/download/250923/wasm-tools-250923-aarch64-linux.tar.zst",
+    "hash": "sha512-nZg/UOzO9bKu1UxREapegsVnNhyXtTUKcFJOt/iqcnBvzJSyT0NKKotLgzuxgWGUK/6CCgPbPhKi9pBoEV8EEA=="
   },
   "wasmtime_aarch64_darwin": {
-    "url": "https://github.com/haskell-wasm/wasm-tools-static/releases/download/250824/wasm-tools-250824-darwin-aarch64.tar.zst",
-    "hash": "sha512-t7No7PbejQ8eld46CGa3cvj7Dob9o99rzuym7FFbyAgE/OZ25dZIHXR9PP61JIqz2DoGyDgcmS/GFZYfByXFaQ=="
+    "url": "https://github.com/haskell-wasm/wasm-tools-static/releases/download/250923/wasm-tools-250923-darwin-aarch64.tar.zst",
+    "hash": "sha512-LmhGxN171urXSKhy3paUEoBuM4qChhzrSzO/8j3JYbPDFxiKE3dLEvvQ7IPDw/lVc5/ByPw+OF2bD5ffm9GF6g=="
   },
   "wasmtime_x86_64_darwin": {
-    "url": "https://github.com/haskell-wasm/wasm-tools-static/releases/download/250824/wasm-tools-250824-darwin-x86_64.tar.zst",
-    "hash": "sha512-3NF5BqvQsIME2QrIpH53yY6T6DyYiM+YA22ewWn7VWYFYZTMgwMDR8GnDHmWrj6i48OzLmImcii4LhFffgARLg=="
+    "url": "https://github.com/haskell-wasm/wasm-tools-static/releases/download/250923/wasm-tools-250923-darwin-x86_64.tar.zst",
+    "hash": "sha512-OzOvFGF/gHZogVFS7IXBJ0o/0mTR3Nan7pcfm/Zh7H5q9sRB7YgSe3t6bmZp931u2wrAMaAQkXikxKoKwT/9Tw=="
   },
   "cabal": {
     "url": "https://downloads.haskell.org/cabal/cabal-install-3.14.2.0/cabal-install-3.14.2.0-x86_64-linux-alpine3_18.tar.xz",
