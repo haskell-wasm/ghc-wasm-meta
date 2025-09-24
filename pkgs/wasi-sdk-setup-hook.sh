@@ -11,8 +11,8 @@ addWasiSDKHook() {
   export SIZE=@out@/bin/llvm-size
   export STRINGS=@out@/bin/llvm-strings
   export STRIP=@out@/bin/llvm-strip
-  export CONF_CC_OPTS_STAGE2="-Wno-error=int-conversion -O3 -mcpu=lime1 -mreference-types -msimd128 -mtail-call"
-  export CONF_CXX_OPTS_STAGE2="-fno-exceptions -Wno-error=int-conversion -O3 -mcpu=lime1 -mreference-types -msimd128 -mtail-call"
+  export CONF_CC_OPTS_STAGE2="-Wno-error=int-conversion -O3 -mcpu=lime1 -mreference-types -msimd128"
+  export CONF_CXX_OPTS_STAGE2="-fno-exceptions -Wno-error=int-conversion -O3 -mcpu=lime1 -mreference-types -msimd128"
   export CONF_GCC_LINKER_OPTS_STAGE2="-Wl,--error-limit=0,--keep-section=ghc_wasm_jsffi,--keep-section=target_features,--stack-first,--strip-debug"
   export CONF_CC_OPTS_STAGE1=$CONF_CC_OPTS_STAGE2
   export CONF_CXX_OPTS_STAGE1=$CONF_CXX_OPTS_STAGE2

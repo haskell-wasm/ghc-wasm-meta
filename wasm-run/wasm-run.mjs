@@ -1,4 +1,4 @@
-#!/usr/bin/env -S node --disable-warning=ExperimentalWarning --max-old-space-size=65536 --no-turbo-fast-api-calls --wasm-lazy-validation
+#!/usr/bin/env -S node --disable-warning=ExperimentalWarning --max-old-space-size=65536 --wasm-lazy-validation
 
 import fs from "node:fs/promises";
 import { WASI } from "node:wasi";
