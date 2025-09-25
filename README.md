@@ -125,23 +125,32 @@ Chrome/Firefox/Safari/wasmtime (check wasm
 - LLVM support has been stable enough (doesn't get into our way when
 enabled globally)
 
-List of wasm extensions that we use:
+List of mandatory wasm extensions that our toolchain requires:
 
-- [128-bit packed
-  SIMD](https://github.com/WebAssembly/spec/blob/master/proposals/simd/SIMD.md)
 - [Non-trapping Float-to-int
   Conversions](https://github.com/WebAssembly/spec/blob/master/proposals/nontrapping-float-to-int-conversion/Overview.md)
 - [Sign-extension
   operators](https://github.com/WebAssembly/spec/blob/master/proposals/sign-extension-ops/Overview.md)
-- [Bulk Memory
-  Operations](https://github.com/WebAssembly/spec/blob/master/proposals/bulk-memory-operations/Overview.md)
 - [Import/Export mutable
   globals](https://github.com/WebAssembly/mutable-global/blob/master/proposals/mutable-global/Overview.md)
-- [Multi-value](https://github.com/WebAssembly/spec/blob/master/proposals/multi-value/Overview.md)
 - [Reference
   Types](https://github.com/WebAssembly/spec/blob/master/proposals/reference-types/Overview.md)
+
+List of optional wasm extensions enabled in our bindists:
+
+- [128-bit packed
+  SIMD](https://github.com/WebAssembly/spec/blob/master/proposals/simd/SIMD.md)
+- [Multi-value](https://github.com/WebAssembly/spec/blob/master/proposals/multi-value/Overview.md)
+- [Bulk Memory
+  Operations](https://github.com/WebAssembly/spec/blob/master/proposals/bulk-memory-operations/Overview.md)
+
+List of optional wasm extensions not enabled in our bindists for now:
+
 - [Tail
-  Call](https://github.com/WebAssembly/tail-call/blob/main/proposals/tail-call/Overview.md)
+  Call](https://github.com/WebAssembly/tail-call/blob/main/proposals/tail-call/Overview.md):
+  as reported by user, it's only supported in webkit since 18.2 and
+  seems to cause ios webkit webview crashes occasionally, so we've
+  disabled it for the time being and will revisit it in the future
 
 The target triple is `wasm32-wasi`, and it uses WASI snapshot 1 as
 used in `wasi-libc`.

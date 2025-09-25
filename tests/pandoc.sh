@@ -22,7 +22,7 @@ curl -L https://github.com/WasmEdge/WasmEdge/releases/download/0.15.0/WasmEdge-0
 export PATH=$PATH:$PWD/bin
 popd
 
-wasmedge run --enable-tail-call --dir /:"$PWD" -- "$PANDOC_WASM" README.md -o README.rst
+wasmedge run --dir /:"$PWD" -- "$PANDOC_WASM" README.md -o README.rst
 head --lines=20 README.rst
 rm README.rst
 
