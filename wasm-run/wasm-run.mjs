@@ -1,6 +1,7 @@
 #!/usr/bin/env -S node --disable-warning=ExperimentalWarning --max-old-space-size=65536 --wasm-lazy-validation
 
-import fs from "node:fs/promises";
+import fs from "node:fs";
+import stream from "node:stream";
 import { WASI } from "node:wasi";
 
 function parseArgv(args) {
@@ -17,11 +18,35 @@ const wasi = new WASI({
   preopens: { "/": "/" },
 });
 
-const instance = (
-  await WebAssembly.instantiate(await fs.readFile(argv[0]), {
-    wasi_snapshot_preview1: wasi.wasiImport,
+const mod = await WebAssembly.compileStreaming(
+  new Response(stream.Readable.toWeb(fs.createReadStream(argv[0])), {
+    headers: { "Content-Type": "application/wasm" },
   })
-).instance;
+);
+
+const import_obj = {
+  wasi_snapshot_preview1: wasi.wasiImport,
+};
+
+for (const { module, name, kind } of WebAssembly.Module.imports(mod)) {
+  if (import_obj[module] && import_obj[module][name]) {
+    continue;
+  }
+
+  if (kind === "function") {
+    if (!import_obj[module]) {
+      import_obj[module] = {};
+    }
+
+    import_obj[module][name] = (...args) => {
+      throw new WebAssembly.RuntimeError(
+        `stub import ${module} ${name} ${args}`
+      );
+    };
+  }
+}
+
+const instance = await WebAssembly.instantiate(mod, import_obj);
 
 try {
   let ec = wasi.start(instance);
