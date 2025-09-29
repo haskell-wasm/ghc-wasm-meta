@@ -1,15 +1,15 @@
 {
   "wasm32-wasi-ghc-gmp": {
-    "url": "https://github.com/haskell-wasm/ghc-wasm-bindists/releases/download/20250925T165110/wasm32-wasi-ghc-gmp.tar.xz",
-    "hash": "sha256-H8ESEkwXB37ZUZbfGDduo72bb9bKgIQElssYgTmb/sk="
+    "url": "https://github.com/haskell-wasm/ghc-wasm-bindists/releases/download/20250928T202144/wasm32-wasi-ghc-gmp.tar.xz",
+    "hash": "sha256-FF2oi/ID48+v+QeJI1KTz/W13AEoncJYAd6M5EseWAA="
   },
   "wasm32-wasi-ghc-native": {
-    "url": "https://github.com/haskell-wasm/ghc-wasm-bindists/releases/download/20250925T165110/wasm32-wasi-ghc-native.tar.xz",
-    "hash": "sha256-SsP5NTtjvdHxuHPmh/2aHhWs1gpYPnVfUMtDbU+6aBc="
+    "url": "https://github.com/haskell-wasm/ghc-wasm-bindists/releases/download/20250928T202144/wasm32-wasi-ghc-native.tar.xz",
+    "hash": "sha256-ZS78l2RyAadynE2qoUZKvRzfZVogBr3jb6zHedabkXg="
   },
   "wasm32-wasi-ghc-unreg": {
-    "url": "https://github.com/haskell-wasm/ghc-wasm-bindists/releases/download/20250925T165110/wasm32-wasi-ghc-unreg.tar.xz",
-    "hash": "sha256-ZWPub3A0reASD2GpeBw3wzMjbgC6NUSOPF1MMlAjhVk="
+    "url": "https://github.com/haskell-wasm/ghc-wasm-bindists/releases/download/20250928T202144/wasm32-wasi-ghc-unreg.tar.xz",
+    "hash": "sha256-pJsgZkNVgo7XAto3hqNIXPEZEP2xaSJ2T3Zirx3Ke5c="
   },
   "wasm32-wasi-ghc-9.6": {
     "url": "https://github.com/haskell-wasm/ghc-wasm-bindists/releases/download/20250207T172205/wasm32-wasi-ghc-9.6.tar.xz",
