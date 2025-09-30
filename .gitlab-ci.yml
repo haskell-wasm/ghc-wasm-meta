@@ -226,6 +226,7 @@ x86_64-linux-chimera-9.14:
   rules:
     - if: $UPSTREAM_GHC_FLAVOUR == null
   variables:
+    LANG: C.UTF-8
     NIXPKGS_ALLOW_UNFREE: "1"
   script:
     - |
