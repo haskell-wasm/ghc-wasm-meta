@@ -126,7 +126,7 @@ tar xJf nodejs.tar.xz -C "$PREFIX/nodejs" --no-same-owner --strip-components=1
 if [[ -n "${PLAYWRIGHT:-}" ]]; then
   "$PREFIX/nodejs/bin/node" "$PREFIX/nodejs/bin/npm" install -g --prefix "$PREFIX/nodejs" \
     playwright
-  PATH=$PREFIX/nodejs/bin:$PATH playwright install --with-deps
+  PATH=$PREFIX/nodejs/bin:$PATH playwright install --with-deps --no-shell
 fi
 
 mkdir -p "$PREFIX/binaryen"
