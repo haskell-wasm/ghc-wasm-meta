@@ -65,7 +65,7 @@ variables:
     - ./tests/hfsnotify.sh
     - ./tests/xxhash-ffi.sh
     - ./tests/misc.sh
-    - ./tests/miso-reflex-examples.sh
+    - ./tests/web/miso-todomvc.sh
     - ./tests/pandoc.sh
     - ./tests/shellcheck.sh
     - ./tests/tinyapl.sh
@@ -134,7 +134,7 @@ x86_64-linux-ubuntu-9.10:
     - ./tests/hfsnotify.sh
     - ./tests/xxhash-ffi.sh
     - ./tests/misc.sh
-    - ./tests/miso-reflex-examples.sh
+    - ./tests/web/miso-todomvc.sh
     - ./tests/pandoc.sh
     - ./tests/shellcheck.sh
     - ./tests/tinyapl.sh
@@ -163,7 +163,7 @@ x86_64-linux-ubuntu-9.12:
     - ./tests/hfsnotify.sh
     - ./tests/xxhash-ffi.sh
     - ./tests/misc.sh
-    - ./tests/miso-reflex-examples.sh
+    - ./tests/web/miso-todomvc.sh
     - ./tests/pandoc.sh
     - ./tests/shellcheck.sh
     - ./tests/tinyapl.sh
@@ -191,7 +191,7 @@ x86_64-linux-ubuntu-9.14:
     - ./tests/hfsnotify.sh
     - ./tests/xxhash-ffi.sh
     - ./tests/misc.sh
-    - ./tests/miso-reflex-examples.sh
+    - ./tests/web/miso-todomvc.sh
     - ./tests/pandoc.sh
     - ./tests/shellcheck.sh
     - ./tests/tinyapl.sh
