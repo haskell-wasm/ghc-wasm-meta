@@ -240,6 +240,8 @@ x86_64-linux-chimera-9.14:
         nix run nixpkgs#gnused -- -i -e "s/\$ncpus/$CPUS/" "$HOME/.ghc-wasm/.cabal/config"
 
         ./tests/cardano-api.sh
+        ./tests/nix/miso.sh
+        ./tests/nix/obelisk.sh
         ./tests/ding-dong.sh
         ./tests/primer.sh
       fi
