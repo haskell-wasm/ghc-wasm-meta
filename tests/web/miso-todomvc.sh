@@ -10,7 +10,7 @@ make
 export TODOMVC_DIST_DIR=$PWD/public
 
 pushd "$(mktemp -d)"
-curl -L https://github.com/haskell-wasm/playwright/archive/refs/heads/release-1.55.tar.gz | tar xz --strip-components=1
+curl -L https://github.com/haskell-wasm/playwright/archive/refs/heads/release-1.56.tar.gz | tar xz --strip-components=1
 cd examples/todomvc
 npm install
 npx playwright install --with-deps --no-shell
