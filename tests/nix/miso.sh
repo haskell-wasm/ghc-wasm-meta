@@ -20,7 +20,8 @@ miso_example https://github.com/haskell-miso/miso-flatris.git
 miso_example https://github.com/haskell-miso/miso-invaders.git
 miso_example https://github.com/haskell-miso/miso-minesweeper.git
 miso_example https://github.com/haskell-miso/miso-plane.git
-miso_example https://github.com/haskell-miso/miso-pubsub.git
+# https://github.com/haskell-miso/miso-pubsub/issues/1
+# miso_example https://github.com/haskell-miso/miso-pubsub.git
 miso_example https://github.com/haskell-miso/miso-reactive.git
 miso_example https://github.com/haskell-miso/miso-router.git
 miso_example https://github.com/haskell-miso/miso-sampler.git
