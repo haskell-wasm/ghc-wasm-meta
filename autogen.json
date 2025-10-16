@@ -88,20 +88,20 @@
     "hash": "sha256-Um9Gcu9zKl0pzFYL3RmAnyFJozOPKVoq1NnU2jilI0s="
   },
   "nodejs": {
-    "url": "https://github.com/haskell-wasm/node-static/releases/download/v24.10.0/node-v24.10.0-linux-x64-static.tar.xz",
-    "hash": "sha512-PX4go3qNTUdt95y7KYxIYOekebUlo6Ab1YN/gKDmErEl/uOp8wJKNfCVMac6ZWm4Dqi9qxtC4UCJ+sauL3X4RA=="
+    "url": "https://github.com/haskell-wasm/node-static/releases/download/v25.0.0/node-v25.0.0-linux-x64-static.tar.xz",
+    "hash": "sha512-WgeKIyVnjMosS4F9RbsoHVMfpuXHF31expZmJcz5ucJTPH37LH8BIM2UQFpK1gVCdry2KSLQpCtz9VWoTnvUGQ=="
   },
   "nodejs_aarch64_linux": {
-    "url": "https://github.com/haskell-wasm/node-static/releases/download/v24.10.0/node-v24.10.0-linux-arm64-static.tar.xz",
-    "hash": "sha512-EuwPyy8BidDVg+jsT1KSUZ57lbRoJfucPwgwvfsQbmUqoJ8aovl8P/OmNHpj2E6z3ppj4zv3db/ZSUESwU1iAA=="
+    "url": "https://github.com/haskell-wasm/node-static/releases/download/v25.0.0/node-v25.0.0-linux-arm64-static.tar.xz",
+    "hash": "sha512-b/wZ6IZIkE7z7Iw8dNT1Ka/sT9qi4w5qEH9iZQTqiagzL4xZ/n5StkgVigjCFTpKOYzqvSxCu3a+Ms641DpZTQ=="
   },
   "nodejs_aarch64_darwin": {
-    "url": "https://nodejs.org/dist/v24.10.0/node-v24.10.0-darwin-arm64.tar.xz",
-    "hash": "sha512-rCSg9DkPgqoatig1iuBNuaSOiEkvWvYpjSGJb3u8zwuJCTdzsh7QpubSyJhcIYzrJaEnKDTuH5dhuaRZDiLY9g=="
+    "url": "https://nodejs.org/dist/v25.0.0/node-v25.0.0-darwin-arm64.tar.xz",
+    "hash": "sha512-0fXmqhnFhWqPwmWzLydFH44Q365aMag3yBq33hTfdyvLHMtueJLBdK7sCLd471KhWAgxTVhlnMGKk3K/kqSiGw=="
   },
   "nodejs_x86_64_darwin": {
-    "url": "https://nodejs.org/dist/v24.10.0/node-v24.10.0-darwin-x64.tar.xz",
-    "hash": "sha512-SzXQ6ufyPBzXBKAZ3TapLqaIbV7i+HWhmZn2Kod6smylpnpCA87SCfvMLweg6SPC6AzMky/7cjZsQoULafyIVQ=="
+    "url": "https://nodejs.org/dist/v25.0.0/node-v25.0.0-darwin-x64.tar.xz",
+    "hash": "sha512-LOajLazt1bY7WeT7JTDlmFIDzE/eekyy8gUXkhCN1rkubP1U6BTKc+0CWqN1VQXbf2emenSkpaaBTfX1+egjuA=="
   },
   "binaryen": {
     "url": "https://github.com/haskell-wasm/binaryen/releases/download/version_124/binaryen-version_124-x86_64-linux-static.tar.gz",
