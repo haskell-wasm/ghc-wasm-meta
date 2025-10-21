@@ -183,7 +183,7 @@ Latest releases of Chrome/Firefox/Safari. A JavaScript library is
 needed to provide the WASI implementation, the following one is known
 to work for our use cases:
 
-- [`browser_wasi_shim`](https://www.jsdelivr.com/package/npm/@bjorn3/browser_wasi_shim)
+- [`browser_wasi_shim`](https://github.com/haskell-wasm/browser_wasi_shim)
 
 ## Compiling to WASI reactor module with user-specified exports
 
