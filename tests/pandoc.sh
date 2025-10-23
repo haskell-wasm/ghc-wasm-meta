@@ -7,7 +7,7 @@ export PATH=$PATH:/opt/toolchain/bin
 pushd "$(mktemp -d)"
 curl -L https://github.com/haskell-wasm/pandoc/archive/refs/heads/wasm.tar.gz | tar xz --strip-components=1
 wasm32-wasi-cabal build pandoc-cli
-PANDOC_WASM="$(find dist-newstyle -type f -name pandoc.wasm)"
+PANDOC_WASM="$(find "$PWD/dist-newstyle" -type f -name pandoc.wasm)"
 
 wasmtime run --dir "$PWD"::/ -- "$PANDOC_WASM" README.md -o README.rst
 head --lines=20 README.rst
@@ -36,7 +36,7 @@ head --lines=20 README.rst
 rm README.rst
 
 pushd "$(mktemp -d)"
-curl -f -L --retry 5 https://github.com/oven-sh/bun/releases/download/bun-v1.3.0/bun-linux-x64.zip -O
+curl -f -L --retry 5 https://github.com/oven-sh/bun/releases/download/bun-v1.3.1/bun-linux-x64.zip -O
 unzip bun-linux-x64.zip
 BUN=$PWD/bun-linux-x64/bun
 popd
