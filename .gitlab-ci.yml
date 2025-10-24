@@ -242,6 +242,7 @@ x86_64-linux-chimera-9.14:
         ./tests/cardano-api.sh
         ./tests/nix/miso.sh
         ./tests/nix/obelisk.sh
+        ./tests/nix/dashi.sh
         ./tests/ding-dong.sh
         ./tests/primer.sh
       fi
