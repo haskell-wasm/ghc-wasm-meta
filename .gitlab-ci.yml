@@ -68,6 +68,7 @@ variables:
     - ./tests/web/miso-todomvc.sh
     - ./tests/pandoc.sh
     - ./tests/shellcheck.sh
+    - ./tests/apps/brassica.sh
     - ./tests/tinyapl.sh
     - ./tests/type-inference-zoo.sh
 
@@ -137,6 +138,7 @@ x86_64-linux-ubuntu-9.10:
     - ./tests/web/miso-todomvc.sh
     - ./tests/pandoc.sh
     - ./tests/shellcheck.sh
+    - ./tests/apps/brassica.sh
     - ./tests/tinyapl.sh
     - ./tests/agda.sh
     - ./tests/agda-language-server.sh
@@ -166,6 +168,7 @@ x86_64-linux-ubuntu-9.12:
     - ./tests/web/miso-todomvc.sh
     - ./tests/pandoc.sh
     - ./tests/shellcheck.sh
+    - ./tests/apps/brassica.sh
     - ./tests/tinyapl.sh
     - ./tests/agda.sh
     - ./tests/agda-language-server.sh
@@ -194,6 +197,7 @@ x86_64-linux-ubuntu-9.14:
     - ./tests/web/miso-todomvc.sh
     - ./tests/pandoc.sh
     - ./tests/shellcheck.sh
+    - ./tests/apps/brassica.sh
     - ./tests/tinyapl.sh
     - ./tests/type-inference-zoo.sh
 
