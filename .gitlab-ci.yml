@@ -212,6 +212,7 @@ x86_64-linux-chimera-9.14:
       apk upgrade --no-interactive
       apk add --no-interactive \
         curl \
+        chromium \
         firefox \
         gmake \
         jq \
@@ -342,7 +343,6 @@ x86_64-darwin-nix:
         firefox \
         jq \
         make \
-        python3.12 \
         unzip \
         zstd
 
