@@ -120,13 +120,11 @@ cp -a out/libffi-wasm/lib/. "$PREFIX/wasi-sdk/share/wasi-sysroot/lib/wasm32-wasi
 mkdir -p "$PREFIX/nodejs"
 curl -f -L --retry 5 "$(jq -r ".\"$NODEJS\".url" "$REPO"/autogen.json)" -o nodejs.tar.xz
 tar xJf nodejs.tar.xz -C "$PREFIX/nodejs" --no-same-owner --strip-components=1
-"$PREFIX/nodejs/bin/node" "$PREFIX/nodejs/bin/npm" install -g --prefix "$PREFIX/nodejs" \
-  puppeteer-core@^24.26.1 \
-  ws@^8.18.3
+cp "$REPO"/package.json "$REPO"/package-lock.json .
+PATH=$PREFIX/nodejs/bin:$PATH npm install
+cp -R node_modules/. "$PREFIX/nodejs/lib/node_modules"
 if [[ -n "${PLAYWRIGHT:-}" ]]; then
-  "$PREFIX/nodejs/bin/node" "$PREFIX/nodejs/bin/npm" install -g --prefix "$PREFIX/nodejs" \
-    playwright
-  PATH=$PREFIX/nodejs/bin:$PATH playwright install --with-deps --no-shell
+  PATH=$PREFIX/nodejs/lib/node_modules/.bin:$PREFIX/nodejs/bin:$PATH playwright install --with-deps --no-shell
 fi
 
 mkdir -p "$PREFIX/binaryen"
@@ -154,6 +152,7 @@ for p in \
   "$PREFIX/wasm32-wasi-cabal/bin" \
   "$PREFIX/wasmtime/bin" \
   "$PREFIX/binaryen/bin" \
+  "$PREFIX/nodejs/lib/node_modules/.bin" \
   "$PREFIX/nodejs/bin" \
   "$PREFIX/wasi-sdk/bin" \
   "$PREFIX/wasm32-wasi-ghc/bin"

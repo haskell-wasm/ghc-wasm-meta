@@ -12,18 +12,9 @@ buildNpmPackage {
     "package.json"
     "package-lock.json"
   ];
-  npmDepsHash = "sha512-LZgydb+7f7mj+8DrqxRZXzZJuAQN0pMq4JV2ts5qTKh6c1VY3B6/Fh/WWpSDSynxPMyrh4Aa8RjcPUnvF8fLZQ==";
+  npmDepsHash = "sha512-q2WgSNGJev8WaBSGgMvNeUd4leb22CaUmmMh6u/oenMO5o6WTVvGaUbD4JYhxjStStwClNRUauhwM+bXgpyvSA==";
 
   dontNpmBuild = true;
-  dontNpmInstall = true;
-
-  installPhase = ''
-    runHook preInstall
-
-    cp -R node_modules $out
-
-    runHook postInstall
-  '';
 
   strictDeps = true;
 }

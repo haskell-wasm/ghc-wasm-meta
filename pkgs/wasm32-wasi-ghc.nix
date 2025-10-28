@@ -78,7 +78,7 @@ stdenvNoCC.mkDerivation {
   postInstall = ''
     wrapProgram $out/lib/wasm32-wasi-ghc-9.*/bin/wasm32-wasi-ghc-9.* \
       --prefix PATH : ${lib.makeBinPath [ nodejs ]} \
-      --set-default NODE_PATH ${npm-deps}
+      --set-default NODE_PATH ${npm-deps}/lib/node_modules/@haskell-wasm/ghc-wasm-npm-deps/node_modules
   '';
 
   dontBuild = true;
