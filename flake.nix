@@ -36,6 +36,7 @@
                   wasi-sdk
                   pkgs.cacert
                   nodejs
+                  npm-deps
                   binaryen
                   wasmtime
                   cabal
@@ -60,6 +61,7 @@
           wasm32-wasi-cabal-9_14 = pkgs.callPackage ./pkgs/wasm32-wasi-cabal.nix { flavour = "9.14"; };
           wasi-sdk = pkgs.callPackage ./pkgs/wasi-sdk.nix { };
           nodejs = pkgs.nodejs_latest;
+          npm-deps = pkgs.callPackage ./pkgs/npm-deps.nix { inherit nodejs; };
           binaryen = pkgs.callPackage ./pkgs/binaryen.nix { };
           wasmtime = pkgs.callPackage ./pkgs/wasmtime.nix { };
           cabal = pkgs.callPackage ./pkgs/cabal.nix { };
@@ -86,6 +88,7 @@
               wasm32-wasi-cabal-9_14
               wasi-sdk
               nodejs
+              npm-deps
               binaryen
               wasmtime
               cabal
