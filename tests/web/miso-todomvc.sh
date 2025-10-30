@@ -14,7 +14,7 @@ curl -L https://github.com/haskell-wasm/playwright/archive/refs/heads/release-1.
 cd examples/todomvc
 npm install
 npx playwright install --with-deps --no-shell
-npx playwright test --reporter=list --retries=2 --workers=$(($CPUS > 8 ? 8 : $CPUS))
+npx playwright test --reporter=list --workers=$(($CPUS > 8 ? 8 : $CPUS))
 popd
 
 popd

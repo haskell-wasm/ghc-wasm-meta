@@ -1,6 +1,7 @@
 #!/bin/sh
 
 exec podman run -it --rm \
+  --env CI=true \
   --env CI_PROJECT_DIR=/workspace \
   --env CPUS=48 \
   --env FLAVOUR="$1" \
