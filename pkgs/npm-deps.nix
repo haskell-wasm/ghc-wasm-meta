@@ -1,10 +1,15 @@
-{ buildNpmPackage
+{ autoPatchelfHook
+, buildNpmPackage
+, fixDarwinDylibNames
 , lib
+, musl
 , nodejs
+, stdenv
 ,
 }:
 buildNpmPackage {
-  name = "ghc-wasm-npm-deps";
+  pname = "ghc-wasm-npm-deps";
+  version = "0.0.1";
 
   inherit nodejs;
 
@@ -12,9 +17,21 @@ buildNpmPackage {
     "package.json"
     "package-lock.json"
   ];
-  npmDepsHash = "sha512-O5topXdf3jkD5lv52DLKXexbVNuoejDHUuwXzz317KG6V4+bsDepbfMexRAzgfX11zzjYpmVBdicUYWqutL9pw==";
+  npmDepsHash = "sha256-qJFLWGvl21SgI8olTNgN2pQIS61jhm5GHHJh/dBiFdg=";
+
+  nativeBuildInputs =
+    lib.optionals stdenv.hostPlatform.isLinux [ autoPatchelfHook ]
+    ++ lib.optionals stdenv.hostPlatform.isDarwin [ fixDarwinDylibNames ];
+  buildInputs = [ stdenv.cc.cc.lib ] ++ lib.optionals stdenv.hostPlatform.isLinux [ musl ];
 
   dontNpmBuild = true;
-
-  strictDeps = true;
+  postInstall = ''
+    mkdir $out/bin
+    pushd $out/lib/node_modules/@haskell-wasm/ghc-wasm-npm-deps/node_modules/.bin
+    for b in *; do
+      ln -s $out/lib/node_modules/@haskell-wasm/ghc-wasm-npm-deps/node_modules/.bin/$b $out/bin/$b
+    done
+    popd
+  '';
+  dontStrip = false;
 }
