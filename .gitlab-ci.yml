@@ -227,6 +227,23 @@ x86_64-linux-chimera-9.14:
       . /tmp/.ghc-wasm/env
     - ./tests/ghci.sh
 
+.linux-alpine:
+  rules:
+    - if: $UPSTREAM_GHC_FLAVOUR == null
+  before_script:
+    - |
+      SKIP_GHC=1 ./setup.sh
+      sudo apk add --no-cache chromium firefox
+    - sudo chown ghc:ghc -R .
+  script:
+    - ./tests/ghc/ghc-ci.sh
+
+x86_64-linux-alpine:
+  extends: .linux-alpine
+  tags:
+    - x86_64-linux
+  image: registry.gitlab.haskell.org/ghc/ci-images/x86_64-linux-alpine3_22:$DOCKER_REV
+
 .nix:
   rules:
     - if: $UPSTREAM_GHC_FLAVOUR == null
