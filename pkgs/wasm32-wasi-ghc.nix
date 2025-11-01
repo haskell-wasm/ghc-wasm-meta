@@ -2,17 +2,16 @@
 , coreutils
 , fetchurl
 , flavour
-, hostPlatform
 , lib
 , makeWrapper
 , nodejs_latest
 , python3
-, runtimeShell
 , runtimeShellPackage
 , stdenvNoCC
 ,
 }:
 let
+  inherit (stdenvNoCC) hostPlatform;
   common-src = builtins.fromJSON (builtins.readFile ../autogen.json);
   src = fetchurl common-src."${key}";
   key =

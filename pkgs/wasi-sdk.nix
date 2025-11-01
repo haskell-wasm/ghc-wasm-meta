@@ -1,16 +1,19 @@
 {
   fetchurl,
-  hostPlatform,
   runtimeShellPackage,
   stdenv,
   stdenvNoCC,
   unzip,
 }:
 let
+  inherit (stdenvNoCC) hostPlatform;
   common-src = builtins.fromJSON (builtins.readFile ../autogen.json);
   wasi-sdk-key =
     if hostPlatform.isDarwin then
-      if hostPlatform.isAarch64 then "wasi-sdk-aarch64-darwin" else "wasi-sdk-x86_64-darwin"
+      if hostPlatform.isAarch64 then
+        "wasi-sdk-aarch64-darwin"
+      else
+        "wasi-sdk-x86_64-darwin"
     else if hostPlatform.isAarch64 then
       "wasi-sdk-aarch64-linux"
     else

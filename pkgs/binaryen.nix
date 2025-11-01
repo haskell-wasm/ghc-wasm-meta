@@ -1,11 +1,11 @@
 {
   fetchurl,
   fixDarwinDylibNames,
-  hostPlatform,
   lib,
   stdenv,
 }:
 let
+  inherit (stdenv) hostPlatform;
   src = fetchurl ((builtins.fromJSON (builtins.readFile ../autogen.json))."${key}");
   key =
     {

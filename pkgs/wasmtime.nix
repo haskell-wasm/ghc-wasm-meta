@@ -1,12 +1,11 @@
 { fetchurl
-, hostPlatform
-, lib
 , runtimeShellPackage
 , stdenvNoCC
 , writeText
 , zstd
 }:
 let
+  inherit (stdenvNoCC) hostPlatform;
   wasmtime-key =
     if hostPlatform.isDarwin then
       if hostPlatform.isAarch64 then
