@@ -1,12 +1,11 @@
 { fetchurl
 , fixDarwinDylibNames
 , gmp
-, hostPlatform
 , lib
 , stdenvNoCC
-,
 }:
 let
+  inherit (stdenvNoCC) hostPlatform;
   src = fetchurl ((builtins.fromJSON (builtins.readFile ../autogen.json))."${key}");
   key =
     {
