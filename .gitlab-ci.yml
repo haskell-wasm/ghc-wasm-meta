@@ -353,15 +353,16 @@ x86_64-darwin-nix:
     - |
       dnf upgrade -y
       dnf install -y \
-        epel-release
-      crb enable
-      dnf install -y \
-        chromium \
         firefox \
         jq \
         make \
         unzip \
         zstd
+    - |
+      if [[ $(uname -m) == "x86_64" ]]; then
+        echo -e "[google-chrome]\nname=google-chrome\nbaseurl=https://dl.google.com/linux/chrome/rpm/stable/x86_64\nenabled=1\ngpgcheck=1\ngpgkey=https://dl.google.com/linux/linux_signing_key.pub" > /etc/yum.repos.d/google-chrome.repo
+        dnf install -y google-chrome-stable
+      fi
 
 x86_64-linux-ghcup:
   extends: .linux-ghcup
