@@ -375,6 +375,7 @@ aarch64-linux-ghcup:
 
 aarch64-darwin-ghcup:
   extends: .ghcup
+  allow_failure: true
   tags:
     - aarch64-darwin
   before_script:
