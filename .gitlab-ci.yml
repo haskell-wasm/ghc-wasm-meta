@@ -54,7 +54,6 @@ variables:
     - ./tests/canary.sh
     - ./tests/foundation.sh
     - ./tests/network.sh
-    - ./tests/jsaddle-wasm.sh
     - ./tests/miso.sh
     - ./tests/reflex-dom.sh
     - ./tests/time.sh
@@ -65,7 +64,7 @@ variables:
     - ./tests/hfsnotify.sh
     - ./tests/xxhash-ffi.sh
     - ./tests/misc.sh
-    - ./tests/web/miso-todomvc.sh
+    - ./tests/web/jsaddle-wasm.sh
     - ./tests/pandoc.sh
     - ./tests/shellcheck.sh
     - ./tests/apps/brassica.sh
@@ -123,7 +122,6 @@ x86_64-linux-ubuntu-9.10:
     - ./tests/canary.sh
     - ./tests/foundation.sh
     - ./tests/network.sh
-    - ./tests/jsaddle-wasm.sh
     - ./tests/ghc-wasm-earthly.sh
     - ./tests/miso.sh
     - ./tests/reflex-dom.sh
@@ -135,7 +133,7 @@ x86_64-linux-ubuntu-9.10:
     - ./tests/hfsnotify.sh
     - ./tests/xxhash-ffi.sh
     - ./tests/misc.sh
-    - ./tests/web/miso-todomvc.sh
+    - ./tests/web/jsaddle-wasm.sh
     - ./tests/pandoc.sh
     - ./tests/shellcheck.sh
     - ./tests/apps/brassica.sh
@@ -153,7 +151,6 @@ x86_64-linux-ubuntu-9.12:
     - ./tests/canary.sh
     - ./tests/foundation.sh
     - ./tests/network.sh
-    - ./tests/jsaddle-wasm.sh
     - ./tests/ghc-wasm-earthly.sh
     - ./tests/miso.sh
     - ./tests/reflex-dom.sh
@@ -165,7 +162,7 @@ x86_64-linux-ubuntu-9.12:
     - ./tests/hfsnotify.sh
     - ./tests/xxhash-ffi.sh
     - ./tests/misc.sh
-    - ./tests/web/miso-todomvc.sh
+    - ./tests/web/jsaddle-wasm.sh
     - ./tests/pandoc.sh
     - ./tests/shellcheck.sh
     - ./tests/apps/brassica.sh
@@ -183,7 +180,6 @@ x86_64-linux-ubuntu-9.14:
     - ./tests/canary.sh
     - ./tests/foundation.sh
     - ./tests/network.sh
-    - ./tests/jsaddle-wasm.sh
     - ./tests/miso.sh
     - ./tests/reflex-dom.sh
     - ./tests/time.sh
@@ -194,7 +190,7 @@ x86_64-linux-ubuntu-9.14:
     - ./tests/hfsnotify.sh
     - ./tests/xxhash-ffi.sh
     - ./tests/misc.sh
-    - ./tests/web/miso-todomvc.sh
+    - ./tests/web/jsaddle-wasm.sh
     - ./tests/pandoc.sh
     - ./tests/shellcheck.sh
     - ./tests/apps/brassica.sh
