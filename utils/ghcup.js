@@ -10,7 +10,7 @@ async function fetchJSON(url) {
 }
 
 const meta_json = await fetchJSON(
-  "https://raw.githubusercontent.com/haskell-wasm/ghc-wasm-bindists/main/meta.json"
+  "https://raw.githubusercontent.com/haskell-wasm/ghc-wasm-bindists/master/meta.json"
 );
 
 function sri2hex(sri) {

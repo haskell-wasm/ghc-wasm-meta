@@ -68,20 +68,20 @@
     "hash": "sha256-n8QhtXwY0oZNr1Cko5UYEmGmT/Fzf4W8n7CUQxyXKAs="
   },
   "wasi-sdk": {
-    "url": "https://github.com/haskell-wasm/ghc-wasm-bindists/releases/download/20251012T133442/wasi-sdk.tar.gz",
-    "hash": "sha256-UDhKfpK4OFO+elgrhif5PHtFmtwsQJuDgwUZpXpYsr0="
+    "url": "https://github.com/haskell-wasm/ghc-wasm-bindists/releases/download/20251106T135522/wasi-sdk.tar.gz",
+    "hash": "sha256-lpFWJJi69rgcDcbtRy3HYLtOwfYRNRVWNyJ0tLlcc6Q="
   },
   "wasi-sdk-aarch64-darwin": {
-    "url": "https://github.com/haskell-wasm/ghc-wasm-bindists/releases/download/20251012T133442/wasi-sdk-aarch64-darwin.tar.gz",
-    "hash": "sha256-guA8Qlaz5pNV64TrkMMV7QQD18jY6axjKGCRnyIF3BQ="
+    "url": "https://github.com/haskell-wasm/ghc-wasm-bindists/releases/download/20251106T135522/wasi-sdk-aarch64-darwin.tar.gz",
+    "hash": "sha256-amDkpsVkRS4SzIMggJkbXgjX/MWh1br+vWmNyCrEIjA="
   },
   "wasi-sdk-x86_64-darwin": {
-    "url": "https://github.com/haskell-wasm/ghc-wasm-bindists/releases/download/20251012T133442/wasi-sdk-x86_64-darwin.tar.gz",
-    "hash": "sha256-gBsf/rBGl8nRNqsTIVOW+U+/5k6KzAkrYE8xsme1510="
+    "url": "https://github.com/haskell-wasm/ghc-wasm-bindists/releases/download/20251106T135522/wasi-sdk-x86_64-darwin.tar.gz",
+    "hash": "sha256-H0si7cfTDgv3jtrWymftygBIlxS+tgma4D4QsNDMb5M="
   },
   "wasi-sdk-aarch64-linux": {
-    "url": "https://github.com/haskell-wasm/ghc-wasm-bindists/releases/download/20251012T133442/wasi-sdk-aarch64-linux.tar.gz",
-    "hash": "sha256-CPgm30VEH3xxR2hb5MrEO04DC7JQuX/aqudxwi49V4M="
+    "url": "https://github.com/haskell-wasm/ghc-wasm-bindists/releases/download/20251106T135522/wasi-sdk-aarch64-linux.tar.gz",
+    "hash": "sha256-AbYRTGBFua/sWdQM7oNTXXJlnncWV6Vw3GpZ216cSbM="
   },
   "libffi-wasm": {
     "url": "https://github.com/haskell-wasm/ghc-wasm-bindists/releases/download/20250310T060803/libffi-wasm",

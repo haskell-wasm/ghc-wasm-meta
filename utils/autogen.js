@@ -7,7 +7,7 @@ async function fetchJSON(url) {
 }
 
 const _stableBindists = fetchJSON(
-  "https://raw.githubusercontent.com/haskell-wasm/ghc-wasm-bindists/main/meta.json"
+  "https://raw.githubusercontent.com/haskell-wasm/ghc-wasm-bindists/master/meta.json"
 );
 
 async function fetchStableBindist(id) {
