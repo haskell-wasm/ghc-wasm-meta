@@ -70,6 +70,7 @@ variables:
     - ./tests/apps/brassica.sh
     - ./tests/tinyapl.sh
     - ./tests/type-inference-zoo.sh
+    - ./tests/games/wasm-game.sh
 
 x86_64-linux-ubuntu-gmp:
   extends: .x86_64-linux-ubuntu-head
@@ -170,6 +171,7 @@ x86_64-linux-ubuntu-9.12:
     - ./tests/agda.sh
     - ./tests/agda-language-server.sh
     - ./tests/type-inference-zoo.sh
+    - ./tests/games/wasm-game.sh
 
 x86_64-linux-ubuntu-9.14:
   extends: .x86_64-linux-ubuntu
@@ -196,6 +198,7 @@ x86_64-linux-ubuntu-9.14:
     - ./tests/apps/brassica.sh
     - ./tests/tinyapl.sh
     - ./tests/type-inference-zoo.sh
+    - ./tests/games/wasm-game.sh
 
 x86_64-linux-chimera-9.14:
   tags:
