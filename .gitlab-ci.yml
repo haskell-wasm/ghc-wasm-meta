@@ -122,6 +122,7 @@ x86_64-linux-ubuntu-9.10:
     - ./tests/ghci.sh
     - ./tests/canary.sh
     - ./tests/foundation.sh
+    - ./tests/libs/flatparse.sh
     - ./tests/network.sh
     - ./tests/ghc-wasm-earthly.sh
     - ./tests/miso.sh
@@ -151,6 +152,7 @@ x86_64-linux-ubuntu-9.12:
     - ./tests/ghci.sh
     - ./tests/canary.sh
     - ./tests/foundation.sh
+    - ./tests/libs/flatparse.sh
     - ./tests/network.sh
     - ./tests/ghc-wasm-earthly.sh
     - ./tests/miso.sh
@@ -181,6 +183,7 @@ x86_64-linux-ubuntu-9.14:
     - ./tests/ghci.sh
     - ./tests/canary.sh
     - ./tests/foundation.sh
+    - ./tests/libs/flatparse.sh
     - ./tests/network.sh
     - ./tests/miso.sh
     - ./tests/reflex-dom.sh
