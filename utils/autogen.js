@@ -93,10 +93,10 @@ const _nodejs_aarch64_linux = fetchGitHubLatestRelease(
   "linux-arm64-static.tar.xz"
 );
 const _nodejs_aarch64_darwin = fetchurl(
-  "https://nodejs.org/dist/v25.1.0/node-v25.1.0-darwin-arm64.tar.xz"
+  "https://nodejs.org/dist/v25.2.0/node-v25.2.0-darwin-arm64.tar.xz"
 );
 const _nodejs_x86_64_darwin = fetchurl(
-  "https://nodejs.org/dist/v25.1.0/node-v25.1.0-darwin-x64.tar.xz"
+  "https://nodejs.org/dist/v25.2.0/node-v25.2.0-darwin-x64.tar.xz"
 );
 const _binaryen = fetchGitHubLatestRelease(
   "haskell-wasm",
