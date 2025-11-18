@@ -4,7 +4,13 @@ exec podman run -it --rm \
   --env CI_PROJECT_DIR=/workspace \
   --env CPUS=48 \
   --env LANG=C.UTF-8 \
+  --env NIXPKGS_ALLOW_UNFREE=1 \
   --init \
+  --mount type=tmpfs,tmpfs-mode=0755,destination=/nix/var/nix/builds \
+  --pids-limit -1 \
+  --shm-size 8G \
+  --tmpfs /tmp:exec \
+  --tmpfs /var/tmp:exec \
   --volume "$PWD":/workspace \
   --workdir /workspace \
   nixos/nix \
