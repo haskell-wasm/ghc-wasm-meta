@@ -88,36 +88,36 @@
     "hash": "sha256-Um9Gcu9zKl0pzFYL3RmAnyFJozOPKVoq1NnU2jilI0s="
   },
   "nodejs": {
-    "url": "https://github.com/haskell-wasm/node-static/releases/download/v25.2.0/node-v25.2.0-linux-x64-static.tar.xz",
-    "hash": "sha512-kPUMIzcWS0Gp4xurXQT6g96zQ4PXoUUBiQAv07SuTW45pkn6UVwyR23TUoyOYiiZ2jUSTw96C5Ey/UdxNs3GUA=="
+    "url": "https://github.com/haskell-wasm/node-static/releases/download/v25.2.1/node-v25.2.1-linux-x64-static.tar.xz",
+    "hash": "sha512-I1GK4jjgFMompOLbNHENQsTOJG9TUrVlVzxKc3510C/dShYr4nuvnrn22xK3T1F3FYWWVWyREdwYKp7wVCSYgg=="
   },
   "nodejs_aarch64_linux": {
-    "url": "https://github.com/haskell-wasm/node-static/releases/download/v25.2.0/node-v25.2.0-linux-arm64-static.tar.xz",
-    "hash": "sha512-0aw7YxIsrHLEuWefY5HZfsOnvEJZA6U5Ape4rbp89r2mO0NoCelvOuJbTCcMLZfy6O/LObioCVDkAaXKg0ZrMw=="
+    "url": "https://github.com/haskell-wasm/node-static/releases/download/v25.2.1/node-v25.2.1-linux-arm64-static.tar.xz",
+    "hash": "sha512-YPKmgicPGfDKaB5QniRvHYb9uEhZrUMFkRSdvES8S3Nn+E3O7ySL5O262mXRgF0bheJeBTxOG+Ov2ZNYwBSk8g=="
   },
   "nodejs_aarch64_darwin": {
-    "url": "https://nodejs.org/dist/v25.2.0/node-v25.2.0-darwin-arm64.tar.xz",
-    "hash": "sha512-v0Fv/F9eDwpwGgMR7PcoH7k6b/i9NrjGj2qHvoROTOhG8uvD6sp8YhA8jk4S3sRKPkQ7WdtA5F778hpoQsobtw=="
+    "url": "https://nodejs.org/dist/v25.2.1/node-v25.2.1-darwin-arm64.tar.xz",
+    "hash": "sha512-oohG7eE7Msqzy5DmQyHkRFSYet+vFR1BQcgM8ZEwJkFDtiyyujZ08QtXzrt6whI4AiXSvZJtQyLnpFEqDoU9sw=="
   },
   "nodejs_x86_64_darwin": {
-    "url": "https://nodejs.org/dist/v25.2.0/node-v25.2.0-darwin-x64.tar.xz",
-    "hash": "sha512-r079QGRMOMRY0zm32LgyEJDwpuPnHCC5hAt5hPShZkx3vfs43AXfYjoajYx0SMb0NwIMZSi+V5uefVr/lMYvNQ=="
+    "url": "https://nodejs.org/dist/v25.2.1/node-v25.2.1-darwin-x64.tar.xz",
+    "hash": "sha512-jeyMCtPUhiIsdwCyKrEbzoclGhtExI8VSwSB8Ecx7iw2CEr+A5Pst23y23fmdqvrFfUhLFs1i81oNmSxU+E+SQ=="
   },
   "binaryen": {
-    "url": "https://github.com/haskell-wasm/binaryen/releases/download/version_124/binaryen-version_124-x86_64-linux-static.tar.gz",
-    "hash": "sha512-KhFF/WeG43EefYjzNqT7kBF1E1UCcCHfwJEHCnxzGSybKp9TwuWxQCqNjyGGR+JM6kGXrkNSCDBumupSBdbkNA=="
+    "url": "https://github.com/haskell-wasm/binaryen/releases/download/version_125/binaryen-version_125-x86_64-linux-static.tar.gz",
+    "hash": "sha512-wE0EStntvFnHJRMRW53rittqCDMVyr7iexp3N8cJyVA68ut8U8a3HCuDTra97XjC2ihO5aKssUj7FxTWxf1HiQ=="
   },
   "binaryen_aarch64_linux": {
-    "url": "https://github.com/haskell-wasm/binaryen/releases/download/version_124/binaryen-version_124-aarch64-linux-static.tar.gz",
-    "hash": "sha512-VpJ7/QKUqBLTJSW/U86ml211+RJpuJ5BhpDdX5/+7wo6a6xKEjPon+eg1qwx3oFKiNP7zwcSo9GfHvavnmONuw=="
+    "url": "https://github.com/haskell-wasm/binaryen/releases/download/version_125/binaryen-version_125-aarch64-linux-static.tar.gz",
+    "hash": "sha512-Tjv5rV3H0R164jqRahPX4DPA0kDi0UXrOSMRHTj1jERS/9ZyBrGnV6MUa6sTMsOHEmMmAFOW8Cbl9dVD+qkVdw=="
   },
   "binaryen_aarch64_darwin": {
-    "url": "https://github.com/WebAssembly/binaryen/releases/download/version_124/binaryen-version_124-arm64-macos.tar.gz",
-    "hash": "sha512-toHXS5fpf8uGpJ58NEKT9TgfBBsdlfpRP7sTwdaqTG3DskWSL5PzzprmoBstKEiEqs/4inF2xLBQNgC1gzBsKA=="
+    "url": "https://github.com/WebAssembly/binaryen/releases/download/version_125/binaryen-version_125-arm64-macos.tar.gz",
+    "hash": "sha512-QspIVKakMI2SsI40zJBG8WWSj3eVCvFw/jnt5hJ4rP18gGXdhZiu05jcGsC5HHWEIMMbzSxfvozgdmyZWG2EMw=="
   },
   "binaryen_x86_64_darwin": {
-    "url": "https://github.com/WebAssembly/binaryen/releases/download/version_124/binaryen-version_124-x86_64-macos.tar.gz",
-    "hash": "sha512-jHiLFluoTtFqBBvM68t9p8OJs5EiMiXM3AeixWMwLtcktKXU9PTgbE1Z94FHjdcdJmND/S69K+3/h1/ng/UTOg=="
+    "url": "https://github.com/WebAssembly/binaryen/releases/download/version_125/binaryen-version_125-x86_64-macos.tar.gz",
+    "hash": "sha512-hiBeMVl8FOc9mrxZDrCxEdc2JcWyL7xsduLXRzCh+GLPlFTL/NWGT3cQ00+E2kEq+qJ1+ITz78FYeNn6neyXqw=="
   },
   "wasmtime": {
     "url": "https://github.com/haskell-wasm/wasm-tools-static/releases/download/251020/wasm-tools-251020-x86_64-linux.tar.zst",
