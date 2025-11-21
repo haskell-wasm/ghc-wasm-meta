@@ -255,20 +255,34 @@ x86_64-linux-alpine:
   script:
     - |
       nix build --system $NIX_SYSTEM --json --no-link $NIX_FLAKE_OUTPUTS
-      nix shell --system $NIX_SYSTEM --impure $NIX_BROWSERS .#all_9_14 --command ./tests/ghci.sh
-      nix shell --system $NIX_SYSTEM --impure $NIX_BROWSERS .#all_9_12 --command ./tests/ghci.sh
-      nix shell --system $NIX_SYSTEM --impure $NIX_BROWSERS .#all_9_10 --command ./tests/ghci.sh
+
+      if [[ $NIX_SYSTEM != "x86_64-linux" || $CI_JOB_NAME == *9.10 ]]; then
+        nix shell --system $NIX_SYSTEM --impure $NIX_BROWSERS .#all_9_14 --command ./tests/ghci.sh
+      fi
+
+      if [[ $NIX_SYSTEM != "x86_64-linux" || $CI_JOB_NAME == *9.12 ]]; then
+        nix shell --system $NIX_SYSTEM --impure $NIX_BROWSERS .#all_9_12 --command ./tests/ghci.sh
+      fi
+
+      if [[ $NIX_SYSTEM != "x86_64-linux" || $CI_JOB_NAME == *9.10 ]]; then
+        nix shell --system $NIX_SYSTEM --impure $NIX_BROWSERS .#all_9_10 --command ./tests/ghci.sh
+      fi
 
       if [[ $NIX_SYSTEM == "x86_64-linux" ]]; then
         nix shell --command wasm32-wasi-cabal update --ignore-project
         nix run nixpkgs#gnused -- -i -e "s/\$ncpus/$CPUS/" "$HOME/.ghc-wasm/.cabal/config"
 
-        ./tests/nix/cardano-api.sh
-        ./tests/nix/miso.sh
-        ./tests/nix/obelisk.sh
-        ./tests/nix/dashi.sh
-        ./tests/ding-dong.sh
-        ./tests/primer.sh
+        if [[ $CI_JOB_NAME == *9.12 ]]; then
+          ./tests/nix/miso.sh
+          ./tests/nix/obelisk.sh
+          ./tests/nix/dashi.sh
+          ./tests/nix/primer.sh
+        fi
+
+        if [[ $CI_JOB_NAME == *9.10 ]]; then
+          ./tests/nix/cardano-api.sh
+          ./tests/nix/ding-dong.sh
+        fi
       fi
 
 .linux-nix:
@@ -285,14 +299,23 @@ x86_64-linux-alpine:
     - echo "extra-trusted-public-keys = hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ= ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI=" >> /etc/nix/nix.conf
     - echo "sandbox = true" >> /etc/nix/nix.conf
 
-x86_64-linux-nix:
+.x86_64-linux-nix:
   extends: .linux-nix
   tags:
     - x86_64-linux
   variables:
-    NIX_FLAKE_OUTPUTS: .#all_gmp .#all_native .#all_unreg .#all_9_14 .#all_9_12 .#all_9_10 .#all_9_8 .#all_9_6
     NIX_BROWSERS: nixpkgs#firefox-bin nixpkgs#google-chrome
     NIX_SYSTEM: x86_64-linux
+
+x86_64-linux-nix-9.12:
+  extends: .x86_64-linux-nix
+  variables:
+    NIX_FLAKE_OUTPUTS: .#all_9_12
+
+x86_64-linux-nix-9.10:
+  extends: .x86_64-linux-nix
+  variables:
+    NIX_FLAKE_OUTPUTS: .#all_gmp .#all_native .#all_unreg .#all_9_14 .#all_9_10 .#all_9_8 .#all_9_6
 
 aarch64-linux-nix:
   extends: .linux-nix

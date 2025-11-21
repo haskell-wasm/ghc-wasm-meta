@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-pushd "$(mktemp -d)"
+cd "$(mktemp -d)"
 
 git clone --depth=1 https://github.com/brakubraku/ding-dong.git .
 
@@ -10,6 +10,4 @@ nix flake lock --allow-dirty-locks --override-input ghc-wasm "git+file://$CI_PRO
 
 . <(nix print-dev-env .)
 
-nix shell nixpkgs#pkg-config -c bash -c "cd frontend && exec ./build.sh"
-
-popd
+exec nix shell nixpkgs#pkg-config -c bash -c "cd frontend && exec ./build.sh"

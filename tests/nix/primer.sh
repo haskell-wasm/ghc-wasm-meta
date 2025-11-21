@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-pushd "$(mktemp -d)"
+cd "$(mktemp -d)"
 
 git clone --depth=1 https://github.com/hackworthltd/primer.git .
 
@@ -10,6 +10,4 @@ nix flake lock --allow-dirty-locks --override-input ghc-wasm "git+file://$CI_PRO
 
 . <(nix print-dev-env .#wasm)
 
-make -f Makefile.wasm32 frontend-prod
-
-popd
+exec make -f Makefile.wasm32 frontend-prod
