@@ -10,7 +10,7 @@ workflow:
 
 variables:
   DOCKER_REV: a97d5c67d803c6b3811c6cccdf33dc8e9d7eafe3
-  GIT_DEPTH: 1
+  GIT_DEPTH: 0
   GIT_STRATEGY: clone
 
 .x86_64-linux-ubuntu:
