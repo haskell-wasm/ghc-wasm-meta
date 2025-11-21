@@ -7,9 +7,13 @@ miso_example() {
   git clone --depth=1 "$1" .
   nix flake lock --allow-dirty-locks --override-input miso/ghc-wasm-meta "git+file://$CI_PROJECT_DIR"
   nix develop .#wasm --command make
+  if [[ -n "${2-}" ]]; then
+    bash -c "$2"
+  fi
   popd
 }
 
+miso_example https://github.com/haskell-miso/bun-wasm.git "nix run nixpkgs#bun -- install && nix run nixpkgs#bun -- test"
 miso_example https://github.com/haskell-miso/haskell-miso.org.git
 miso_example https://github.com/haskell-miso/miso-2048.git
 miso_example https://github.com/haskell-miso/miso-audio.git
