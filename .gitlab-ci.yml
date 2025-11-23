@@ -310,7 +310,7 @@ x86_64-linux-alpine:
 x86_64-linux-nix-9.12:
   extends: .x86_64-linux-nix
   variables:
-    NIX_FLAKE_OUTPUTS: .#all_9_12
+    NIX_FLAKE_OUTPUTS: .#all_9_14 .#all_9_12
 
 x86_64-linux-nix-9.10:
   extends: .x86_64-linux-nix
