@@ -2,7 +2,7 @@
   "name": "@haskell-wasm/ghc-wasm-npm-deps",
   "version": "0.0.1",
   "dependencies": {
-    "@playwright/test": "^1.56.1",
+    "@playwright/test": "^1.57.0",
     "puppeteer-core": "^24.31.0",
     "wrangler": "^4.50.0"
   }
