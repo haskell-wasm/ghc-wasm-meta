@@ -2,6 +2,13 @@
 
 set -euo pipefail
 
+pushd "$(mktemp -d)"
+git clone --depth=1 https://github.com/dmjio/miso.git .
+nix flake lock --allow-dirty-locks --override-input ghc-wasm-meta "git+file://$CI_PROJECT_DIR"
+nix build -f . playwright-wasm
+nix shell nixpkgs#procps --command ./result/bin/playwright
+popd
+
 miso_example() {
   pushd "$(mktemp -d)"
   git clone --depth=1 "$1" .
