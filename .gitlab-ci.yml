@@ -206,22 +206,21 @@ x86_64-linux-ubuntu-9.14:
 x86_64-linux-chimera-9.14:
   tags:
     - x86_64-linux
-  image: terrorjack/chimera:bash
+  image: chimeralinux/chimera
   rules:
     - if: $UPSTREAM_GHC_FLAVOUR == null
   before_script:
     - |
       apk upgrade --no-interactive
       apk add --no-interactive \
+        bash \
         curl \
         chromium \
         firefox \
         gmake \
         jq \
-        libarchive-progs
-      cd /usr/bin
-      ln -s bsdunzip unzip
-      cd $OLDPWD
+        libarchive-progs \
+        unzip
   script:
     - |
       PREFIX=/tmp/.ghc-wasm ./setup.sh
