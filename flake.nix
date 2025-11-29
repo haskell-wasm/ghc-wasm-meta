@@ -69,7 +69,6 @@
         {
           packages = {
             inherit
-              all
               wasm32-wasi-ghc-gmp
               wasm32-wasi-ghc-native
               wasm32-wasi-ghc-unreg
