@@ -1,16 +1,16 @@
 toolRequirements: {}
 ghcupDownloads:
   GHC:
-    wasm32-wasi-9.15.20251122:
+    wasm32-wasi-9.15.20251129:
       viTags: []
       viArch:
         A_64:
           Linux_UnknownLinux: &ref_0
             unknown_versioning:
-              dlHash: 1d91042fbdd1950415675c8f8ec45502ab4d509aa9e56155fedbf740fa93b714
-              dlSubdir: ghc-9.15.20251122-wasm32-wasi
-              dlUri: 'https://github.com/haskell-wasm/ghc-wasm-bindists/releases/download/20251123T125248/wasm32-wasi-ghc-gmp.tar.xz'
-              dlOutput: 1d91042fbdd1950415675c8f8ec45502ab4d509aa9e56155fedbf740fa93b714.tar.xz
+              dlHash: 09727c7f83ad23beb7066a37e742e9cfe6a88ae92e65dddd057d900113ac9f6a
+              dlSubdir: ghc-9.15.20251129-wasm32-wasi
+              dlUri: 'https://github.com/haskell-wasm/ghc-wasm-bindists/releases/download/20251130T175959/wasm32-wasi-ghc-gmp.tar.xz'
+              dlOutput: 09727c7f83ad23beb7066a37e742e9cfe6a88ae92e65dddd057d900113ac9f6a.tar.xz
           Linux_Alpine: *ref_0
     wasm32-wasi-9.14.0.20251101:
       viTags: []
