@@ -11,6 +11,6 @@ exec podman run -it --rm \
   --volume ~/workspace/.codex:/root/.codex \
   --volume "$PWD":/workspace \
   --workdir /workspace \
-  registry.gitlab.haskell.org/ghc/ci-images/x86_64-linux-ubuntu24_04:a97d5c67d803c6b3811c6cccdf33dc8e9d7eafe3 \
+  registry.gitlab.haskell.org/ghc/ci-images/x86_64-linux-ubuntu24_04:71454506c0c2e215953306b04572092cb89a6c2a \
   bash -c \
   "apt update && apt full-upgrade -y && apt install -y bash-completion nano zstd && cp /etc/skel/{.bash_logout,.bashrc,.profile} /root && PREFIX=/tmp/.ghc-wasm ./setup.sh && . /tmp/.ghc-wasm/env && exec bash -i"

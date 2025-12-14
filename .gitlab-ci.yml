@@ -9,7 +9,7 @@ workflow:
     - if: $UPSTREAM_GHC_FLAVOUR != null
 
 variables:
-  DOCKER_REV: a97d5c67d803c6b3811c6cccdf33dc8e9d7eafe3
+  DOCKER_REV: 71454506c0c2e215953306b04572092cb89a6c2a
   GIT_DEPTH: 0
   GIT_STRATEGY: clone
 
@@ -243,7 +243,7 @@ x86_64-linux-alpine:
   extends: .linux-alpine
   tags:
     - x86_64-linux
-  image: registry.gitlab.haskell.org/ghc/ci-images/x86_64-linux-alpine3_22:$DOCKER_REV
+  image: registry.gitlab.haskell.org/ghc/ci-images/x86_64-linux-alpine3_23:$DOCKER_REV
 
 .nix:
   rules:
