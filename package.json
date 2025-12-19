@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "dependencies": {
     "@playwright/test": "^1.57.0",
-    "puppeteer-core": "^24.33.0",
-    "wrangler": "^4.55.0"
+    "puppeteer-core": "^24.34.0",
+    "wrangler": "^4.56.0"
   }
 }
