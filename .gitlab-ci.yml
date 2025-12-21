@@ -120,6 +120,7 @@ x86_64-linux-ubuntu-9.10:
     FLAVOUR: "9.10"
   script:
     - ./tests/ghci.sh
+    - ./tests/canary.sh
     - ./tests/foundation.sh
     - ./tests/libs/flatparse.sh
     - ./tests/network.sh
@@ -149,6 +150,7 @@ x86_64-linux-ubuntu-9.12:
     FLAVOUR: "9.12"
   script:
     - ./tests/ghci.sh
+    - ./tests/canary.sh
     - ./tests/foundation.sh
     - ./tests/libs/flatparse.sh
     - ./tests/network.sh
