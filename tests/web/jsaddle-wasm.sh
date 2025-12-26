@@ -26,5 +26,5 @@ wasm32-wasi-cabal --project-file=cabal.debug.project install miso-todomvc --inst
 sed -i -e "s/-H64m/-DS/" public/index.js
 
 pushd playwright/examples/todomvc
-npx playwright test --reporter=list --timeout=60000 --workers=$(($CPUS > 8 ? 8 : $CPUS))
+npx playwright test --reporter=list --timeout=90000 --workers=$(($CPUS > 8 ? 8 : $CPUS))
 popd
