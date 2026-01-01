@@ -43,36 +43,36 @@ ghcupDownloads:
               dlUri: 'https://github.com/haskell-wasm/ghc-wasm-bindists/releases/download/20251221T042422/wasm32-wasi-ghc-gmp-aarch64-linux-9.14.tar.xz'
               dlOutput: 28eed98f6a52a197b873acc49a9ca094e827fa3ddef4ba8ac24c7c17977dff8c.tar.xz
           Linux_Alpine: *ref_2
-    wasm32-wasi-9.12.2.20251219:
+    wasm32-wasi-9.12.3.20251231:
       viTags: []
       viArch:
         A_64:
           Linux_UnknownLinux: &ref_3
             unknown_versioning:
-              dlHash: 34324142a6108863daaaa26a4780fe01d51c9f0f4bc987e916d78a4d9619b66e
-              dlSubdir: ghc-9.12.2.20251219-wasm32-wasi
-              dlUri: 'https://github.com/haskell-wasm/ghc-wasm-bindists/releases/download/20251221T042422/wasm32-wasi-ghc-9.12.tar.xz'
-              dlOutput: 34324142a6108863daaaa26a4780fe01d51c9f0f4bc987e916d78a4d9619b66e.tar.xz
+              dlHash: caddbf237efed663d270ab6338c7418ab92d5704a6714878d49ae76df558fdc6
+              dlSubdir: ghc-9.12.3.20251231-wasm32-wasi
+              dlUri: 'https://github.com/haskell-wasm/ghc-wasm-bindists/releases/download/20260101T051925/wasm32-wasi-ghc-9.12.tar.xz'
+              dlOutput: caddbf237efed663d270ab6338c7418ab92d5704a6714878d49ae76df558fdc6.tar.xz
           Linux_Alpine: *ref_3
           Darwin:
             unknown_versioning:
-              dlHash: dc59efc174a0edf91d4a77f78eaeadfb98f53eb503a944c81d7c214a76de8803
-              dlSubdir: ghc-9.12.2.20251219-wasm32-wasi
-              dlUri: 'https://github.com/haskell-wasm/ghc-wasm-bindists/releases/download/20251221T042422/wasm32-wasi-ghc-gmp-x86_64-darwin-9.12.tar.xz'
-              dlOutput: dc59efc174a0edf91d4a77f78eaeadfb98f53eb503a944c81d7c214a76de8803.tar.xz
+              dlHash: 78caa7b97d1f83841de25da31efcb5f3e1ebeb96a664de4866679eaa5aca8fdd
+              dlSubdir: ghc-9.12.3.20251231-wasm32-wasi
+              dlUri: 'https://github.com/haskell-wasm/ghc-wasm-bindists/releases/download/20260101T051925/wasm32-wasi-ghc-gmp-x86_64-darwin-9.12.tar.xz'
+              dlOutput: 78caa7b97d1f83841de25da31efcb5f3e1ebeb96a664de4866679eaa5aca8fdd.tar.xz
         A_ARM64:
           Darwin:
             unknown_versioning:
-              dlHash: 865516bf20cec0e4d427bf87a7525b707b9aa085b30d47740de469d0d6419b36
-              dlSubdir: ghc-9.12.2.20251219-wasm32-wasi
-              dlUri: 'https://github.com/haskell-wasm/ghc-wasm-bindists/releases/download/20251221T042422/wasm32-wasi-ghc-gmp-aarch64-darwin-9.12.tar.xz'
-              dlOutput: 865516bf20cec0e4d427bf87a7525b707b9aa085b30d47740de469d0d6419b36.tar.xz
+              dlHash: d6061962cafaf73a1854eba6ae54f26c66f8b5403683eb4a30a4a1a85e60c41e
+              dlSubdir: ghc-9.12.3.20251231-wasm32-wasi
+              dlUri: 'https://github.com/haskell-wasm/ghc-wasm-bindists/releases/download/20260101T051925/wasm32-wasi-ghc-gmp-aarch64-darwin-9.12.tar.xz'
+              dlOutput: d6061962cafaf73a1854eba6ae54f26c66f8b5403683eb4a30a4a1a85e60c41e.tar.xz
           Linux_UnknownLinux: &ref_4
             unknown_versioning:
-              dlHash: 5d8b7b88be866f290279d2fc7d17fdd488e11dc794000b612012fcd12d3b949a
-              dlSubdir: ghc-9.12.2.20251219-wasm32-wasi
-              dlUri: 'https://github.com/haskell-wasm/ghc-wasm-bindists/releases/download/20251221T042422/wasm32-wasi-ghc-gmp-aarch64-linux-9.12.tar.xz'
-              dlOutput: 5d8b7b88be866f290279d2fc7d17fdd488e11dc794000b612012fcd12d3b949a.tar.xz
+              dlHash: 73daa8ef2c7b6c4eae133b3a306722c662527e90a3466439f918a651f0589751
+              dlSubdir: ghc-9.12.3.20251231-wasm32-wasi
+              dlUri: 'https://github.com/haskell-wasm/ghc-wasm-bindists/releases/download/20260101T051925/wasm32-wasi-ghc-gmp-aarch64-linux-9.12.tar.xz'
+              dlOutput: 73daa8ef2c7b6c4eae133b3a306722c662527e90a3466439f918a651f0589751.tar.xz
           Linux_Alpine: *ref_4
     wasm32-wasi-9.10.3.20251220:
       viTags: []
