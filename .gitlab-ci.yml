@@ -9,7 +9,7 @@ workflow:
     - if: $UPSTREAM_GHC_FLAVOUR != null
 
 variables:
-  DOCKER_REV: 71454506c0c2e215953306b04572092cb89a6c2a
+  DOCKER_REV: 3cd01b1eef441493a456de54fb3505c74e7cf914
   GIT_DEPTH: 0
   GIT_STRATEGY: clone
 
