@@ -30,8 +30,8 @@
               name = "ghc-wasm";
               paths =
                 [
-                  pkgs.haskellPackages.alex
-                  pkgs.haskellPackages.happy
+                  pkgs.alex
+                  pkgs.happy
                   (pkgs.callPackage ./pkgs/wasm32-wasi-ghc.nix { inherit flavour; })
                   wasi-sdk
                   pkgs.cacert
