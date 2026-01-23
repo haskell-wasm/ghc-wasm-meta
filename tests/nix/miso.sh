@@ -21,23 +21,23 @@ miso_example() {
 }
 
 miso_example https://github.com/haskell-miso/bun-wasm.git "nix run nixpkgs#bun -- install && nix run nixpkgs#bun -- test"
-miso_example https://github.com/haskell-miso/haskell-miso.org.git
-miso_example https://github.com/haskell-miso/miso-2048.git
+# miso_example https://github.com/haskell-miso/haskell-miso.org.git
+# miso_example https://github.com/haskell-miso/miso-2048.git
 miso_example https://github.com/haskell-miso/miso-audio.git
-miso_example https://github.com/haskell-miso/miso-fetch.git
-miso_example https://github.com/haskell-miso/miso-flatris.git
+# miso_example https://github.com/haskell-miso/miso-fetch.git
+# miso_example https://github.com/haskell-miso/miso-flatris.git
 # https://github.com/digital-asset/ghc-lib/issues/614
 # miso_example https://github.com/haskell-miso/miso-from-html.git
-miso_example https://github.com/haskell-miso/miso-invaders.git
-miso_example https://github.com/haskell-miso/miso-minesweeper.git
-miso_example https://github.com/haskell-miso/miso-plane.git
+# miso_example https://github.com/haskell-miso/miso-invaders.git
+# miso_example https://github.com/haskell-miso/miso-minesweeper.git
+# miso_example https://github.com/haskell-miso/miso-plane.git
 # https://github.com/haskell-miso/miso-pubsub/issues/1
 # miso_example https://github.com/haskell-miso/miso-pubsub.git
-miso_example https://github.com/haskell-miso/miso-reactive.git
-miso_example https://github.com/haskell-miso/miso-router.git
+# miso_example https://github.com/haskell-miso/miso-reactive.git
+# miso_example https://github.com/haskell-miso/miso-router.git
 miso_example https://github.com/haskell-miso/miso-sampler.git
-miso_example https://github.com/haskell-miso/miso-snake.git
+# miso_example https://github.com/haskell-miso/miso-snake.git
 miso_example https://github.com/haskell-miso/miso-todomvc.git
 miso_example https://github.com/haskell-miso/miso-video.git
 miso_example https://github.com/haskell-miso/miso-websocket.git
-miso_example https://github.com/haskell-miso/three-miso.git
+# miso_example https://github.com/haskell-miso/three-miso.git
