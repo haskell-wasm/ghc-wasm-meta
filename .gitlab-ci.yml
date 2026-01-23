@@ -372,7 +372,7 @@ x86_64-darwin-nix:
 
 .linux-ghcup:
   extends: .ghcup
-  image: rockylinux:8
+  image: quay.io/rockylinux/rockylinux:8
   before_script:
     - |
       dnf upgrade -y
