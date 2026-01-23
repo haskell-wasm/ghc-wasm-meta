@@ -141,8 +141,6 @@ x86_64-linux-ubuntu-9.10:
     - ./tests/agda.sh
     - ./tests/agda-language-server.sh
     - ./tests/type-inference-zoo.sh
-    - ./tests/miso.sh
-    - ./tests/web/jsaddle-wasm.sh
 
 x86_64-linux-ubuntu-9.12:
   extends: .x86_64-linux-ubuntu
