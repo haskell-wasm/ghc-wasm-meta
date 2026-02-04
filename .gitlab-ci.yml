@@ -284,7 +284,7 @@ x86_64-linux-alpine:
 
 .linux-nix:
   extends: .nix
-  image: nixos/nix
+  image: ghcr.io/nixos/nix
   before_script:
     - echo "accept-flake-config = true" >> /etc/nix/nix.conf
     - echo "compress-build-log = false" >> /etc/nix/nix.conf
