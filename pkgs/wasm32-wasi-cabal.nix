@@ -1,13 +1,10 @@
-{ coreutils
-, lib
+{ lib
 , callPackage
 , flavour
 , writeShellScriptBin
-,
 }:
 let
   cabal = callPackage ./cabal.nix { };
-  wasm32-wasi-ghc = callPackage ./wasm32-wasi-ghc.nix { inherit flavour; };
   init-cabal-config =
     lib.optionalString
       (
@@ -18,8 +15,8 @@ let
         ])
       )
       ''
-        ${coreutils}/bin/cp ${../cabal.head.config} "$CABAL_DIR/config"
-        ${coreutils}/bin/chmod u+w "$CABAL_DIR/config"
+        cp "${../cabal.head.config}" "$CABAL_DIR/config"
+        chmod u+w "$CABAL_DIR/config"
       ''
     +
     lib.optionalString
@@ -29,8 +26,8 @@ let
         "9.14"
       ])
       ''
-        ${coreutils}/bin/cp ${../cabal.th.config} "$CABAL_DIR/config"
-        ${coreutils}/bin/chmod u+w "$CABAL_DIR/config"
+        cp "${../cabal.th.config}" "$CABAL_DIR/config"
+        chmod u+w "$CABAL_DIR/config"
       ''
     +
     lib.optionalString
@@ -39,8 +36,8 @@ let
         "9.8"
       ])
       ''
-        ${coreutils}/bin/cp ${../cabal.legacy.config} "$CABAL_DIR/config"
-        ${coreutils}/bin/chmod u+w "$CABAL_DIR/config"
+        cp "${../cabal.legacy.config}" "$CABAL_DIR/config"
+        chmod u+w "$CABAL_DIR/config"
       '';
   withHaddock = lib.optionalString
     (
@@ -55,7 +52,7 @@ writeShellScriptBin "wasm32-wasi-cabal" ''
 
   if [ ! -f "$CABAL_DIR/config" ]
   then
-    ${coreutils}/bin/mkdir -p "$CABAL_DIR"
+    mkdir -p "$CABAL_DIR"
     ${init-cabal-config}
   fi
 
