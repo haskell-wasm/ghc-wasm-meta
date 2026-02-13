@@ -48,7 +48,7 @@ let
         "9.6"
         "9.8"
       ]
-    ) "--with-haddock=${wasm32-wasi-ghc}/bin/wasm32-wasi-haddock";
+    ) "--with-haddock=wasm32-wasi-haddock";
 in
 writeShellScriptBin "wasm32-wasi-cabal" ''
   export CABAL_DIR="''${CABAL_DIR:-$HOME/.ghc-wasm/.cabal}"
@@ -60,9 +60,9 @@ writeShellScriptBin "wasm32-wasi-cabal" ''
   fi
 
   exec ${cabal}/bin/cabal \
-    --with-compiler=${wasm32-wasi-ghc}/bin/wasm32-wasi-ghc \
-    --with-hc-pkg=${wasm32-wasi-ghc}/bin/wasm32-wasi-ghc-pkg \
-    --with-hsc2hs=${wasm32-wasi-ghc}/bin/wasm32-wasi-hsc2hs \
+    --with-compiler=wasm32-wasi-ghc \
+    --with-hc-pkg=wasm32-wasi-ghc-pkg \
+    --with-hsc2hs=wasm32-wasi-hsc2hs \
     ${withHaddock} \
     ''${1+"$@"}
 ''
