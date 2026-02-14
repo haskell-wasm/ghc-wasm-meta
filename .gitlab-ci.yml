@@ -329,7 +329,7 @@ aarch64-darwin-nix:
     - aarch64-darwin
   variables:
     NIX_FLAKE_OUTPUTS: .#all_9_14 .#all_9_12 .#all_9_10
-    NIX_BROWSERS: nixpkgs#google-chrome
+    NIX_BROWSERS: ""
     NIX_SYSTEM: aarch64-darwin
 
 x86_64-darwin-nix:
