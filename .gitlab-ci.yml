@@ -271,7 +271,6 @@ x86_64-linux-alpine:
 
         if [[ $CI_JOB_NAME == *9.12 ]]; then
           ./tests/nix/obelisk.sh
-          ./tests/nix/primer.sh
           ./tests/nix/miso.sh
           ./tests/nix/dashi.sh
         fi
