@@ -213,7 +213,7 @@ echo "Installing wasm32-wasi-ghc from $GHC_BINDIST"
 curl -f -L --retry 5 "$GHC_BINDIST" -o wasm32-wasi-ghc.tar.xz
 tar xJf wasm32-wasi-ghc.tar.xz -C ghc --no-same-owner --strip-components=1
 pushd ghc
-sh -c ". $PREFIX/env && ./configure \$CONFIGURE_ARGS --prefix=$PREFIX/wasm32-wasi-ghc && RelocatableBuild=YES exec make install"
+sh -c ". $PREFIX/env && ./configure \$CONFIGURE_ARGS --prefix=$PREFIX/wasm32-wasi-ghc && RelocatableBuild=YES exec make install -j"
 if [[ "$FLAVOUR" != 9.6 ]] && [[ "$FLAVOUR" != 9.8 ]]; then
   if [[ $SED_IS_GNU == "1" ]]; then
     grep -lrIF "$PREFIX" "$PREFIX/wasm32-wasi-ghc" | xargs sed -i "s@$PREFIX@\$topdir/../..@g"
