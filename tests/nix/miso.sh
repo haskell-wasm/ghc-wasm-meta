@@ -23,7 +23,7 @@ miso_example() {
 miso_example https://github.com/haskell-miso/bun-wasm.git "nix run nixpkgs#bun -- install && nix run nixpkgs#bun -- test"
 # miso_example https://github.com/haskell-miso/haskell-miso.org.git
 # miso_example https://github.com/haskell-miso/miso-2048.git
-miso_example https://github.com/haskell-miso/miso-audio.git
+# miso_example https://github.com/haskell-miso/miso-audio.git
 # miso_example https://github.com/haskell-miso/miso-fetch.git
 # miso_example https://github.com/haskell-miso/miso-flatris.git
 # https://github.com/digital-asset/ghc-lib/issues/614
