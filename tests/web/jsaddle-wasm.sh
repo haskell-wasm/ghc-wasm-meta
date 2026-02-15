@@ -18,7 +18,7 @@ git clone --depth=1 https://github.com/haskell-wasm/playwright.git
 pushd playwright/examples/todomvc
 npm install
 npx playwright install --with-deps --no-shell
-npx playwright test --reporter=list --workers=$(($CPUS > 8 ? 8 : $CPUS))
+npx playwright test --reporter=list --workers="$CPUS"
 popd
 
 wasm32-wasi-cabal --project-file=cabal.debug.project install miso-todomvc --install-method=copy --installdir=public --overwrite-policy=always
@@ -26,5 +26,5 @@ wasm32-wasi-cabal --project-file=cabal.debug.project install miso-todomvc --inst
 sed -i -e "s/-H64m/-DS/" public/index.js
 
 pushd playwright/examples/todomvc
-npx playwright test --reporter=list --timeout=90000 --workers=$(($CPUS > 8 ? 8 : $CPUS))
+npx playwright test --reporter=list --timeout=90000 --workers="$CPUS"
 popd
