@@ -68,8 +68,8 @@
     "hash": "sha256-z7ib+UKOMnAd5w8c2q12aOQwRzqVvypmPqa3nPCj2jg="
   },
   "wasi-sdk": {
-    "url": "https://github.com/haskell-wasm/ghc-wasm-bindists/releases/download/20251219T213239/wasi-sdk.tar.gz",
-    "hash": "sha256-+hsjbYR/pqtavssIuMGAcXiBj2izMCmEXrFRV9W9vkc="
+    "url": "https://github.com/haskell-wasm/ghc-wasm-bindists/releases/download/20260215T021831/wasi-sdk-debug.tar.gz",
+    "hash": "sha256-33k5ZwvMcc79RdKhn+6KbaSVeBA4HJGiT1hQ+hnnjSg="
   },
   "wasi-sdk-aarch64-darwin": {
     "url": "https://github.com/haskell-wasm/ghc-wasm-bindists/releases/download/20251219T213239/wasi-sdk-aarch64-darwin.tar.gz",
