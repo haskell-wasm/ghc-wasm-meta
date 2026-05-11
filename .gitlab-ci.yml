@@ -268,10 +268,13 @@ x86_64-linux-alpine:
         nix shell --command wasm32-wasi-cabal update --ignore-project
         nix run nixpkgs#gnused -- -i -e "s/\$ncpus/$CPUS/" "$HOME/.ghc-wasm/.cabal/config"
 
+        if [[ $CI_JOB_NAME == *9.14 ]]; then
+          ./tests/nix/dashi.sh
+          ./tests/nix/miso.sh
+        fi
+
         if [[ $CI_JOB_NAME == *9.12 ]]; then
           ./tests/nix/obelisk.sh
-          ./tests/nix/miso.sh
-          ./tests/nix/dashi.sh
         fi
 
         if [[ $CI_JOB_NAME == *9.10 ]]; then
@@ -302,15 +305,20 @@ x86_64-linux-alpine:
     NIX_BROWSERS: nixpkgs#firefox-bin nixpkgs#google-chrome
     NIX_SYSTEM: x86_64-linux
 
+x86_64-linux-nix-9.14:
+  extends: .x86_64-linux-nix
+  variables:
+    NIX_FLAKE_OUTPUTS: .#all_gmp .#all_native .#all_unreg .#all_9_14 .#all_9_12 .#all_9_10 .#all_9_8 .#all_9_6
+
 x86_64-linux-nix-9.12:
   extends: .x86_64-linux-nix
   variables:
-    NIX_FLAKE_OUTPUTS: .#all_9_14 .#all_9_12
+    NIX_FLAKE_OUTPUTS: .#all_9_12
 
 x86_64-linux-nix-9.10:
   extends: .x86_64-linux-nix
   variables:
-    NIX_FLAKE_OUTPUTS: .#all_gmp .#all_native .#all_unreg .#all_9_14 .#all_9_10 .#all_9_8 .#all_9_6
+    NIX_FLAKE_OUTPUTS: .#all_9_10
 
 aarch64-linux-nix:
   extends: .linux-nix

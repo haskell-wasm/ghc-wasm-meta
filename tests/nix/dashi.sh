@@ -2,12 +2,14 @@
 
 set -euo pipefail
 
-pushd "$(mktemp -d)"
+cd "$(mktemp -d)"
 
 git clone --depth=1 https://github.com/ners/dashi.git .
 
-nix flake lock --allow-dirty-locks --override-input ghc-wasm-meta "git+file://$CI_PROJECT_DIR"
+nix flake lock --allow-dirty-locks --override-input nix-wasm/ghc-wasm-meta "git+file://$CI_PROJECT_DIR"
 
-NIXPKGS_ALLOW_BROKEN=1 nix build --impure --json --no-link
+nix build --json --no-link
 
-popd
+. <(nix print-dev-env .)
+
+exec wasm32-wasi-cabal build exe:dashi
