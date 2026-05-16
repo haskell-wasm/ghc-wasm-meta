@@ -1,5 +1,5 @@
 {
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-25.11-darwin";
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-26.05-darwin";
   inputs.flake-utils.url = "github:numtide/flake-utils";
 
   outputs =
@@ -20,9 +20,6 @@
         let
           pkgs = import nixpkgs {
             inherit system;
-            config = {
-              permittedInsecurePackages = [ "openssl-1.1.1w" ];
-            };
           };
           all =
             flavour:
