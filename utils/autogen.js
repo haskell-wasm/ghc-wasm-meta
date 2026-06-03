@@ -116,7 +116,7 @@ const _binaryen_aarch64_darwin = fetchGitHubLatestRelease(
 const _binaryen_x86_64_darwin = fetchGitHubLatestRelease(
   "WebAssembly",
   "binaryen",
-  "x86_64-macos.tar.gz"
+  "x86_64-macos-14.tar.gz"
 );
 const _wasmtime = fetchGitHubLatestRelease(
   "haskell-wasm",
