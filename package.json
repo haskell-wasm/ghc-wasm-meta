@@ -4,6 +4,6 @@
   "dependencies": {
     "@playwright/test": "^1.60.0",
     "puppeteer-core": "^25.1.0",
-    "wrangler": "^4.97.0"
+    "wrangler": "^4.100.0"
   }
 }
