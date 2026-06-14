@@ -3,7 +3,7 @@
 set -euo pipefail
 
 pushd "$(mktemp -d)"
-curl -f -L https://github.com/RubenVerg/TinyAPL/archive/refs/heads/beta.tar.gz | tar xz --strip-components=1
+git clone --depth=1 --recurse-submodules --shallow-submodules --branch=beta https://github.com/RubenVerg/TinyAPL.git .
 cp $CI_PROJECT_DIR/cabal.project.local .
 ./app/build.sh
 popd
