@@ -188,7 +188,7 @@ for e in \
   'CONF_CC_OPTS_STAGE1=${CONF_CC_OPTS_STAGE1:-"-Wno-error=int-conversion -O3 -mcpu=lime1 -mreference-types -msimd128"}' \
   'CONF_CXX_OPTS_STAGE1=${CONF_CXX_OPTS_STAGE1:-"-fno-exceptions -Wno-error=int-conversion -O3 -mcpu=lime1 -mreference-types -msimd128"}' \
   'CONF_GCC_LINKER_OPTS_STAGE1=${CONF_GCC_LINKER_OPTS_STAGE1:-"-Wl,--error-limit=0,--keep-section=ghc_wasm_jsffi,--keep-section=target_features,--stack-first,--strip-debug "}' \
-  "CONFIGURE_ARGS=\"--host=$HOST --target=wasm32-wasi --with-intree-gmp --with-system-libffi\"" \
+  "CONFIGURE_ARGS=\${CONFIGURE_ARGS:-\"--host=$HOST --target=wasm32-wasi --with-intree-gmp --with-system-libffi\"}" \
   'CROSS_EMULATOR=${CROSS_EMULATOR:-"'"$PREFIX/wasm-run/bin/wasm-run.mjs"'"}' \
   'NODE_PATH=${NODE_PATH:-"'"$PREFIX/nodejs/lib/node_modules"'"}'
 do
