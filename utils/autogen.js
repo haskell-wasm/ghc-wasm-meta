@@ -93,10 +93,10 @@ const _nodejs_aarch64_linux = fetchGitHubLatestRelease(
   "linux-arm64-static.tar.xz"
 );
 const _nodejs_aarch64_darwin = fetchurl(
-  "https://nodejs.org/dist/v26.3.0/node-v26.3.0-darwin-arm64.tar.xz"
+  "https://nodejs.org/dist/v26.3.1/node-v26.3.1-darwin-arm64.tar.xz"
 );
 const _nodejs_x86_64_darwin = fetchurl(
-  "https://nodejs.org/dist/v26.3.0/node-v26.3.0-darwin-x64.tar.xz"
+  "https://nodejs.org/dist/v26.3.1/node-v26.3.1-darwin-x64.tar.xz"
 );
 const _binaryen = fetchGitHubLatestRelease(
   "haskell-wasm",
@@ -116,7 +116,7 @@ const _binaryen_aarch64_darwin = fetchGitHubLatestRelease(
 const _binaryen_x86_64_darwin = fetchGitHubLatestRelease(
   "WebAssembly",
   "binaryen",
-  "x86_64-macos-14.tar.gz"
+  "x86_64-macos.tar.gz"
 );
 const _wasmtime = fetchGitHubLatestRelease(
   "haskell-wasm",

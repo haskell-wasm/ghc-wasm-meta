@@ -88,20 +88,20 @@
     "hash": "sha256-Um9Gcu9zKl0pzFYL3RmAnyFJozOPKVoq1NnU2jilI0s="
   },
   "nodejs": {
-    "url": "https://github.com/haskell-wasm/node-static/releases/download/v26.3.0/node-v26.3.0-linux-x64-static.tar.xz",
-    "hash": "sha512-SKNEtCbPjdwzytZ3Ni4UsVRJeip2lnRfFytRn+vsg84zeq8Gc4D5017WRMLs3hGtPSdrBJ/mKd7GehH7QQpl9w=="
+    "url": "https://github.com/haskell-wasm/node-static/releases/download/v26.3.1/node-v26.3.1-linux-x64-static.tar.xz",
+    "hash": "sha512-mCF85W+OMOEJg9dHP6YdaM2o/b51eux3wFXElsH5OuMUj07LX/QZwm23OxBaqemveWloYnE7yYkDZug2V09l2Q=="
   },
   "nodejs_aarch64_linux": {
-    "url": "https://github.com/haskell-wasm/node-static/releases/download/v26.3.0/node-v26.3.0-linux-arm64-static.tar.xz",
-    "hash": "sha512-z02m+HJMr2iSoyqS5+MdDeNsb7ISea/Yz5MNEayJf49Y4/QESFPDLw3mg63UHB4oWU8ek/zwysobBxMakhj5Xg=="
+    "url": "https://github.com/haskell-wasm/node-static/releases/download/v26.3.1/node-v26.3.1-linux-arm64-static.tar.xz",
+    "hash": "sha512-FuexBxqslPj2cXFbxqPcUemTovDUDu+NZiOCSJCr1dWIwiDwrPXnSmbvgTyCmy2+GYYalH5wcgLyv3fCYSk7SA=="
   },
   "nodejs_aarch64_darwin": {
-    "url": "https://nodejs.org/dist/v26.3.0/node-v26.3.0-darwin-arm64.tar.xz",
-    "hash": "sha512-B25kN0Fb5O6D3becV0WATCfPYuKzHMkcpAPLegm3OGvKZYax9zvyZQvBpEzefbIe6Pws4PZ37DFVWQXAMXHTTg=="
+    "url": "https://nodejs.org/dist/v26.3.1/node-v26.3.1-darwin-arm64.tar.xz",
+    "hash": "sha512-AZ23P5yZJypoIvJIV5uwlw+De8XNJdkuo9/BdQVgwpa8/35PpfF/vq8tUv+e7nj+gmlbmXeW6ZK1GwYDyZmC2g=="
   },
   "nodejs_x86_64_darwin": {
-    "url": "https://nodejs.org/dist/v26.3.0/node-v26.3.0-darwin-x64.tar.xz",
-    "hash": "sha512-HC9os96DMH0XNdBpBbyKy7BkXBskGZIXZAgwoYoEwD1b/bDV7YZlf4mYKOs8VFiXBc5PLuyQ/uJRPyM2o3HD0Q=="
+    "url": "https://nodejs.org/dist/v26.3.1/node-v26.3.1-darwin-x64.tar.xz",
+    "hash": "sha512-/F30DOMyPLTh/1Ha6fyDWvCZ+w4ttKwTOLJMUpiEQPbPSlEVttsXrSofAFn2ZCi3FRdMi5eV7zizCPygYekERw=="
   },
   "binaryen": {
     "url": "https://github.com/haskell-wasm/binaryen/releases/download/version_130/binaryen-version_130-x86_64-linux-static.tar.gz",
@@ -116,7 +116,7 @@
     "hash": "sha512-qGf1KgKhQy+4eaK5QKJLMIdiT70v3JlNUL2tLOG87ehmNiGeR0W0nEXQVcJeNCvG7WsNwSH0qPNY/C7Oxi7t+Q=="
   },
   "binaryen_x86_64_darwin": {
-    "url": "https://github.com/WebAssembly/binaryen/releases/download/version_130/binaryen-version_130-x86_64-macos-14.tar.gz",
+    "url": "https://github.com/WebAssembly/binaryen/releases/download/version_130/binaryen-version_130-x86_64-macos.tar.gz",
     "hash": "sha512-a8SEhmGtdWTQYT+zrXULm7ofdu61Gvafvrj/5w7mpyHfQZ3sWCfcAHOQfphVVl96fdxKck/Z0lrOzZEmWWCXjA=="
   },
   "wasmtime": {
