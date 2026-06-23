@@ -3,6 +3,6 @@
   "version": "0.0.1",
   "dependencies": {
     "@playwright/test": "^1.61.0",
-    "puppeteer-core": "^25.1.0"
+    "puppeteer-core": "^25.2.0"
   }
 }
