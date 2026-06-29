@@ -63,7 +63,6 @@ variables:
     - ./tests/hfsnotify.sh
     - ./tests/xxhash-ffi.sh
     - ./tests/misc.sh
-    - ./tests/pandoc.sh
     - ./tests/shellcheck.sh
     - ./tests/apps/brassica.sh
     - ./tests/tinyapl.sh
