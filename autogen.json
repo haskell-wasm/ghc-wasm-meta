@@ -104,20 +104,20 @@
     "hash": "sha512-P4Y9zL6CmTYWz42qZggGIDhfHfdE1PC4KDLm0KzbkOr4kpYu4zgKaN+MBwgUTGiWMucvM1FRxAiZKODGePqcZA=="
   },
   "binaryen": {
-    "url": "https://github.com/haskell-wasm/binaryen/releases/download/version_130/binaryen-version_130-x86_64-linux-static.tar.gz",
-    "hash": "sha512-Bz2SCVjOSO8SISPyZd1Pi2D0GDzbiTe7yqBlkrllaan+U/q4MJyjrO9Rl3A9YI/MnJfdaHl6OkKo43kXlze3/Q=="
+    "url": "https://github.com/haskell-wasm/binaryen/releases/download/version_131/binaryen-version_131-x86_64-linux-static.tar.gz",
+    "hash": "sha512-JgyEwGH+yTMYcfnuR95gQKwQq5bQ6gL7O8Fc0lvHnuOx7Iy7XqiYfbL1kIq4pQdCl4tlZVBX8XrYK6quH6Op+A=="
   },
   "binaryen_aarch64_linux": {
-    "url": "https://github.com/haskell-wasm/binaryen/releases/download/version_130/binaryen-version_130-aarch64-linux-static.tar.gz",
-    "hash": "sha512-gSIcqepcDLfXyFrFWPmLDqRjQSUhcxmpTgtsY/ZWNGQQDUTz91Oo2rU+zzS1U6+879cn45KU5YPSOSoeUShgdg=="
+    "url": "https://github.com/haskell-wasm/binaryen/releases/download/version_131/binaryen-version_131-aarch64-linux-static.tar.gz",
+    "hash": "sha512-MPTbjmN9fFTKc3Wx4YUFqBvmOMtxr4QIHjXxWXyyM4TFl2vqmw4vs88+HUztZKYD2B2rHgSgIOHMbAc9u4b0zw=="
   },
   "binaryen_aarch64_darwin": {
-    "url": "https://github.com/WebAssembly/binaryen/releases/download/version_130/binaryen-version_130-arm64-macos.tar.gz",
-    "hash": "sha512-qGf1KgKhQy+4eaK5QKJLMIdiT70v3JlNUL2tLOG87ehmNiGeR0W0nEXQVcJeNCvG7WsNwSH0qPNY/C7Oxi7t+Q=="
+    "url": "https://github.com/WebAssembly/binaryen/releases/download/version_131/binaryen-version_131-arm64-macos.tar.gz",
+    "hash": "sha512-1TOQCDfY62/ZjHqV2mWSr+fPAZ0aTlTn0fK/bjCAVuSWLQ3hk8nQarE2CkM/r2qcDFHgWjcc0RN42y+/YUffRQ=="
   },
   "binaryen_x86_64_darwin": {
-    "url": "https://github.com/WebAssembly/binaryen/releases/download/version_130/binaryen-version_130-x86_64-macos.tar.gz",
-    "hash": "sha512-a8SEhmGtdWTQYT+zrXULm7ofdu61Gvafvrj/5w7mpyHfQZ3sWCfcAHOQfphVVl96fdxKck/Z0lrOzZEmWWCXjA=="
+    "url": "https://github.com/WebAssembly/binaryen/releases/download/version_131/binaryen-version_131-x86_64-macos.tar.gz",
+    "hash": "sha512-d7KCjozadzGi70OX8yjkqmQCnd52774Ejhl12QrBBzstwxmC5zvuMcCC8SF2CzP4F0NStFn57DlMBwf36ds60Q=="
   },
   "wasmtime": {
     "url": "https://github.com/haskell-wasm/wasm-tools-static/releases/download/260624/wasm-tools-260624-x86_64-linux.tar.zst",
