@@ -74,7 +74,7 @@ stdenvNoCC.mkDerivation {
 
   installFlags = [ "RelocatableBuild=YES" ];
 
-  enableParallelInstalling = hostPlatform.isLinux;
+  enableParallelInstalling = true;
 
   postInstall = ''
     wrapProgram $out/bin/wasm32-wasi-ghc \
