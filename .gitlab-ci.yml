@@ -383,6 +383,7 @@ x86_64-darwin-nix:
         firefox \
         jq \
         make \
+        python3.12 \
         unzip \
         zstd
     - |
