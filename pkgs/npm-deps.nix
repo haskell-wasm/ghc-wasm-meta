@@ -17,7 +17,7 @@ buildNpmPackage {
     "package.json"
     "package-lock.json"
   ];
-  npmDepsHash = "sha256-9I0Lx8YXNxckvPmJ4LG3yPHpLGYuX2XHMj9zMUbioT0=";
+  npmDepsHash = "sha256-bgPXNX3YF9FokR030e3VOlejSi39yrDEXNOIq4FJKoE=";
 
   nativeBuildInputs =
     lib.optionals stdenv.hostPlatform.isLinux [ autoPatchelfHook ]
