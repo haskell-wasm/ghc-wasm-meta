@@ -10,6 +10,6 @@ exec podman run -it --rm \
   --init \
   --volume "$PWD":/workspace \
   --workdir /workspace \
-  registry.gitlab.haskell.org/ghc/ci-images/x86_64-linux-ubuntu24_04:5df428b97c501f61f57587048d4bd15eba53e364 \
+  registry.gitlab.haskell.org/ghc/ci-images/x86_64-linux-ubuntu24_04:73b50b6775bef17915914bccc17d15eb818a5dac \
   bash -c \
   "sudo apt update && sudo apt full-upgrade -y && sudo apt install -y bash-completion btrfs-progs nano zstd && PREFIX=/home/ghc/.ghc-wasm ./setup.sh && . /home/ghc/.ghc-wasm/env && exec bash -i"
