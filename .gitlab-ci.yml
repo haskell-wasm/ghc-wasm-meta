@@ -16,31 +16,14 @@ variables:
 .x86_64-linux-ubuntu:
   tags:
     - x86_64-linux
-  image: registry.gitlab.haskell.org/ghc/ci-images/x86_64-linux-ubuntu24_04:$DOCKER_REV
+  image: ghcr.io/christopherhx/runner-images:ubuntu26-runner-large-latest
   rules:
     - if: $UPSTREAM_GHC_FLAVOUR == null
     - if: $UPSTREAM_GHC_FLAVOUR == $FLAVOUR
   variables:
     PLAYWRIGHT: 1
   before_script:
-    - |
-      sudo apt update
-      sudo apt full-upgrade -y
-      sudo apt install -y \
-        zstd
-
-      curl -f -L https://packages.mozilla.org/apt/repo-signing-key.gpg | sudo tee /usr/share/keyrings/packages.mozilla.org.asc
-      echo "deb [signed-by=/usr/share/keyrings/packages.mozilla.org.asc] https://packages.mozilla.org/apt mozilla main" | sudo tee /etc/apt/sources.list.d/mozilla.list
-
-      curl -f -L https://dl.google.com/linux/linux_signing_key.pub | sudo tee /usr/share/keyrings/google.asc
-      echo "deb [signed-by=/usr/share/keyrings/google.asc] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
-
-      sudo apt update
-      sudo apt install -y \
-        google-chrome-stable
-      sudo apt install -y --target-release=mozilla \
-        firefox
-    - sudo chown ghc:ghc -R .
+    - sudo chown runner:runner -R .
     - |
       PREFIX=/tmp/.ghc-wasm ./setup.sh
       sed -i -e "s/\$ncpus/$CPUS/" /tmp/.ghc-wasm/.cabal/config
