@@ -25,6 +25,9 @@ variables:
   before_script:
     - sudo chown runner:runner -R .
     - |
+      cabal update --ignore-project
+      cabal install --ignore-project alex happy
+    - |
       PREFIX=/tmp/.ghc-wasm ./setup.sh
       sed -i -e "s/\$ncpus/$CPUS/" /tmp/.ghc-wasm/.cabal/config
       . /tmp/.ghc-wasm/env

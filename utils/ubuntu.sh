@@ -8,8 +8,9 @@ exec podman run -it --rm \
   --env FLAVOUR="$1" \
   --env PLAYWRIGHT=1 \
   --init \
+  --tmpfs /tmp:exec \
   --volume "$PWD":/workspace \
   --workdir /workspace \
   ghcr.io/christopherhx/runner-images:ubuntu26-runner-large-latest \
   bash -c \
-  "PREFIX=/tmp/.ghc-wasm ./setup.sh && . /tmp/.ghc-wasm/env && exec bash -i"
+  "cabal update --ignore-project && cabal install --ignore-project alex happy && ./setup.sh && . ~/.ghc-wasm/env && exec bash -i"
