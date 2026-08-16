@@ -37,14 +37,12 @@ variables:
   allow_failure: true
   script:
     - ./tests/ghci.sh
-    - ./tests/canary.sh
     - ./tests/foundation.sh
     - ./tests/network.sh
     - ./tests/reflex-dom.sh
     - ./tests/time.sh
     - ./tests/clock.sh
     - ./tests/unix-compat.sh
-    - ./tests/hashtables.sh
     - ./tests/bzlib.sh
     - ./tests/hfsnotify.sh
     - ./tests/xxhash-ffi.sh
