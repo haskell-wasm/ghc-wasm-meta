@@ -1,6 +1,6 @@
 {
   "wasm32-wasi-ghc-gmp": {
-    "url": "https://github.com/haskell-wasm/ghc-wasm-bindists/releases/download/20260731T193144/wasm32-wasi-ghc-gmp.tar.xz",
+    "url": "https://gitlab.haskell.org/ghc/ghc/-/jobs/2618378/artifacts/raw/ghc-x86_64-linux-alpine3_23-wasm-cross_wasm32-wasi-release+host_fully_static+text_simdutf.tar.xz",
     "hash": "sha256-W+DoO8ccc5PYGH3qtV+whelMldH2zBqGFP3q6YTx790="
   },
   "wasm32-wasi-ghc-native": {
@@ -88,12 +88,12 @@
     "hash": "sha256-Um9Gcu9zKl0pzFYL3RmAnyFJozOPKVoq1NnU2jilI0s="
   },
   "nodejs": {
-    "url": "https://github.com/haskell-wasm/node-static/releases/download/v26.7.0/node-v26.7.0-linux-x64-static.tar.xz",
-    "hash": "sha512-XPs4feR8nLuW9BtE506E05TGWkcOb/9ve69aN8duKdHzQ+jsAExdcZ380NL/Wya80XQmRfXFRWymZlcLSTwM/A=="
+    "url": "https://github.com/haskell-wasm/node-static/releases/download/v26.7.0-1/node-v26.7.0-linux-x64-static.tar.xz",
+    "hash": "sha512-6vHTwZKPiRsWgbZwQmCSM7/s66Gt6VKw5IT6C8rkOFzfruINXPXLJ2oqWgx/zvtMPZhNOPryQmqEu8gJGNPxJQ=="
   },
   "nodejs_aarch64_linux": {
-    "url": "https://github.com/haskell-wasm/node-static/releases/download/v26.7.0/node-v26.7.0-linux-arm64-static.tar.xz",
-    "hash": "sha512-6hAShPPTFaEErBhZp72E5Y+GLR88hgvByoMY7W0fB27LGABVxL5acz1TVOL2ZvHeiKHy0b0669dfFwb0TvTU1A=="
+    "url": "https://github.com/haskell-wasm/node-static/releases/download/v26.7.0-1/node-v26.7.0-linux-arm64-static.tar.xz",
+    "hash": "sha512-WM5SI2trpDPieKT/oEOnnPstVb6ltEgJboOaQ6jZjV9fuddnBuH0vV0uaA38k5yTrngAuQwxUcdPT3I+1okkFQ=="
   },
   "nodejs_aarch64_darwin": {
     "url": "https://nodejs.org/dist/v26.7.0/node-v26.7.0-darwin-arm64.tar.xz",
