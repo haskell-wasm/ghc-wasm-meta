@@ -8,6 +8,7 @@ pushd "$(mktemp -d)"
 curl -f -L https://github.com/haskell-fswatch/hfsnotify/archive/refs/heads/master.tar.gz | tar xz --strip-components=1
 cp "$CI_PROJECT_DIR/cabal.project.local" .
 echo "constraints: monad-control >= 1.0.3.1" >> cabal.project.local
+echo "constraints: string-interpolate < 1.0.0.0" >> cabal.project.local
 wasm32-wasi-cabal build all
 wasm32-wasi-cabal list-bin exe:example
 $CROSS_EMULATOR "$(wasm32-wasi-cabal list-bin exe:example)"
