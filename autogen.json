@@ -88,20 +88,20 @@
     "hash": "sha256-Um9Gcu9zKl0pzFYL3RmAnyFJozOPKVoq1NnU2jilI0s="
   },
   "nodejs": {
-    "url": "https://github.com/haskell-wasm/node-static/releases/download/v26.7.0-1/node-v26.7.0-linux-x64-static.tar.xz",
-    "hash": "sha512-6vHTwZKPiRsWgbZwQmCSM7/s66Gt6VKw5IT6C8rkOFzfruINXPXLJ2oqWgx/zvtMPZhNOPryQmqEu8gJGNPxJQ=="
+    "url": "https://github.com/haskell-wasm/node-static/releases/download/v26.8.1/node-v26.8.1-linux-x64-static.tar.xz",
+    "hash": "sha512-nWLwHJUcVUnkxgth1gf1E5gvEmNZqQ5qq3G7gj8x2rIXCCH9AtXRgVZKhBunPu8BhUf7nkSCn8kDUFCaoKyw4g=="
   },
   "nodejs_aarch64_linux": {
-    "url": "https://github.com/haskell-wasm/node-static/releases/download/v26.7.0-1/node-v26.7.0-linux-arm64-static.tar.xz",
-    "hash": "sha512-WM5SI2trpDPieKT/oEOnnPstVb6ltEgJboOaQ6jZjV9fuddnBuH0vV0uaA38k5yTrngAuQwxUcdPT3I+1okkFQ=="
+    "url": "https://github.com/haskell-wasm/node-static/releases/download/v26.8.1/node-v26.8.1-linux-arm64-static.tar.xz",
+    "hash": "sha512-p4kT8IiHTAgg98SOK07m8GJUwaBVR2bfcZBU3OFTchZNFrZNFxmDcm9WVBnqNTNy+c/K95kV/g0s2T4QrbTAbA=="
   },
   "nodejs_aarch64_darwin": {
-    "url": "https://nodejs.org/dist/v26.7.0/node-v26.7.0-darwin-arm64.tar.xz",
-    "hash": "sha512-bho3rb47gfhaBdcNF6KSGkXgEAN+ho4oUOHkZ6IALRiULFRnJnD1z/0deFYU4Eu1RTU42sCqxRYjdrN7A3Zurg=="
+    "url": "https://nodejs.org/dist/v26.8.1/node-v26.8.1-darwin-arm64.tar.xz",
+    "hash": "sha512-BDjhIjZZuOpgHZxvnjQzuGSbiJJ0XP11RINLWJOv/+eIKW3DHwJyXScMcGMy4+J9DE4OZ0t5UNemexfR/lAFNA=="
   },
   "nodejs_x86_64_darwin": {
-    "url": "https://nodejs.org/dist/v26.7.0/node-v26.7.0-darwin-x64.tar.xz",
-    "hash": "sha512-7rnjTootrrSPytnlB9ztUHPS719hW1+hU+0tlORmtXEVh+fk+/N+/mt5F00saRieItAubqKDXB4ukS/nAa/wfQ=="
+    "url": "https://nodejs.org/dist/v26.8.1/node-v26.8.1-darwin-x64.tar.xz",
+    "hash": "sha512-MOp57TkVrHRbnvulLgeAvUu5fNPHJLijwjGG3aGIqdFPvNKbUlOCXHCjN9L4W+P3cdBAG/U49vKD6+p6Kn+bag=="
   },
   "binaryen": {
     "url": "https://github.com/haskell-wasm/binaryen/releases/download/version_132/binaryen-version_132-x86_64-linux-static.tar.gz",
