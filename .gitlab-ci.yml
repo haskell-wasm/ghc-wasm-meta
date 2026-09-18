@@ -183,6 +183,33 @@ x86_64-linux-ubuntu-9.14:
     - ./tests/miso.sh
     - ./tests/web/jsaddle-wasm.sh
 
+x86_64-linux-ubuntu-10.0:
+  extends: .x86_64-linux-ubuntu
+  variables:
+    FLAVOUR: "10.0"
+  script:
+    - ./tests/ghci.sh
+    - ./tests/canary.sh
+    - ./tests/foundation.sh
+    - ./tests/network.sh
+    - ./tests/reflex-dom.sh
+    - ./tests/time.sh
+    - ./tests/clock.sh
+    - ./tests/unix-compat.sh
+    - ./tests/hashtables.sh
+    - ./tests/bzlib.sh
+    - ./tests/hfsnotify.sh
+    - ./tests/xxhash-ffi.sh
+    - ./tests/misc.sh
+    - ./tests/pandoc.sh
+    - ./tests/shellcheck.sh
+    - ./tests/apps/brassica.sh
+    - ./tests/tinyapl.sh
+    - ./tests/type-inference-zoo.sh
+    - ./tests/games/wasm-game.sh
+    - ./tests/miso.sh
+    - ./tests/web/jsaddle-wasm.sh
+
 x86_64-linux-chimera-9.14:
   tags:
     - x86_64-linux
