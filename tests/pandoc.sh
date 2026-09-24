@@ -41,7 +41,7 @@ unzip bun-linux-x64.zip
 BUN=$PWD/bun-linux-x64/bun
 popd
 
-env -i "$BUN" run "$PANDOC_WASM" README.md -o README.rst
+env -i WASM_ROOT_DIR="$PWD" "$BUN" run "$PANDOC_WASM" README.md -o README.rst
 head --lines=20 README.rst
 rm README.rst
 
