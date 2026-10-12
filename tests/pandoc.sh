@@ -18,7 +18,7 @@ head --lines=20 README.rst
 rm README.rst
 
 pushd "$(mktemp -d)"
-curl -L https://github.com/WasmEdge/WasmEdge/releases/download/0.17.1/WasmEdge-0.17.1-manylinux_2_28_x86_64.tar.xz | tar xJ
+curl -L https://github.com/WasmEdge/WasmEdge/releases/download/0.18.0/WasmEdge-0.18.0-manylinux_2_28_x86_64.tar.xz | tar xJ
 export PATH=$PATH:$PWD/bin
 popd
 
@@ -36,7 +36,7 @@ head --lines=20 README.rst
 rm README.rst
 
 pushd "$(mktemp -d)"
-curl -f -L --retry 5 https://github.com/oven-sh/bun/releases/download/bun-v1.4.2/bun-linux-x64.zip -O
+curl -f -L --retry 5 https://github.com/oven-sh/bun/releases/download/bun-v1.4.3/bun-linux-x64.zip -O
 unzip bun-linux-x64.zip
 BUN=$PWD/bun-linux-x64/bun
 popd
